@@ -1,0 +1,4 @@
+# Pentra Finance is a static site: no build step. Netlify serves these files as they are.
+# Security headers live in the _headers file next to this one.
+[build]
+  publish = "."
