@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-8ce0BEjJyX8HvUI+wx1wbH/Kp4zRrek/ZgT1gJA6zIA=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-zeLsLnFqRkb3/WwfB++7hkLSb/Aov50T5SyuRyejkjU=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -341,6 +341,7 @@ textarea.input{min-height:76px;resize:vertical}
 .toast{animation-name:fade}
 
 /* ── Welcome & wizard ──────────────────────────────────────────────── */
+html[data-theme="dark"] .ab-copy .credits b{color:#a3b1c6}html[data-theme="dark"] .lang-sw button[aria-pressed="true"]{color:#0b1220}
 .welcome{min-height:100vh;display:grid;place-items:center;padding:36px 20px}
 .welcome-in{width:min(980px,100%);text-align:center}
 .welcome h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,8vw,78px);line-height:.98;letter-spacing:-.015em;margin-top:18px}
@@ -754,6 +755,20 @@ html[data-theme="dark"] [data-tone="bills"]{--tone:#fb923c;--tone-ink:#fed7aa;--
 .bill-warn{color:#9a3412}
 .t-clearbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 12px}
 .t-greet{margin:.4rem 0 0;font-size:1rem;line-height:1.45}.t-greet b{margin-right:.2rem}
+.t-quick-h{margin:12px 0 6px}.t-quick{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px}
+.t-qbtn{display:grid;gap:2px;text-align:left;padding:10px 12px;border-radius:12px;border:1px solid var(--line,rgba(127,127,127,.35));background:transparent;color:inherit;font:inherit;cursor:pointer;min-height:56px}.t-qbtn span{font-size:.85rem}
+.t-mult{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}.t-mbtn{min-width:44px;min-height:40px;border-radius:999px;border:1px solid var(--line,rgba(127,127,127,.35));background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.t-mbtn[aria-pressed="true"]{background:var(--accent,#5b21b6);color:#fff;border-color:transparent}
+.hm-wrap{display:grid;justify-items:center;text-align:center;gap:14px;padding:4px 0 6px}.hm-tools{justify-self:end}
+.auth-card:has(.hm-wrap){max-width:640px;width:100%}.auth-card:has(.hm-wrap) .auth-mark{display:none}
+.hm-mark{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff;background:linear-gradient(135deg,#5b21b6,#a16207);box-shadow:0 10px 30px -12px rgba(91,33,182,.6)}
+.hm-title{font-family:var(--serif);font-size:clamp(32px,6vw,48px);line-height:1.06;margin:4px 0 0;font-weight:600;letter-spacing:-.01em}
+.hm-tagline{font-family:var(--serif);font-size:clamp(21px,3.6vw,27px);font-style:italic;font-weight:600;color:#6d28d9;margin:0}html[data-theme="dark"] .hm-tagline{color:#e9c46a}
+.hm-story{max-width:560px;line-height:1.65;margin:0;text-align:center}
+.hm-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}.hm-actions .btn{min-width:150px}
+.hm-areas,.hm-points{list-style:none;padding:0;margin:8px 0 0;display:flex;gap:10px 18px;flex-wrap:wrap;justify-content:center;font-size:.92rem}
+.hm-areas li,.hm-points li{display:inline-flex;align-items:center;gap:6px}.hm-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.hm-points li::before{content:"\2713";font-weight:700}.hm-demo{font-size:.88rem;margin:6px 0 0;padding:10px 12px;border-radius:12px;border:1px dashed var(--line,rgba(127,127,127,.45))}
 .bill-flag{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:6px;background:#fdecea;color:#7a1712;font-size:.8rem;font-weight:700}
 .bill-banner>div{flex:1 1 220px;display:grid;gap:2px}
 .bill-plancard{box-sizing:border-box;max-width:calc(100% - 24px);min-width:0;overflow-wrap:anywhere}.bill-pc-top{flex-wrap:wrap}
@@ -4013,7 +4028,7 @@ var BizCore = (function(){
     if (ev.type === 'sale.recorded') {
       if (!Array.isArray(p.items) || !p.items.length) return 'a sale needs at least one item';
       for (i = 0; i < p.items.length; i++) { var it = p.items[i]; if (!it || (it.kind !== 'product' && it.kind !== 'service') || typeof it.ref !== 'string') return 'item ' + (i + 1) + ' is not a product or service'; if (!isQty(it.qty)) return 'item ' + (i + 1) + ': quantity must be more than zero'; if (it.pkg !== undefined && (!it.pkg || !isInt(it.pkg.pieces) || it.pkg.pieces < 1 || !isInt(it.packs) || it.packs < 1 || it.qty !== it.packs * it.pkg.pieces || !isInt(it.packPrice) || it.packPrice < 0)) return 'item ' + (i + 1) + ': the package quantity or price does not add up'; if (!isInt(it.price) || it.price < 0) return 'item ' + (i + 1) + ': price must be whole centavos'; }
-      var py = p.payments; if (!py || ['cash', 'gcash', 'utang'].some(function(m){ return py[m] != null && (!isInt(py[m]) || py[m] < 0); })) return 'payments must be whole centavos';
+      var py = p.payments; if (!py || ['cash', 'gcash', 'maya', 'utang'].some(function(m){ return py[m] != null && (!isInt(py[m]) || py[m] < 0); })) return 'payments must be whole centavos';
     }
     return null;
   }
@@ -4074,8 +4089,8 @@ var BizCore = (function(){
             items.push(Object.assign({ kind:'product', ref:it.ref, name:x.name, qty:it.qty, price:it.price, line:line }, it.pkg ? { pkg:{ id:it.pkg.id || null, name:it.pkg.name, pieces:it.pkg.pieces }, packs:it.packs, packPrice:it.packPrice } : {})); }
           else { x = S.services[it.ref]; if (!x) return 'Unknown service'; items.push({ kind:'service', ref:it.ref, name:x.name, qty:it.qty, price:it.price, line:line }); }
         }
-        var py = { cash:p.payments.cash || 0, gcash:p.payments.gcash || 0, utang:p.payments.utang || 0 };
-        if (py.cash + py.gcash + py.utang !== total) return 'Payments (' + peso(py.cash + py.gcash + py.utang) + ') do not add up to the total (' + peso(total) + ')';
+        var py = { cash:p.payments.cash || 0, gcash:p.payments.gcash || 0, maya:p.payments.maya || 0, utang:p.payments.utang || 0 };
+        if (py.cash + py.gcash + py.maya + py.utang !== total) return 'Payments (' + peso(py.cash + py.gcash + py.maya + py.utang) + ') do not add up to the total (' + peso(total) + ')';
         if (py.utang) { cu = S.customers[p.customer]; if (!cu) return 'Utang needs a customer';
           if (cu.limit && cu.balance + py.utang > cu.limit && !p.override) { if (SOFT) clash(S, { kind:'credit', customer:p.customer, limit:cu.limit }); else return cu.name + ' would go over the credit limit of ' + peso(cu.limit); } }
         takes.forEach(function(t){ t.take.forEach(function(k){ if (!k.batch) S.batches[t.product].push({ id:ev.id + ':neg', qty:-k.qty, cost:null, at:ev.at, expiry:null, ref:'sold without stock' }); else S.batches[t.product].filter(function(bb){ return bb.id === k.batch; })[0].qty -= k.qty; }); });
@@ -4083,7 +4098,7 @@ var BizCore = (function(){
         var rw = S.store.rewards, pts = 0, pc = p.customer && S.customers[p.customer];                  /* reward points only when the store turned them on */
         if (rw && rw.enabled && rw.per > 0 && pc) { pts = Math.floor(total / rw.per); pc.points = (pc.points || 0) + pts; }
         if (p.count) ((S.countSales || (S.countSales = {}))[p.count] || (S.countSales[p.count] = [])).push(ev.id);
-        S.sales[ev.id] = { id:ev.id, at:ev.at, day:d, items:items, total:total, source:p.source === 'count' ? 'count' : null, count:p.count || null, payments:py, customer:p.customer || null, takes:takes, cost:known ? Math.round(cost) : null, points:pts, actor:ev.actor || null, voided:null }; cmark(S, ev, p); return null;
+        S.sales[ev.id] = { id:ev.id, at:ev.at, day:d, items:items, total:total, source:p.source === 'count' ? 'count' : null, count:p.count || null, payments:py, ref:p.gcashRef || p.mayaRef || null, customer:p.customer || null, takes:takes, cost:known ? Math.round(cost) : null, points:pts, actor:ev.actor || null, voided:null }; cmark(S, ev, p); return null;
       case 'sale.voided':
         x = S.sales[p.sale]; if (!x) return 'Sale not found'; if (x.voided) return 'This sale was already voided';
         if ((e = short(S, 'cash', x.payments.cash)) || (e = short(S, 'gcash', x.payments.gcash))) return e + ' to refund this sale';
@@ -4340,8 +4355,8 @@ var BizCore = (function(){
   function report(S, from, to){
     function inR(at){ var d = day(S, at); return d >= from && d <= to; }
     var sales = Object.keys(S.sales).map(function(k){ return S.sales[k]; }).filter(function(s){ return !s.voided && s.day >= from && s.day <= to; }), pr = profitOf(S, sales);
-    var pay = { cash:0, gcash:0, utang:0 }, svc = {}, items = 0;
-    sales.forEach(function(s){ pay.cash += s.payments.cash; pay.gcash += s.payments.gcash; pay.utang += s.payments.utang;
+    var pay = { cash:0, gcash:0, maya:0, utang:0 }, svc = {}, items = 0;
+    sales.forEach(function(s){ pay.cash += s.payments.cash; pay.gcash += s.payments.gcash; pay.maya += s.payments.maya || 0; pay.utang += s.payments.utang;
       s.items.forEach(function(it){ if (it.kind === 'product') items += it.qty; else { var o = svc[it.ref] || (svc[it.ref] = { name:it.name, qty:0, revenue:0 }); o.qty += it.qty; o.revenue += lineOf(it); } }); });
     var net = { cash:0, gcash:0, eload:0, vault:0 }, g = { cashIn:0, cashOut:0 }, loadSold = 0;
     S.moves.forEach(function(m){ if (!inR(m.at)) return; net[m.acct] += m.amount; if (m.acct === 'gcash' && m.kind === 'cash-in') g.cashIn -= m.amount; if (m.acct === 'gcash' && m.kind === 'cash-out') g.cashOut += m.amount; if (m.acct === 'eload' && m.kind === 'load sold') loadSold -= m.amount; });
@@ -4658,7 +4673,7 @@ var Benta = (function(){
   var cart = fresh(), err = '', shErr = '';
   var FILTERS = [['all', 'All'], ['low', 'Low stock'], ['out', 'Out of stock'], ['expiring', 'Expiring soon'], ['expired', 'Expired'], ['archived', 'Archived']];
   var REASONS = ['Damaged', 'Expired', 'Lost or stolen', 'Count correction', 'Used in the store', 'Other'];
-  function fresh(){ return { override:false, items:[], method:'cash', tendered:'', ref:'', customer:'', newName:'', split:{ cash:'', gcash:'', utang:'' }, q:'' }; }
+  function fresh(){ return { override:false, items:[], method:'cash', tendered:'', ref:'', customer:'', newName:'', split:{ cash:'', gcash:'', maya:'', utang:'' }, q:'' }; }
   function P(c){ return BizCore.peso(c || 0); }
   function st(){ return BizStore.state(); }
   function today(){ return new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); }
@@ -4679,13 +4694,13 @@ var Benta = (function(){
     return products(S).filter(function(p){ return !p.archived && (p.name.toLowerCase().indexOf(lq) >= 0 || p.barcode === q || (p.sku && p.sku.toLowerCase() === lq)); })
       .sort(function(a, b){ return (b.barcode === q) - (a.barcode === q) || (a.name < b.name ? -1 : 1); }).slice(0, 8); }
   function changeText(t){ var S = st(), tot = total(S), v = BizCore.cents(cart.tendered); if (!cart.tendered.trim() || isNaN(v)) return 'Enter the amount received to see the change.'; return v < tot ? 'Short by ' + P(tot - v) : 'Change: ' + P(v - tot); }
-  function splitText(){ var tot = total(st()), s = 0, bad = false; ['cash', 'gcash', 'utang'].forEach(function(k){ var v = cart.split[k].trim() ? BizCore.cents(cart.split[k]) : 0; if (isNaN(v) || v < 0) bad = true; else s += v; });
+  function splitText(){ var tot = total(st()), s = 0, bad = false; ['cash', 'gcash', 'maya', 'utang'].forEach(function(k){ var v = cart.split[k].trim() ? BizCore.cents(cart.split[k]) : 0; if (isNaN(v) || v < 0) bad = true; else s += v; });
     return bad ? 'Enter amounts like 50 or 50.25.' : s === tot ? 'The split adds up to the total.' : s < tot ? 'Still to cover: ' + P(tot - s) : 'Over the total by ' + P(s - tot); }
   function sell(){
     var S = st(), all = products(S).filter(function(p){ return !p.archived; }), svcs = Object.keys(S.services).map(function(k){ return S.services[k]; }).filter(function(s){ return !s.archived; }), h = hits(S), tot = total(S);
     var out = '<div class="t-page"><header class="t-head"><h1>Benta <span class="muted">· New sale</span></h1></header>';
     if (!all.length && !svcs.length) return out + '<section class="panel"><p><b>No products yet.</b> Add what you sell first, then record sales here.</p><div class="actions"><a class="btn primary" href="#/t/product/new">Add your first product</a></div></section></div>';
-    out += '<section class="panel">' + fld('t-q', 'Find a product', inp('t-q', cart.q, 'Type a name, or scan a barcode', null, ' data-input="t-q" enterkeyhint="search"')) + '<div class="actions"><button type="button" class="btn" data-act="t-scan-sell">' + icon('camera', 16) + 'Scan with camera</button></div>'
+    out += '<section class="panel">' + fld('t-q', 'Find a product', inp('t-q', cart.q, 'Type a name, or scan a barcode', null, ' data-input="t-q" enterkeyhint="search"')) + '<div class="actions"><button type="button" class="btn" data-act="t-scan-sell">' + icon('camera', 16) + 'Scan with camera</button></div>' + quickRow(S) + multRow()
       + (cart.q.trim() ? (h.length ? '<div class="list t-hits">' + h.map(function(p){ var n = BizCore.stockOf(S, p.id);
           return '<button type="button" class="li" data-act="t-add" data-kind="product" data-ref="' + esc(p.id) + '" style="width:100%;text-align:left"><span class="grow"><span class="t1" style="display:block">' + esc(p.name) + '</span><span class="t2">' + P(p.price) + ' · ' + (n > 0 ? ql(n) + ' in stock' : 'out of stock') + '</span></span><span class="chip">Add</span></button>' + (window.InvCenter ? InvCenter.packButtons(p) : ''); }).join('') + '</div>'
         : '<p class="muted small">No product matches \u201c' + esc(cart.q) + '\u201d. <a href="#/t/product/new">Add it as a product</a></p>') : '')
@@ -4696,14 +4711,14 @@ var Benta = (function(){
       + '</ul><div class="t-total"><span>Total</span><b>' + P(tot) + '</b></div></section>';
     var m = cart.method, cust = Object.keys(S.customers).map(function(k){ return S.customers[k]; }).sort(function(a, b){ return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1; });
     function tab(k, label){ return '<button type="button" data-act="t-method" data-m="' + k + '" aria-pressed="' + (m === k) + '">' + label + '</button>'; }
-    out += '<section class="panel"><h2 class="h3">Payment</h2><div class="modesw t-pay" role="group" aria-label="How the customer pays">' + tab('cash', 'Cash') + tab('gcash', 'GCash') + tab('utang', 'Utang') + tab('split', 'Split') + '</div>';
+    out += '<section class="panel"><h2 class="h3">Payment</h2><div class="modesw t-pay" role="group" aria-label="How the customer pays">' + tab('cash', 'Cash') + tab('gcash', 'GCash') + tab('maya', 'Maya') + tab('utang', 'Utang') + tab('split', 'Split') + '</div>';
     if (m === 'cash') out += fld('t-tend', 'Amount received (optional)', inp('t-tend', cart.tendered, (tot / 100).toFixed(2), 'decimal', ' data-input="t-tend"')) + '<p class="t-change" id="t-change" aria-live="polite">' + esc(changeText()) + '</p>';
-    if (m === 'gcash') out += fld('t-gref', 'GCash reference number (optional)', inp('t-gref', cart.ref, '', null, ' data-input="t-gref"'));
+    if (m === 'gcash' || m === 'maya') out += fld('t-gref', (m === 'maya' ? 'Maya' : 'GCash') + ' reference number (optional)', inp('t-gref', cart.ref, '', null, ' data-input="t-gref"'));
     var rwOn = !!(S.store.rewards && S.store.rewards.enabled);
     if (m === 'utang' || m === 'split' || rwOn) out += fld('t-cust', m === 'split' ? 'Customer (needed if part is utang)' : m === 'utang' ? 'Customer who will owe this' : 'Customer (optional, for reward points)', '<select id="t-cust" class="input" data-change="t-cust"><option value="">Choose a customer\u2026</option>' + cust.map(function(c){ return '<option value="' + esc(c.id) + '"' + (cart.customer === c.id ? ' selected' : '') + '>' + esc(c.name) + (c.balance > 0 ? ' \u00b7 owes ' + P(c.balance) : '') + '</option>'; }).join('') + '<option value="__new"' + (cart.customer === '__new' ? ' selected' : '') + '>+ New customer</option></select>')
       + (m === 'utang' || m === 'split' ? '<label class="toggle"><input type="checkbox" id="t-over" data-change="t-over"' + (cart.override ? ' checked' : '') + '><span>Allow going over the customer\u2019s credit limit this time</span></label>' : '')
       + (cart.customer === '__new' ? fld('t-newc', 'New customer\u2019s name', inp('t-newc', cart.newName, 'e.g. Maria', null, ' data-input="t-newc" maxlength="60"')) : '');
-    if (m === 'split') out += '<div class="t-split">' + ['cash', 'gcash', 'utang'].map(function(k){ return fld('t-s-' + k, ({ cash:'Cash', gcash:'GCash', utang:'Utang' })[k] + ' (\u20b1)', inp('t-s-' + k, cart.split[k], '0.00', 'decimal', ' data-input="t-split" data-k="' + k + '"')); }).join('') + '</div><p class="small" id="t-split-left" aria-live="polite">' + esc(splitText()) + '</p>';
+    if (m === 'split') out += '<div class="t-split">' + ['cash', 'gcash', 'maya', 'utang'].map(function(k){ return fld('t-s-' + k, ({ cash:'Cash', gcash:'GCash', maya:'Maya', utang:'Utang' })[k] + ' (\u20b1)', inp('t-s-' + k, cart.split[k], '0.00', 'decimal', ' data-input="t-split" data-k="' + k + '"')); }).join('') + '</div><p class="small" id="t-split-left" aria-live="polite">' + esc(splitText()) + '</p>';
     return out + errP(err) + '<div class="actions"><button type="button" class="btn primary" data-act="t-complete">Complete sale \u00b7 ' + P(tot) + '</button><button type="button" class="btn" data-act="t-clear">Clear cart</button></div></section></div>';
   }
   function add(kind, ref){ var f = cart.items.filter(function(it){ return it.kind === kind && it.ref === ref; })[0]; if (f) f.qty += 1; else cart.items.push({ kind:kind, ref:ref, qty:1 }); cart.q = ''; err = ''; render(); focusSearch(); }
@@ -4713,18 +4728,18 @@ var Benta = (function(){
     if (!cart.customer) return { error:'Choose the customer who will owe this.' }; return { id:cart.customer };
   }
   function complete(){
-    var S = st(), tot = total(S), list = [], pay = { cash:0, gcash:0, utang:0 };
+    var S = st(), tot = total(S), list = [], pay = { cash:0, gcash:0, maya:0, utang:0 };
     if (!cart.items.length) { err = 'The cart is empty.'; return render(); }
     if (cart.method === 'cash') { var t = cart.tendered.trim() ? BizCore.cents(cart.tendered) : tot; if (isNaN(t)) { err = 'Enter the amount received like 100 or 100.50.'; return render(); } if (t < tot) { err = 'The amount received is less than the total.'; return render(); } pay.cash = tot; }
-    else if (cart.method === 'gcash') pay.gcash = tot;
+    else if (cart.method === 'gcash') pay.gcash = tot; else if (cart.method === 'maya') pay.maya = tot;
     else if (cart.method === 'utang') pay.utang = tot;
-    else { var bad = false; ['cash', 'gcash', 'utang'].forEach(function(k){ var v = cart.split[k].trim() ? BizCore.cents(cart.split[k]) : 0; if (isNaN(v) || v < 0) bad = true; else pay[k] = v; });
+    else { var bad = false; ['cash', 'gcash', 'maya', 'utang'].forEach(function(k){ var v = cart.split[k].trim() ? BizCore.cents(cart.split[k]) : 0; if (isNaN(v) || v < 0) bad = true; else pay[k] = v; });
       if (bad) { err = 'Enter split amounts like 50 or 50.25.'; return render(); }
-      if (pay.cash + pay.gcash + pay.utang !== tot) { err = 'The split adds up to ' + P(pay.cash + pay.gcash + pay.utang) + ', but the total is ' + P(tot) + '.'; return render(); } }
+      if (pay.cash + pay.gcash + pay.maya + pay.utang !== tot) { err = 'The split adds up to ' + P(pay.cash + pay.gcash + pay.maya + pay.utang) + ', but the total is ' + P(tot) + '.'; return render(); } }
     var cu = customerFor(pay.utang > 0 || (!!(S.store.rewards && S.store.rewards.enabled) && !!cart.customer), list); if (cu.error) { err = cu.error; return render(); }
     var change = cart.method === 'cash' && cart.tendered.trim() ? BizCore.cents(cart.tendered) - tot : 0;
     var p = { items:cart.items.map(function(it){ return it.pkg ? { kind:'product', ref:it.ref, qty:it.packs * it.pkg.pieces, price:Math.round(it.pkg.price / it.pkg.pieces), pkg:{ id:it.pkg.id, name:it.pkg.name, pieces:it.pkg.pieces }, packs:it.packs, packPrice:it.pkg.price } : { kind:it.kind, ref:it.ref, qty:it.qty, price:line(S, it).price }; }), payments:pay };
-    if (cu.id) p.customer = cu.id; if (cu.id && cart.override) p.override = true; if (cart.method === 'gcash' && cart.ref.trim()) p.gcashRef = cart.ref.trim().slice(0, 40);
+    if (cu.id) p.customer = cu.id; if (cu.id && cart.override) p.override = true; if (cart.method === 'gcash' && cart.ref.trim()) p.gcashRef = cart.ref.trim().replace(/[^A-Za-z0-9 -]/g, '').slice(0, 40); if (cart.method === 'maya' && cart.ref.trim()) p.mayaRef = cart.ref.trim().replace(/[^A-Za-z0-9 -]/g, '').slice(0, 40);
     list.push(BizCore.make('sale.recorded', p, new Date(Date.now() + list.length).toISOString()));
     saved(list, 'Sale saved \u00b7 ' + P(tot) + (change > 0 ? ' \u00b7 change ' + P(change) : ''), function(){ cart = fresh(); err = ''; render(); focusSearch(); })
       .catch(function(e){ err = 'Not saved: ' + ((e && e.message) || e); render(); });
@@ -4735,7 +4750,7 @@ var Benta = (function(){
     var out = '<div class="t-page"><header class="t-head"><h1>Sales history</h1><p class="muted">Today: ' + P(D.todaySales) + ' from ' + D.transactions + (D.transactions === 1 ? ' sale' : ' sales') + ' \u00b7 ' + ql(D.itemsSold) + ' items sold \u00b7 Profit ' + P(D.profit) + (D.transactions && !D.profitComplete ? ' (not counted: ' + P(D.profitUncovered) + ' without a cost price: ' + D.profitMissing.map(function(m){ return esc(m.name); }).join(', ') + ') <a href="#/t/product/' + encodeURIComponent(D.profitMissing[0].id) + '">Add cost price</a>' : '') + ' \u00b7 <a href="#/t/reports">Reports</a></p><div class="actions"><a class="btn primary" href="#/t/sell">New sale</a></div></header>';
     if (!all.length) return out + '<section class="panel"><p><b>No sales recorded yet.</b> Sales you complete in Benta appear here, newest first.</p></section></div>';
     return out + '<section class="panel"><ul class="t-sales">' + all.slice(0, 60).map(function(s){
-      var pays = ['cash', 'gcash', 'utang'].filter(function(k){ return s.payments[k]; }).map(function(k){ return ({ cash:'Cash', gcash:'GCash', utang:'Utang' })[k] + ' ' + P(s.payments[k]); }).join(' + '), cu = s.customer && S.customers[s.customer];
+      var pays = ['cash', 'gcash', 'maya', 'utang'].filter(function(k){ return s.payments[k]; }).map(function(k){ return ({ cash:'Cash', gcash:'GCash', maya:'Maya', utang:'Utang' })[k] + ' ' + P(s.payments[k]); }).join(' + ') + (s.ref ? ' \u00b7 Ref ' + esc(s.ref) : ''), cu = s.customer && S.customers[s.customer];
       return '<li' + (s.voided ? ' class="voided"' : '') + '><div class="grow"><b>' + P(s.total) + '</b> <span class="xs muted">' + esc(when(s.at)) + (Staff.who(s.actor) ? ' \u00b7 by ' + esc(Staff.who(s.actor)) : '') + '</span>' + (s.source === 'count' ? ' <span class="chip">Stock count</span>' : '') + (s.voided ? ' <span class="chip t-bad">Voided</span>' : '')
         + '<span class="small" style="display:block">' + esc(s.items.map(function(i){ return ql(i.qty) + '\u00d7 ' + i.name; }).join(', ')) + '</span><span class="xs muted">' + esc(pays) + (cu ? ' \u00b7 ' + esc(cu.name) : '') + (s.voided ? ' \u00b7 Reason: ' + esc(s.voided.reason) : '') + '</span></div>'
         + (s.voided || !Staff.may('sale.voided') ? '' : '<button type="button" class="btn sm" data-act="t-void" data-id="' + esc(s.id) + '">Void</button>') + '</li>'; }).join('') + '</ul>' + (all.length > 60 ? '<p class="xs muted">Showing the latest 60 sales.</p>' : '') + '</section></div>';
@@ -4786,6 +4801,29 @@ var Benta = (function(){
   INPUTS['t-split'] = function(el){ cart.split[el.dataset.k] = el.value; var c = document.getElementById('t-split-left'); if (c) c.textContent = splitText(); };
   CHANGES['t-over'] = function(el){ cart.override = !!el.checked; };
   CHANGES['t-cust'] = function(el){ cart.customer = el.value; err = ''; render(); };
+  /* Hardware barcode scanners (USB or Bluetooth) "type" the code very fast and press Enter. In Benta, catch that even when no box is
+     selected (the search box already handles Enter itself). Recognised by speed, so ordinary typing is never mistaken for a scan. */
+  var scanBuf = '', scanT0 = 0, scanLast = 0, scanMult = 1, digBuf = '', digLast = 0;
+  function multRow(){ return '<div class="t-mult" role="group" aria-label="Next scan adds"><span class="xs muted">Next scan adds</span>' + [1, 2, 3, 6, 12].map(function(n){ return '<button type="button" class="t-mbtn" data-act="t-mult" data-n="' + n + '" aria-pressed="' + (scanMult === n) + '">\u00d7' + n + '</button>'; }).join('') + '</div>'; }
+  function quickRow(S){ var c = {}; Object.keys(S.sales || {}).forEach(function(k){ var s = S.sales[k]; if (s.voided) return; (s.items || []).forEach(function(it){ if (it.kind === 'product') c[it.ref] = (c[it.ref] || 0) + (+it.qty || 0); }); });
+    var top = Object.keys(c).filter(function(id){ var p = S.products[id]; return p && !p.archived; }).sort(function(a, b){ return c[b] - c[a]; }).slice(0, 8);   /* the 8 most-sold products */
+    if (!top.length) return '';
+    return '<p class="xs muted t-quick-h">Best sellers</p><div class="t-quick" role="group" aria-label="Best sellers">' + top.map(function(id){ var p = S.products[id]; return '<button type="button" class="t-qbtn" data-act="t-quick" data-ref="' + esc(id) + '"><b>' + esc(p.name) + '</b><span>' + P(p.price) + '</span></button>'; }).join('') + '</div>'; }
+  ACT['t-quick'] = function(el){ add('product', el.dataset.ref); };   /* best-seller buttons: same as adding from search, with their own action */
+  ACT['t-mult'] = function(el){ scanMult = Math.max(1, Math.min(99, +el.dataset.n || 1)); render(); };
+  document.addEventListener('keydown', function(e){
+    if (location.hash !== '#/t/sell' || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target; if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+    var now = Date.now();
+    if (e.key === 'Enter') { var code = scanBuf, fast = code.length >= 4 && (scanLast - scanT0) / Math.max(1, code.length - 1) < 60 && now - scanLast < 200; scanBuf = ''; digBuf = '';   /* a finished scan never counts as a typed quantity */
+      if (!fast) return; e.preventDefault(); e.stopPropagation();
+      var p = products(st()).filter(function(x){ return !x.archived && x.barcode && x.barcode === code; })[0];
+      if (!p) { toast('No product with barcode ' + code + '. Add it in Paninda.'); return; }
+      var n = scanMult || 1; for (var i = 0; i < n; i++) add('product', p.id); scanMult = 1; toast(n > 1 ? 'Added ' + n + ' \u00d7 ' + p.name : 'Added ' + p.name); if (n > 1) render(); return; }
+    if (e.key === '*' || e.key === 'x' || e.key === 'X') { if (/^\d{1,2}$/.test(digBuf) && now - digLast < 3000) { scanMult = Math.max(1, Math.min(99, +digBuf)); digBuf = ''; scanBuf = ''; e.preventDefault(); toast('Next scan adds ' + scanMult); render(); } return; }
+    if (/^\d$/.test(e.key)) { if (now - digLast > 1500) digBuf = ''; digBuf += e.key; digLast = now; }
+    if (e.key && e.key.length === 1) { if (now - scanLast > 100) { scanBuf = ''; scanT0 = now; } scanBuf += e.key; scanLast = now; }
+  }, true);
   document.addEventListener('keydown', function(e){ if (e.key !== 'Enter' || !e.target || e.target.id !== 't-q') return; e.preventDefault(); var h = hits(st()), q = cart.q.trim(), exact = h.filter(function(p){ return p.barcode === q; })[0] || (h.length === 1 ? h[0] : null); if (exact) add('product', exact.id); });
   ACT['t-add'] = function(el){ add(el.dataset.kind, el.dataset.ref); };
   ACT['t-qty'] = function(el){ var it = cart.items[+el.dataset.i]; if (!it) return; if (it.pkg) { it.packs += +el.dataset.d; it.qty = it.packs * it.pkg.pieces; } else it.qty = +(it.qty + +el.dataset.d).toFixed(3); if (it.qty <= 0) cart.items.splice(+el.dataset.i, 1); err = ''; render(); };
@@ -5029,7 +5067,7 @@ var Rep = (function(){
       + '<section class="t-kpis">' + kpi('Sales', r.revenue, r.count + (r.count === 1 ? ' sale' : ' sales') + ' \u00b7 ' + (+r.items.toFixed(3)) + ' items' + (r.count ? ' \u00b7 average ' + P(r.avg) : '') + (r.fromCount ? ' \u00b7 ' + P(r.fromCount) + ' from stock counts' : ''))
       + kpi('Profit', r.profit, psub, !r.profitComplete && r.profitMissing.length ? '<a class="btn sm" href="#/t/product/' + encodeURIComponent(r.profitMissing[0].id) + '">Add cost price</a>' : '')
       + kpi('Cost of goods sold', r.cost, 'From delivery costs and your cost prices') + '</section>'
-      + '<section class="panel"><h2 class="h3">How customers paid</h2><ul class="t-sales">' + row('Cash', P(r.pay.cash)) + row('GCash', P(r.pay.gcash)) + row('Utang', P(r.pay.utang)) + '</ul></section>'
+      + '<section class="panel"><h2 class="h3">How customers paid</h2><ul class="t-sales">' + row('Cash', P(r.pay.cash)) + row('GCash', P(r.pay.gcash)) + row('Maya', P(r.pay.maya || 0)) + row('Utang', P(r.pay.utang)) + '</ul></section>'
       + '<section class="panel"><h2 class="h3">Top products</h2>' + (r.topProducts.length ? '<ul class="t-sales">' + r.topProducts.slice(0, 10).map(function(p){ return row(esc(p.name), P(p.revenue), (+p.qty.toFixed(3)) + ' sold \u00b7 profit ' + (p.profit == null ? 'needs a cost price' : P(p.profit))); }).join('') + '</ul>' : '<p class="muted">No products sold in this period.</p>')
       + (r.topServices.length ? '<h2 class="h3">Top services</h2><ul class="t-sales">' + r.topServices.slice(0, 10).map(function(s){ return row(esc(s.name), P(s.revenue), (+s.qty.toFixed(3)) + ' sold'); }).join('') + '</ul>' : '') + '</section>'
       + '<section class="panel"><h2 class="h3">Money in and out</h2><ul class="t-sales">' + row('Utang given', P(r.utang.charged), 'Outstanding now: ' + P(r.utang.outstanding)) + row('Utang collected', P(r.utang.paid))
@@ -5294,8 +5332,8 @@ var DataX = (function(){
   var EXPORTS = {
     products:function(S){ return csv(['Name', 'Barcode', 'Code', 'Category', 'Unit', 'Selling price', 'Cost price', 'Stock', 'Low-stock alert at', 'Archived'], Object.keys(S.products).map(function(k){ var p = S.products[k];
       return [p.name, p.barcode || '', p.sku || '', p.category || '', p.unit || 'pcs', pesos(p.price), pesos(BizCore.costNow(S, k)), +BizCore.stockOf(S, k).toFixed(3), p.reorder || 0, p.archived ? 'yes' : 'no']; }), [5, 6, 7, 8]); },
-    sales:function(S){ return csv(['Date', 'Time', 'Sale', 'Items', 'Total', 'Cash', 'GCash', 'Utang', 'Customer', 'Voided', 'Void reason'], Object.keys(S.sales).map(function(k){ return S.sales[k]; }).sort(function(a, b){ return a.at < b.at ? -1 : 1; }).map(function(s){ var t = localTime(s.at), cu = s.customer && S.customers[s.customer];
-      return [t[0], t[1], s.id.slice(0, 8), s.items.map(function(i){ return (+i.qty.toFixed(3)) + ' x ' + i.name; }).join('; '), pesos(s.total), pesos(s.payments.cash), pesos(s.payments.gcash), pesos(s.payments.utang), cu ? cu.name : '', s.voided ? 'yes' : 'no', s.voided ? s.voided.reason : '']; }), [4, 5, 6, 7]); },
+    sales:function(S){ return csv(['Date', 'Time', 'Sale', 'Items', 'Total', 'Cash', 'GCash', 'Maya', 'Utang', 'Customer', 'Voided', 'Void reason', 'Reference'], Object.keys(S.sales).map(function(k){ return S.sales[k]; }).sort(function(a, b){ return a.at < b.at ? -1 : 1; }).map(function(s){ var t = localTime(s.at), cu = s.customer && S.customers[s.customer];
+      return [t[0], t[1], s.id.slice(0, 8), s.items.map(function(i){ return (+i.qty.toFixed(3)) + ' x ' + i.name; }).join('; '), pesos(s.total), pesos(s.payments.cash), pesos(s.payments.gcash), pesos(s.payments.maya || 0), pesos(s.payments.utang), cu ? cu.name : '', s.voided ? 'yes' : 'no', s.voided ? s.voided.reason : '', s.ref || '']; }), [4, 5, 6, 7, 8]); },
     customers:function(S){ return csv(['Name', 'Phone', 'Credit limit', 'Utang now', 'Reward points'], Object.keys(S.customers).map(function(k){ var c = S.customers[k]; return [c.name, c.phone || '', pesos(c.limit || 0), pesos(c.balance), c.points || 0]; }), [2, 3, 4]); },
     money:function(S){ var AC = { cash:'Cash on hand', gcash:'GCash float', eload:'Load balance', vault:'Cash vault' };
       return csv(['Date', 'Time', 'Account', 'Amount', 'What'], S.moves.map(function(m){ var t = localTime(m.at); return [t[0], t[1], AC[m.acct], pesos(m.amount), m.kind]; }), [3]); } };
@@ -6269,6 +6307,18 @@ Object.assign(I18N_TL, { 'Notifications cleared':'Na-clear ang mga notification'
   'Better than yesterday already. Keep it up!':'Mas mataas na kaysa kahapon. Ituloy mo lang!' });
 I18N_TL_PATTERNS.push([/^Good (morning|afternoon|evening), (.+)!$/, function(m, p, n){ return 'Magandang ' + ({ morning:'umaga', afternoon:'hapon', evening:'gabi' })[p] + ', ' + n + '!'; }],
   [/^(₱[\d,.]+) in sales so far today\. Keep it going!$/, '$1 na ang benta ngayong araw. Tuloy lang!'], [/^(₱[\d,.]+) sold today\. Every sale counts!$/, '$1 na ang naibenta ngayong araw. Mahalaga ang bawat benta!']);
+I18N_TL_PATTERNS.push([/^No product with barcode (\S+)\. Add it in Paninda\.$/, 'Walang produktong may barcode na $1. Idagdag ito sa Paninda.'], [/^Added (.+)$/, 'Naidagdag ang $1']);
+/* Checkout: best sellers, scan quantity, Maya */
+Object.assign(I18N_TL, { 'Best sellers':'Mabentang paninda', 'Next scan adds':'Susunod na scan', 'Maya reference number (optional)':'Maya reference number (opsyonal)', 'Maya':'Maya' });
+I18N_TL_PATTERNS.push([/^Added (\d+) × (.+)$/, 'Naidagdag ang $1 × $2'], [/^Next scan adds (\d+)$/, 'Susunod na scan: $1']);
+/* Personal home page (welcome). Added only where no translation exists yet, so earlier wording stays. */
+(function(add){ for (var k in add) if (!Object.prototype.hasOwnProperty.call(I18N_TL, k)) I18N_TL[k] = add[k]; })({
+  'When there\u2019s a plan, there\u2019s progress.':'Kapag may plano, may asenso.',
+  'Pentra comes from \u201cpera\u201d and \u201csentro\u201d: the center of your money. One place to see what comes in, what goes out, and what you are building for tomorrow.':'Ang Pentra ay mula sa \u201cpera\u201d at \u201csentro\u201d: ang sentro ng pera mo. Iisang lugar para makita ang pumapasok, ang lumalabas, at ang binubuo mo para sa bukas.',
+  'Income':'Kita', 'Savings':'Ipon', 'Spending':'Gastos', 'Major purchases':'Malalaking bilihin', 'Investment':'Puhunan', 'Protection':'Proteksyon',
+  'Your six money areas':'Ang anim na bahagi ng pera mo', 'A monthly plan in six lines':'Buwanang plano sa anim na linya', 'Works even without internet':'Gumagana kahit walang internet',
+  'Your records stay private to your account':'Pribado ang mga tala mo sa account mo', 'Light or dark':'Maliwanag o madilim',
+  'Offline demo: everything runs in this browser. Tap Sign in and use the demo account.':'Offline demo: tumatakbo ang lahat sa browser na ito. I-tap ang Mag-sign in at gamitin ang demo account.' });
 /* Language switch: English | Tagalog.
    The app keeps rendering English. With Tagalog on, this layer swaps UI phrases after each render: text nodes and the
    placeholder, title and aria-label attributes, matched exactly (whole trimmed text) against I18N_TL or I18N_TL_PATTERNS.
@@ -6569,7 +6619,7 @@ var Billing = (function(){
 var Auth = (function(){
   var CFG = (typeof PENTRA_SUPABASE === 'object' && PENTRA_SUPABASE) || {};
   var STORAGE_KEY = 'pentra-auth';
-  var S = { on:false, ready:false, view:'loading', msg:null, email:'', user:null, sb:null, offline:false, recovery:false, confirmed:false };
+  var S = { on:false, ready:false, view:'loading', home:/^(#\/?)?$/.test(location.hash || '') || location.hash === '#/welcome',   /* welcome only when no page is asked for */ msg:null, email:'', user:null, sb:null, offline:false, recovery:false, confirmed:false };
   var CREDITS = 'Annjerie Buot Diamante · Bernadeth Misoles · Jel Jai Dee · Joriel Amiana · Mary Ann Dejoras · Shandy Dejito · Villegas Liz';
 
   /* ── helpers ─────────────────────────────────────────────────────── */
@@ -6706,7 +6756,7 @@ var Auth = (function(){
     S.ready = true; S.view = null;
     afterLoad();
     if (S.user) Sync.begin(S.user.id);
-    if (!/^#\/[a-z]/i.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search + (recall() || '#/home')); } catch (e) {} }
+    if (!/^#\/[a-z]/i.test(location.hash) || /^#\/(signin|signup|welcome)$/.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search + (recall() || '#/home')); } catch (e) {} }
     remember();
     render();
     if (S.confirmed) { S.confirmed = false; toast('Email confirmed. Welcome to Pentra.'); }
@@ -6732,15 +6782,25 @@ var Auth = (function(){
   function link(view, label){ return '<button type="button" class="linkish" data-act="auth-view" data-view="' + view + '">' + label + '</button>'; }
   var V = {
     loading:function(){ return '<div class="auth-loading" role="status" aria-label="Loading"><div class="spinner"></div></div>'; },
+    welcome:function(){ var dot = function(n, c){ return '<li><span class="hm-dot" style="background:' + c + '" aria-hidden="true"></span>' + n + '</li>'; };
+      return '<div class="hm-wrap"><div class="hm-tools"><button type="button" class="btn sm" data-act="theme">Light or dark</button></div>'
+        + '<div class="hm-mark" aria-hidden="true">P</div><h1 class="hm-title">Pentra Personal Finance</h1>'
+        + '<p class="hm-tagline">When there\u2019s a plan, there\u2019s progress.</p>'
+        + '<p class="hm-story">Pentra comes from \u201cpera\u201d and \u201csentro\u201d: the center of your money. One place to see what comes in, what goes out, and what you are building for tomorrow.</p>'
+        + '<div class="hm-actions"><button type="button" class="btn primary" data-act="auth-view" data-view="signin">Sign in</button><button type="button" class="btn" data-act="auth-view" data-view="signup">Create account</button></div>'
+        + '<ul class="hm-areas" aria-label="Your six money areas">' + dot('Income', '#3b82f6') + dot('Savings', '#16a34a') + dot('Spending', '#d97706') + dot('Major purchases', '#ea580c') + dot('Investment', '#7c3aed') + dot('Protection', '#dc2626') + '</ul>'
+        + '<ul class="hm-points"><li>A monthly plan in six lines</li><li>Works even without internet</li><li>Your records stay private to your account</li></ul>'
+        + (CFG.demo && window.PentraDemoCloud ? '<p class="hm-demo">Offline demo: everything runs in this browser. Tap Sign in and use the demo account.</p>' : '')
+        + '</div>'; },
     signin:function(){ return '<h1>Welcome back</h1><p class="sub">Sign in to your Pentra command center.</p>' + msgSlot()
       + '<form data-form="auth-signin" novalidate>' + field('Email', emailInput(true)) + field('Password', pwInput('password', false, 'current-password'))
       + '<div class="auth-row">' + link('forgot', 'Forgot password?') + '</div><button type="submit" class="btn primary block">Sign in</button></form>'
-      + '<p class="alt">New to Pentra? ' + link('signup', 'Create an account') + '</p>'
+      + '<p class="alt">New to Pentra? ' + link('signup', 'Create an account') + '</p><p class="alt">' + link('welcome', '← Home') + '</p>'
       + (CFG.demo && window.PentraDemoCloud ? '<div class="demo-note"><strong>Offline demo.</strong> Sign-in and cloud save run inside this browser, no internet needed. Demo account: <span class="tnum">' + PentraDemoCloud.email + '</span> / <span class="tnum">' + PentraDemoCloud.password + '</span>, or create your own.<button type="button" class="btn sm" data-act="demo-fill">Use the demo account</button></div>' : ''); },
     signup:function(){ return '<h1>Create your account</h1><p class="sub">Start with the five-pillar system in minutes.</p>' + msgSlot()
       + '<form data-form="auth-signup" novalidate>' + field('Your name', '<input class="input" name="name" autocomplete="name" placeholder="Optional, used to greet you" data-autofocus>')
       + field('Email', emailInput(false)) + field('Password', pwInput('password', false, 'new-password'), '8+ characters')
-      + '<button type="submit" class="btn primary block">Create account</button></form>'
+      + '<button type="submit" class="btn primary block">Create account</button></form><p class="alt">' + link('welcome', '← Home') + '</p>'
       + '<p class="alt">Already have an account? ' + link('signin', 'Sign in') + '</p>'; },
     check:function(){ return '<div class="auth-icon">' + icon('mail', 26) + '</div><h1>Check your inbox</h1><p class="sub">We sent a confirmation link to <strong>' + esc(S.email) + '</strong>. Open it to finish creating your account.</p>' + msgSlot()
       + '<p class="small muted" style="margin-top:14px">Nothing after a few minutes? Check your spam folder, or <button type="button" class="linkish" data-act="auth-resend">send it again</button>.</p>'
@@ -6763,7 +6823,7 @@ var Auth = (function(){
     libfail:function(){ return '<h1>Couldn\'t start sign-in</h1><p class="sub">The sign-in component didn\'t load. Reload the page to try again.</p><button type="button" class="btn primary block" data-act="auth-retry" style="margin-top:20px">Reload</button>'; }
   };
   function view(){
-    var inner = (V[S.view] || V.signin)();
+    var inner = (V[S.view === 'signin' && S.home && !S.msg ? 'welcome' : S.view] || V.signin)();
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     return '<div class="auth"><aside class="auth-brand"><div class="ab-top">' + seal(30) + '<span>Pentra Finance</span></div>'
       + '<div class="ab-copy"><h2>Five pillars. One secure foundation.</h2><p>Income, Spending, Savings, Investment and Protection — one structured command center built on the intelligence of your own tracker.</p>' + credits() + '</div>'
@@ -6786,7 +6846,11 @@ var Auth = (function(){
   }
 
   /* ── actions & forms ─────────────────────────────────────────────── */
-  ACT['auth-view'] = function(el){ S.view = el.getAttribute('data-view'); S.msg = null; render(); };
+  window.addEventListener('hashchange', function(){   /* signed out: #/signin, #/signup and #/welcome switch the screen at once */
+    if (S.user || S.view === 'loading') return; var h = location.hash;
+    if (h === '#/signin' || h === '#/signup') { S.home = false; S.view = h.slice(2); S.msg = null; render(); }
+    else if (h === '#/welcome') { S.home = true; S.view = 'signin'; S.msg = null; render(); } });
+  ACT['auth-view'] = function(el){ S.view = el.getAttribute('data-view'); S.home = S.view === 'welcome'; S.msg = null; render(); };
   ACT['auth-retry'] = function(){ location.reload(); };
   ACT['auth-peek'] = function(el){
     var i = el.parentNode.querySelector('input'), show = i.type === 'password';
