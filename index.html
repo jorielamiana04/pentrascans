@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-pLBKp7fKkOn2Pp0/EemZv8pWopxblSIadRZBT2UY5jM=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-/3eK60s8U2fEKv/QOTRh0TrShyOxPAx0By9/HB5cdTE=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -713,7 +713,44 @@ html[data-theme="dark"] [data-tone="bills"]{--tone:#fb923c;--tone-ink:#fed7aa;--
 .ct-warn{border-left:4px solid #b45309;padding:.5rem .75rem;border-radius:6px;margin:.5rem 0;background:rgba(180,83,9,.08)}.ct-warn ul{margin:.3rem 0 0;padding-left:1.1rem}
 .ct-pay{border:0;padding:0;margin:.9rem 0 .5rem;display:flex;gap:1rem;flex-wrap:wrap}.ct-pay legend{font-weight:600;margin-bottom:.3rem;padding:0}.ct-pay label{display:flex;gap:.45rem;align-items:center;min-height:44px}
 .ct .scroll-x{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;border-radius:8px}.ct .scroll-x:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-.ct-hist{list-style:none;margin:0;padding:0}.ct-hist>li{border-top:1px solid var(--line,rgba(127,127,127,.3));padding:.85rem 0}.ct-hist>li:first-child{border-top:0}.ct-table th,.ct-table td{white-space:nowrap}
+.ct-hist{list-style:none;margin:0;padding:0}.ct-hist>li{border-top:1px solid var(--line,rgba(127,127,127,.3));padding:.85rem 0}.ct-hist>li:first-child{border-top:0}
+.lang-sw{display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid var(--line,rgba(127,127,127,.35));border-radius:999px;flex:none;margin-right:6px}
+.lang-sw button{border:0;background:transparent;color:inherit;font:700 12px/1 inherit;letter-spacing:.02em;min-width:36px;min-height:34px;padding:0 9px;border-radius:999px;cursor:pointer;opacity:.72}
+.lang-sw button[aria-pressed="true"]{background:var(--accent,#5b21b6);color:#fff;opacity:1}
+.lang-sw button:focus-visible{outline:2px solid var(--accent,#5b21b6);outline-offset:2px}
+.bill-pill{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;margin-right:6px;border-radius:999px;font:700 12px/1 inherit;text-decoration:none;color:inherit;border:1px solid var(--line,rgba(127,127,127,.35));white-space:nowrap}
+.bill-pill.warn{background:#fdf3dc;color:#6b4200;border-color:#f0c96a}.bill-pill.bad{background:#fdecea;color:#8a1c16;border-color:#f3b4ae}
+.bill-plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 14px}
+.bill-plan{display:grid;gap:2px;text-align:left;padding:14px;border-radius:14px;border:2px solid var(--line,rgba(127,127,127,.35));background:transparent;color:inherit;cursor:pointer;font:inherit}
+.bill-plan[aria-checked="true"]{border-color:var(--accent,#5b21b6);box-shadow:0 0 0 3px var(--accent-soft,rgba(91,33,182,.15))}
+.bill-price{font-size:1.5rem;font-weight:800}.bill-save{font-size:.8rem;font-weight:700;color:#177a52}
+.bill-qr{margin:0 0 10px;text-align:center}.bill-qr img{width:min(300px,100%);height:auto;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.3))}
+.bill-agree{display:flex;gap:10px;align-items:flex-start;margin:12px 0}.bill-agree input{width:20px;height:20px;flex:none;margin-top:2px}
+.bill .tblw{overflow-x:auto}.bill-tbl{width:100%;border-collapse:collapse;font-size:.9rem}.bill-tbl th,.bill-tbl td{padding:8px;border-bottom:1px solid var(--line,rgba(127,127,127,.25));text-align:left;vertical-align:top}
+.bill-actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.bill-actions .input{max-width:180px;min-height:40px}.bill-num{max-width:84px}
+.bill-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}.bill-tabs button{border:1px solid var(--line,rgba(127,127,127,.35));background:transparent;color:inherit;border-radius:999px;padding:8px 14px;min-height:40px;cursor:pointer;font:600 .9rem inherit}
+.bill-tabs button[aria-selected="true"]{background:var(--accent,#5b21b6);color:#fff;border-color:transparent}
+.bill-switch{position:relative;flex:none;width:56px;height:32px;border-radius:999px;border:0;background:#8a8f98;cursor:pointer;padding:0}.bill-switch.sm{width:48px;height:28px}
+.bill-switch .bill-knob{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:left .15s}.bill-switch.sm .bill-knob{width:22px;height:22px}
+.bill-switch[aria-checked="true"]{background:#177a52}.bill-switch[aria-checked="true"] .bill-knob{left:27px}.bill-switch.sm[aria-checked="true"] .bill-knob{left:23px}
+.bill-switch:disabled{opacity:.45;cursor:not-allowed}.bill-switch:focus-visible{outline:3px solid var(--accent,#5b21b6);outline-offset:2px}
+.bill-row{display:flex;justify-content:space-between;align-items:center;gap:12px}.bill-card h2{margin:0 0 4px}
+.bill-confirm{border:2px solid var(--accent,#5b21b6)}.bill-confirm h2{margin-top:0}
+.bill-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:12px}
+.bill-form{display:grid;gap:6px;max-width:520px}.bill-form .bill-num{max-width:160px}.bill-danger{color:#b42318}p.ok{color:#177a52;font-weight:600}
+.bill-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#fdf3dc;color:#5c3900;border:1px solid #f0c96a}
+.bill-up{max-width:600px;margin:0 auto}.bill-up h1{text-align:center;margin:.15em 0 .3em}.bill-kicker{text-align:center;font-weight:700;font-size:.85rem;margin:0}.bill-kicker::before{content:"\25CF  ";color:#22a06b}
+.bill-lead{text-align:center;margin:0 auto 14px;max-width:520px;opacity:.85}.bill-center{text-align:center}.bill-center.actions{justify-content:center}.bill-formcard{margin-top:14px}.bill-wide{width:100%}
+.bill-link{background:none;border:0;padding:0;color:inherit;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;min-height:24px}
+.bill-plancard{margin:10px 12px 14px;padding:14px;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.3));display:grid;gap:8px}.sheet .bill-plancard,[role="dialog"] .bill-plancard{margin:0 0 12px}
+.bill-pc-top{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}.bill-plancard p{margin:0;font-size:.85rem}.bill-plancard .btn{width:100%;justify-content:center}
+.bill-flag{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:6px;background:#fdecea;color:#7a1712;font-size:.8rem;font-weight:700}
+.bill-banner>div{flex:1 1 220px;display:grid;gap:2px}
+.bill-plancard{box-sizing:border-box;max-width:calc(100% - 24px);min-width:0;overflow-wrap:anywhere}.bill-pc-top{flex-wrap:wrap}
+.bill-plancard .btn{white-space:normal;min-width:0;height:auto;min-height:44px;line-height:1.25;padding:8px 12px;box-sizing:border-box;text-align:center}
+.bill-plancard.premium{border:2px solid #c9a227}.bill-plancard.premium .bill-pc-top b::before{content:"\2605  ";color:#c9a227}
+.bill-banner.good{background:#e7f6ee;color:#0f5132;border-color:#9fd8b9}.bill-premium{border:2px solid #c9a227;text-align:center}.bill-premium p{margin:.2em 0}
+.bill-renew{margin:12px 0}.bill-renew>summary{cursor:pointer;font-weight:700;padding:12px 0;min-height:24px}.bill-banner.bad{background:#fdecea;color:#7a1712;border-color:#f3b4ae}.bill-banner .btn{min-height:40px}.ct-table th,.ct-table td{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -1761,7 +1798,7 @@ function celebrate(text){
 /* ── Router & per-render context ───────────────────────────────────── */
 var U = { route:'home', param:null, txq:'', txPillar:'all', txScope:'month', txStatus:'all', spendTab:'everyday', budgetMonth:null, showWork:true, wiz:null, lastRoute:null };
 var ROUTES = ['home','money','scan','budget','goals','income','spending','savings','investment','protection','reports','scenarios','wizard','answers','settings'];
-var TIN_ROUTES = ['overview','setup','sell','sales','inventory','product','utang','customer','gcash','eload','bills','payroll','vault','suppliers','notes','rewards','referrals','reports','notifications','data','staff','new','businesses'];                                   /* My Tindahan pages: #/t/<page> */
+var TIN_ROUTES = ['overview','setup','sell','sales','inventory','product','utang','customer','gcash','eload','bills','payroll','vault','suppliers','notes','rewards','referrals','reports','notifications','data','staff','new','businesses','upgrade','admin'];                                   /* My Tindahan pages: #/t/<page> */
 var ALIASES = { dashboard:'home', transactions:'money', investments:'investment' };
 function parseHash(){
   var h = (location.hash || '').replace(/^#\/?/, '').split('?')[0], seg = h.split('/');
@@ -1792,7 +1829,7 @@ var NAV = [
 function activeKey(){ return U.route === 'wizard' ? 'scenarios' : U.route; }
 function kindBadge(w){ return '<span class="kind ' + w.kind + '">' + (w.kind === 'personal' ? 'Personal' : w.kind === 'sample' ? 'Sample' : 'Scenario') + '</span>'; }
 function sidebar(C){
-  return '<aside class="sidebar" aria-label="Sections"><a class="brand" href="#/home" aria-label="Pentra Finance home">' + seal(34) + '<span class="word">Pentra <em>Finance</em></span></a>' + Tin.modeSwitch('personal')
+  return '<aside class="sidebar" aria-label="Sections"><a class="brand" href="#/home" aria-label="Pentra Finance home">' + seal(34) + '<span class="word" translate="no">Pentra <em>Finance</em></span></a>' + Tin.modeSwitch('personal')
     + NAV.map(function(grp){
       return '<nav class="navgroup" aria-label="' + grp.h + '"><h3>' + grp.h + '</h3>' + grp.items.map(function(it){
         var pil = PE.PILLAR_META[it[0]];
@@ -1813,7 +1850,7 @@ function topbar(C){
   return '<header class="topbar"><a class="brand" href="#/home" aria-label="Pentra Finance home">' + seal(30) + '</a>'
     + '<button type="button" class="wschip" data-act="ws-switch" aria-label="Workspace: ' + esc(C.w.name) + '. Switch workspace">' + kindBadge(C.w) + '<span class="nm">' + esc(C.w.name) + '</span>' + icon('chev', 16) + '</button>'
     + '<div class="period"><label class="sr" for="pm">Month</label><select id="pm" class="sel" data-change="period-m">' + mopts + '</select><label class="sr" for="py">Year</label><select id="py" class="sel" data-change="period-y">' + yopts + '</select></div>'
-    + Sync.button() + styleBtn(20) + '<button type="button" class="iconbtn" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 19) + '</button></header>';
+    + Sync.button() + styleBtn(20) + (window.I18n ? I18n.button() : '') + '<button type="button" class="iconbtn" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 19) + '</button></header>';
 }
 function ribbon(C){
   if (C.w.kind === 'scenario') return '<div class="ribbon" role="note">' + icon('scenarios', 17) + '<span>Practice scenario: ' + esc(C.w.name) + (C.w.asOfDate ? '. Today is set to ' + dlabel(C.w.asOfDate) + '.' : '') + '</span><a class="linkish" href="#/answers" style="margin-left:auto">Answer sheet</a></div>';
@@ -2965,7 +3002,7 @@ var Scan = (function(){
   /* ── views ────────────────────────────────────────────────────────── */
   function show(){ if (U.route === 'scan') render(); else go('scan'); }
   function sampleCards(){
-    return '<div class="samples">' + ScanSamples.list.map(function(s){ return '<button type="button" class="sample" data-act="scan-sample" data-id="' + s.id + '"><img src="' + ScanSamples.thumb(s) + '" alt="" loading="lazy"><span class="t1">' + esc(s.title) + '</span><span class="t2">' + esc(s.hint) + '</span></button>'; }).join('') + '</div>';
+    return '<div class="samples">' + ScanSamples.list.map(function(s){ return '<button type="button" class="sample" data-act="scan-sample" data-id="' + s.id + '">\x3cimg src="' + ScanSamples.thumb(s) + '" alt="" loading="lazy"><span class="t1">' + esc(s.title) + '</span><span class="t2">' + esc(s.hint) + '</span></button>'; }).join('') + '</div>';
   }
   function historyList(){
     var h = Store.pref('scanHistory') || [];
@@ -2991,7 +3028,7 @@ var Scan = (function(){
   }
   function stageView(){
     var p = S.previews[0], sample = S.sample && ScanSamples.find(S.sample);
-    var paper = sample ? '<img src="' + ScanSamples.thumb(sample) + '" alt="' + esc(sample.title) + '">' : p && p.url ? '<img src="' + p.url + '" alt="Your document">' : '<div class="scan-pdf">' + icon('reports', 44) + '<span>' + esc((p && p.name) || 'Document') + '</span></div>';
+    var paper = sample ? '\x3cimg src="' + ScanSamples.thumb(sample) + '" alt="' + esc(sample.title) + '">' : p && p.url ? '\x3cimg src="' + p.url + '" alt="Your document">' : '<div class="scan-pdf">' + icon('reports', 44) + '<span>' + esc((p && p.name) || 'Document') + '</span></div>';
     return phead('Scanning', S.previews.length > 1 ? S.previews.length + ' pictures, read as one document, on this device.' : 'Reading on this device. Nothing is uploaded.')
       + '<div class="scan-stage"><div class="scan-paper">' + paper + '<div class="scan-line" aria-hidden="true"></div></div>'
       + '<p class="scan-status" id="scan-status" role="status" aria-live="polite">' + esc(S.status || 'Reading your document…') + '</p>'
@@ -4368,7 +4405,8 @@ var BizStore = (function(){
   function append(list, s){
     for (var q = 1; q < list.length; q++) if (!(list[q].at > list[q - 1].at)) list[q].at = new Date(Date.parse(list[q - 1].at) + 1).toISOString();   /* one action's entries keep their order on every phone */
     s = s || active(); if (!s) return Promise.reject(new Error('No store yet'));
-    if (window.Staff) { var dn = Staff.denied(list, s); if (dn) return Promise.reject(new Error(dn)); }            /* mirrors the server's staff rules */
+    if (window.Staff) { var dn = Staff.denied(list, s); if (dn) return Promise.reject(new Error(dn)); }
+    if (window.Billing) { var bd = Billing.denied(list, s); if (bd) return Promise.reject(new Error(bd)); }   /* trial or paid plan (the server enforces it too) */            /* mirrors the server's staff rules */
     list.forEach(function(e){ e.owner = owner; e.ws = s.ws; e.store = s.store; e.synced = false; e.actor = owner !== 'local' ? owner : null; });
     for (var i = 0; i < list.length; i++) { var v = BizCore.validate(list[i]); if (v) return Promise.reject(new Error(v)); }
     var ids = {}; list.forEach(function(e){ ids[e.id] = 1; }); var k = s.ws + '|' + s.store, cur = books[k] || null;
@@ -4430,12 +4468,12 @@ var Tin = (function(){
       + '<nav class="navgroup" aria-label="Tindahan"><h3>' + esc(s ? s.name : 'My Tindahan') + (s && Staff.role(s).key !== 'owner' ? ' \u00b7 ' + esc(Staff.role(s).label) : '') + '</h3>' + a('overview', 'Overview', 'home') + (s ? a('sell', 'Benta · New sale', 'plus') + a('sales', 'Sales history', 'history') + a('inventory', 'Paninda · Inventory', 'budget') + a('reports', 'Reports', 'reports') : '') + '</nav>'
       + (s ? '<nav class="navgroup" aria-label="Money"><h3>Money</h3>' + a('utang', 'Utang \u00b7 Customers', 'income') + a('gcash', 'GCash', 'money') + a('eload', 'E-load', 'wallet') + '</nav>'
         + '<nav class="navgroup" aria-label="Finance"><h3>Finance</h3>' + a('bills', 'Bills', 'reports') + a('payroll', 'Sahod \u00b7 Payroll', 'goals') + a('vault', 'Cash vault', 'savings') + '</nav>' : '')
-      + '<nav class="navgroup" aria-label="Store"><h3>Store</h3>' + (s ? a('suppliers', 'Suppliers', 'download') + a('notes', 'Notes', 'edit') + a('rewards', 'Rewards', 'sparkle') + a('referrals', 'Referrals', 'mail') + a('notifications', 'Notifications', 'alert') + a('data', 'Backup & import', 'download') + a('staff', 'Staff', 'goals') : '') + a('setup', s ? 'Store details' : 'Set up store', 'settings') + '</nav>'
+      + (window.Billing ? Billing.planCard() : '') + '<nav class="navgroup" aria-label="Store"><h3>Store</h3>' + (window.Billing && Billing.isAdmin() ? a('admin', 'Admin' + (Billing.adminCount() ? ' (' + Billing.adminCount() + ')' : ''), 'reports') : '') + (s ? a('suppliers', 'Suppliers', 'download') + a('notes', 'Notes', 'edit') + a('rewards', 'Rewards', 'sparkle') + a('referrals', 'Referrals', 'mail') + a('notifications', 'Notifications', 'alert') + a('data', 'Backup & import', 'download') + a('staff', 'Staff', 'goals') : '') + a('setup', s ? 'Store details' : 'Set up store', 'settings') + '</nav>'
       + '<p class="side-note xs">' + BizSync.chip() + '</p></aside>'; }
   function topbar(){ var s = BizStore.ready() ? BizStore.active() : null, dark = document.documentElement.getAttribute('data-theme') === 'dark';
     return '<header class="topbar"><a class="brand" href="#/t/overview" aria-label="Pentra Tindahan home">' + seal(30) + '</a>'
       + '<button type="button" class="wschip" data-act="ws-switch" aria-label="Tindahan: ' + esc(s ? s.name : 'not set up yet') + '. Switch">' + (s ? badge(s) : '<span class="kind tindahan">Tindahan</span>') + '<span class="nm">' + esc(s ? s.name : 'Set up your store') + '</span>' + icon('chev', 16) + '</button>'
-      + '<span style="flex:1"></span>' + (s ? Notif.bell() : '') + styleBtn(20) + '<button type="button" class="iconbtn" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 19) + '</button></header>'; }
+      + '<span style="flex:1"></span>' + (s ? Notif.bell() : '') + styleBtn(20) + (window.Billing ? Billing.label() : '') + (window.I18n ? I18n.button() : '') + '<button type="button" class="iconbtn" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 19) + '</button></header>'; }
   function bottom(){ function a(p, label, ic){ return '<a href="#/t/' + p + '"' + (U.route === 't:' + p ? ' aria-current="page"' : '') + '>' + icon(ic, 23) + '<span>' + label + '</span></a>'; }
     if (!(BizStore.ready() && BizStore.active())) return '<nav class="bottom" aria-label="Main">' + a('overview', 'Overview', 'home') + a('setup', 'Store', 'settings') + '<button type="button" data-act="mode" data-mode="personal" aria-label="Switch to Personal Finance">' + icon('swap', 23) + '<span>Personal</span></button></nav>';
     return '<nav class="bottom" aria-label="Main">' + a('overview', 'Overview', 'home') + a('inventory', 'Paninda', 'budget') + '<a class="fab" href="#/t/sell" aria-label="New sale">' + icon('plus', 26) + '</a>' + a('sales', 'Sales', 'history') + '<button type="button" data-act="t-more" aria-label="More">' + icon('more', 23) + '<span>More</span></button></nav>'; }
@@ -4504,12 +4542,12 @@ var Tin = (function(){
     if (route === 't:businesses') return allBusinesses();
     if (route === 't:setup') return setup(s);
     var html = pageFor(route), tone = PAGETONE[route.slice(2)]; if (window.Notif) Notif.check(); return tone ? html.replace('<div class="t-page">', '<div class="t-page" data-tone="' + tone + '">') : html; }
-  function pageFor(route){ var s = BizStore.active(); if (route === 't:staff') return Staff.view(); if (route === 't:notifications') return Notif.view(); if (route === 't:data') return DataX.view();
+  function pageFor(route){ var s = BizStore.active(); if (route === 't:upgrade') return Billing.upgrade(); if (route === 't:admin') return Billing.admin(); if (route === 't:staff') return Staff.view(); if (route === 't:notifications') return Notif.view(); if (route === 't:data') return DataX.view();
     if (Ledg.has(route)) return Ledg.view(route, U.param); if (Xtra.has(route)) return Xtra.view(route); if (route === 't:reports') return Rep.view(U.param);
     if (route === 't:sell') return Benta.sell(); if (route === 't:sales') return Benta.sales(); if (route === 't:inventory') return Benta.inventory(U.param); if (route === 't:product') return Benta.product(U.param);
     return overview(s); }
   function stamp(i){ return new Date(Date.now() + i).toISOString(); }
-  ACT['t-more'] = function(){ openSheet(sheetHead('More') + '<div class="list"><a class="li" href="#/t/setup" style="width:100%"><span class="grow"><span class="t1" style="display:block">Store details</span><span class="t2">Name and type of business</span></span></a>' + [['staff', 'Staff', 'Invite helpers and set what they can do'], ['notifications', 'Notifications', 'Stock, bills and utang alerts'], ['data', 'Backup & import', 'Download or restore your store'], ['reports', 'Reports', 'Sales, profit and money by period'], ['utang', 'Utang', 'Customers and their balances'], ['gcash', 'GCash', 'Cash-in, cash-out and the float'], ['eload', 'E-load', 'Load bought and sold'], ['bills', 'Bills', 'Due soon, overdue and paid'], ['payroll', 'Sahod', 'Employees and payouts'], ['vault', 'Cash vault', 'Money kept apart'], ['suppliers', 'Suppliers', 'Who you buy from'], ['notes', 'Notes', 'Reminders and instructions'], ['rewards', 'Rewards', 'Points by your own rules'], ['referrals', 'Referrals', 'Who brought whom']].filter(function(x){ return Staff.canOpen(x[0]); }).map(function(x){ return '<a class="li" href="#/t/' + x[0] + '" style="width:100%"><span class="grow"><span class="t1" style="display:block">' + x[1] + '</span><span class="t2">' + x[2] + '</span></span></a>'; }).join('') + '<button type="button" class="li" data-act="mode" data-mode="personal" style="width:100%;text-align:left"><span class="grow"><span class="t1" style="display:block">Personal Finance</span><span class="t2">Switch to your own money</span></span></button></div>'); };
+  ACT['t-more'] = function(){ openSheet(sheetHead('More') + (window.Billing ? Billing.planCard() : '') + '<div class="list">' + (window.Billing && Billing.isAdmin() ? '<a class="li" href="#/t/admin" style="width:100%"><span class="grow"><span class="t1" style="display:block">Admin' + (Billing.adminCount() ? ' (' + Billing.adminCount() + ')' : '') + '</span><span class="t2">Check payments and manage subscribers</span></span></a>' : '') + '<a class="li" href="#/t/setup" style="width:100%"><span class="grow"><span class="t1" style="display:block">Store details</span><span class="t2">Name and type of business</span></span></a>' + [['staff', 'Staff', 'Invite helpers and set what they can do'], ['notifications', 'Notifications', 'Stock, bills and utang alerts'], ['data', 'Backup & import', 'Download or restore your store'], ['reports', 'Reports', 'Sales, profit and money by period'], ['utang', 'Utang', 'Customers and their balances'], ['gcash', 'GCash', 'Cash-in, cash-out and the float'], ['eload', 'E-load', 'Load bought and sold'], ['bills', 'Bills', 'Due soon, overdue and paid'], ['payroll', 'Sahod', 'Employees and payouts'], ['vault', 'Cash vault', 'Money kept apart'], ['suppliers', 'Suppliers', 'Who you buy from'], ['notes', 'Notes', 'Reminders and instructions'], ['rewards', 'Rewards', 'Points by your own rules'], ['referrals', 'Referrals', 'Who brought whom']].filter(function(x){ return Staff.canOpen(x[0]); }).map(function(x){ return '<a class="li" href="#/t/' + x[0] + '" style="width:100%"><span class="grow"><span class="t1" style="display:block">' + x[1] + '</span><span class="t2">' + x[2] + '</span></span></a>'; }).join('') + '<button type="button" class="li" data-act="mode" data-mode="personal" style="width:100%;text-align:left"><span class="grow"><span class="t1" style="display:block">Personal Finance</span><span class="t2">Switch to your own money</span></span></button></div>'); };
   ACT.mode = function(el){ closeSheet(); err = ''; switchTo(el.dataset.mode); };
   function inl(m){ var e = document.getElementById('t-err'); if (e) { e.textContent = m; e.hidden = false; } }   /* errors shown in place: typed values are kept */
   ACT['t-save-store'] = function(el){
@@ -5156,6 +5194,7 @@ var Notif = (function(){
     if (c.eloadMin > 0 && S.acct.eload < c.eloadMin) add('eload-low', 'eload', false, 'Load balance is low', P(S.acct.eload) + ' left (alert below ' + P(c.eloadMin) + ').', '#/t/eload');
     var open = S.conflicts.filter(function(x){ return !S.checked[x.id]; }).length; if (open) add('clash:' + open, 'bills', true, open + (open === 1 ? ' entry needs' : ' entries need') + ' a check', 'Entries from different phones clashed. Open the overview.', '#/t/overview');
     if (window.BizSync && BizSync.state() === 'error') add('sync-error', 'combined', true, 'Sync failed', 'Your data is safe on this phone. Open the overview to retry.', '#/t/overview');
+    if (window.Billing && Billing.alerts && (!BizStore.active() || sc.store === BizStore.active().store)) Billing.alerts().forEach(function(x){ add(x.key, x.tone, x.now, x.title, x.text, x.href); });   /* trial and plan reminders, once */
     return out.sort(function(a, b){ return b.now - a.now; }); }
   function all(){ return BizStore.ready() ? BizStore.stores().reduce(function(o, x){ return o.concat(list(x)); }, []) : []; }            /* every business the user can see */
   function key(k, s){ s = s || BizStore.active(); return 'pentra-notif-' + k + ':' + BizStore.owner() + ':' + (s ? s.store : ''); }
@@ -5908,6 +5947,553 @@ var CountUI = (function(){
       function(e2){ busy = false; if (pend) pend.err = 'Not saved: ' + ((e2 && e2.message) || e2); render(); }); };
   return { view:view, history:history, may:may, todayLine:todayLine, notice:notice, needs:needs };
 })();
+/* Tagalog dictionary for the language switch (09p-i18n.js). Keys are the app's English UI phrases exactly as shown;
+   values are natural Taglish. Store data (product, customer, business names) is never listed here. */
+var I18N_TL = {
+  // shell, menus, navigation
+  'Overview':'Buod', 'Benta':'Benta', 'Benta · New sale':'Benta · Bagong benta', 'New sale':'Bagong benta', '· New sale':'· Bagong benta',
+  'Sales history':'Kasaysayan ng benta', 'Paninda':'Paninda', 'Paninda · Inventory':'Paninda · Imbentaryo', 'Inventory':'Imbentaryo',
+  'Reports':'Ulat', 'Money':'Pera', 'Finance':'Gastusin', 'Store':'Tindahan', 'More':'Iba pa', 'Main':'Pangunahin', 'Sections':'Mga bahagi',
+  'Utang':'Utang', 'Utang · Customers':'Utang · Mga suki', '· Customer credit':'· Pautang sa suki', 'GCash':'GCash', 'E-load':'E-load',
+  'Bills':'Bayarin', 'Sahod':'Sahod', 'Sahod · Payroll':'Sahod', '· Payroll':'· Sahod', 'Cash vault':'Taguan ng pera',
+  'Suppliers':'Mga supplier', 'Notes':'Mga tala', 'Rewards':'Pabuya', 'Referrals':'Mga referral', 'Staff':'Mga tauhan',
+  'Notifications':'Mga abiso', 'Backup & import':'Backup at import', 'Store details':'Detalye ng tindahan', 'Store history':'Kasaysayan ng tindahan',
+  'Personal':'Personal', 'Tindahan':'Tindahan', 'What you are managing':'Ano ang pinamamahalaan mo', 'Pentra Tindahan home':'Home ng Pentra Tindahan',
+  'Needs attention':'Kailangang asikasuhin', 'Today':'Ngayon', 'Close':'Isara', 'Language':'Wika', 'Switch to dark theme':'Gawing madilim ang screen',
+  'Switch to light theme':'Gawing maliwanag ang screen', 'Switch app theme to Luxury':'Gawing Luxury ang itsura', 'App theme: Classic. Tap for Luxury.':'Itsura: Classic. I-tap para sa Luxury.',
+  'Inventory views':'Mga tanaw ng imbentaryo', 'Period':'Panahon', 'Show':'Ipakita', 'Phone health':'Kalagayan ng cellphone',
+  // sign-in screens
+  'Welcome back':'Maligayang pagbabalik', 'Sign in':'Mag-sign in', 'Sign in to your Pentra command center.':'Mag-sign in sa Pentra command center mo.',
+  'Create account':'Gumawa ng account', 'Create an account':'Gumawa ng account', 'Create your account':'Gawin ang account mo', 'Email':'Email', 'Password':'Password',
+  'Show password':'Ipakita ang password', 'Forgot password?':'Nakalimutan ang password?', 'Reset your password':'I-reset ang password mo',
+  'Enter your email and we\'ll send a link to set a new one.':'Ilagay ang email mo at magpapadala kami ng link para gumawa ng bago.',
+  'Send reset link':'Ipadala ang reset link', 'Remembered it?':'Naalala mo na?', 'Already have an account?':'May account ka na?', 'New to Pentra?':'Bago sa Pentra?',
+  'Your name':'Pangalan mo', 'Optional, used to greet you':'Opsyonal, para mabati ka namin', 'Start with the five-pillar system in minutes.':'Simulan ang five-pillar system sa loob ng ilang minuto.',
+  'Five pillars. One secure foundation.':'Limang haligi. Iisang matibay na pundasyon.', 'Designed & built by':'Dinisenyo at ginawa nina',
+  'Income, Spending, Savings, Investment and Protection — one structured command center built on the intelligence of your own tracker.':'Kita, Gastos, Ipon, Puhunan at Proteksyon — iisang maayos na command center na nakabatay sa sarili mong tracker.',
+  // common buttons and words
+  'Cancel':'Kanselahin', 'Save':'I-save', 'Save details':'I-save ang detalye', 'Save product':'I-save ang produkto', 'Save rules':'I-save ang mga patakaran',
+  'Edit':'I-edit', 'Archive':'I-archive', 'Archived':'Naka-archive', 'Clear':'I-clear', 'Clear filters':'I-clear ang mga filter', 'Filters':'Mga filter',
+  'Search':'Hanapin', 'Open':'Buksan', 'View':'Tingnan', 'Download':'I-download', 'Import':'I-import', 'Scan':'I-scan', 'Scan with camera':'I-scan gamit ang camera',
+  'Find by scanning':'Hanapin sa pag-scan', 'Scan or type':'I-scan o i-type', 'All':'Lahat', 'Any':'Kahit ano', 'Actions':'Aksyon', 'Status':'Status',
+  'Adjust':'I-adjust', 'Receive':'Tanggapin', 'Found':'Nakita', 'Custom':'Custom', 'Stock':'Stock', 'Unit':'Yunit', 'Product':'Produkto', 'Products':'Mga produkto',
+  'Services':'Mga serbisyo', 'Category':'Kategorya', 'Category (optional)':'Kategorya (opsyonal)', 'Supplier':'Supplier', 'Code (optional)':'Code (opsyonal)',
+  'Note (optional)':'Tala (opsyonal)', 'Barcode (optional)':'Barcode (opsyonal)', 'Expiration':'Expiration', 'Expiry date':'Petsa ng expiry', 'Package':'Pakete',
+  // overview and money
+  'Today’s sales':'Benta ngayon', 'Today’s profit':'Tubo ngayon', 'Money in the store':'Pera sa tindahan', 'Money in the drawer':'Pera sa kaha',
+  'Cash on hand':'Pera sa kaha', 'Cash on hand now (₱)':'Pera sa kaha ngayon (₱)', 'Cash':'Cash', 'Cash + GCash (combined)':'Cash + GCash (pinagsama)',
+  'GCash float':'GCash float', 'GCash float now (₱)':'GCash float ngayon (₱)', 'GCash float:':'GCash float:', 'The store’s GCash balance':'Balanse ng GCash ng tindahan',
+  'The store’s GCash balance, kept separate from cash.':'Balanse ng GCash ng tindahan, hiwalay sa cash.', 'Kept apart from the drawer':'Hiwalay sa kaha',
+  'Vault balance:':'Laman ng taguan:', 'Load balance':'Balanse ng load', 'Load balance:':'Balanse ng load:', 'Stock value':'Halaga ng paninda',
+  'Paninda alerts':'Alerto sa paninda', 'No sales yet today.':'Wala pang benta ngayon.', 'Synced to your account, just now':'Naka-sync sa account mo, ngayon lang',
+  'Store created':'Nagawa ang tindahan', 'Every change is kept as a new entry. Nothing is edited or erased.':'Bawat pagbabago ay bagong tala. Walang binabago o binubura.',
+  'Changes are added to your store’s history.':'Idinadagdag ang mga pagbabago sa kasaysayan ng tindahan.',
+  // businesses and setup
+  '+ Add a business':'+ Magdagdag ng negosyo', 'Add a business':'Magdagdag ng negosyo', 'All businesses':'Lahat ng negosyo', 'Create business':'Gawin ang negosyo',
+  'Archive this business':'I-archive ang negosyong ito', 'Business colour':'Kulay ng negosyo', 'Store name':'Pangalan ng tindahan', 'Type of business':'Uri ng negosyo',
+  'Sari-sari store':'Sari-sari store', 'Mini grocery':'Mini grocery', 'Convenience store':'Convenience store', 'GCash and e-load outlet':'GCash at e-load outlet',
+  'Barbershop or salon':'Barberya o salon', 'Talyer or repair shop':'Talyer o repair shop', 'Other services':'Ibang serbisyo', 'Other small business':'Ibang maliit na negosyo',
+  'It starts empty, with its own products, cash, sales and staff. Your other businesses stay exactly as they are.':'Magsisimula itong walang laman, may sariling produkto, cash, benta at tauhan. Hindi magagalaw ang iba mo pang negosyo.',
+  'Shown on the business name and at the top of every page, so you never mix up your businesses.':'Makikita sa pangalan ng negosyo at sa itaas ng bawat page, para hindi mo mapagpalit ang mga negosyo mo.',
+  'Moving from another phone?':'Lilipat mula sa ibang cellphone?', 'Restore a backup':'Mag-restore ng backup', 'e.g. Aling Nena Sari-Sari Store':'hal. Aling Nena Sari-Sari Store',
+  // selling
+  'Find a product':'Maghanap ng produkto', 'Type a name, or scan a barcode':'I-type ang pangalan, o i-scan ang barcode',
+  'The cart is empty. Find a product above to start a sale.':'Walang laman ang cart. Maghanap ng produkto sa itaas para magsimula ng benta.',
+  'Sales':'Benta', 'Sales you complete in Benta appear here, newest first.':'Dito lalabas ang mga natapos na benta sa Benta, pinakabago muna.',
+  'No sales recorded yet.':'Wala pang naitalang benta.', 'No sales in this period.':'Walang benta sa panahong ito.', 'No products sold in this period.':'Walang nabentang produkto sa panahong ito.',
+  // inventory center
+  'Manage products, stock, costs, pricing and inventory movement.':'Pamahalaan ang produkto, stock, puhunan, presyo at galaw ng imbentaryo.',
+  '+ Add product':'+ Magdagdag ng produkto', 'Add a product':'Magdagdag ng produkto', '+ Receive stock':'+ Tumanggap ng paninda', 'Receive stock':'Tumanggap ng paninda',
+  'Open Inventory':'Buksan ang Imbentaryo', 'Total cost value':'Kabuuang halaga sa puhunan', 'Retail value':'Halaga sa presyong benta', 'Potential profit':'Posibleng tubo',
+  'Stock left, at what you paid':'Natitirang stock, ayon sa ibinayad mo', 'Stock left, at your selling prices':'Natitirang stock, ayon sa presyong benta mo',
+  'If everything left is sold':'Kung mabenta lahat ng natira', 'Active products':'Aktibong produkto', 'Total pieces':'Kabuuang piraso', 'Sellable pieces in stock':'Pirasong pwedeng ibenta',
+  'Out of stock':'Ubos na', 'Low stock':'Paubos na', 'Expiring soon':'Malapit mag-expire', 'Expired':'Expired na', 'In stock':'May stock',
+  'Nothing is out of stock':'Walang ubos na paninda', 'Everything is sufficiently stocked':'Sapat ang lahat ng stock', 'Everything is sufficiently stocked.':'Sapat ang lahat ng stock.',
+  'No products expiring soon':'Walang malapit mag-expire', 'No products expiring soon.':'Walang malapit mag-expire.', 'All stock looks fine.':'Maayos ang lahat ng stock.',
+  '“Expiring soon” means within':'Ang “Malapit mag-expire” ay sa loob ng', 'Products':'Mga produkto', 'Stock batches':'Mga batch ng stock', 'Stock count':'Bilang ng paninda',
+  'Search products, SKU, barcode, category':'Hanapin ang produkto, SKU, barcode, kategorya', 'Search products, SKU, barcode, category, supplier':'Hanapin ang produkto, SKU, barcode, kategorya, supplier',
+  'Any category':'Kahit anong kategorya', 'Any package':'Kahit anong pakete', 'Any supplier':'Kahit anong supplier', 'No expiration':'Walang expiration',
+  'Price from (₱)':'Presyo mula (₱)', 'Price to (₱)':'Presyo hanggang (₱)', 'Stock status':'Status ng stock', 'Pieces in stock':'Pirasong nasa stock',
+  'Cost / piece':'Puhunan / piraso', 'Profit / piece':'Tubo / piraso',
+  // product form, pricing, packages, services
+  'Product name':'Pangalan ng produkto', 'Selling price':'Presyong benta', 'Selling price (₱)':'Presyong benta (₱)', 'Selling price per piece':'Presyong benta bawat piraso',
+  'Selling price per piece (₱)':'Presyong benta bawat piraso (₱)', 'Cost price (₱, optional)':'Puhunan (₱, opsyonal)', 'Minimum stock (low-stock alert)':'Minimum na stock (alerto kapag paubos)',
+  'Drinks, canned goods…':'Inumin, de-lata…', 'pcs, pack, kg':'pcs, pack, kg', 'How do you set the selling price?':'Paano mo itinatakda ang presyong benta?',
+  'Markup':'Patong', 'Markup (%)':'Patong (%)', 'Markup (% added on top of the cost)':'Patong (% na idinadagdag sa puhunan)', 'Profit margin':'Porsiyento ng tubo',
+  'I’ll type the price':'Ita-type ko ang presyo', 'Round the price':'I-round ang presyo', 'Suggested price per piece':'Mungkahing presyo bawat piraso',
+  'Use this as the selling price per piece':'Gamitin ito bilang presyong benta bawat piraso', 'Cost per piece':'Puhunan bawat piraso', 'Profit per piece':'Tubo bawat piraso',
+  'No cost yet. Type a cost price above, or receive stock, so Pentra can suggest a price and show your profit.':'Wala pang puhunan. I-type ang puhunan sa itaas, o tumanggap ng paninda, para makapagmungkahi si Pentra ng presyo at maipakita ang tubo mo.',
+  'Add stock after saving, with Receive in Paninda, so each delivery keeps its own cost and expiry date.':'Magdagdag ng stock pagkatapos i-save, gamit ang Tanggapin sa Paninda, para may sariling puhunan at expiry ang bawat delivery.',
+  'Package sizes':'Laki ng pakete', '+ Add package size':'+ Magdagdag ng laki ng pakete', 'Kind of package to add':'Uri ng paketeng idadagdag', 'Package name':'Pangalan ng pakete',
+  'Package selling price':'Presyong benta ng pakete', 'Pieces per package':'Piraso bawat pakete', 'Cost per package':'Puhunan bawat pakete', 'Profit per package':'Tubo bawat pakete',
+  'e.g. Tray, Pouch, Banig':'hal. Tray, Pouch, Banig', 'Piece':'Piraso', 'Pack':'Pakete', 'Box':'Kahon', 'Case':'Case', 'Dozen':'Dosena', 'Bundle':'Bungkos', 'Carton':'Karton',
+  'Sack':'Sako', 'Bottle':'Bote', 'Can':'Lata',
+  'Each way you buy or sell this product in bulk, like a box or a case. Leave the package price blank to charge the same as loose pieces, or type your own price, cheaper or higher.':'Bawat paraan ng pagbili o pagbenta nang maramihan, gaya ng kahon o case. Iwanang blangko ang presyo ng pakete para kapareho ng tingi, o i-type ang sarili mong presyo, mas mura o mas mahal.',
+  '+ Add service':'+ Magdagdag ng serbisyo', 'Add service':'Magdagdag ng serbisyo', 'No services yet.':'Wala pang serbisyo.', 'Sold like products, but with no stock to count.':'Binebenta gaya ng produkto, pero walang stock na binibilang.',
+  // receiving
+  'Type what is on the delivery receipt. Pentra works out the rest.':'I-type ang nasa resibo ng delivery. Si Pentra na ang bahala sa iba.',
+  'Choose the product…':'Piliin ang produkto…', 'By package':'Bawat pakete', 'By piece':'Bawat piraso', 'How you received it':'Paano mo ito natanggap', 'Package type':'Uri ng pakete',
+  'How many pieces are in one package?':'Ilang piraso ang laman ng isang pakete?', 'How many packages did you receive?':'Ilang pakete ang natanggap mo?',
+  'How much did one package cost? (₱)':'Magkano ang isang pakete? (₱)', 'What you pay the supplier':'Ang ibinabayad mo sa supplier', 'Packages received':'Paketeng natanggap',
+  'Receiving summary':'Buod ng natanggap', 'Total cost':'Kabuuang puhunan', 'Expected gross profit':'Inaasahang kabuuang tubo', 'Supplier, expiry, reference and payment':'Supplier, expiry, reference at bayad',
+  'Reference / receipt no.':'Reference / numero ng resibo', 'Paid from':'Binayaran mula sa', 'Not paid now, or paid outside the store':'Hindi pa bayad, o binayaran sa labas ng tindahan',
+  // stock count
+  'Count stock':'Bilangin ang paninda', 'Count history':'Kasaysayan ng bilang', 'Review count':'Tingnan ang bilang', 'Not all sold?':'Hindi lahat nabenta?',
+  'Count what is left on the shelf and Pentra works out what was sold.':'Bilangin ang natira sa estante at si Pentra na ang magko-compute ng nabenta.',
+  'Type what is left on the shelf. Pentra works out what was sold since the last count, what it cost and what you earned.':'I-type ang natira sa estante. Si Pentra ang magko-compute ng nabenta mula sa huling bilang, ang puhunan at ang kinita mo.',
+  'Count full packages and loose pieces. Leave a product blank to skip it.':'Bilangin ang buong pakete at ang tingi. Iwanang blangko ang produktong lalaktawan.',
+  'How many pcs or items left?':'Ilang piraso ang natira?', 'Expected on the shelf:':'Inaasahan sa estante:', 'Not sold':'Hindi nabenta', 'Not sold or found':'Hindi nabenta o nakita',
+  'Select all shown':'Piliin lahat ng nakikita', 'These sales were paid into':'Saan napunta ang bayad sa mga bentang ito', 'Today’s stock counts':'Mga bilang ng paninda ngayon',
+  'Products counted':'Produktong nabilang', 'Units sold':'Piraso na nabenta', 'Estimated sales':'Tantiyang benta', 'Cost of goods':'Puhunan ng nabenta', 'Profit':'Tubo',
+  'No stock counts yet.':'Wala pang bilang ng paninda.',
+  'Every stock count, newest first. Sales worked out from counts also appear in Sales history, marked “Stock count”.':'Bawat bilang ng paninda, pinakabago muna. Lumalabas din sa Kasaysayan ng benta ang bentang galing sa bilang, may markang “Bilang ng paninda”.',
+  // utang
+  'Customers':'Mga suki', 'Add customer':'Magdagdag ng suki', 'No customers yet.':'Wala pang suki.', 'No utang recorded.':'Walang naitalang utang.', 'Go to Utang':'Pumunta sa Utang',
+  'Add a customer to keep their utang here, or choose Utang when completing a sale.':'Magdagdag ng suki para dito maitala ang utang niya, o piliin ang Utang sa pagtatapos ng benta.',
+  'Utang owed to you':'Utang sa iyo', 'Utang outstanding':'Natitirang utang', 'Utang given':'Utang na naibigay', 'Utang collected':'Utang na nasingil', 'Outstanding:':'Natitira:',
+  // gcash and load
+  'GCash cash-in / cash-out':'GCash cash-in / cash-out', 'Cash-in':'Cash-in', 'Cash-out':'Cash-out', 'GCash ledger':'Tala ng GCash', '· Float ledger':'· Tala ng float',
+  'Top up float':'Dagdagan ang float', 'Recount float':'Bilangin ulit ang float', 'Net change in GCash float':'Netong galaw ng GCash float',
+  'No GCash activity yet. Record each cash-in and cash-out here; the float balance comes from these entries.':'Wala pang galaw sa GCash. Itala dito ang bawat cash-in at cash-out; dito nanggagaling ang balanse ng float.',
+  'Buy load':'Bumili ng load', 'Sell load':'Magbenta ng load', 'E-load sold':'E-load na nabenta', 'E-load you can sell':'E-load na pwedeng ibenta', 'Recount balance':'Bilangin ulit ang balanse',
+  '· Load ledger':'· Tala ng load', 'Edit networks':'I-edit ang mga network',
+  'No load activity yet. Buy load to add to your balance, then record each load you sell.':'Wala pang galaw sa load. Bumili ng load para madagdagan ang balanse, saka itala ang bawat load na maibenta mo.',
+  // bills, sahod, vault
+  'Add bill':'Magdagdag ng bayarin', 'No bills yet.':'Wala pang bayarin.', 'Bills due soon':'Bayaring malapit nang due', 'Bills paid':'Bayaring nabayaran',
+  'Add the store’s electricity, water, internet or rent so Pentra can remind you before they are due.':'Idagdag ang kuryente, tubig, internet o upa ng tindahan para mapaalalahanan ka ni Pentra bago mag-due.',
+  'Add employee':'Magdagdag ng empleyado', 'No employees yet.':'Wala pang empleyado.', 'Add the people who help in the store to record their sahod.':'Idagdag ang mga tumutulong sa tindahan para maitala ang sahod nila.',
+  'Sahod paid':'Sahod na naibigay', 'Paid this month:':'Nabayaran ngayong buwan:', 'Count cash':'Bilangin ang cash', 'Count vault':'Bilangin ang taguan',
+  'Count the money in your drawer. You can recount any time.':'Bilangin ang pera sa kaha mo. Pwede mong bilangin ulit anumang oras.',
+  'Deposit from cash':'Ilipat mula sa cash', 'Withdraw to cash':'Ilabas papunta sa cash', 'Vault ledger':'Tala ng taguan', 'Net change in the vault':'Netong galaw ng taguan',
+  'Net change in cash on hand':'Netong galaw ng pera sa kaha', 'The vault is empty. Deposit money from the cash drawer to keep it apart.':'Walang laman ang taguan. Maglipat ng pera mula sa kaha para maihiwalay ito.',
+  // suppliers, notes, rewards, referrals
+  'Add supplier':'Magdagdag ng supplier', 'No suppliers yet.':'Wala pang supplier.', 'Add the people and companies you buy stock from.':'Idagdag ang mga tao at kumpanyang binibilhan mo ng paninda.',
+  'Deliveries are linked by the supplier name you enter when receiving stock.':'Naka-link ang mga delivery sa pangalan ng supplier na inilalagay mo sa pagtanggap ng paninda.',
+  'Add note':'Magdagdag ng tala', 'No notes yet.':'Wala pang tala.', 'A notebook for the store: reminders, instructions, ideas.':'Kuwaderno ng tindahan: paalala, bilin, ideya.',
+  'Write reminders or instructions, and link them to a product, customer, supplier or employee.':'Magsulat ng paalala o bilin, at i-link sa produkto, suki, supplier o empleyado.',
+  'Customers earn points':'Nakakakuha ng puntos ang mga suki', 'Off. Turn it on with your own rules.':'Naka-off. I-on gamit ang sarili mong patakaran.', 'Your rules':'Mga patakaran mo',
+  'Spend per point (₱)':'Gastos bawat puntos (₱)', 'Points for a reward':'Puntos para sa pabuya', 'The reward':'Ang pabuya',
+  'Points are earned only on sales where you pick the customer, and voided sales take their points back.':'May puntos lang ang benta kung pinili mo ang suki, at binabawi ang puntos ng na-void na benta.',
+  'Referrals start from a customer. Add one in Utang first.':'Nagsisimula ang referral sa isang suki. Magdagdag muna sa Utang.',
+  'Track who brought whom. Pentra never pays a referral reward by itself; give rewards yourself and mark them here.':'Itala kung sino ang nagdala kanino. Hindi kusang nagbabayad si Pentra ng pabuya sa referral; ikaw ang magbibigay at magmamarka dito.',
+  // reports
+  'This month':'Ngayong buwan', 'Last month':'Nakaraang buwan', 'Gross profit':'Kabuuang tubo', 'Cost of goods sold':'Puhunan ng nabenta', 'How customers paid':'Paano nagbayad ang mga suki',
+  'Top products':'Pinakamabentang produkto', 'Money in and out':'Pumasok at lumabas na pera', 'Stock received':'Natanggap na paninda', 'Exact, to the centavo':'Eksakto, hanggang sentimo',
+  'From delivery costs and your cost prices':'Mula sa puhunan ng delivery at mga puhunang itinakda mo', 'Both together, for reference':'Pinagsama, para sa sanggunian',
+  // alerts
+  'Alerts':'Mga alerto', 'All clear.':'Walang problema.', 'Phone notifications':'Abiso sa cellphone', 'When to alert me':'Kailan ako aabisuhan',
+  'Worked out from your store’s records, so they clear themselves when the problem is fixed.':'Galing sa records ng tindahan mo, kaya kusang nawawala kapag naayos na ang problema.',
+  'Pentra tells you here when stock runs low or expires, bills come due, utang goes quiet, or something needs a check.':'Dito sasabihin ni Pentra kapag paubos o nag-expire ang paninda, may bayaring due, matagal nang walang bayad ang utang, o may kailangang tingnan.',
+  'Notifications are blocked for Pentra in this browser’s settings.':'Naka-block ang abiso ng Pentra sa settings ng browser na ito.', 'Expiry: days ahead':'Expiry: ilang araw bago',
+  'Utang: days without a payment':'Utang: ilang araw na walang bayad', 'Bills: days before the due date':'Bayarin: ilang araw bago ang due date',
+  // staff
+  'Invite staff':'Mag-invite ng tauhan', 'No staff yet.':'Wala pang tauhan.', 'What each role can do':'Ano ang pwede sa bawat role', 'Cashier:':'Cashier:', 'Manager:':'Manager:',
+  'Invite a helper as Cashier (sell, collect utang, GCash and load) or Manager (also stock, prices, voids, bills and reports).':'Mag-invite ng tauhan bilang Cashier (magbenta, maningil ng utang, GCash at load) o Manager (pati stock, presyo, void, bayarin at ulat).',
+  'Each helper signs in with their own Pentra account. Pentra doesn’t send emails: tell them to sign in with the address you invite and open My Tindahan; the invitation appears there.':'May sariling Pentra account ang bawat tauhan. Hindi nagpapadala ng email si Pentra: sabihan silang mag-sign in gamit ang email na in-invite mo at buksan ang My Tindahan; doon lalabas ang imbitasyon.',
+  'Only the owner can pay sahod, use the cash vault, change store settings and rewards, back up or import, and manage staff. The server enforces these rules, not just this screen.':'Ang may-ari lang ang pwedeng magbayad ng sahod, gumamit ng taguan ng pera, magbago ng settings at pabuya, mag-backup o mag-import, at mamahala ng tauhan. Ang server ang nagpapatupad nito, hindi lang ang screen na ito.',
+  'record sales, add customers, record utang payments, do gcash cash-in, do gcash cash-out, sell load, write notes, redeem reward points.':'magtala ng benta, magdagdag ng suki, magtala ng bayad sa utang, mag-GCash cash-in at cash-out, magbenta ng load, magsulat ng tala, mag-redeem ng puntos.',
+  'everything a cashier can, plus void sales, receive stock, adjust stock, add products and change prices, archive products, add services, add utang by hand, top up the gcash float, buy load, count cash, gcash and load, manage suppliers, add bills, pay bills, track referrals, mark clashes as checked, see reports and profit, count stock (also needs record sales and the stock-adjusting permission).':'lahat ng pwede sa cashier, pati mag-void ng benta, tumanggap at mag-adjust ng stock, magdagdag ng produkto at magbago ng presyo, mag-archive ng produkto, magdagdag ng serbisyo, magdagdag ng utang nang mano-mano, magdagdag ng GCash float, bumili ng load, bumilang ng cash, GCash at load, mamahala ng supplier, magdagdag at magbayad ng bayarin, magtala ng referral, markahang natingnan ang mga salungatan, makita ang ulat at tubo, bumilang ng paninda (kailangan din ng pagtala ng benta at pag-adjust ng stock).',
+  // backup and data
+  'Keep a copy of Aling Nena Sari-Sari Store, open your numbers in a spreadsheet, or bring products in from one.':'Magtabi ng kopya ng Aling Nena Sari-Sari Store, buksan ang mga numero mo sa spreadsheet, o magpasok ng produkto mula rito.',
+  'Full backup of this business (.json)':'Buong backup ng negosyong ito (.json)', 'Restore or merge a backup (.json)':'I-restore o pagsamahin ang backup (.json)',
+  'Products (.csv)':'Mga produkto (.csv)', 'Sales (.csv)':'Mga benta (.csv)', 'Customers and utang (.csv)':'Mga suki at utang (.csv)', 'Money movements (.csv)':'Galaw ng pera (.csv)',
+  'Import products (.csv)':'Mag-import ng produkto (.csv)', 'Products template (.csv)':'Template ng produkto (.csv)', 'Copy diagnostic report':'Kopyahin ang diagnostic report',
+  'The full backup has every entry ever recorded and can be restored on any phone. The spreadsheets are for reading your numbers in Excel or Google Sheets.':'Nasa buong backup ang lahat ng naitala at pwedeng i-restore sa kahit anong cellphone. Ang mga spreadsheet ay para mabasa ang mga numero mo sa Excel o Google Sheets.',
+  'Restoring adds only entries that are not already here, so importing the same backup twice changes nothing. Product spreadsheets are checked row by row before anything is saved.':'Idinadagdag lang ng restore ang mga talang wala pa rito, kaya walang magbabago kung dalawang beses i-import ang parehong backup. Sinusuri ang spreadsheet ng produkto bawat hilera bago may ma-save.',
+  'Storage is not protected.':'Hindi protektado ang storage.', 'Protect my data':'Protektahan ang data ko'
+};
+
+/* Phrases with numbers or names: [pattern, replacement]. Numbers, amounts and names are carried over unchanged. */
+var I18N_TL_PATTERNS = [
+  [/^(\d+) days$/, '$1 araw'], [/^(\d+) deliveries$/, '$1 delivery'], [/^(\d+) delivery$/, '$1 delivery'], [/^(\d+) pcs in stock$/, '$1 pcs na nasa stock'],
+  [/^(\d+) pcs · never counted$/, '$1 pcs · hindi pa nabibilang'], [/^(\d+) products?$/, '$1 produkto'], [/^(\d+) sales? · (\d+) items?$/, '$1 benta · $2 item'],
+  [/^(\d+)\+ characters$/, '$1+ na character'], [/^1\. Choose products$/, '1. Pumili ng produkto'], [/^3\. Totals$/, '3. Kabuuan'],
+  [/^2\. What is left on the shelf\?$/, '2. Ano ang natira sa estante?'], [/^Fees earned (₱[\d,.]+)$/, 'Kinitang fee $1'],
+  [/^GCash float below \(₱, 0 = off\)$/, 'Alerto kapag GCash float ay mas mababa sa (₱, 0 = off)'], [/^Load balance below \(₱, 0 = off\)$/, 'Alerto kapag load ay mas mababa sa (₱, 0 = off)'],
+  [/^Markup is the % added on top of the cost\. Profit margin is the % of the selling price that is profit\. A (\d+)% markup is a (\d+)% profit margin\.$/, 'Ang patong ay % na idinadagdag sa puhunan. Ang porsiyento ng tubo ay % ng presyong benta na tubo. Ang $1% na patong ay $2% na porsiyento ng tubo.'],
+  [/^Nearest (₱[\d.]+)$/, 'Pinakamalapit na $1'], [/^Up to the next (₱[\d.]+)$/, 'Pataas sa susunod na $1'], [/^Pack of (\d+)$/, 'Pakete ng $1'],
+  [/^No count yet: started ([\d.]+), received \+([\d.]+), sold at the register ([\d.]+)\.$/, 'Wala pang bilang: nagsimula sa $1, natanggap +$2, nabenta sa kaha $3.'],
+  [/^Nothing due in the next (\d+) days\.$/, 'Walang due sa susunod na $1 araw.'], [/^Outstanding now: (₱[\d,.]+)$/, 'Natitira ngayon: $1'],
+  [/^Received ([\d.,]+) × (.+)$/, 'Natanggap ang $1 × $2'], [/^sells at (₱[\d,.]+), costs (₱[\d,.]+)$/, 'benta $1, puhunan $2'],
+  [/^Today: (₱[\d,.]+) from (\d+) sales? · (\d+) items? sold · Profit (₱[\d,.]+) ·$/, 'Ngayon: $1 mula sa $2 benta · $3 item na nabenta · Tubo $4 ·'],
+  [/^· cash on hand (₱[\d,.]+) \(kept separate\) · fees earned (₱[\d,.]+) · today: cash-in (₱[\d,.]+), cash-out (₱[\d,.]+)$/, '· pera sa kaha $1 (hiwalay) · kinitang fee $2 · ngayon: cash-in $3, cash-out $4'],
+  [/^· fees earned (₱[\d,.]+) · networks: (.+)$/, '· kinitang fee $1 · mga network: $2'], [/^· net today (₱[\d,.-]+) · this week (₱[\d,.-]+) · this month (₱[\d,.-]+)$/, '· neto ngayon $1 · ngayong linggo $2 · ngayong buwan $3'],
+  [/^More actions for (.+)$/, 'Iba pang aksyon para sa $1'], [/^Product saved: (.+)$/, 'Nai-save ang produkto: $1'], [/^Tindahan: (.+)\. Switch$/, 'Tindahan: $1. Palitan'],
+  [/^The browser may clear Pentra’s records if the phone runs low on space\. Keep online backup on\. Pentra uses ([\d.]+) MB of the ([\d,]+) MB this browser allows\.$/, 'Maaaring burahin ng browser ang records ng Pentra kapag kaunti na ang space ng cellphone. Panatilihing naka-on ang online backup. Gumagamit si Pentra ng $1 MB sa $2 MB na pinapayagan ng browser na ito.']
+];
+
+/* Dates: day and month names in Filipino. Function replacements keep the numbers. */
+var I18N_TL_WD = { Monday:'Lunes', Tuesday:'Martes', Wednesday:'Miyerkules', Thursday:'Huwebes', Friday:'Biyernes', Saturday:'Sabado', Sunday:'Linggo' };
+var I18N_TL_MO = { January:'Enero', February:'Pebrero', March:'Marso', April:'Abril', May:'Mayo', June:'Hunyo', July:'Hulyo', August:'Agosto', September:'Setyembre', October:'Oktubre', November:'Nobyembre', December:'Disyembre' };
+var I18N_TL_MOS = { Jan:'Ene', Feb:'Peb', Mar:'Mar', Apr:'Abr', May:'May', Jun:'Hun', Jul:'Hul', Aug:'Ago', Sep:'Set', Oct:'Okt', Nov:'Nob', Dec:'Dis' };
+(function(){ var WD = '(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)', MO = '(January|February|March|April|May|June|July|August|September|October|November|December)', MS = '(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
+  var day = function(w, m, d){ return I18N_TL_WD[w] + ', ' + I18N_TL_MO[m] + ' ' + d; };
+  I18N_TL_PATTERNS.push(
+    [/^(\d+) pcs$/, '$1 pcs'],
+    [new RegExp('^' + WD + ', ' + MO + ' (\\d{1,2})$'), function(_, w, m, d){ return day(w, m, d); }],
+    [new RegExp('^' + WD + ', ' + MO + ' (\\d{1,2}) · each business keeps its own separate records\\.$'), function(_, w, m, d){ return day(w, m, d) + ' · may sariling hiwalay na records ang bawat negosyo.'; }],
+    [new RegExp('^(.+?) · ' + WD + ', ' + MO + ' (\\d{1,2})$'), function(_, pre, w, m, d){ return (I18N_TL[pre] || pre) + ' · ' + day(w, m, d); }],
+    [new RegExp('^' + MS + ' (\\d{1,2}), (\\d{4}), (\\d{1,2}:\\d{2} [AP]M)$'), function(_, m, d, y, t){ return I18N_TL_MOS[m] + ' ' + d + ', ' + y + ', ' + t; }],
+    [new RegExp('^' + MS + ' (\\d{1,2}), (\\d{1,2}:\\d{2} [AP]M)$'), function(_, m, d, t){ return I18N_TL_MOS[m] + ' ' + d + ', ' + t; }]);
+})();
+
+/* Subscriptions and admin */
+Object.assign(I18N_TL, {
+  'Upgrade Pentra Tindahan':'Mag-upgrade ng Pentra Tindahan', 'Choose a plan':'Pumili ng plan', 'Plan':'Plan', 'Monthly':'Buwanan', 'Yearly':'Taunan', 'per month':'bawat buwan', 'per year':'bawat taon',
+  'Download QR':'I-download ang QR', 'Submit your payment':'Isumite ang bayad mo', 'Reference number':'Reference number', 'Your payments':'Mga bayad mo', 'No payments yet.':'Wala pang bayad.',
+  'Scan with GCash, Maya, GoTyme or any bank app that pays InstaPay QR. Send the exact amount; your app may add a small transfer fee.':'I-scan gamit ang GCash, Maya, GoTyme o anumang bank app na tumatanggap ng InstaPay QR. Ipadala ang eksaktong halaga; maaaring may maliit na transfer fee ang app mo.',
+  'I understand that once my payment is approved it is non-refundable, and that each payment is checked by a person.':'Naiintindihan ko na kapag naaprubahan na ang bayad ko, hindi na ito maibabalik, at bawat bayad ay sinusuri ng tao.',
+  'I’ve paid, submit for checking':'Nakapagbayad na ako, isumite para masuri', 'Waiting for checking':'Hinihintay masuri', 'Locked · Upgrade':'Naka-lock · Mag-upgrade',
+  'Pentra Tindahan is free for now. Plans start when billing is turned on.':'Libre pa ang Pentra Tindahan sa ngayon. Magsisimula ang mga plan kapag in-on na ang billing.',
+  'Admin':'Admin', 'Payments to check':'Mga bayad na susuriin', 'Subscribers':'Mga subscriber', 'All payments':'Lahat ng bayad', 'Approve':'Aprubahan', 'Reject':'Tanggihan', 'Export CSV':'I-export ang CSV',
+  'Lift restriction':'Alisin ang restriksyon', 'Save businesses':'I-save ang bilang ng negosyo', 'No payments are waiting.':'Walang bayad na naghihintay.', 'No subscribers yet.':'Wala pang subscriber.',
+  'Check each payment against your GoTyme history before approving.':'Tingnan ang bawat bayad sa GoTyme history mo bago aprubahan.', 'Submitted':'Naisumite', 'Account':'Account', 'Amount':'Halaga', 'Check':'Suriin',
+  'State':'Kalagayan', 'Trial ends':'Katapusan ng trial', 'Paid until':'Bayad hanggang', 'Businesses':'Mga negosyo', 'Change':'Baguhin', 'Businesses allowed':'Bilang ng negosyong pinapayagan',
+  'Reason, if rejecting':'Dahilan, kung tatanggihan', 'Reason for rejecting':'Dahilan ng pagtanggi', 'Need help with your payment?':'Kailangan ng tulong sa bayad?', 'This page is only for Pentra admins.':'Para lang sa mga admin ng Pentra ang page na ito.',
+  'Payment submitted. We will check it soon.':'Naisumite ang bayad. Susuriin namin ito agad.', 'Payment approved. The store is unlocked.':'Naaprubahan ang bayad. Bukas na ang tindahan.', 'Payment rejected.':'Tinanggihan ang bayad.', 'Saved.':'Nai-save.',
+  'Pay exactly':'Magbayad ng eksaktong', 'Check payments and manage subscribers':'Suriin ang mga bayad at pamahalaan ang mga subscriber', 'Loading…':'Naglo-load…', '+30 days':'+30 araw', '+365 days':'+365 araw'
+});
+I18N_TL_PATTERNS.push(
+  [/^Trial · (\d+) days? left$/, 'Trial · $1 araw na lang'], [/^Active until (.+)$/, 'Aktibo hanggang $1'],
+  [/^One plan covers (\d+) businesses and all their helpers\.$/, 'Sakop ng isang plan ang $1 negosyo at lahat ng tauhan nila.'], [/^saves (₱[\d,.]+)$/, 'tipid $1'],
+  [/^Email (\S+@\S+)$/, 'Mag-email sa $1'], [/^Payments to check \((\d+)\)$/, 'Mga bayad na susuriin ($1)'],
+  [/^Your plan covers (\d+) business(?:es)?\. For more, pay for another plan and email (.+)\.$/, 'Sakop ng plan mo ang $1 negosyo. Para sa higit pa, magbayad ng isa pang plan at mag-email sa $2.'],
+  [/^Your free trial has ended\. You can still view and download your records\. Upgrade to keep recording\.$/, 'Tapos na ang libreng trial mo. Pwede mo pa ring tingnan at i-download ang records mo. Mag-upgrade para makapagtala ulit.']);
+
+/* Admin controls and plan reminders */
+Object.assign(I18N_TL, {
+  'Billing':'Billing', 'Off. Nobody is locked; Pentra Tindahan is free for everyone.':'Naka-off. Walang naka-lock; libre ang Pentra Tindahan para sa lahat.', 'Add subscriber':'Magdagdag ng subscriber', 'History':'Kasaysayan',
+  'Email':'Email', 'Access to give':'Access na ibibigay', 'Free trial only':'Libreng trial lang', '1 month':'1 buwan', '1 year':'1 taon', 'Number of days':'Bilang ng araw', 'Number of days (if chosen above)':'Bilang ng araw (kung ito ang pinili sa itaas)',
+  'Record as a cash payment':'Itala bilang cash na bayad', 'Amount received in pesos (blank = plan price)':'Halagang natanggap sa piso (blangko = presyo ng plan)',
+  'If this email has no Pentra account yet, it waits. When they first sign in, they get the 14-day free trial plus what you give here.':'Kung wala pang Pentra account ang email na ito, maghihintay ito. Sa unang pag-sign in nila, makukuha nila ang 14 na araw na libreng trial at ang ibinigay mo rito.',
+  'Search by email':'Hanapin ayon sa email', 'Show':'Ipakita', 'All':'Lahat', 'Trial':'Trial', 'Active':'Aktibo', 'Locked':'Naka-lock', 'Paused':'Naka-pause', 'Removed':'Tinanggal', 'Waiting for sign-up':'Hinihintay mag-sign up', 'Billing off':'Naka-off ang billing',
+  'Nobody is waiting.':'Walang naghihintay.', 'Access':'Access', 'Restore':'Ibalik', 'Remove':'Tanggalin', 'Cancel':'Kanselahin', 'No admin actions yet.':'Wala pang ginawang admin.', 'When':'Kailan', 'Action':'Ginawa', 'Details':'Detalye',
+  'Turn billing on?':'I-on ang billing?', 'Turn billing off?':'I-off ang billing?', 'Yes, turn billing on':'Oo, i-on ang billing', 'Yes, turn billing off':'Oo, i-off ang billing', 'Yes, pause':'Oo, i-pause', 'Yes, resume':'Oo, ituloy', 'Yes, remove':'Oo, tanggalin', 'Yes, restore':'Oo, ibalik',
+  'Every account without a plan gets its free trial (14 days from the first launch date), then needs a plan to keep recording.':'Bawat account na walang plan ay may libreng trial (14 na araw mula sa unang launch), pagkatapos ay kailangan ng plan para makapagtala.',
+  'Nobody will be locked. All plans, payments and dates are kept.':'Walang mala-lock. Mananatili ang lahat ng plan, bayad at petsa.',
+  'Their store stops recording new entries until you resume it. Their records and dates are kept.':'Hindi muna makakapagtala ang tindahan nila hanggang ituloy mo. Mananatili ang records at petsa nila.',
+  'They get back exactly the access they had.':'Maibabalik nang eksakto ang access nila.', 'They get back exactly the access they had before.':'Maibabalik nang eksakto ang dating access nila.',
+  'Their access ends now. Their records are kept, they get no new free trial, and you can restore them later.':'Matatapos ngayon ang access nila. Mananatili ang records nila, walang bagong libreng trial, at pwede mo silang ibalik mamaya.',
+  'Billing is on.':'Naka-on na ang billing.', 'Billing is off.':'Naka-off na ang billing.', 'Paused.':'Naka-pause.', 'Resumed.':'Itinuloy.', 'Removed. Their records are kept.':'Tinanggal. Mananatili ang records nila.', 'Restored.':'Naibalik.', 'Cancelled.':'Kinansela.',
+  'Upgrade':'Mag-upgrade', 'Later':'Mamaya', 'Your free trial ends today':'Ngayon ang huling araw ng libreng trial mo', 'Your free trial ends tomorrow':'Bukas ang huling araw ng libreng trial mo', 'Your plan ends today':'Ngayon ang huling araw ng plan mo', 'Your plan ends tomorrow':'Bukas ang huling araw ng plan mo',
+  'Upgrade anytime: ₱129 a month or ₱1,199 a year.':'Mag-upgrade kahit kailan: ₱129 kada buwan o ₱1,199 kada taon.', 'Payment waiting for checking':'Bayad na hinihintay masuri', 'Your free trial has ended':'Tapos na ang libreng trial mo', 'Your plan has ended':'Tapos na ang plan mo',
+  'Your account is paused':'Naka-pause ang account mo', 'Your access has ended':'Tapos na ang access mo', 'Payments, subscribers and billing':'Mga bayad, subscriber at billing', 'Your account is paused.':'Naka-pause ang account mo.', 'Your access has ended.':'Tapos na ang access mo.'
+});
+I18N_TL_PATTERNS.push(
+  [/^Your free trial ends in (\d+) days$/, 'Matatapos ang libreng trial mo sa loob ng $1 araw'], [/^Your plan ends in (\d+) days$/, 'Matatapos ang plan mo sa loob ng $1 araw'],
+  [/^Upgrade now so your store is not paused\. Questions\? Email (\S+)\.$/, 'Mag-upgrade na para hindi ma-pause ang tindahan mo. May tanong? Mag-email sa $1.'],
+  [/^Renew now so your store is not paused\. Questions\? Email (\S+)\.$/, 'Mag-renew na para hindi ma-pause ang tindahan mo. May tanong? Mag-email sa $1.'],
+  [/^New entries are paused\. Upgrade or email (\S+) to continue\. Your records are safe\.$/, 'Naka-pause ang bagong pagtatala. Mag-upgrade o mag-email sa $1 para magpatuloy. Ligtas ang records mo.'],
+  [/^Please email (\S+) to continue\. Your records are safe\.$/, 'Mag-email sa $1 para magpatuloy. Ligtas ang records mo.'],
+  [/^(Paused|Access ended) · Email us$/, function(m, a){ return (a === 'Paused' ? 'Naka-pause' : 'Tapos na ang access') + ' · Mag-email sa amin'; }],
+  [/^On since (.+)\. Trials and plans apply\.$/, 'Naka-on mula $1. May bisa ang trial at mga plan.'], [/^(Pause|Resume|Remove|Restore) (\S+@\S+)\?$/, function(m, v, e){ return ({ Pause:'I-pause', Resume:'Ituloy', Remove:'Tanggalin', Restore:'Ibalik' })[v] + ' si ' + e + '?'; }],
+  [/^Added\. Access given to (\S+)\.$/, 'Naidagdag. Nabigyan ng access si $1.'], [/^Saved\. It will apply when (\S+) first signs in\.$/, 'Nai-save. Mailalapat ito sa unang pag-sign in ni $1.']);
+
+/* Upgrade page, plan card and admin alerts */
+Object.assign(I18N_TL, {
+  'Upgrade to Yearly':'Mag-upgrade sa Taunan', 'Upgrade to Monthly':'Mag-upgrade sa Buwanan', 'Switch to Monthly':'Lumipat sa Buwanan', 'Switch to Yearly':'Lumipat sa Taunan', 'Prefer paying monthly?':'Mas gusto mo bang buwanan?',
+  'Scan with GCash, Maya, GoTyme or any bank app that pays InstaPay QR, or download the QR and upload it in your app. Your app shows the account\u2019s registered name when you pay.':'I-scan gamit ang GCash, Maya, GoTyme o anumang bank app na tumatanggap ng InstaPay QR, o i-download ang QR at i-upload sa app mo. Ipapakita ng app mo ang rehistradong pangalan ng account kapag nagbayad ka.',
+  'After you submit, your store keeps working while we check that your payment arrived. This is usually done within a few hours.':'Pagkatapos mong magsumite, tuloy ang tindahan mo habang sinusuri namin kung dumating ang bayad. Karaniwang tapos ito sa loob ng ilang oras.',
+  'Only submit a reference number for a payment you actually sent. We check each one by hand, and accounts with 2 rejected submissions cannot submit more.':'Magsumite lang ng reference number ng bayad na talagang ipinadala mo. Isa-isa namin itong sinusuri, at hindi na makakapagsumite ang account na may 2 tinanggihang bayad.',
+  'I understand that once my payment is checked and my plan is applied, it is non-refundable. If I stop, I keep the plan until the period I paid for ends.':'Naiintindihan ko na kapag nasuri na ang bayad ko at nailapat ang plan, hindi na ito maibabalik. Kung titigil ako, tuloy ang plan hanggang matapos ang panahong binayaran ko.',
+  'Current plan':'Kasalukuyang plan', 'Free trial':'Libreng trial', 'Ended':'Tapos na', 'We are checking your payment.':'Sinusuri namin ang bayad mo.', 'Upgrade to keep recording.':'Mag-upgrade para makapagtala ulit.', 'New payment to check':'May bagong bayad na susuriin'
+});
+I18N_TL_PATTERNS.push(
+  [/^(₱[\d,.]+) a (year|month): all of Pentra Tindahan for (\d+) businesses and their helpers\. Scan the QR code below, pay, then submit your reference number so we can check it\.$/, function(m, p, u, n){ return p + ' kada ' + (u === 'year' ? 'taon' : 'buwan') + ': buong Pentra Tindahan para sa ' + n + ' negosyo at mga tauhan nila. I-scan ang QR code sa ibaba, magbayad, at isumite ang reference number para masuri namin.'; }],
+  [/^Want to save (₱[\d,.]+) a year\?$/, 'Gusto mo bang makatipid ng $1 kada taon?'], [/^(\d+) days? left in your free trial\. Upgrade to keep recording after it ends\.$/, '$1 araw na lang sa libreng trial mo. Mag-upgrade para tuloy ang pagtatala pagkatapos nito.'],
+  [/^Upgrade to (Monthly|Yearly) · (₱[\d,.]+)$/, function(m, p, v){ return 'Mag-upgrade sa ' + (p === 'Monthly' ? 'Buwanan' : 'Taunan') + ' · ' + v; }], [/^Renew · (Monthly|Yearly) (₱[\d,.]+)$/, function(m, p, v){ return 'I-renew · ' + (p === 'Monthly' ? 'Buwanan' : 'Taunan') + ' ' + v; }],
+  [/^Please email (\S+)\.$/, 'Mag-email sa $1.'], [/^(\d+) waiting\. Latest: (\S*) (₱[\d,.]+) \(ref (\S*)\)\.$/, '$1 naghihintay. Pinakabago: $2 $3 (ref $4).'], [/^Admin \((\d+)\)$/, 'Admin ($1)']);
+
+/* Premium status and renewal reminders */
+Object.assign(I18N_TL, { 'Payment approved: you\u2019re on Premium':'Naaprubahan ang bayad: Premium ka na', 'Your Premium plan':'Ang Premium plan mo', 'Renew early':'Mag-renew nang maaga', 'Renew now':'Mag-renew na', 'Renew':'Mag-renew', 'OK':'OK' });
+I18N_TL_PATTERNS.push(
+  [/^Your (Yearly|Monthly) plan is active until (.+)\. Thank you!$/, function(m, p, d){ return 'Aktibo ang ' + (p === 'Yearly' ? 'Taunan' : 'Buwanan') + ' plan mo hanggang ' + d + '. Salamat!'; }],
+  [/^Premium until (.+)$/, 'Premium hanggang $1'], [/^Premium · (Yearly|Monthly)$/, function(m, p){ return 'Premium · ' + (p === 'Yearly' ? 'Taunan' : 'Buwanan'); }],
+  [/^Your plan ends (in (\d+) days|today|tomorrow)\. Renew now so your store is not paused\.$/, function(m, w, n){ return (w === 'today' ? 'Ngayon ang huling araw ng plan mo' : w === 'tomorrow' ? 'Bukas ang huling araw ng plan mo' : 'Matatapos ang plan mo sa loob ng ' + n + ' araw') + '. Mag-renew na para hindi ma-pause ang tindahan mo.'; }]);
+Object.assign(I18N_TL, { 'Pay for more time':'Magbayad para sa dagdag na oras', 'Enter the reference number from your receipt (4 to 30 letters or numbers) and tick the box to submit.':'Ilagay ang reference number mula sa resibo mo (4 hanggang 30 letra o numero) at i-tsek ang kahon para makapagsumite.' });
+Object.assign(I18N_TL, { 'Reference number (full, or the last 4 digits)':'Reference number (buo, o ang huling 4 na numero)', 'Full number or last 4 digits':'Buong numero o huling 4 na numero',
+  'Enter the full reference number from your receipt, or at least its last 4 digits, and tick the box to submit. Add the time you paid in the note (for example, Sent at 3:15 pm) so we can find it quickly.':'Ilagay ang buong reference number mula sa resibo mo, o kahit ang huling 4 na numero nito, at i-tsek ang kahon para makapagsumite. Isulat sa note ang oras ng pagbayad (halimbawa, Sent at 3:15 pm) para mabilis namin itong mahanap.',
+  'Same reference as another payment: check carefully':'Kapareho ng reference ng ibang bayad: suriing mabuti' });
+/* Language switch: English | Tagalog.
+   The app keeps rendering English. With Tagalog on, this layer swaps UI phrases after each render: text nodes and the
+   placeholder, title and aria-label attributes, matched exactly (whole trimmed text) against I18N_TL or I18N_TL_PATTERNS.
+   It remembers each original so English comes back exactly. Store data is never in the dictionary, typed input values
+   are never touched, and translate="no" subtrees are skipped. This phase covers the Tindahan side and the sign-in
+   screens; the Personal side stays English (the switch is hidden there). */
+var I18n = (function(){
+  var KEY = 'pentra-lang', ATTRS = ['placeholder', 'title', 'aria-label'], SKIP = { SCRIPT:1, STYLE:1, NOSCRIPT:1, TEXTAREA:1, CODE:1, PRE:1 };
+  var lang = 'en', txt = new WeakMap(), att = new WeakMap(), obs = null;
+  function norm(s){ return String(s).replace(/\s+/g, ' ').trim(); }
+  function tr(s){ var k = norm(s); if (!k || !/[A-Za-z]/.test(k)) return null;
+    var d = window.I18N_TL || {}; if (Object.prototype.hasOwnProperty.call(d, k)) return d[k];
+    var P = window.I18N_TL_PATTERNS || []; for (var i = 0; i < P.length; i++) if (P[i][0].test(k)) return k.replace(P[i][0], P[i][1]);
+    return null; }
+  /* Tindahan pages and the sign-in screen; the Personal side stays English in this phase */
+  function scope(){ return /^#\/t(\/|$)/.test(location.hash || '') || !!document.querySelector('.auth'); }
+  function active(){ return lang === 'tl' && scope(); }
+  function skipped(n){ for (var e = n.nodeType === 1 ? n : n.parentNode; e && e.nodeType === 1; e = e.parentNode){
+      if (SKIP[e.nodeName] || e.getAttribute('translate') === 'no') return true; } return false; }
+  function doText(n){ var v = n.nodeValue, r = txt.get(n); if (r && v === r.tl) return; if (skipped(n)) return;
+    var t = tr(v); if (t == null || t === norm(v)) return;
+    var out = v.match(/^\s*/)[0] + t + v.match(/\s*$/)[0]; txt.set(n, { en:v, tl:out }); n.nodeValue = out; }
+  function doAttrs(el){ if (!el.getAttribute || skipped(el)) return; var r = att.get(el);
+    for (var i = 0; i < ATTRS.length; i++){ var a = ATTRS[i], v = el.getAttribute(a); if (v == null || (r && r[a] && v === r[a].tl)) continue;
+      var t = tr(v); if (t == null || t === v) continue; r = r || {}; r[a] = { en:v, tl:t }; att.set(el, r); el.setAttribute(a, t); } }
+  function walk(root){ if (!root) return; if (root.nodeType === 3) return doText(root); if (root.nodeType !== 1 || SKIP[root.nodeName]) return;
+    doAttrs(root); var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT), n;
+    while ((n = w.nextNode())) { if (n.nodeType === 3) doText(n); else doAttrs(n); } }
+  function restore(){ var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT), n;
+    while ((n = w.nextNode())) {
+      if (n.nodeType === 3) { var r = txt.get(n); if (r) { if (n.nodeValue === r.tl) n.nodeValue = r.en; txt.delete(n); } }
+      else { var ra = att.get(n); if (ra) { for (var a in ra) if (n.getAttribute(a) === ra[a].tl) n.setAttribute(a, ra[a].en); att.delete(n); } } } }
+  function watch(){ if (obs || !window.MutationObserver) return;
+    obs = new MutationObserver(function(recs){ if (!active()) return;
+      for (var i = 0; i < recs.length; i++){ var r = recs[i];
+        if (r.type === 'childList') { for (var j = 0; j < r.addedNodes.length; j++) walk(r.addedNodes[j]); }
+        else if (r.type === 'characterData') doText(r.target);
+        else if (r.type === 'attributes') doAttrs(r.target); } });
+    obs.observe(document.body, { childList:true, subtree:true, characterData:true, attributes:true, attributeFilter:ATTRS }); }
+  function pressed(){ var b = document.querySelectorAll('.lang-sw button'); for (var i = 0; i < b.length; i++) b[i].setAttribute('aria-pressed', String(b[i].getAttribute('data-lang') === lang)); }
+  function apply(){ document.documentElement.lang = active() ? 'fil' : 'en'; if (active()) walk(document.body); else restore(); pressed(); }
+  function set(l){ l = l === 'tl' ? 'tl' : 'en'; if (l === lang) return; lang = l;
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    apply(); if (typeof render === 'function' && !document.querySelector('.auth')) render(); apply(); }
+  function button(){ if (!scope()) return '';
+    var one = function(l, label, name){ return '<button type="button" data-act="lang-set" data-lang="' + l + '" aria-pressed="' + (lang === l) + '" aria-label="' + name + '">' + label + '</button>'; };
+    return '<div class="lang-sw" role="group" aria-label="' + (lang === 'tl' ? 'Wika' : 'Language') + '" translate="no">' + one('en', 'EN', 'English') + one('tl', 'TL', 'Tagalog') + '</div>'; }
+  function init(){ var l = ''; try { l = localStorage.getItem(KEY) || ''; } catch (e) {}
+    if (!l) l = /^(fil|tl)\b/i.test(String(navigator.language || '')) ? 'tl' : 'en';
+    lang = l === 'tl' ? 'tl' : 'en'; watch(); apply();
+    window.addEventListener('hashchange', function(){ setTimeout(apply, 0); }); }
+  if (typeof ACT !== 'undefined') ACT['lang-set'] = function(el){ set(el.getAttribute('data-lang')); };
+  if (document.body) init(); else document.addEventListener('DOMContentLoaded', init);
+  return { set:set, get:function(){ return lang; }, button:button, tr:tr, active:active };
+})();
+/* Subscriptions: a 14-day trial, then Monthly ₱129 or Yearly ₱1,199, paid by InstaPay QR and checked by an admin.
+   The server decides (pentra_my_access). This module shows the state, blocks new entries when locked (view and export
+   still work), and runs the Upgrade and Admin pages. If the server cannot answer, or billing is not set up, nobody is locked. */
+var Billing = (function(){
+  var PREFIX = 'pentra-access:', DAY = 864e5, A = null, loading = false, lastAt = 0;
+  var QR = { monthly:'pay/qr-card-monthly.png', yearly:'pay/qr-card-yearly.png' };
+  var form = { plan:'yearly', ref:'', note:'', agreed:false, busy:false, err:'' }, adm = { tab:'pay', pays:null, subs:null, all:null, err:'', busy:false };
+  function uid(){ var o = window.BizStore && BizStore.owner(); return o && o !== 'local' ? o : null; }
+  function client(){ return window.Auth && Auth.on && uid() && Auth.client ? Auth.client() : null; }
+  function peso(c){ c = +c || 0; return '₱' + (c / 100).toLocaleString('en-PH', { minimumFractionDigits:c % 100 ? 2 : 0, maximumFractionDigits:2 }); }
+  function day(d){ return d ? new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : ''; }
+  function tindahan(){ return /^#\/t(\/|$)/.test(location.hash || ''); }
+  function cached(){ if (A) return A; try { var v = JSON.parse(localStorage.getItem(PREFIX + uid()) || 'null'); if (v && typeof v === 'object') A = v; } catch (e) {} return A; }
+  function now(){ return Date.now() + ((cached() || {}).skew || 0); }
+  function state(){ var a = cached(); if (!a || !a.enabled) return 'off'; var t = now();
+    if (a.suspended_at && t >= Date.parse(a.suspended_at)) return 'paused';
+    if (a.removed_at && t >= Date.parse(a.removed_at)) return 'removed';
+    if (a.paid_until && t < Date.parse(a.paid_until)) return 'active';   /* paid time counts first, even during the trial */
+    if (t < Date.parse(a.trial_ends_at)) return 'trial';
+    if (a.pending && t < Date.parse(a.pending.submitted_at) + (a.pending_hours || 24) * 36e5) return 'pending';
+    return 'locked'; }
+  function label(){ var s = state(), a = cached(), t, cls = 'bill-pill';
+    if (s === 'off') return '';
+    if (s === 'trial') { var d = Math.max(0, Math.ceil((Date.parse(a.trial_ends_at) - now()) / DAY)); t = 'Trial · ' + d + (d === 1 ? ' day left' : ' days left'); if (d <= 3) cls += ' warn'; }
+    else if (s === 'active') { t = 'Premium until ' + day(a.paid_until); if (Date.parse(a.paid_until) - now() <= 5 * DAY) cls += ' warn'; }
+    else if (s === 'pending') t = 'Waiting for checking';
+    else if (s === 'paused' || s === 'removed') { t = (s === 'paused' ? 'Paused' : 'Access ended') + ' · Email us'; cls += ' bad'; }
+    else { t = 'Locked · Upgrade'; cls += ' bad'; }
+    return '<a class="' + cls + '" href="#/t/upgrade">' + esc(t) + '</a>'; }
+  function reminder(){ var s = state(), a = cached() || {}, help = a.help_email || 'pentrascans@gmail.com', d, t;
+    if (s === 'trial') { d = Math.max(0, Math.ceil((Date.parse(a.trial_ends_at) - now()) / DAY));
+      t = d === 0 ? 'Your free trial ends today' : d === 1 ? 'Your free trial ends tomorrow' : 'Your free trial ends in ' + d + ' days';
+      return { key:'plan-trial:' + (d > 7 ? 'info' : d > 3 ? 7 : d > 1 ? 3 : d), now:d <= 3, soon:d <= 7, title:t, text:d <= 7 ? 'Upgrade now so your store is not paused. Questions? Email ' + help + '.' : 'Upgrade anytime: ₱129 a month or ₱1,199 a year.' }; }
+    if (s === 'active') { d = Math.max(0, Math.ceil((Date.parse(a.paid_until) - now()) / DAY));
+      if (d <= 5) return { key:'plan-renew:' + (d > 3 ? 5 : d > 1 ? 3 : d), now:d <= 3, soon:true, cta:'Renew', title:d === 0 ? 'Your plan ends today' : d === 1 ? 'Your plan ends tomorrow' : 'Your plan ends in ' + d + ' days', text:'Renew now so your store is not paused. Questions? Email ' + help + '.' };
+      var L = a.last_approval; if (L && L.reviewed_at && now() - Date.parse(L.reviewed_at) < 7 * DAY)
+        return { key:'plan-approved:' + L.reference, now:true, soon:true, once:true, good:true, title:'Payment approved: you\u2019re on Premium', text:'Your ' + (a.plan === 'yearly' ? 'Yearly' : 'Monthly') + ' plan is active until ' + day(a.paid_until) + '. Thank you!' };
+      return null; }
+    if (s === 'pending') return { key:'plan-pending:' + (a.pending && a.pending.reference), now:false, soon:false, title:'Payment waiting for checking', text:'We received reference ' + ((a.pending && a.pending.reference) || '') + '. Your store keeps working meanwhile.' };
+    if (s === 'locked') return { key:'plan-locked', now:true, soon:true, title:a.paid_until ? 'Your plan has ended' : 'Your free trial has ended', text:'New entries are paused. Upgrade or email ' + help + ' to continue. Your records are safe.' };
+    if (s === 'paused' || s === 'removed') return { key:'plan-' + s, now:true, soon:true, title:s === 'paused' ? 'Your account is paused' : 'Your access has ended', text:'Please email ' + help + ' to continue. Your records are safe.' };
+    return null; }
+  function alerts(){ var r = reminder(), a = cached(), out = r ? [{ key:r.key, tone:'combined', now:r.now, title:r.title, text:r.text, href:'#/t/upgrade' }] : [];
+    if (a && a.is_admin && a.admin_pending > 0) { var L = a.admin_latest || {}; out.unshift({ key:'admin-pay:' + (L.id || a.admin_pending), tone:'combined', now:true, title:'New payment to check', text:a.admin_pending + ' waiting. Latest: ' + (L.email || '') + ' ' + peso(L.amount) + ' (ref ' + (L.reference || '') + ').', href:'#/t/admin' }); }
+    return out; }
+  var hideKey = function(r){ return 'pentra-plan-hide:' + uid() + ':' + r.key + (r.once ? '' : ':' + new Date().toDateString()); };
+  function banner(){ var v = document.getElementById('view'); if (!v || !tindahan() || /^#\/t\/(upgrade|admin)/.test(location.hash)) return; var old = v.querySelector('.bill-banner'), r = reminder();
+    try { if (r && localStorage.getItem(hideKey(r))) r = null; } catch (e) {}
+    if (!r || !r.soon) { if (old) old.remove(); return; } if (old && old.getAttribute('data-key') === r.key) return; if (old) old.remove();
+    var el = document.createElement('div'); el.className = 'bill-banner' + (r.good ? ' good' : r.now ? ' bad' : ''); el.setAttribute('role', 'status'); el.setAttribute('data-key', r.key);
+    el.innerHTML = '<div><b>' + esc(r.title) + '</b><span>' + esc(r.text) + '</span></div>' + (r.good ? '<button type="button" class="btn primary" data-act="bl-later">OK</button>' : '<a class="btn primary" href="#/t/upgrade">' + (r.cta || 'Upgrade') + '</a><button type="button" class="btn" data-act="bl-later">Later</button>');
+    v.insertBefore(el, v.firstChild); }
+  if (typeof MutationObserver !== 'undefined') new MutationObserver(function(){ var v = document.getElementById('view'); if (v && !v.querySelector('.bill-banner')) banner(); }).observe(document.documentElement, { childList:true, subtree:true });
+  function isAdmin(){ var a = cached(); return !!(a && a.is_admin); }
+  function refresh(force){ var c = client(); if (!c || loading || (!force && Date.now() - lastAt < 60000)) return Promise.resolve(A);
+    loading = true; var before = JSON.stringify([state(), label(), isAdmin(), adminCount()]);
+    return c.rpc('pentra_my_access').then(function(r){ loading = false; lastAt = Date.now();
+      if (r && !r.error && r.data && typeof r.data === 'object') { var d = r.data; d.skew = d.server_now ? Date.parse(d.server_now) - Date.now() : 0; A = d;
+        try { localStorage.setItem(PREFIX + uid(), JSON.stringify(d)); } catch (e) {} }
+      if (JSON.stringify([state(), label(), isAdmin(), adminCount()]) !== before && tindahan() && typeof render === 'function') render(); else banner();
+      return A; }, function(){ loading = false; return A; }); }
+  /* Called by BizStore.append for every new entry: the one place every write passes. */
+  function denied(list, s){
+    if (window.Staff && Staff.role && s) { var r = Staff.role(s); if (r && r.key && r.key !== 'owner') return null; }     // helpers: the server decides by their owner
+    var st = state(), a = cached();
+    if (st === 'locked' || st === 'paused' || st === 'removed') { setTimeout(function(){ if (location.hash !== '#/t/upgrade' && typeof go === 'function') go('t/upgrade'); }, 0);
+      if (st === 'locked') return 'Your free trial has ended. You can still view and download your records. Upgrade to keep recording.';
+      return (st === 'paused' ? 'Your account is paused.' : 'Your access has ended.') + ' You can still view and download your records. Please email ' + ((a && a.help_email) || 'pentrascans@gmail.com') + ' to continue.'; }
+    if (st !== 'off' && a && s && (list || []).some(function(e){ return e.type === 'store.saved'; }) && !BizStore.stores().some(function(x){ return x.store === s.store; })) {
+      var n = BizStore.stores().filter(function(x){ return !(x.archived || x.status === 'archived'); }).length, slots = a.business_slots || 2;
+      if (n >= slots) return 'Your plan covers ' + slots + (slots === 1 ? ' business' : ' businesses') + '. For more, pay for another plan and email ' + (a.help_email || 'pentrascans@gmail.com') + '.'; }
+    return null; }
+  /* ---- Upgrade page ---- */
+  function status(){ var s = state(), a = cached() || {}, help = a.help_email || 'pentrascans@gmail.com', lines = [];
+    if (s === 'off') lines.push('<p>Pentra Tindahan is free for now. Plans start when billing is turned on.</p>');
+    if (s === 'trial') lines.push('<p>Your free trial ends on <b>' + esc(day(a.trial_ends_at)) + '</b>.</p>');
+    if (s === 'active') lines.push('<p>Your plan is active until <b>' + esc(day(a.paid_until)) + '</b>.</p>');
+    if (s === 'pending') lines.push('<p>We received your payment details (' + esc(a.pending.reference) + '). They are usually checked within a few hours; your store keeps working meanwhile.</p>');
+    if (s === 'paused' || s === 'removed') lines.push('<p><b>' + (s === 'paused' ? 'Your account is paused.' : 'Your access has ended.') + '</b> You can still view and download your records in <a href="#/t/data">Backup &amp; import</a>. Please email ' + esc(help) + ' to continue.</p>');
+    if (s === 'locked') lines.push('<p><b>Your free trial has ended.</b> You can still view and download your records in <a href="#/t/data">Backup &amp; import</a>. Upgrade to keep recording.</p>');
+    if (a.restricted) lines.push('<p class="err">Two payments could not be verified. Please email ' + esc(help) + ' before submitting again.</p>');
+    else if (a.last_rejection && s !== 'active') lines.push('<p class="err">Payment ' + esc(a.last_rejection.reference) + ' could not be verified: ' + esc(a.last_rejection.reason || '') + '</p>');
+    return lines.join(''); }
+  function upgrade(){ var a = cached() || {}, pm = a.price_monthly || 12900, py = a.price_yearly || 119900, yr = form.plan !== 'monthly', amt = yr ? py : pm, help = a.help_email || 'pentrascans@gmail.com';
+    var save = pm * 12 - py, pays = a.payments || [], ok = canSubmit(), st = status();
+    var plan = function(k, name, price, per, extra){ return '<button type="button" role="radio" class="bill-plan" data-act="bl-plan" data-plan="' + k + '" aria-checked="' + (form.plan === k) + '"><b>' + name + '</b><span class="bill-price">' + peso(price) + '</span><span class="small">' + per + '</span>' + (extra ? '<span class="bill-save">' + extra + '</span>' : '') + '</button>'; };
+    var act = state() === 'active', left = act ? Math.max(0, Math.ceil((Date.parse(a.paid_until) - now()) / DAY)) : 0;
+    var pay = '<div class="bill-plans"'
+      + ' role="radiogroup" aria-label="Plan">' + plan('monthly', 'Monthly', pm, 'per month', '') + plan('yearly', 'Yearly', py, 'per year', save > 0 ? 'saves ' + peso(save) : '') + '</div>'
+      + '<figure class="bill-qr">\x3cimg src="' + QR[form.plan] + '" alt="InstaPay QR code for Pentra Tindahan, ' + peso(amt) + '" width="300" height="443"><figcaption>Pay exactly <b>' + peso(amt) + '</b> · Pentra Tindahan</figcaption></figure>'
+      + '<div class="actions bill-center"><a class="btn" href="' + QR[form.plan] + '" download="Pentra-Tindahan-' + form.plan + '-QR.png">Download QR</a></div>'
+      + '<p class="small bill-center">Scan with GCash, Maya, GoTyme or any bank app that pays InstaPay QR, or download the QR and upload it in your app. Your app shows the account\u2019s registered name when you pay.</p>'
+      + '<p class="small bill-center">After you submit, your store keeps working while we check that your payment arrived. This is usually done within a few hours.</p>'
+      + '<section class="panel bill-formcard"><h2>Submit your payment</h2>'
+      + '<label class="lbl" for="bl-ref">Reference number (full, or the last 4 digits)</label><input id="bl-ref" class="input" data-bl="ref" autocomplete="off" maxlength="34" placeholder="Full number or last 4 digits" value="' + esc(form.ref) + '">'
+      + '<label class="lbl" for="bl-note">Note (optional)</label><input id="bl-note" class="input" data-bl="note" maxlength="200" placeholder="e.g. Sent at 3:15 pm" value="' + esc(form.note) + '">'
+      + '<p class="small">Only submit a reference number for a payment you actually sent. We check each one by hand, and accounts with 2 rejected submissions cannot submit more.</p>'
+      + '<label class="bill-agree"><input type="checkbox" data-bl="agreed"' + (form.agreed ? ' checked' : '') + '><span>I understand that once my payment is checked and my plan is applied, it is non-refundable. If I stop, I keep the plan until the period I paid for ends.</span></label>'
+      + '<p class="small">Enter the full reference number from your receipt, or at least its last 4 digits, and tick the box to submit. Add the time you paid in the note (for example, Sent at 3:15 pm) so we can find it quickly.</p>' + (form.err ? '<p class="err" role="alert">' + esc(form.err) + '</p>' : '')
+      + '<button type="button" class="btn primary bill-wide" data-act="bl-submit" id="bl-submit"' + (ok ? '' : ' disabled') + '>I\u2019ve paid, submit for checking</button></section>';
+    var head = act ? '<p class="bill-kicker">Premium</p><h1>Your Premium plan</h1><section class="panel bill-premium"><p><b>Premium · ' + (a.plan === 'yearly' ? 'Yearly' : 'Monthly') + '</b></p><p>Active until <b>' + esc(day(a.paid_until)) + '</b>.</p></section>'
+      : '<p class="bill-kicker">Upgrade</p><h1>' + (yr ? 'Upgrade to Yearly' : 'Upgrade to Monthly') + '</h1><p class="bill-lead">' + (yr ? peso(py) + ' a year' : peso(pm) + ' a month') + ': all of Pentra Tindahan for ' + (a.business_slots || 2) + ' businesses and their helpers. Scan the QR code below, pay, then submit your reference number so we can check it.</p>';
+    return '<div class="t-page bill bill-up">' + head + (st && !act ? '<section class="panel" aria-live="polite">' + st + '</section>' : '')
+      + (act ? '<details class="bill-renew" open><summary>' + (left <= 5 ? 'Renew now' : 'Pay for more time') + '</summary>' + pay + '</details>' : pay)
+      + '<section class="panel"><h2>Your payments</h2>' + (pays.length ? '<div class="tblw" tabindex="0" role="region" aria-label="Your payments"><table class="bill-tbl"><thead><tr><th>Submitted</th><th>Plan</th><th>Amount</th><th>Reference</th><th>Status</th></tr></thead><tbody>'
+        + pays.map(function(p){ return '<tr><td>' + esc(day(p.submitted_at)) + '</td><td>' + esc(p.plan) + '</td><td>' + peso(p.amount) + '</td><td>' + esc(p.reference) + '</td><td>' + esc(p.status) + (p.reason ? ': ' + esc(p.reason) : '') + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="muted">No payments yet.</p>') + '</section>'
+      + '<p class="small bill-center">Need help with your payment? <a href="mailto:' + esc(help) + '?subject=Pentra%20Tindahan%20payment">Email ' + esc(help) + '</a></p>'
+      + '<p class="small bill-center">' + (yr ? 'Prefer paying monthly?' : 'Want to save ' + peso(save) + ' a year?') + ' <button type="button" class="bill-link" data-act="bl-plan" data-plan="' + (yr ? 'monthly' : 'yearly') + '">' + (yr ? 'Switch to Monthly' : 'Switch to Yearly') + '</button></p></div>'; }
+  function adminCount(){ var a = cached(); return a && a.is_admin ? (+a.admin_pending || 0) : 0; }
+  function planCard(){ var s = state(), a = cached() || {}; if (s === 'off') return '';
+    var dl = function(x){ return Math.max(0, Math.ceil((Date.parse(x) - now()) / DAY)); }, d = s === 'trial' ? dl(a.trial_ends_at) : s === 'active' ? dl(a.paid_until) : 0, act = s === 'active', near = act && d <= 5;
+    var name = act ? 'Premium · ' + (a.plan === 'yearly' ? 'Yearly' : 'Monthly') : ({ trial:'Free trial', pending:'Waiting for checking', locked:'Ended', paused:'Paused', removed:'Access ended' }[s] || '');
+    var line = s === 'trial' ? d + (d === 1 ? ' day' : ' days') + ' left in your free trial. Upgrade to keep recording after it ends.'
+      : near ? (d === 0 ? 'Your plan ends today' : d === 1 ? 'Your plan ends tomorrow' : 'Your plan ends in ' + d + ' days') + '. Renew now so your store is not paused.'
+      : act ? 'Active until ' + day(a.paid_until) + '.' : s === 'pending' ? 'We are checking your payment.' : s === 'locked' ? 'Upgrade to keep recording.' : 'Please email ' + (a.help_email || 'pentrascans@gmail.com') + '.';
+    var btns = (s === 'trial' || s === 'locked' || near) ? '<button type="button" class="btn primary" data-act="bl-go" data-plan="monthly">' + (act ? 'Renew · Monthly ' : 'Upgrade to Monthly · ') + peso(a.price_monthly || 12900) + '</button>'
+      + '<button type="button" class="btn" data-act="bl-go" data-plan="yearly">' + (act ? 'Renew · Yearly ' : 'Upgrade to Yearly · ') + peso(a.price_yearly || 119900) + '</button>' : '';
+    return '<div class="bill-plancard' + (act ? ' premium' : '') + '"><div class="bill-pc-top"><span>Current plan</span><b>' + esc(name) + '</b></div><p>' + esc(line) + '</p>' + btns + '</div>'; }
+  function canSubmit(){ var a = cached() || {}; return /^[A-Za-z0-9-]{4,30}$/.test(String(form.ref).replace(/\s/g, '')) && form.agreed && !form.busy && !a.restricted; }
+  document.addEventListener('input', function(e){ var k = e.target && e.target.getAttribute && e.target.getAttribute('data-bl'); if (!k) return;
+    form[k] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; var b = document.getElementById('bl-submit'); if (b) b.disabled = !canSubmit(); });
+  document.addEventListener('change', function(e){ if (e.target && e.target.getAttribute && e.target.getAttribute('data-bl') === 'agreed') { form.agreed = e.target.checked; var b = document.getElementById('bl-submit'); if (b) b.disabled = !canSubmit(); } });
+  function call(fn, args){ var c = client(); if (!c) return Promise.reject(new Error('Sign in and connect to the internet first.'));
+    return c.rpc(fn, args || {}).then(function(r){ if (r.error) throw new Error(r.error.message || 'Something went wrong'); return r.data; }); }
+  /* ---- Admin pages ---- */
+  var ad = { email:'', plan:'monthly', days:'30', slots:'2', cash:false, amount:'', note:'' }, flt = { state:'all', q:'' };
+  var STATE = { off:'Billing off', trial:'Trial', active:'Active', pending:'Waiting for checking', locked:'Locked', paused:'Paused', removed:'Removed' };
+  function loadAdmin(){ adm.busy = true; adm.err = '';
+    return Promise.all([call('pentra_admin_payments', { p_status:'pending' }), call('pentra_admin_subscribers'), call('pentra_admin_payments', { p_status:'all' }), call('pentra_admin_grants'), call('pentra_admin_history')])
+      .then(function(r){ adm.pays = r[0] || []; adm.subs = r[1] || []; adm.all = r[2] || []; adm.grants = r[3] || []; adm.hist = r[4] || []; adm.busy = false; adm.loadedAt = Date.now(); if (location.hash === '#/t/admin') render(); },
+            function(e){ adm.busy = false; adm.err = e.message; if (location.hash === '#/t/admin') render(); }); }
+  function tbl(label, head, rows){ return '<div class="tblw" tabindex="0" role="region" aria-label="' + label + '"><table class="bill-tbl"><thead><tr>' + head.map(function(h){ return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>' + rows.join('') + '</tbody></table></div>'; }
+  function applyFilter(){ document.querySelectorAll('.bill tr[data-state]').forEach(function(tr){ var okS = flt.state === 'all' || tr.getAttribute('data-state') === flt.state, okQ = !flt.q || (tr.getAttribute('data-email') || '').indexOf(flt.q.trim().toLowerCase()) >= 0; tr.hidden = !(okS && okQ); }); }
+  function confirmBox(){ var c = adm.confirm; if (!c) return ''; var e = esc(c.email || ''), q = {
+      'billing-on':['Turn billing on?', 'Every account without a plan gets its free trial (14 days from the first launch date), then needs a plan to keep recording.', 'Yes, turn billing on'],
+      'billing-off':['Turn billing off?', 'Nobody will be locked. All plans, payments and dates are kept.', 'Yes, turn billing off'],
+      pause:['Pause ' + e + '?', 'Their store stops recording new entries until you resume it. Their records and dates are kept.', 'Yes, pause'],
+      resume:['Resume ' + e + '?', 'They get back exactly the access they had.', 'Yes, resume'],
+      remove:['Remove ' + e + '?', 'Their access ends now. Their records are kept, they get no new free trial, and you can restore them later.', 'Yes, remove'],
+      restore:['Restore ' + e + '?', 'They get back exactly the access they had before.', 'Yes, restore'] }[c.kind];
+    return q ? '<section class="panel bill-confirm" role="alertdialog" aria-labelledby="bl-cq" aria-describedby="bl-cd"><h2 id="bl-cq">' + q[0] + '</h2><p id="bl-cd">' + q[1] + '</p><div class="actions"><button type="button" class="btn primary" data-act="bl-yes" id="bl-yes">' + q[2] + '</button><button type="button" class="btn" data-act="bl-no">Cancel</button></div></section>' : ''; }
+  function billingCard(){ var a = cached() || {}, on = !!a.enabled;
+    return '<section class="panel bill-card"><div class="bill-row"><div><h2 id="bl-bh">Billing</h2><p class="muted">' + (on ? 'On since ' + esc(day(a.launch_at)) + '. Trials and plans apply.' : 'Off. Nobody is locked; Pentra Tindahan is free for everyone.') + '</p></div>'
+      + '<button type="button" role="switch" class="bill-switch" aria-labelledby="bl-bh" aria-checked="' + on + '" data-act="bl-ask" data-kind="' + (on ? 'billing-off' : 'billing-on') + '"><span class="bill-knob"></span></button></div></section>'; }
+  function addForm(){ var o = function(v, t){ return '<option value="' + v + '"' + (ad.plan === v ? ' selected' : '') + '>' + t + '</option>'; };
+    return '<div class="bill-form"><label class="lbl" for="ad-email">Email</label><input id="ad-email" class="input" type="email" data-ad="email" autocomplete="off" placeholder="owner@example.com" value="' + esc(ad.email) + '">'
+      + '<label class="lbl" for="ad-plan">Access to give</label><select id="ad-plan" class="input" data-ad="plan">' + o('trial', 'Free trial only') + o('monthly', '1 month') + o('yearly', '1 year') + o('days', 'Number of days') + '</select>'
+      + '<label class="lbl" for="ad-days">Number of days (if chosen above)</label><input id="ad-days" class="input bill-num" type="number" min="1" max="3650" data-ad="days" value="' + esc(ad.days) + '">'
+      + '<label class="lbl" for="ad-slots">Businesses allowed</label><input id="ad-slots" class="input bill-num" type="number" min="1" max="40" data-ad="slots" value="' + esc(ad.slots) + '">'
+      + '<label class="bill-agree"><input type="checkbox" data-ad="cash"' + (ad.cash ? ' checked' : '') + '><span>Record as a cash payment</span></label>'
+      + '<label class="lbl" for="ad-amount">Amount received in pesos (blank = plan price)</label><input id="ad-amount" class="input bill-num" type="number" min="0" step="0.01" data-ad="amount" value="' + esc(ad.amount) + '">'
+      + '<label class="lbl" for="ad-note">Note (optional)</label><input id="ad-note" class="input" maxlength="200" data-ad="note" placeholder="e.g. Paid in cash at the store" value="' + esc(ad.note) + '">'
+      + (adm.msg ? '<p class="' + (adm.msgBad ? 'err' : 'ok') + '" role="status">' + esc(adm.msg) + '</p>' : '')
+      + '<div class="actions"><button type="button" class="btn primary" data-act="bl-add">Add subscriber</button></div>'
+      + '<p class="small">If this email has no Pentra account yet, it waits. When they first sign in, they get the 14-day free trial plus what you give here.</p></div>'; }
+  function subsTab(){ var me = uid(), f = function(v, t){ return '<option value="' + v + '"' + (flt.state === v ? ' selected' : '') + '>' + t + '</option>'; };
+    var rows = (adm.subs || []).map(function(s){ var o = esc(s.owner_id), em = esc(s.email || ''), mine = s.owner_id === me, paused = s.state === 'paused', dis = mine ? ' disabled title="This is your own account"' : '';
+      return '<tr data-state="' + esc(s.state) + '" data-email="' + esc(String(s.email || '').toLowerCase()) + '"><td>' + esc(s.email || s.owner_id) + (mine ? ' (you)' : '') + '</td><td>' + esc(STATE[s.state] || s.state) + (s.restricted ? ' · restricted' : '') + (s.pending ? ' · ' + s.pending + ' waiting' : '') + '</td><td>' + esc(day(s.trial_ends_at)) + '</td><td>' + esc(day(s.paid_until)) + '</td>'
+        + '<td><button type="button" role="switch" class="bill-switch sm" aria-label="Active: ' + em + '" aria-checked="' + !paused + '" data-act="bl-ask" data-kind="' + (paused ? 'resume' : 'pause') + '" data-owner="' + o + '" data-email="' + em + '"' + dis + '><span class="bill-knob"></span></button></td>'
+        + '<td><label class="vh" for="sl-' + o + '">Businesses allowed</label><input id="sl-' + o + '" class="input bill-num" type="number" min="1" max="40" value="' + (+s.business_slots || 2) + '"></td><td class="bill-actions">'
+        + '<button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="30">+30 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="365">+365 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-slots="1">Save businesses</button>'
+        + (s.restricted ? '<button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-clear="1">Lift restriction</button>' : '')
+        + (s.removed_at ? '<button type="button" class="btn" data-act="bl-ask" data-kind="restore" data-owner="' + o + '" data-email="' + em + '">Restore</button>' : '<button type="button" class="btn bill-danger" data-act="bl-ask" data-kind="remove" data-owner="' + o + '" data-email="' + em + '"' + dis + '>Remove</button>') + '</td></tr>'; });
+    var waits = (adm.grants || []).map(function(g){ return '<tr data-state="signup" data-email="' + esc(g.email) + '"><td>' + esc(g.email) + '</td><td>' + esc({ trial:'Free trial only', monthly:'1 month', yearly:'1 year', days:(g.days || 0) + ' days' }[g.plan] || g.plan) + (g.record_payment ? ' · cash ' + peso(g.amount) : '') + '</td><td>' + esc(g.note || '') + '</td><td><button type="button" class="btn" data-act="bl-cancel-grant" data-id="' + esc(g.id) + '">Cancel</button></td></tr>'; });
+    return '<div class="bill-filters"><div><label class="lbl" for="bl-q">Search by email</label><input id="bl-q" class="input" type="search" data-flt="q" value="' + esc(flt.q) + '"></div>'
+      + '<div><label class="lbl" for="bl-f">Show</label><select id="bl-f" class="input" data-flt="state">' + f('all', 'All') + f('trial', 'Trial') + f('active', 'Active') + f('pending', 'Waiting for checking') + f('locked', 'Locked') + f('paused', 'Paused') + f('removed', 'Removed') + f('signup', 'Waiting for sign-up') + '</select></div></div>'
+      + (rows.length ? tbl('Subscribers', ['Account', 'State', 'Trial ends', 'Paid until', 'Active', 'Businesses', 'Change'], rows) : '<p class="muted">No subscribers yet.</p>')
+      + '<h3>Waiting for sign-up</h3>' + (waits.length ? tbl('Waiting for sign-up', ['Email', 'Access', 'Note', 'Change'], waits) : '<p class="muted">Nobody is waiting.</p>'); }
+  function histTab(){ var h = adm.hist || []; if (!h.length) return '<p class="muted">No admin actions yet.</p>';
+    return tbl('History', ['When', 'Admin', 'Account', 'Action', 'Details'], h.map(function(x){ var d = x.detail || {}, bits = [];
+      ['plan', 'days', 'businesses', 'amount', 'reference', 'reason', 'note'].forEach(function(k){ if (d[k] !== null && d[k] !== undefined && d[k] !== '') bits.push(k + ': ' + (k === 'amount' ? peso(d[k]) : d[k])); }); if (d.cash) bits.push('cash payment');
+      return '<tr><td>' + esc(new Date(x.at).toLocaleString('en-US', { month:'short', day:'numeric', hour:'numeric', minute:'2-digit' })) + '</td><td>' + esc(x.admin_email || '') + '</td><td>' + esc(x.account || '') + '</td><td>' + esc(x.action) + '</td><td>' + esc(bits.join(' · ')) + '</td></tr>'; })); }
+  function admin(){ if (!isAdmin()) return '<div class="t-page"><header class="t-head"><h1>Admin</h1></header><section class="panel"><p>This page is only for Pentra admins.</p></section></div>';
+    if (!adm.busy && (adm.pays === null || Date.now() - (adm.loadedAt || 0) > 15000)) loadAdmin();   /* fresh lists whenever Admin is opened */
+    var tab = function(k, name){ return '<button type="button" role="tab" data-act="bl-adm-tab" data-tab="' + k + '" aria-selected="' + (adm.tab === k) + '">' + name + '</button>'; }, body;
+    if (adm.err) body = '<p class="err" role="alert">' + esc(adm.err) + '</p>';
+    else if (adm.pays === null) body = '<p class="muted">Loading…</p>';
+    else if (adm.tab === 'pay') body = adm.pays.length ? tbl('Payments to check', ['Submitted', 'Account', 'Plan', 'Amount', 'Reference', 'Note', 'Check'], adm.pays.map(function(p){ return '<tr><td>' + esc(day(p.submitted_at)) + '</td><td>' + esc(p.email || '') + '</td><td>' + esc(p.plan) + '</td><td>' + peso(p.amount) + '</td><td><b>' + esc(p.reference) + '</b>' + (p.same_ref > 0 ? '<span class="bill-flag">Same reference as another payment: check carefully</span>' : '') + '</td><td>' + esc(p.note || '') + '</td><td class="bill-actions">'
+          + '<button type="button" class="btn primary" data-act="bl-review" data-ok="1" data-id="' + esc(p.id) + '">Approve</button><label class="vh" for="rs-' + esc(p.id) + '">Reason for rejecting</label><input id="rs-' + esc(p.id) + '" class="input" maxlength="200" placeholder="Reason, if rejecting"><button type="button" class="btn" data-act="bl-review" data-ok="0" data-id="' + esc(p.id) + '">Reject</button></td></tr>'; })) : '<p class="muted">No payments are waiting.</p>';
+    else if (adm.tab === 'subs') body = subsTab();
+    else if (adm.tab === 'add') body = addForm();
+    else if (adm.tab === 'hist') body = histTab();
+    else body = '<div class="actions"><button type="button" class="btn" data-act="bl-export">Export CSV</button></div>' + (adm.all.length ? tbl('All payments', ['Submitted', 'Account', 'Plan', 'Amount', 'Reference', 'Status'], adm.all.map(function(p){ return '<tr><td>' + esc(day(p.submitted_at)) + '</td><td>' + esc(p.email || '') + '</td><td>' + esc(p.plan) + '</td><td>' + peso(p.amount) + '</td><td>' + esc(p.reference) + '</td><td>' + esc(p.status) + (p.reason ? ': ' + esc(p.reason) : '') + '</td></tr>'; })) : '<p class="muted">No payments yet.</p>');
+    setTimeout(applyFilter, 0);
+    return '<div class="t-page bill"><header class="t-head"><h1>Admin</h1><p class="muted">Check each payment against your GoTyme history before approving.</p></header>' + confirmBox() + billingCard()
+      + '<div class="bill-tabs" role="tablist" aria-label="Admin">' + tab('pay', 'Payments to check' + (adm.pays && adm.pays.length ? ' (' + adm.pays.length + ')' : '')) + tab('subs', 'Subscribers') + tab('add', 'Add subscriber') + tab('all', 'All payments') + tab('hist', 'History') + '</div><section class="panel">' + body + '</section></div>'; }
+  function adInput(e){ var t = e.target; if (!t || !t.getAttribute) return; var k = t.getAttribute('data-ad'), q = t.getAttribute('data-flt');
+    if (k) ad[k] = t.type === 'checkbox' ? t.checked : t.value; if (q) { flt[q] = t.value; applyFilter(); } }
+  document.addEventListener('input', adInput); document.addEventListener('change', adInput);
+  if (typeof ACT !== 'undefined') {
+    ACT['bl-ask'] = function(el){ adm.confirm = { kind:el.getAttribute('data-kind'), owner:el.getAttribute('data-owner'), email:el.getAttribute('data-email') }; render(); setTimeout(function(){ var y = document.getElementById('bl-yes'); if (y) y.focus(); }, 0); };
+    ACT['bl-no'] = function(){ adm.confirm = null; render(); };
+    ACT['bl-yes'] = function(){ var c = adm.confirm, p; if (!c) return; adm.confirm = null;
+      if (c.kind === 'billing-on' || c.kind === 'billing-off') p = call('pentra_admin_billing', { p_on:c.kind === 'billing-on' }).then(function(){ return refresh(true); });
+      else if (c.kind === 'pause' || c.kind === 'resume') p = call('pentra_admin_pause', { p_owner:c.owner, p_on:c.kind === 'pause', p_note:null });
+      else p = call('pentra_admin_remove', { p_owner:c.owner, p_restore:c.kind === 'restore', p_note:null });
+      p.then(function(){ toast({ 'billing-on':'Billing is on.', 'billing-off':'Billing is off.', pause:'Paused.', resume:'Resumed.', remove:'Removed. Their records are kept.', restore:'Restored.' }[c.kind]); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
+    ACT['bl-add'] = function(){ var cash = !!ad.cash, amt = String(ad.amount).trim();
+      call('pentra_admin_add', { p_email:ad.email, p_plan:ad.plan, p_days:ad.plan === 'days' ? +ad.days : null, p_slots:+ad.slots || null, p_record_payment:cash, p_amount:cash && amt ? Math.round(parseFloat(amt) * 100) : null, p_note:ad.note })
+        .then(function(r){ adm.msgBad = false; adm.msg = r && r.applied ? 'Added. Access given to ' + r.email + '.' : 'Saved. It will apply when ' + ((r && r.email) || ad.email) + ' first signs in.'; ad.email = ''; ad.note = ''; ad.amount = ''; ad.cash = false; loadAdmin(); },
+              function(e){ adm.msgBad = true; adm.msg = e.message; render(); }); };
+    ACT['bl-cancel-grant'] = function(el){ call('pentra_admin_cancel_grant', { p_id:el.getAttribute('data-id') }).then(function(){ toast('Cancelled.'); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
+    ACT['bl-go'] = function(el){ form.plan = el.getAttribute('data-plan') === 'monthly' ? 'monthly' : 'yearly'; if (typeof closeSheet === 'function') try { closeSheet(); } catch (e) {} if (location.hash === '#/t/upgrade') render(); else go('t/upgrade'); };
+    ACT['bl-later'] = function(){ var r = reminder(); if (r) try { localStorage.setItem(hideKey(r), '1'); } catch (e) {} var b = document.querySelector('.bill-banner'); if (b) b.remove(); };
+    ACT['bl-plan'] = function(el){ form.plan = el.getAttribute('data-plan') === 'monthly' ? 'monthly' : 'yearly'; render(); };
+    ACT['bl-submit'] = function(){ if (!canSubmit()) return; form.busy = true; form.err = ''; render();
+      call('pentra_submit_payment', { p_plan:form.plan, p_reference:String(form.ref).replace(/\s/g, ''), p_note:form.note, p_agreed:true }).then(function(d){
+        form.busy = false; form.ref = ''; form.note = ''; form.agreed = false; if (d && typeof d === 'object') { d.skew = d.server_now ? Date.parse(d.server_now) - Date.now() : 0; A = d; try { localStorage.setItem(PREFIX + uid(), JSON.stringify(d)); } catch (e) {} }
+        toast('Payment submitted. We will check it soon.'); render(); }, function(e){ form.busy = false; form.err = e.message; render(); }); };
+    ACT['bl-adm-tab'] = function(el){ adm.tab = el.getAttribute('data-tab'); render(); };
+    ACT['bl-review'] = function(el){ var id = el.getAttribute('data-id'), okk = el.getAttribute('data-ok') === '1', rs = document.getElementById('rs-' + id);
+      call('pentra_admin_review', { p_id:id, p_approve:okk, p_reason:rs ? rs.value : '' }).then(function(){ toast(okk ? 'Payment approved. The store is unlocked.' : 'Payment rejected.'); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
+    ACT['bl-update'] = function(el){ var o = el.getAttribute('data-owner'), sl = document.getElementById('sl-' + o);
+      call('pentra_admin_update', { p_owner:o, p_extend_days:+(el.getAttribute('data-days') || 0) || null, p_slots:el.getAttribute('data-slots') ? +(sl && sl.value) : null, p_clear_restriction:el.getAttribute('data-clear') === '1', p_reason:'changed in the admin page' })
+        .then(function(){ toast('Saved.'); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
+    ACT['bl-export'] = function(){ var rows = [['submitted', 'email', 'plan', 'amount', 'reference', 'status', 'reason']].concat((adm.all || []).map(function(p){ return [p.submitted_at, p.email || '', p.plan, (p.amount / 100).toFixed(2), p.reference, p.status, p.reason || '']; }));
+      var csv = rows.map(function(r){ return r.map(function(v){ return '"' + String(v).replace(/"/g, '""') + '"'; }).join(','); }).join('\n'), a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv' })); a.download = 'pentra-payments.csv'; document.body.appendChild(a); a.click(); a.remove(); };
+  }
+  window.addEventListener('hashchange', function(){ if (tindahan()) refresh(false); });
+  document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible' && tindahan()) refresh(false); });
+  setTimeout(function(){ if (tindahan()) refresh(true); }, 0);
+  setInterval(function(){ if (isAdmin()) refresh(true); }, 60000);   /* admins hear about new payments within a minute */
+  return { state:state, label:label, isAdmin:isAdmin, denied:denied, refresh:refresh, upgrade:upgrade, admin:admin, alerts:alerts, planCard:planCard, adminCount:adminCount };
+})();
 /* ════════════════════════════════════════════════════════════════════════
    ACCOUNTS — Supabase Auth (email + password).
    When PENTRA_SUPABASE is filled in, everyone signs in before any data shows.
@@ -6109,8 +6695,8 @@ var Auth = (function(){
     return '<div class="auth"><aside class="auth-brand"><div class="ab-top">' + seal(30) + '<span>Pentra Finance</span></div>'
       + '<div class="ab-copy"><h2>Five pillars. One secure foundation.</h2><p>Income, Spending, Savings, Investment and Protection — one structured command center built on the intelligence of your own tracker.</p>' + credits() + '</div>'
       + '<div class="ab-cols" aria-hidden="true"><i></i><i></i><i></i><i></i></div></aside>'
-      + '<main class="auth-main" id="view" tabindex="-1"><div class="auth-tools">' + styleBtn(18) + '<button type="button" class="iconbtn auth-theme" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 18) + '</button></div>'
-      + '<div class="auth-card"><div class="auth-mark">' + seal(36) + '<span class="word">Pentra <em>Finance</em></span></div>' + inner + '</div>'
+      + '<main class="auth-main" id="view" tabindex="-1"><div class="auth-tools">' + (window.I18n ? I18n.button() : '') + styleBtn(18) + '<button type="button" class="iconbtn auth-theme" data-act="theme" aria-label="Switch to ' + (dark ? 'light' : 'dark') + ' theme">' + icon(dark ? 'sun' : 'moon', 18) + '</button></div>'
+      + '<div class="auth-card"><div class="auth-mark">' + seal(36) + '<span class="word" translate="no">Pentra <em>Finance</em></span></div>' + inner + '</div>'
       + '<footer class="auth-foot"><p>Five pillars. One secure foundation.</p>' + credits() + '</footer></main></div>';
   }
   function focusFirst(){
