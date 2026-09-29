@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-/3eK60s8U2fEKv/QOTRh0TrShyOxPAx0By9/HB5cdTE=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-8ce0BEjJyX8HvUI+wx1wbH/Kp4zRrek/ZgT1gJA6zIA=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -744,6 +744,16 @@ html[data-theme="dark"] [data-tone="bills"]{--tone:#fb923c;--tone-ink:#fed7aa;--
 .bill-link{background:none;border:0;padding:0;color:inherit;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;min-height:24px}
 .bill-plancard{margin:10px 12px 14px;padding:14px;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.3));display:grid;gap:8px}.sheet .bill-plancard,[role="dialog"] .bill-plancard{margin:0 0 12px}
 .bill-pc-top{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}.bill-plancard p{margin:0;font-size:.85rem}.bill-plancard .btn{width:100%;justify-content:center}
+.t-today .t-kpi:nth-child(-n+2) .t-amt{font-size:clamp(1.6rem,6vw,2.1rem)}
+.t-start{border:2px solid var(--accent,#5b21b6)}.t-start-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.t-start-top h2{margin:0}
+.t-steps{list-style:none;margin:10px 0 6px;padding:0;display:grid;gap:12px}.t-steps li{display:flex;gap:12px;align-items:flex-start}.t-steps p{margin:2px 0 0}.t-steps a{font-weight:700}
+.t-step-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.9rem;border:2px solid currentColor}
+.t-steps li.done .t-step-n{background:#16a34a;border-color:#16a34a;color:#fff}.t-steps li.done a{text-decoration:line-through}
+.tblw{position:relative}   /* keeps hidden labels inside scrolling tables */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}   /* visible to screen readers only */
+.bill-warn{color:#9a3412}
+.t-clearbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 12px}
+.t-greet{margin:.4rem 0 0;font-size:1rem;line-height:1.45}.t-greet b{margin-right:.2rem}
 .bill-flag{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:6px;background:#fdecea;color:#7a1712;font-size:.8rem;font-weight:700}
 .bill-banner>div{flex:1 1 220px;display:grid;gap:2px}
 .bill-plancard{box-sizing:border-box;max-width:calc(100% - 24px);min-width:0;overflow-wrap:anywhere}.bill-pc-top{flex-wrap:wrap}
@@ -4502,20 +4512,41 @@ var Tin = (function(){
       else t = e.type; return { at:e.at, t:t }; }); }
   function overview(s){ var S = BizStore.state(), D = BizCore.dashboard(S, today()), acts = activity(S);
     function kpi(label, amt, sub, action){ if (!Staff.cardOk(TONES[label] || 'combined')) return ''; if (/data-act="t-count"/.test(action || '') && !Staff.may('balance.counted')) action = ''; return '<div class="t-kpi" data-tone="' + (TONES[label] || 'combined') + '"><span class="t-lbl">' + label + '</span><span class="t-amt">' + P(amt) + '</span>' + (sub ? '<span class="xs muted">' + sub + '</span>' : '') + (action || '') + '</div>'; }
-    return '<div class="t-page"><header class="t-head"><h1>' + esc(s.name) + '</h1><p class="muted">' + esc(typeLabel(s.type)) + ' · ' + esc(dateLabel()) + '</p></header>'
+    return '<div class="t-page"><header class="t-head"><h1>' + esc(s.name) + '</h1><p class="muted">' + esc(typeLabel(s.type)) + ' · ' + esc(dateLabel()) + '</p>' + greeting(s, S, D) + '</header>'
       + (BizStore.persistent() ? '' : '<div class="banner" role="alert">' + icon('alert', 18) + '<span>This browser is not letting Pentra save store data. Anything entered here is lost when the page closes.</span></div>')
-      + clashes(S) + '<section class="t-kpis" aria-label="Money in the store">'
-      + kpi('Cash on hand', D.cash, 'Money in the drawer', '<button type="button" class="btn sm" data-act="t-count" data-acct="cash">Count cash</button>')
-      + kpi('GCash float', D.gcash, 'The store\u2019s GCash balance', '<a class="btn sm" href="#/t/gcash">GCash ledger</a>')
-      + kpi('Cash + GCash (combined)', D.cash + D.gcash, 'Both together, for reference') + kpi('Cash vault', D.vault, 'Kept apart from the drawer', '<a class="btn sm" href="#/t/vault">Vault ledger</a>') + '</section>'
-      + '<section class="t-kpis" aria-label="Today">' + kpi('Today\u2019s sales', D.todaySales, D.transactions ? D.transactions + (D.transactions === 1 ? ' sale' : ' sales') + ' \u00b7 ' + (+D.itemsSold.toFixed(3)) + ' items' + (D.todayFromCount ? ' \u00b7 ' + P(D.todayFromCount) + ' from stock counts' : '') : 'No sales yet today.', D.transactions ? '<a class="btn sm" href="#/t/sales">See sales</a>' : '<a class="btn sm primary" href="#/t/sell">New sale</a>')
+      + clashes(S) + starter(S, s) + '<section class="t-kpis t-today" aria-label="Today">' + kpi('Today\u2019s sales', D.todaySales, D.transactions ? D.transactions + (D.transactions === 1 ? ' sale' : ' sales') + ' \u00b7 ' + (+D.itemsSold.toFixed(3)) + ' items' + (D.todayFromCount ? ' \u00b7 ' + P(D.todayFromCount) + ' from stock counts' : '') : 'No sales yet today.', D.transactions ? '<a class="btn sm" href="#/t/sales">See sales</a>' : '<a class="btn sm primary" href="#/t/sell">New sale</a>')
       + kpi('Today\u2019s profit', D.profit, !D.transactions ? 'No sales yet today.' : D.profitComplete ? 'Sales minus cost of goods' : 'Not counted: ' + P(D.profitUncovered) + ' without a cost price (' + D.profitMissing.map(function(m){ return esc(m.name); }).join(', ') + ')', D.transactions && !D.profitComplete && D.profitMissing.length ? '<a class="btn sm" href="#/t/product/' + encodeURIComponent(D.profitMissing[0].id) + '">Add cost price</a>' : '<a class="btn sm" href="#/t/reports">Reports</a>')
       + kpi('Utang outstanding', D.utang, D.utang ? 'Owed by customers' : 'No utang recorded.', '<a class="btn sm" href="#/t/utang">Customers</a>')
       + kpi('Load balance', D.eload, 'E-load you can sell', '<a class="btn sm" href="#/t/eload">E-load</a>')
       + kpi('Bills due soon', D.billsDue.reduce(function(n, b){ return n + b.amount; }, 0), D.billsDue.length ? D.billsDue.length + (D.billsDue.length === 1 ? ' bill' : ' bills') + ' within 7 days' + (D.billsDue.some(function(b){ return b.overdue; }) ? ', some overdue' : '') : 'Nothing due in the next 7 days.', '<a class="btn sm" href="#/t/bills">Bills</a>') + stockCard(S, D) + '</section>' + recent(S)
+      + '<section class="t-kpis" aria-label="Money in the store">'
+      + kpi('Cash on hand', D.cash, 'Money in the drawer', '<button type="button" class="btn sm" data-act="t-count" data-acct="cash">Count cash</button>')
+      + kpi('GCash float', D.gcash, 'The store\u2019s GCash balance', '<a class="btn sm" href="#/t/gcash">GCash ledger</a>')
+      + kpi('Cash + GCash (combined)', D.cash + D.gcash, 'Both together, for reference') + kpi('Cash vault', D.vault, 'Kept apart from the drawer', '<a class="btn sm" href="#/t/vault">Vault ledger</a>') + '</section>'
       + '<section class="panel"><h2 class="h3">Store history</h2>' + (acts.length ? '<ul class="t-hist">' + acts.map(function(a){ return '<li><span>' + esc(a.t) + '</span><span class="xs muted">' + esc(when(a.at)) + '</span></li>'; }).join('') + '</ul>' : '<p class="muted">Nothing recorded yet.</p>')
       + '<p class="xs muted">Every change is kept as a new entry. Nothing is edited or erased.</p></section>'
       + '<p class="xs t-foot">' + BizSync.chip() + '</p></div>'; }
+  /* A friendly greeting from the store's own numbers; wording rotates by day. */
+  function greeting(s, S, D){ var h = new Date().getHours(), part = h < 12 ? 'morning' : h < 18 ? 'afternoon' : 'evening', name = String(s.name || '').replace(/\s+(sari-sari store|store|grocery|minimart|mini mart)$/i, '') || s.name;
+    var seed = new Date().getDate(), pick = function(a){ return a[seed % a.length]; }, y = 0, line;
+    try { var t = today(); if (/^\d{4}-\d\d-\d\d$/.test(t)) { var d0 = new Date(t + 'T12:00:00'); d0.setDate(d0.getDate() - 1); y = BizCore.dashboard(S, d0.getFullYear() + '-' + ('0' + (d0.getMonth() + 1)).slice(-2) + '-' + ('0' + d0.getDate()).slice(-2)).todaySales || 0; } } catch (e) {}
+    if (!Object.keys(S.products || {}).length && !Object.keys(S.sales || {}).length) line = 'Welcome to Pentra! Start with the steps below. We\u2019ll keep your numbers safe.';
+    else if (!D.transactions) line = part === 'evening' ? pick(['No sales recorded today. Tomorrow is a fresh start.', 'Rest well. Tomorrow is a new day for your store.']) : pick(['Your first sale of the day is waiting. Kaya mo \u2018yan!', 'A fresh day for your store. Let\u2019s make it a good one.', 'Ready when you are. Record a sale when your first customer comes.']);
+    else if (y > 0 && D.todaySales > y) line = pick(['You\u2019ve already beaten yesterday\u2019s sales. Great job!', 'Better than yesterday already. Keep it up!']);
+    else line = pick([P(D.todaySales) + ' in sales so far today. Keep it going!', P(D.todaySales) + ' sold today. Every sale counts!']);
+    return '<p class="t-greet"><b>' + (part === 'morning' ? 'Good morning' : part === 'afternoon' ? 'Good afternoon' : 'Good evening') + ', ' + esc(name) + '!</b> <span>' + esc(line) + '</span></p>'; }
+  /* First-run guidance for owners: three steps that tick themselves off from the store's own records; hidden when done or on request. */
+  function starter(S, s){ var r = window.Staff && Staff.role ? Staff.role(s) : null; if (r && r.key && r.key !== 'owner') return '';
+    try { if (localStorage.getItem('pentra-start-hidden:' + s.store)) return ''; } catch (e) {}
+    var n = function(o){ return Object.keys(o || {}).length; }, steps = [
+      [n(S.products) > 0, '#/t/inventory', 'Add your first product', 'Name, price and how many you have.'],
+      [n(S.sales) > 0, '#/t/sell', 'Record your first sale', 'Tap Benta, pick the items, and choose cash, GCash or utang.'],
+      [n(S.customers) > 0, '#/t/utang', 'Add an utang customer', 'Keep each suki\u2019s balance safe on your phone.']];
+    var done = steps.filter(function(x){ return x[0]; }).length; if (done === steps.length) return '';
+    return '<section class="panel t-start" aria-labelledby="t-start-h"><div class="t-start-top"><h2 class="h3" id="t-start-h">Getting started</h2><span class="xs muted">' + done + ' of ' + steps.length + ' done</span></div><ol class="t-steps">'
+      + steps.map(function(x, i){ return '<li class="' + (x[0] ? 'done' : 'todo') + '"><span class="t-step-n" aria-hidden="true">' + (x[0] ? '\u2713' : (i + 1)) + '</span><div><a href="' + x[1] + '">' + x[2] + '</a>' + (x[0] ? '<span class="vh"> (done)</span>' : '') + '<p class="xs muted">' + x[3] + '</p></div></li>'; }).join('')
+      + '</ol><div class="actions"><button type="button" class="btn sm" data-act="t-start-hide">Hide</button></div></section>'; }
+  ACT['t-start-hide'] = function(){ var s = BizStore.active(); try { if (s) localStorage.setItem('pentra-start-hidden:' + s.store, '1'); } catch (e) {} render(); };
   var TONES = { 'Cash on hand':'cash', 'GCash float':'gcash', 'Cash + GCash (combined)':'combined', 'Cash vault':'vault', 'Today\u2019s sales':'sales', 'Today\u2019s profit':'profit', 'Utang outstanding':'utang', 'Load balance':'eload', 'Bills due soon':'bills' };
   var PAGETONE = { sell:'sales', sales:'sales', inventory:'stock', product:'stock', reports:'profit', utang:'utang', customer:'utang', gcash:'gcash', eload:'eload', bills:'bills', payroll:'sahod', vault:'vault' };   /* one colour per money area, everywhere */
   function clashes(S){ var open = S.conflicts.filter(function(c){ return !S.checked[c.id]; }); if (!open.length) return '';
@@ -5196,7 +5227,10 @@ var Notif = (function(){
     if (window.BizSync && BizSync.state() === 'error') add('sync-error', 'combined', true, 'Sync failed', 'Your data is safe on this phone. Open the overview to retry.', '#/t/overview');
     if (window.Billing && Billing.alerts && (!BizStore.active() || sc.store === BizStore.active().store)) Billing.alerts().forEach(function(x){ add(x.key, x.tone, x.now, x.title, x.text, x.href); });   /* trial and plan reminders, once */
     return out.sort(function(a, b){ return b.now - a.now; }); }
-  function all(){ return BizStore.ready() ? BizStore.stores().reduce(function(o, x){ return o.concat(list(x)); }, []) : []; }            /* every business the user can see */
+  function all(){ return BizStore.ready() ? BizStore.stores().reduce(function(o, x){ var L = list(x), c = get('cleared', x), keep = {};   /* cleared alerts stay hidden while they last; once resolved they are forgotten, so a recurrence shows again */
+    L.forEach(function(n){ if (c[n.key]) keep[n.key] = 1; }); if (Object.keys(keep).length !== Object.keys(c).length) put('cleared', keep, x);
+    return o.concat(L.filter(function(n){ return !keep[n.key]; })); }, []) : []; }
+  function hiddenCount(){ return BizStore.ready() ? BizStore.stores().reduce(function(n, x){ var c = get('cleared', x); return n + list(x).filter(function(a){ return c[a.key]; }).length; }, 0) : 0; }            /* every business the user can see */
   function key(k, s){ s = s || BizStore.active(); return 'pentra-notif-' + k + ':' + BizStore.owner() + ':' + (s ? s.store : ''); }
   function get(k, s){ try { return JSON.parse(localStorage.getItem(key(k, s)) || '{}') || {}; } catch (e) { return {}; } }
   function put(k, o, s){ try { localStorage.setItem(key(k, s), JSON.stringify(o)); } catch (e) {} }
@@ -5215,6 +5249,7 @@ var Notif = (function(){
     function row(n){ return '<li><span class="t-dot" data-tone="' + n.tone + '" aria-hidden="true"></span><div class="grow"><a href="' + n.href + '" data-act="t-alert-open" data-store="' + esc(n.sc.store) + '"><b>' + esc(n.title) + '</b></a>' + (many ? ' <span class="xs muted">\u00b7 ' + esc(n.sc.name) + '</span>' : '') + '<span class="small" style="display:block">' + esc(n.text) + '</span></div>' + (!seen[n.key] ? '<span class="chip">New</span>' : '') + '</li>'; }
     var perm = window.Notification ? Notification.permission : 'unsupported', canSet = may('store.saved');
     var html = '<div class="t-page"><header class="t-head"><h1>Notifications</h1><p class="muted">Worked out from your store\u2019s records, so they clear themselves when the problem is fixed.</p></header>'
+      + (function(){ var h = hiddenCount(); return every.length || h ? '<div class="actions t-clearbar">' + (every.length ? '<button type="button" class="btn" data-act="t-notify-clear">Clear all</button><span class="xs muted">New alerts will still show up.</span>' : '') + (h ? '<button type="button" class="btn" data-act="t-notify-unclear">Show cleared alerts (' + h + ')</button>' : '') + '</div>' : ''; })()
       + (!every.length ? '<section class="panel"><p><b>All clear.</b> Pentra tells you here when stock runs low or expires, bills come due, utang goes quiet, or something needs a check.</p></section>'
         : (nowL.length ? '<section class="panel"><h2 class="h3">Needs action now</h2><ul class="t-sales">' + nowL.map(row).join('') + '</ul></section>' : '') + (later.length ? '<section class="panel"><h2 class="h3">Coming up</h2><ul class="t-sales">' + later.map(row).join('') + '</ul></section>' : ''))
       + (canSet ? '<section class="panel t-form"><h2 class="h3">When to alert me</h2><div class="fgrid keep2">' + H.fld('nf-bill', 'Bills: days before the due date', H.inp('nf-bill', c.billDays, '3', 'numeric')) + H.fld('nf-utang', 'Utang: days without a payment', H.inp('nf-utang', c.utangDays, '30', 'numeric')) + '</div>'
@@ -5226,6 +5261,8 @@ var Notif = (function(){
       + (perm === 'unsupported' || perm === 'denied' ? '' : phoneOn() && perm === 'granted' ? '<div class="actions"><button type="button" class="btn" data-act="t-phone-off">Turn off</button></div>' : '<div class="actions"><button type="button" class="btn" data-act="t-phone-on">Turn on phone notifications</button></div>') + '</section></div>';
     markSeen(); return html; }
   ACT['t-notify'] = function(){ go('t/notifications'); };
+  ACT['t-notify-clear'] = function(){ BizStore.stores().forEach(function(x){ var o = get('cleared', x); list(x).forEach(function(n){ o[n.key] = 1; }); put('cleared', o, x); }); render(); toast('Notifications cleared'); };
+  ACT['t-notify-unclear'] = function(){ BizStore.stores().forEach(function(x){ put('cleared', {}, x); }); render(); };
   ACT['t-alert-open'] = function(el){ var st = BizStore.stores().filter(function(x){ return x.store === el.dataset.store; })[0], a = BizStore.active(); if (st && (!a || a.store !== st.store)) BizStore.setActive(st); go(String(el.getAttribute('href') || '#/t/overview').replace(/^#\//, '')); };
   ACT['t-notify-save'] = function(){ var e = document.getElementById('nf-err'), n = {}, bad = '';
     [['billDays', 'nf-bill'], ['utangDays', 'nf-utang'], ['expiryDays', 'nf-exp']].forEach(function(f){ var v = H.val(f[1]); if (!/^\d{1,3}$/.test(v)) bad = bad || 'Enter whole days, like 3.'; else n[f[0]] = +v; });
@@ -6214,6 +6251,24 @@ Object.assign(I18N_TL, { 'Pay for more time':'Magbayad para sa dagdag na oras', 
 Object.assign(I18N_TL, { 'Reference number (full, or the last 4 digits)':'Reference number (buo, o ang huling 4 na numero)', 'Full number or last 4 digits':'Buong numero o huling 4 na numero',
   'Enter the full reference number from your receipt, or at least its last 4 digits, and tick the box to submit. Add the time you paid in the note (for example, Sent at 3:15 pm) so we can find it quickly.':'Ilagay ang buong reference number mula sa resibo mo, o kahit ang huling 4 na numero nito, at i-tsek ang kahon para makapagsumite. Isulat sa note ang oras ng pagbayad (halimbawa, Sent at 3:15 pm) para mabilis namin itong mahanap.',
   'Same reference as another payment: check carefully':'Kapareho ng reference ng ibang bayad: suriing mabuti' });
+Object.assign(I18N_TL, { 'Source':'Pinagmulan', 'Direct':'Direkta', 'Sign-ups by source:':'Mga nag-sign up ayon sa pinagmulan:' });
+Object.assign(I18N_TL, { 'Getting started':'Pagsisimula', 'Add your first product':'Idagdag ang unang produkto mo', 'Name, price and how many you have.':'Pangalan, presyo at kung ilan ang meron ka.',
+  'Record your first sale':'Itala ang unang benta mo', 'Tap Benta, pick the items, and choose cash, GCash or utang.':'Pindutin ang Benta, piliin ang mga item, at pumili ng cash, GCash o utang.',
+  'Add an utang customer':'Magdagdag ng suking may utang', 'Keep each suki\u2019s balance safe on your phone.':'Ligtas sa phone mo ang balanse ng bawat suki.', 'Hide':'Itago', '(done)':'(tapos na)' });
+I18N_TL_PATTERNS.push([/^(\d+) of (\d+) done$/, '$1 sa $2 tapos na']);
+Object.assign(I18N_TL, { 'Days':'Araw', 'Add days':'Magdagdag ng araw', 'Remove days':'Bawasan ng araw', 'Yes, remove days':'Oo, bawasan ang araw', 'Days removed.':'Nabawasan ang araw.' });
+I18N_TL_PATTERNS.push([/^Remove (\d+) days from (\S+@\S+)\?$/, 'Bawasan ng $1 araw si $2?'], [/^Their paid-until date moves (\d+) days earlier, but never earlier than today\. This is recorded in History\.$/, 'Mauuna nang $1 araw ang katapusan ng bayad nila, pero hindi bago ngayong araw. Nakatala ito sa Kasaysayan.']);
+Object.assign(I18N_TL, { 'Clear all':'I-clear lahat', 'New alerts will still show up.':'Lalabas pa rin ang mga bagong alerto.', 'Notifications cleared':'Na-clear ang mga notification' });
+I18N_TL_PATTERNS.push([/^Show cleared alerts \((\d+)\)$/, 'Ipakita ang mga na-clear ($1)']);
+/* Overview greetings */
+Object.assign(I18N_TL, { 'Notifications cleared':'Na-clear ang mga notification',
+  'Welcome to Pentra! Start with the steps below. We\u2019ll keep your numbers safe.':'Maligayang pagdating sa Pentra! Magsimula sa mga hakbang sa ibaba. Ligtas ang mga numero mo sa amin.',
+  'No sales recorded today. Tomorrow is a fresh start.':'Walang naitalang benta ngayong araw. Bagong simula bukas.', 'Rest well. Tomorrow is a new day for your store.':'Magpahinga ka. Bagong araw bukas para sa tindahan mo.',
+  'Your first sale of the day is waiting. Kaya mo \u2018yan!':'Naghihintay ang unang benta mo ngayong araw. Kaya mo \u2018yan!', 'A fresh day for your store. Let\u2019s make it a good one.':'Bagong araw para sa tindahan mo. Gawin natin itong maganda.',
+  'Ready when you are. Record a sale when your first customer comes.':'Handa na ako. Magtala ng benta pagdating ng unang suki mo.', 'You\u2019ve already beaten yesterday\u2019s sales. Great job!':'Nalampasan mo na ang benta kahapon. Ang galing!',
+  'Better than yesterday already. Keep it up!':'Mas mataas na kaysa kahapon. Ituloy mo lang!' });
+I18N_TL_PATTERNS.push([/^Good (morning|afternoon|evening), (.+)!$/, function(m, p, n){ return 'Magandang ' + ({ morning:'umaga', afternoon:'hapon', evening:'gabi' })[p] + ', ' + n + '!'; }],
+  [/^(₱[\d,.]+) in sales so far today\. Keep it going!$/, '$1 na ang benta ngayong araw. Tuloy lang!'], [/^(₱[\d,.]+) sold today\. Every sale counts!$/, '$1 na ang naibenta ngayong araw. Mahalaga ang bawat benta!']);
 /* Language switch: English | Tagalog.
    The app keeps rendering English. With Tagalog on, this layer swaps UI phrases after each render: text nodes and the
    placeholder, title and aria-label attributes, matched exactly (whole trimmed text) against I18N_TL or I18N_TL_PATTERNS.
@@ -6276,7 +6331,13 @@ var Billing = (function(){
   var PREFIX = 'pentra-access:', DAY = 864e5, A = null, loading = false, lastAt = 0;
   var QR = { monthly:'pay/qr-card-monthly.png', yearly:'pay/qr-card-yearly.png' };
   var form = { plan:'yearly', ref:'', note:'', agreed:false, busy:false, err:'' }, adm = { tab:'pay', pays:null, subs:null, all:null, err:'', busy:false };
+  /* Which ad or link brought this visitor (first visit on this device wins); sent to the server once after sign-in. */
+  (function(){ try { var q = new URLSearchParams(location.search), src = {}; ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'ref'].forEach(function(k){ var v = q.get(k); if (v) src[k] = String(v).slice(0, 80); });
+    if (Object.keys(src).length && !localStorage.getItem('pentra-source')) { src.landing = String(location.pathname).slice(0, 80); localStorage.setItem('pentra-source', JSON.stringify(src)); } } catch (e) {} })();
   function uid(){ var o = window.BizStore && BizStore.owner(); return o && o !== 'local' ? o : null; }
+  function sendSource(c){ try { var id = uid(), s = localStorage.getItem('pentra-source'); if (!id || !s || localStorage.getItem('pentra-source-sent:' + id)) return;
+    c.rpc('pentra_set_source', { p_source:JSON.parse(s) }).then(function(r){ if (r && !r.error) try { localStorage.setItem('pentra-source-sent:' + id, '1'); } catch (e) {} }, function(){}); } catch (e) {} }
+  function srcLabel(o){ if (!o) return 'Direct'; return [o.utm_source, o.utm_content || o.utm_campaign].filter(Boolean).join(' · ') || o.ref || 'Link'; }
   function client(){ return window.Auth && Auth.on && uid() && Auth.client ? Auth.client() : null; }
   function peso(c){ c = +c || 0; return '₱' + (c / 100).toLocaleString('en-PH', { minimumFractionDigits:c % 100 ? 2 : 0, maximumFractionDigits:2 }); }
   function day(d){ return d ? new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : ''; }
@@ -6327,7 +6388,7 @@ var Billing = (function(){
     loading = true; var before = JSON.stringify([state(), label(), isAdmin(), adminCount()]);
     return c.rpc('pentra_my_access').then(function(r){ loading = false; lastAt = Date.now();
       if (r && !r.error && r.data && typeof r.data === 'object') { var d = r.data; d.skew = d.server_now ? Date.parse(d.server_now) - Date.now() : 0; A = d;
-        try { localStorage.setItem(PREFIX + uid(), JSON.stringify(d)); } catch (e) {} }
+        try { localStorage.setItem(PREFIX + uid(), JSON.stringify(d)); } catch (e) {} sendSource(c); }
       if (JSON.stringify([state(), label(), isAdmin(), adminCount()]) !== before && tindahan() && typeof render === 'function') render(); else banner();
       return A; }, function(){ loading = false; return A; }); }
   /* Called by BizStore.append for every new entry: the one place every write passes. */
@@ -6408,7 +6469,8 @@ var Billing = (function(){
       pause:['Pause ' + e + '?', 'Their store stops recording new entries until you resume it. Their records and dates are kept.', 'Yes, pause'],
       resume:['Resume ' + e + '?', 'They get back exactly the access they had.', 'Yes, resume'],
       remove:['Remove ' + e + '?', 'Their access ends now. Their records are kept, they get no new free trial, and you can restore them later.', 'Yes, remove'],
-      restore:['Restore ' + e + '?', 'They get back exactly the access they had before.', 'Yes, restore'] }[c.kind];
+      restore:['Restore ' + e + '?', 'They get back exactly the access they had before.', 'Yes, restore'],
+      'remove-days':['Remove ' + (c.days || 0) + ' days from ' + e + '?', 'Their paid-until date moves ' + (c.days || 0) + ' days earlier, but never earlier than today. This is recorded in History.', 'Yes, remove days'] }[c.kind];
     return q ? '<section class="panel bill-confirm" role="alertdialog" aria-labelledby="bl-cq" aria-describedby="bl-cd"><h2 id="bl-cq">' + q[0] + '</h2><p id="bl-cd">' + q[1] + '</p><div class="actions"><button type="button" class="btn primary" data-act="bl-yes" id="bl-yes">' + q[2] + '</button><button type="button" class="btn" data-act="bl-no">Cancel</button></div></section>' : ''; }
   function billingCard(){ var a = cached() || {}, on = !!a.enabled;
     return '<section class="panel bill-card"><div class="bill-row"><div><h2 id="bl-bh">Billing</h2><p class="muted">' + (on ? 'On since ' + esc(day(a.launch_at)) + '. Trials and plans apply.' : 'Off. Nobody is locked; Pentra Tindahan is free for everyone.') + '</p></div>'
@@ -6426,16 +6488,19 @@ var Billing = (function(){
       + '<p class="small">If this email has no Pentra account yet, it waits. When they first sign in, they get the 14-day free trial plus what you give here.</p></div>'; }
   function subsTab(){ var me = uid(), f = function(v, t){ return '<option value="' + v + '"' + (flt.state === v ? ' selected' : '') + '>' + t + '</option>'; };
     var rows = (adm.subs || []).map(function(s){ var o = esc(s.owner_id), em = esc(s.email || ''), mine = s.owner_id === me, paused = s.state === 'paused', dis = mine ? ' disabled title="This is your own account"' : '';
-      return '<tr data-state="' + esc(s.state) + '" data-email="' + esc(String(s.email || '').toLowerCase()) + '"><td>' + esc(s.email || s.owner_id) + (mine ? ' (you)' : '') + '</td><td>' + esc(STATE[s.state] || s.state) + (s.restricted ? ' · restricted' : '') + (s.pending ? ' · ' + s.pending + ' waiting' : '') + '</td><td>' + esc(day(s.trial_ends_at)) + '</td><td>' + esc(day(s.paid_until)) + '</td>'
+      return '<tr data-state="' + esc(s.state) + '" data-email="' + esc(String(s.email || '').toLowerCase()) + '"><td>' + esc(s.email || s.owner_id) + (mine ? ' (you)' : '') + '</td><td>' + esc(srcLabel(s.source)) + '</td><td>' + esc(STATE[s.state] || s.state) + (s.restricted ? ' · restricted' : '') + (s.pending ? ' · ' + s.pending + ' waiting' : '') + '</td><td>' + esc(day(s.trial_ends_at)) + '</td><td>' + esc(day(s.paid_until)) + '</td>'
         + '<td><button type="button" role="switch" class="bill-switch sm" aria-label="Active: ' + em + '" aria-checked="' + !paused + '" data-act="bl-ask" data-kind="' + (paused ? 'resume' : 'pause') + '" data-owner="' + o + '" data-email="' + em + '"' + dis + '><span class="bill-knob"></span></button></td>'
         + '<td><label class="vh" for="sl-' + o + '">Businesses allowed</label><input id="sl-' + o + '" class="input bill-num" type="number" min="1" max="40" value="' + (+s.business_slots || 2) + '"></td><td class="bill-actions">'
-        + '<button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="30">+30 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="365">+365 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-slots="1">Save businesses</button>'
+        + '<label class="vh" for="dy-' + o + '">Days</label><input id="dy-' + o + '" class="input bill-num" type="number" min="1" max="3650" value="7"><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-daysbox="1">Add days</button><button type="button" class="btn bill-warn" data-act="bl-ask" data-kind="remove-days" data-owner="' + o + '" data-email="' + em + '">Remove days</button>'
+          + '<button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="30">+30 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-days="365">+365 days</button><button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-slots="1">Save businesses</button>'
         + (s.restricted ? '<button type="button" class="btn" data-act="bl-update" data-owner="' + o + '" data-clear="1">Lift restriction</button>' : '')
         + (s.removed_at ? '<button type="button" class="btn" data-act="bl-ask" data-kind="restore" data-owner="' + o + '" data-email="' + em + '">Restore</button>' : '<button type="button" class="btn bill-danger" data-act="bl-ask" data-kind="remove" data-owner="' + o + '" data-email="' + em + '"' + dis + '>Remove</button>') + '</td></tr>'; });
     var waits = (adm.grants || []).map(function(g){ return '<tr data-state="signup" data-email="' + esc(g.email) + '"><td>' + esc(g.email) + '</td><td>' + esc({ trial:'Free trial only', monthly:'1 month', yearly:'1 year', days:(g.days || 0) + ' days' }[g.plan] || g.plan) + (g.record_payment ? ' · cash ' + peso(g.amount) : '') + '</td><td>' + esc(g.note || '') + '</td><td><button type="button" class="btn" data-act="bl-cancel-grant" data-id="' + esc(g.id) + '">Cancel</button></td></tr>'; });
-    return '<div class="bill-filters"><div><label class="lbl" for="bl-q">Search by email</label><input id="bl-q" class="input" type="search" data-flt="q" value="' + esc(flt.q) + '"></div>'
+    var cnt = {}; (adm.subs || []).forEach(function(s){ var k = srcLabel(s.source); cnt[k] = (cnt[k] || 0) + 1; });
+    var by = Object.keys(cnt).sort(function(a, b){ return cnt[b] - cnt[a]; }).map(function(k){ return esc(k) + ' ' + cnt[k]; }).join(' · ');
+    return (by ? '<p class="small bill-src"><b>Sign-ups by source:</b> ' + by + '</p>' : '') + '<div class="bill-filters"><div><label class="lbl" for="bl-q">Search by email</label><input id="bl-q" class="input" type="search" data-flt="q" value="' + esc(flt.q) + '"></div>'
       + '<div><label class="lbl" for="bl-f">Show</label><select id="bl-f" class="input" data-flt="state">' + f('all', 'All') + f('trial', 'Trial') + f('active', 'Active') + f('pending', 'Waiting for checking') + f('locked', 'Locked') + f('paused', 'Paused') + f('removed', 'Removed') + f('signup', 'Waiting for sign-up') + '</select></div></div>'
-      + (rows.length ? tbl('Subscribers', ['Account', 'State', 'Trial ends', 'Paid until', 'Active', 'Businesses', 'Change'], rows) : '<p class="muted">No subscribers yet.</p>')
+      + (rows.length ? tbl('Subscribers', ['Account', 'Source', 'State', 'Trial ends', 'Paid until', 'Active', 'Businesses', 'Change'], rows) : '<p class="muted">No subscribers yet.</p>')
       + '<h3>Waiting for sign-up</h3>' + (waits.length ? tbl('Waiting for sign-up', ['Email', 'Access', 'Note', 'Change'], waits) : '<p class="muted">Nobody is waiting.</p>'); }
   function histTab(){ var h = adm.hist || []; if (!h.length) return '<p class="muted">No admin actions yet.</p>';
     return tbl('History', ['When', 'Admin', 'Account', 'Action', 'Details'], h.map(function(x){ var d = x.detail || {}, bits = [];
@@ -6459,13 +6524,14 @@ var Billing = (function(){
     if (k) ad[k] = t.type === 'checkbox' ? t.checked : t.value; if (q) { flt[q] = t.value; applyFilter(); } }
   document.addEventListener('input', adInput); document.addEventListener('change', adInput);
   if (typeof ACT !== 'undefined') {
-    ACT['bl-ask'] = function(el){ adm.confirm = { kind:el.getAttribute('data-kind'), owner:el.getAttribute('data-owner'), email:el.getAttribute('data-email') }; render(); setTimeout(function(){ var y = document.getElementById('bl-yes'); if (y) y.focus(); }, 0); };
+    ACT['bl-ask'] = function(el){ var dy = document.getElementById('dy-' + el.getAttribute('data-owner')); adm.confirm = { kind:el.getAttribute('data-kind'), owner:el.getAttribute('data-owner'), email:el.getAttribute('data-email'), days:Math.max(1, Math.min(3650, Math.round(+(dy && dy.value) || 0))) }; render(); setTimeout(function(){ var y = document.getElementById('bl-yes'); if (y) y.focus(); }, 0); };
     ACT['bl-no'] = function(){ adm.confirm = null; render(); };
     ACT['bl-yes'] = function(){ var c = adm.confirm, p; if (!c) return; adm.confirm = null;
       if (c.kind === 'billing-on' || c.kind === 'billing-off') p = call('pentra_admin_billing', { p_on:c.kind === 'billing-on' }).then(function(){ return refresh(true); });
       else if (c.kind === 'pause' || c.kind === 'resume') p = call('pentra_admin_pause', { p_owner:c.owner, p_on:c.kind === 'pause', p_note:null });
+      else if (c.kind === 'remove-days') p = call('pentra_admin_update', { p_owner:c.owner, p_extend_days:-c.days, p_slots:null, p_clear_restriction:false, p_reason:'removed in the admin page' });
       else p = call('pentra_admin_remove', { p_owner:c.owner, p_restore:c.kind === 'restore', p_note:null });
-      p.then(function(){ toast({ 'billing-on':'Billing is on.', 'billing-off':'Billing is off.', pause:'Paused.', resume:'Resumed.', remove:'Removed. Their records are kept.', restore:'Restored.' }[c.kind]); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
+      p.then(function(){ toast({ 'billing-on':'Billing is on.', 'billing-off':'Billing is off.', pause:'Paused.', resume:'Resumed.', remove:'Removed. Their records are kept.', restore:'Restored.', 'remove-days':'Days removed.' }[c.kind]); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
     ACT['bl-add'] = function(){ var cash = !!ad.cash, amt = String(ad.amount).trim();
       call('pentra_admin_add', { p_email:ad.email, p_plan:ad.plan, p_days:ad.plan === 'days' ? +ad.days : null, p_slots:+ad.slots || null, p_record_payment:cash, p_amount:cash && amt ? Math.round(parseFloat(amt) * 100) : null, p_note:ad.note })
         .then(function(r){ adm.msgBad = false; adm.msg = r && r.applied ? 'Added. Access given to ' + r.email + '.' : 'Saved. It will apply when ' + ((r && r.email) || ad.email) + ' first signs in.'; ad.email = ''; ad.note = ''; ad.amount = ''; ad.cash = false; loadAdmin(); },
@@ -6482,7 +6548,7 @@ var Billing = (function(){
     ACT['bl-review'] = function(el){ var id = el.getAttribute('data-id'), okk = el.getAttribute('data-ok') === '1', rs = document.getElementById('rs-' + id);
       call('pentra_admin_review', { p_id:id, p_approve:okk, p_reason:rs ? rs.value : '' }).then(function(){ toast(okk ? 'Payment approved. The store is unlocked.' : 'Payment rejected.'); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
     ACT['bl-update'] = function(el){ var o = el.getAttribute('data-owner'), sl = document.getElementById('sl-' + o);
-      call('pentra_admin_update', { p_owner:o, p_extend_days:+(el.getAttribute('data-days') || 0) || null, p_slots:el.getAttribute('data-slots') ? +(sl && sl.value) : null, p_clear_restriction:el.getAttribute('data-clear') === '1', p_reason:'changed in the admin page' })
+      var dyb = document.getElementById('dy-' + o); call('pentra_admin_update', { p_owner:o, p_extend_days:(el.getAttribute('data-daysbox') ? Math.max(1, Math.min(3650, Math.round(+(dyb && dyb.value) || 0))) : +(el.getAttribute('data-days') || 0)) || null, p_slots:el.getAttribute('data-slots') ? +(sl && sl.value) : null, p_clear_restriction:el.getAttribute('data-clear') === '1', p_reason:'changed in the admin page' })
         .then(function(){ toast('Saved.'); loadAdmin(); }, function(e){ adm.err = e.message; render(); }); };
     ACT['bl-export'] = function(){ var rows = [['submitted', 'email', 'plan', 'amount', 'reference', 'status', 'reason']].concat((adm.all || []).map(function(p){ return [p.submitted_at, p.email || '', p.plan, (p.amount / 100).toFixed(2), p.reference, p.status, p.reason || '']; }));
       var csv = rows.map(function(r){ return r.map(function(v){ return '"' + String(v).replace(/"/g, '""') + '"'; }).join(','); }).join('\n'), a = document.createElement('a');
@@ -6526,6 +6592,12 @@ var Auth = (function(){
   }
   function cleanUrl(){ try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
   function storedUser(){ try { var s = JSON.parse(localStorage.getItem(STORAGE_KEY)); return s && s.user && s.user.id ? s.user : null; } catch (e) { return null; } }
+  /* Remember each person's last page on this device, so reopening Pentra (home-screen icon, bookmark, typed address) returns there instead of always Personal home. */
+  function lastKey(){ var u = (typeof S !== 'undefined' && S.user) || storedUser(); return u && u.id ? 'pentra-last-route:' + u.id : null; }
+  function pageHash(h){ h = String(h || ''); return /^#\/[a-z][a-z0-9\/_-]{0,80}$/i.test(h) && !/access_token|error/i.test(h) ? h : null; }
+  function remember(){ var k = lastKey(), h = pageHash(location.hash); if (k && h) try { localStorage.setItem(k, h); } catch (e) {} }
+  function recall(){ var k = lastKey(); try { return k ? pageHash(localStorage.getItem(k)) : null; } catch (e) { return null; } }
+  window.addEventListener('hashchange', remember);
   /* Supabase's built-in email service only mails the project's own team (and 2 emails an hour);
      everyone else gets "Email address not authorized" until custom SMTP is set up. */
   function mailBlocked(err){ var code = String((err && (err.code || err.error_code)) || ''), m = String((err && err.message) || '').toLowerCase();
@@ -6634,7 +6706,8 @@ var Auth = (function(){
     S.ready = true; S.view = null;
     afterLoad();
     if (S.user) Sync.begin(S.user.id);
-    if (!/^#\/[a-z]/i.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search + '#/home'); } catch (e) {} }
+    if (!/^#\/[a-z]/i.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search + (recall() || '#/home')); } catch (e) {} }
+    remember();
     render();
     if (S.confirmed) { S.confirmed = false; toast('Email confirmed. Welcome to Pentra.'); }
   }
