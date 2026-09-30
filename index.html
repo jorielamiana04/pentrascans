@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-7uadxYJsJY84dgsIM8prvnYCfF9zL4/to8HKkco7CLY=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-XkHYbOsWuhdVVEasE/WQAQemNtraFdnHF2bZlrSL4+4=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -69,7 +69,7 @@ a{color:inherit;text-decoration:none}
 .serif{font-family:var(--serif)}
 .fig{font-family:var(--serif);font-weight:600;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.005em;line-height:1.05}
 .tnum{font-variant-numeric:tabular-nums}
-.muted{color:var(--muted)} .faint{color:var(--faint)} .small{font-size:13px} .xs{font-size:12px}
+.muted{color:var(--muted)} .faint{color:var(--muted)} .small{font-size:13px} .xs{font-size:12px}
 .good{color:var(--good)}
 .posfig{color:var(--pos-figure)}
 .demo-note{margin-top:18px;padding:14px 16px;border:1px dashed var(--line-2);border-radius:14px;background:var(--surface-2);color:var(--ink-2);font-size:13px;line-height:1.55}
@@ -187,7 +187,7 @@ html[data-theme="dark"] .btn.primary{border-color:rgba(148,163,184,.2)}
 .btn.primary:hover{background:var(--brand-hover);border-color:transparent}
 .btn.quiet{border-color:transparent;background:transparent;color:var(--ink-2)}
 .btn.quiet:hover{background:var(--surface-2)}
-.btn.danger{background:var(--bad);color:#fff;border-color:transparent}
+.btn.danger{background:#c81e1e;color:#fff;border-color:transparent}
 .btn.danger:hover{filter:brightness(.95);border-color:transparent}
 .btn.sm{min-height:38px;padding:0 14px;font-size:13.5px}
 .btn.block{width:100%}
@@ -838,6 +838,12 @@ html[data-theme="dark"] .wl-bar{fill:#4a5d78}
 .wl-used span{background:var(--bad,#dc2626)}.wl-next{margin:0 0 10px}
 .wl-nw .bill-st ~ .xs,.wl-sub{display:block}
 .lim-bar.lim-near span{background:var(--warn,#d97706)}.lim-bar.lim-over span{background:var(--bad,#dc2626)}
+/* E3.1: features switched off by the admins are hidden everywhere (menus, phone bar, More, links, buttons) */
+html.pf-off-scan [data-act="scan-open"],html.pf-off-scan a[href^="#/scan"],html.pf-off-budget a[href^="#/budget"],html.pf-off-goals a[href^="#/goals"],html.pf-off-goals [data-act="new-goal"],html.pf-off-wallets a[href^="#/wallets"],html.pf-off-katulong a[href^="#/katulong"]{display:none!important}
+.af-list{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}.af-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border:1px solid var(--line,rgba(127,127,127,.3));border-radius:12px}
+.af-lbl{display:flex;flex-direction:column;gap:2px;cursor:pointer;flex:1}.af-sw{appearance:none;-webkit-appearance:none;width:48px;height:28px;border-radius:999px;background:#8a96a8;position:relative;cursor:pointer;flex:none;transition:background .15s}
+.af-sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .15s}.af-sw:checked{background:#15803d}.af-sw:checked::after{left:23px}.af-sw:focus-visible{outline:3px solid var(--accent,#5b21b6);outline-offset:2px}.af-sw:disabled{opacity:.6}
+@media (prefers-reduced-motion:reduce){.af-sw,.af-sw::after{transition:none}}
 /* Master Plan v5, E3: Katulong */
 .kat-log{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
 .kat-msg{max-width:min(620px,92%);padding:12px 14px;border-radius:16px;line-height:1.5;overflow-wrap:anywhere}
@@ -1740,17 +1746,40 @@ var Store = (function(){
 })();
 /* ════════════════════════════════════════════════════════════════════════
    FEATURE SWITCHES (Master Plan v5, rule 3: hide, don't delete).
-   A feature the owner asks to remove is switched off here instead of being deleted: its code stays in the build,
-   its saved data stays in the workspace, backups and sync, and the entries it created stay in Transactions.
-   Switched off on 30 Sep 2026 (release E1), at the owner's request: the Personal Bills page and its Home card,
-   Utang & ipon, Quick add and the Month-end forecast. The Bills engine itself keeps working: repeating bills and
-   paydays show in Wallets under "Coming up". Tindahan's store Bills and customer Utang are separate and untouched.
-   To turn one back on (a test, or a restore on one phone): localStorage 'pentra-features' = comma-separated names,
-   e.g. "bills,utang". To turn one back on for everyone: set it to true below and rebuild. */
+   Two layers:
+   1. Owner-hidden features (release E1, 30 Sep 2026): the Personal Bills page and its Home card, Utang & ipon, Quick add
+      and the Month-end forecast are switched off here in code. Their data stays; the Bills engine keeps working in
+      Wallets → Coming up. Turn one back on for everyone by setting it to true below and rebuilding.
+   2. Admin switches (release E3.1): Pentra admins turn Scan, Budget, Goals, Wallets and Katulong on or off FOR EVERY
+      ACCOUNT from Settings → Admin settings. The switches live on the server (public.pentra_billing_config.features,
+      read with pentra_features(), changed with pentra_admin_features(), see supabase-setup/pentra-feature-switches.sql).
+      Every account reads them when Pentra opens and about once a minute, and keeps the last copy for offline starts.
+      Without an account connection everything is on. Off means hidden: menus, Home cards, buttons and links go away and
+      the page opens Home; nothing is deleted.
+   For a test or a one-phone restore: localStorage 'pentra-features' = comma-separated names turns those features on. */
 var Features = (function(){
-  var ON = { bills:false, utang:false, quickAdd:false, forecast:false };
-  try { String(localStorage.getItem('pentra-features') || '').split(',').forEach(function(k){ k = k.trim(); if (Object.prototype.hasOwnProperty.call(ON, k)) ON[k] = true; }); } catch (e) {}
-  return { on:function(k){ return ON[k] !== false; }, list:function(){ var o = {}; for (var k in ON) o[k] = ON[k]; return o; } };
+  var ON = { bills:false, utang:false, quickAdd:false, forecast:false };           /* layer 1 */
+  var SW = ['scan', 'budget', 'goals', 'wallets', 'katulong'];                        /* layer 2, in menu order */
+  var ROUTE = { scan:'scan', budget:'budget', goals:'goals', goal:'goals', wallets:'wallets', katulong:'katulong' };
+  var KEY = 'pentra-app-features', dev = {}, app = {}, admin = false, lastAt = 0, loading = false;
+  try { String(localStorage.getItem('pentra-features') || '').split(',').forEach(function(k){ k = k.trim(); if (k) dev[k] = true; }); } catch (e) {}
+  try { var c = JSON.parse(localStorage.getItem(KEY) || 'null'); if (c && c.features && typeof c.features === 'object') app = clean(c.features); } catch (e) {}
+  function clean(f){ var o = {}; SW.forEach(function(k){ if (f && typeof f[k] === 'boolean') o[k] = f[k]; }); return o; }
+  function on(k){ if (dev[k]) return true; if (Object.prototype.hasOwnProperty.call(ON, k)) return ON[k]; if (SW.indexOf(k) >= 0) return app[k] !== false; return true; }
+  function routeOff(route){ var k = ROUTE[String(route || '').split('/')[0]]; return !!k && !on(k); }
+  function paint(){ var h = document.documentElement; if (!h || !h.classList) return; SW.forEach(function(k){ h.classList.toggle('pf-off-' + k, !on(k)); }); }
+  function client(){ return window.Auth && Auth.on && Auth.user && Auth.client ? Auth.client() : null; }
+  function take(d, rerender){ if (!d || typeof d !== 'object') return; var before = JSON.stringify([app, admin]);
+    app = clean(d.features || {}); admin = !!d.is_admin; try { localStorage.setItem(KEY, JSON.stringify({ features:app })); } catch (e) {}
+    paint(); if (rerender !== false && JSON.stringify([app, admin]) !== before && typeof render === 'function') render(); }
+  function load(force){ var c = client(); if (!c || loading || (!force && Date.now() - lastAt < 60000)) return Promise.resolve(false);
+    loading = true; return c.rpc('pentra_features').then(function(r){ loading = false; lastAt = Date.now(); if (r && !r.error) take(r.data); return true; }, function(){ loading = false; lastAt = Date.now(); return false; }); }
+  function save(next){ var c = client(); if (!c) return Promise.reject(new Error('Sign in to change the switches.'));
+    return c.rpc('pentra_admin_features', { p_features:clean(next) }).then(function(r){ if (r.error) throw new Error(r.error.message || 'Could not save'); take(r.data); return app; }); }
+  paint();
+  if (typeof window !== 'undefined' && window.addEventListener) { window.addEventListener('focus', function(){ load(false); }); setInterval(function(){ load(true); }, 60000); }
+  return { on:on, routeOff:routeOff, list:function(){ var o = {}; for (var k in ON) o[k] = on(k); return o; }, switches:function(){ var o = {}; SW.forEach(function(k){ o[k] = on(k); }); return o; },
+           SWITCHES:SW, isAdmin:function(){ return admin; }, load:load, save:save, paint:paint, _take:take };
 })();
 /* ════════════════════════════════════════════════════════════════════════
    UI CORE — formatting, icons, charts, sheets, toasts, shell, router.
@@ -2013,7 +2042,7 @@ function bottomNav(){
   function a(r, label, ic){ return '<a href="#/' + r + '"' + (activeKey() === r ? ' aria-current="page"' : '') + '>' + icon(ic, 23) + '<span>' + label + '</span></a>'; }
   return '<nav class="bottom" aria-label="Main">' + a('home', 'Home', 'home') + a('money', 'Money', 'money')
     + '<button type="button" class="fab" data-act="quick" aria-label="Add">' + icon('plus', 26) + '</button>'
-    + a('goals', 'Goals', 'goals') + '<button type="button" data-act="more" aria-label="More sections">' + icon('more', 23) + '<span>More</span></button></nav>';
+    + (!window.Features || Features.on('goals') ? a('goals', 'Goals', 'goals') : Features.on('wallets') ? a('wallets', 'Wallets', 'wallet') : a('reports', 'Reports', 'reports')) + '<button type="button" data-act="more" aria-label="More sections">' + icon('more', 23) + '<span>More</span></button></nav>';
 }
 
 /* ── Render with focus + scroll preservation ───────────────────────── */
@@ -2023,6 +2052,7 @@ function render(){
   if (Auth.restoreTitle) Auth.restoreTitle();   /* the homepage's tab title belongs to the homepage only */
   if (Auth.on && Sync.loading) { root.innerHTML = Sync.loadingView(); return; }
   var r = parseHash(), tin = r.route.indexOf('t:') === 0;
+  if (window.Features) { Features.load(false); if (!tin && Features.routeOff(r.route)) { r = { route:'home', param:'' }; try { history.replaceState(null, '', '#/home'); } catch (e) {} } }   /* E3.1: a switched-off feature opens Home */
   if (!tin && !Store.ws()) { root.innerHTML = viewWelcome(); return; }
   var routeChanged = (r.route + '/' + r.param) !== U.lastRoute;
   U.route = r.route; U.param = r.param; Tin.remember(r.route, r.param);
@@ -2062,7 +2092,7 @@ VIEWS.home = function(C){
   out += safe('Five pillars', function(){ return heroBlock(C, M); });
   out += '<div class="section">' + safe('Monthly figures', function(){ return ledgerBlock(C, M); }) + '</div>';
   out += '<div class="section">' + safe('Goal vs actual', function(){ return gvaBlock(C, M); }) + '</div>';
-  out += '<div class="grid2 section" style="align-items:start">' + safe('Needs attention', function(){ return attentionBlock(C, M, P); }) + safe('Goals', function(){ return goalsGlance(C, true); }) + '</div>';
+  out += '<div class="grid2 section" style="align-items:start">' + safe('Needs attention', function(){ return attentionBlock(C, M, P); }) + (window.Features && !Features.on('goals') ? '' : safe('Goals', function(){ return goalsGlance(C, true); })) + '</div>';
   out += safe('Tracking', function(){ return lagBlock(C); });
   return out;
 };
@@ -2550,7 +2580,7 @@ VIEWS.settings = function(C){
       + list.map(function(c){ return '<button type="button" class="qchip" data-act="cat-toggle" data-id="' + c.id + '" aria-pressed="' + !c.archived + '" title="' + (c.archived ? 'Archived. Select to restore.' : 'Select to archive') + '"' + (c.archived ? ' style="opacity:.45;text-decoration:line-through"' : '') + '>' + esc(c.name) + '</button>'; }).join('')
       + '</div><div class="row" style="gap:8px"><label class="sr" for="nc-' + l + '">New ' + lineLabel(l) + ' category</label><input id="nc-' + l + '" class="input" placeholder="New category" style="max-width:260px"><button type="button" class="btn sm" data-act="cat-add" data-line="' + l + '">Add</button></div></details>';
   }).join('');
-  return phead('Settings', 'Everything the workbook assumes lives here. Changes apply to the open workspace: ' + esc(w.name) + '.')
+  return phead('Settings', 'Everything the workbook assumes lives here. Changes apply to the open workspace: ' + esc(w.name) + '.') + (window.AdminFeatures ? AdminFeatures.block() : '')
     + Auth.panel()
     + '<div class="grid2">'
     + '<form class="panel flat stack" data-form="profile"><div class="shead"><h2>Profile</h2></div><label class="field"><span>Your name</span><input class="input" name="ownerName" value="' + esc(d.profile.ownerName) + '" placeholder="Shown in the greeting on Home"></label>' + num('trackingYear', 'Tracking year', d.profile.trackingYear, 1, 'Year-to-date figures use the year chosen in the top bar.') + '<button class="btn primary" type="submit">Save profile</button></form>'
@@ -2620,7 +2650,7 @@ function openTxSheet(t, preset){
     + '<label class="field full"><span>Description</span><input class="input" name="description" value="' + esc(editing ? t.description : '') + '" placeholder="e.g. Groceries at the market"></label>'
     + '<label class="field"><span>Status</span><select class="input" name="status">' + PE.STATUSES.map(function(s){ return opt(s, s, editing ? t.status : 'Paid'); }).join('') + '</select></label>'
     + '<label class="field" data-show="spending"' + (p === 'spending' ? '' : ' hidden') + '><span>Need or want</span><select class="input" name="needWant">' + opt('need', 'Need', editing ? t.needWant : 'need') + opt('want', 'Want', editing ? t.needWant : 'need') + opt('na', 'Not applicable', editing ? t.needWant : 'need') + '</select></label>'
-    + '<label class="field" data-show="income"' + (p === 'income' ? '' : ' hidden') + '><span>From (optional)</span><input class="input" name="source" maxlength="60" list="tx-src" value="' + esc(editing ? (t.source || '') : '') + '" placeholder="e.g. employer or client"><datalist id="tx-src">' + (window.WalletsUI ? WalletsUI.sources(d) : []).map(function(s){ return '<option value="' + esc(s) + '">'; }).join('') + '</datalist></label>'
+    + (window.Features && !Features.on('wallets') ? '' : '<label class="field" data-show="income"' + (p === 'income' ? '' : ' hidden') + '><span>From (optional)</span><input class="input" name="source" maxlength="60" list="tx-src" value="' + esc(editing ? (t.source || '') : '') + '" placeholder="e.g. employer or client"><datalist id="tx-src">' + (window.WalletsUI ? WalletsUI.sources(d) : []).map(function(s){ return '<option value="' + esc(s) + '">'; }).join('') + '</datalist></label>')
     + '<label class="field"><span>Account</span><select class="input" name="account">' + d.lists.accounts.map(function(a){ return opt(a, a, editing ? t.account : d.lists.accounts[0]); }).join('') + '</select></label>'
     + '<label class="field"><span>Payment method</span><select class="input" name="payment">' + opt('', '—', '') + d.lists.payments.map(function(a){ return opt(a, a, editing ? t.payment : ''); }).join('') + '</select></label>'
     + '<label class="field full" data-show="savings"' + (p === 'savings' ? '' : ' hidden') + '><span>Count toward goal</span><select class="input" name="goalId">' + opt('', 'No goal', '') + goals.map(function(g){ return opt(g.id, g.name, linked ? linked.goalId : ''); }).join('') + '</select><small>The goal\'s balance moves with this entry.</small></label>'
@@ -2648,7 +2678,7 @@ FORMS.tx = function(f){
   if (amt === 0 && budget === 0) return showErr(err, 'Enter an amount, or a planned amount under More details.');
   var obj = { date:v.date, pillar:v.pillar, isMajor:v.pillar === 'spending' && !!v.isMajor, category:v.category || '', description:String(v.description || '').trim(),
               needWant: v.pillar === 'spending' ? v.needWant : 'na', account:v.account, payment:v.payment, budget:budget, actual:amt, status:v.status, notes:v.notes || '' };
-  var src = String(v.source || '').trim(); if (v.pillar === 'income' && src) obj.source = src; else if (t0 && t0.source) obj.source = '';   /* D5: who paid you; other entries keep their shape */
+  if ('source' in v) { var src = String(v.source || '').trim(); if (v.pillar === 'income' && src) obj.source = src; else if (t0 && t0.source) obj.source = ''; }   /* no From box (Wallets off): a saved payer name is left as it is */   /* D5: who paid you; other entries keep their shape */
   var t = v.id ? Store.updateTx(v.id, obj) : Store.addTx(obj);
   if (!t) { closeSheet(); render(); return toast('That entry was removed on another device.'); }
   if (v.pillar === 'savings') { if ((v.goalId || null) !== (t.goalContributionId ? (Store.data().contributions.filter(function(c){ return c.id === t.goalContributionId; })[0] || {}).goalId : null)) Store.setTxGoal(t.id, v.goalId || null); }
@@ -3288,7 +3318,7 @@ var WalletsUI = (function(){
         + '<p class="xs muted">Write who paid you in the From box of an income entry, for example your employer or a client.</p>' : '<p>No income recorded this year.</p>')
       + '<button type="button" class="btn" data-act="new-tx" data-pillar="income">Add income</button></section>';
     return out; }
-  function homeCard(){ var d = Store.data(); if (!d) return ''; var bl = bills();
+  function homeCard(){ var d = Store.data(); if (!d || (window.Features && !Features.on('wallets'))) return ''; var bl = bills();
     var any = (d.wallets || []).length || (d.transfers || []).length || bl.length || (d.transactions || []).some(function(t){ return t.account; }); if (!any) return '';
     var B = balances(d), nx = bl[0];
     return '<section class="panel wl-card" aria-labelledby="wlc-h"><h2 class="h3" id="wlc-h">Wallets</h2><p class="pn-sum">Net worth <b>' + money(B.netWorth) + '</b> \u00b7 Spendable <b>' + money(B.spendable) + '</b>' + (B.owed ? ' \u00b7 Owed <b>' + money(B.owed) + '</b>' : '') + '</p>'
@@ -3343,9 +3373,11 @@ var WalletsUI = (function(){
         D().transfers.push({ id:uid('x'), date:dt, from:f, to:t, amount:r2(a), note:v(dl, '#wx-n').trim() }); return { done:'Moved ' + money(a) + ' to ' + t }; }); };
     ACT['wl-xdel'] = function(el){ var id = el.getAttribute('data-id'); dialog('Delete this transfer?', '<p>Both balances go back to how they were before it.</p>', 'Delete', function(){ var d = D(); d.transfers = d.transfers.filter(function(x){ return x.id !== id; }); return { done:'Transfer deleted' }; }); };
   }
+  {   /* always registered; the admins' switch (E3.1, src/03f-features.js) hides it everywhere at display time */
   if (typeof ROUTES !== 'undefined' && ROUTES.indexOf('wallets') < 0) ROUTES.push('wallets');
   if (typeof VIEWS !== 'undefined') VIEWS.wallets = function(C){ return view(C); };
   if (typeof NAV !== 'undefined' && NAV[0] && NAV[0].items && !NAV[0].items.some(function(i){ return i[0] === 'wallets'; })) NAV[0].items.push(['wallets', 'Wallets', 'wallet']);
+  }
   return { view:view, homeCard:homeCard, balances:balances, income:income, effect:effect, guess:guess, sources:sources, trend:trend, TYPES:TYPES };
 })();
 /* ════════════════════════════════════════════════════════════════════════
@@ -3414,7 +3446,7 @@ var KatParse = (function(){
     ['psbank|ps bank', 'PSBank', 'bank'], ['maybank', 'Maybank', 'bank'], ['gotyme|go tyme', 'GoTyme', 'bank'], ['seabank|sea bank', 'SeaBank', 'bank'], ['cimb', 'CIMB', 'bank'], ['tonik', 'Tonik', 'bank'],
     ['aub', 'AUB', 'bank'], ['ownbank', 'OwnBank', 'bank'], ['komo', 'Komo', 'bank'], ['diskartech', 'DiskarTech', 'bank'],
     ['paymaya|maya', 'Maya', 'ewallet'], ['gcash|g-cash', 'GCash', 'ewallet'], ['coins\\.ph|coinsph', 'Coins.ph', 'ewallet'], ['shopeepay|shopee pay', 'ShopeePay', 'ewallet'], ['grabpay|grab pay', 'GrabPay', 'ewallet'],
-    ['pag-ibig mp2|pagibig mp2|mp2', 'Pag-IBIG MP2', 'savings'], ['col financial', 'COL Financial', 'investment']
+    ['pag-ibig mp2|pagibig mp2|mp2', 'Pag-IBIG MP2', 'savings'], ['col financial|col', 'COL Financial', 'investment']
   ];
   var TYPEW = [['credit card|creditcard|cc', 'Credit Card'], ['savings account|savings|saving', 'Savings'], ['checking account|checking|current account', 'Checking'], ['payroll account|payroll', 'Payroll'], ['time deposit', 'Time Deposit'], ['e-wallet|ewallet|wallet', 'Wallet']];
   /* bills: pattern → [name, category, plan line]; the first match wins */
@@ -3428,31 +3460,34 @@ var KatParse = (function(){
     ['rent|upa|renta|boarding house|dorm', 'Rent', 'Rent'], ['condo dues|association dues|hoa dues|hoa|dues', 'Dues', 'Utilities'],
     ['philhealth', 'PhilHealth', 'Health Insurance', 'protection'], ['sss', 'SSS', 'Other Protection', 'protection'], ['hmo', 'HMO', 'Health Insurance', 'protection'],
     ['life insurance', 'Life insurance', 'Life Insurance', 'protection'], ['insurance', 'Insurance', 'Health Insurance', 'protection'],
-    ['car loan', 'Car loan', 'Debt Payment'], ['housing loan|home loan', 'Housing loan', 'Debt Payment'], ['amortization|amortisasyon|amort', 'Amortization', 'Debt Payment'], ['loan', 'Loan', 'Debt Payment'],
-    ['tuition|matrikula', 'Tuition', 'Tuition'], ['gym', 'Gym', 'Recreation'], ['cable', 'Cable', 'Entertainment'], ['school service', 'School service', 'Transportation']
+    ['car loan', 'Car loan', 'Debt Payment'], ['housing loan|home loan|hulog sa bahay|pabahay', 'Housing loan', 'Debt Payment'], ['amortization|amortisasyon|amort', 'Amortization', 'Debt Payment'], ['loan', 'Loan', 'Debt Payment'], ['installment|hulugan|hulog', 'Installment', 'Debt Payment'],
+    ['tuition|matrikula', 'Tuition', 'Tuition'], ['pag-ibig contribution|pagibig contribution|pag-ibig|pagibig', 'Pag-IBIG', 'Other Protection', 'protection'], ['home credit', 'Home Credit', 'Debt Payment'], ['atome', 'Atome', 'Debt Payment'], ['spaylater|shopee paylater', 'SPayLater', 'Debt Payment'], ['billease', 'BillEase', 'Debt Payment'], ['gym', 'Gym', 'Recreation'], ['cable', 'Cable', 'Entertainment'], ['school service', 'School service', 'Transportation']
   ];
   var CATS = [
-    ['dining out|dining|dine out|eat out|eating out|restaurants?|resto|kain sa labas|kumain sa labas|samgyup|jollibee|mcdo|mcdonald\'?s|kfc|chowking|starbucks|coffee|kape|milk ?tea|cafe', 'Dining Out'],
-    ['groceries|grocery|food|pagkain|palengke|market|ulam|bigas|rice|snacks|merienda|lunch|dinner|breakfast|almusal|tanghalian|hapunan', 'Food & Groceries'],
+    ['grab ?food|foodpanda|food panda|food delivery|dining out|dining|dine out|eat out|eating out|restaurants?|resto|kain sa labas|kumain sa labas|samgyup|jollibee|mcdo|mcdonald\'?s|kfc|chowking|starbucks|coffee|kape|milk ?tea|cafe', 'Dining Out'],
+    ['gatas|formula milk|groceries|grocery|food|pagkain|palengke|market|ulam|bigas|rice|snacks|merienda|lunch|dinner|breakfast|almusal|tanghalian|hapunan', 'Food & Groceries'],
     ['transportation|transport|pamasahe|fare|jeep|jeepney|tricycle|trike|grab car|grab|angkas|joyride|taxi|bus|mrt|lrt|gas|gasolina|diesel|parking|toll|commute', 'Transportation'],
-    ['load|mobile data|data promo|communication', 'Communication'], ['medicine|gamot|doctor|hospital|check-?up|pharmacy|botika|dentist|clinic|healthcare|health', 'Healthcare'],
-    ['school supplies|books|school|education|libro', 'Education'], ['shopping|clothes|damit|shoes|sapatos|lazada|shopee|mall', 'Shopping'],
-    ['movies?|sine|cinema|concert|games|gaming|entertainment|netflix', 'Entertainment'], ['haircut|gupit|salon|barber|toiletries|skincare|personal care', 'Personal Care'],
+    ['load|mobile data|data promo|communication', 'Communication'], ['medicine|gamot|doctor|ospital|hospital|vitamins|bitamina|laboratory|check-?up|pharmacy|botika|dentist|clinic|healthcare|health', 'Healthcare'],
+    ['school supplies|books|school|education|libro|print|printing|xerox|photocopy|notebooks?|ballpen|pencils?|thesis', 'Education'], ['laptop|computer|desktop pc', 'Laptop / Computer'], ['headphones|earphones|earbuds|gadgets?|smartphone|iphone|tablet|ipad', 'Phone / Gadgets'], ['diapers?|lampin|wipes', 'Personal Care'], ['shopping|clothes|damit|shoes|sapatos|lazada|shopee|mall', 'Shopping'],
+    ['movies?|sine|cinema|concert|games|gaming|entertainment|netflix|diamonds|mobile legends|codm', 'Entertainment'], ['haircut|gupit|salon|barber|toiletries|skincare|personal care', 'Personal Care'],
     ['travel|trip|bakasyon|flight|hotel|airbnb', 'Travel'], ['hobby|hobbies', 'Hobbies'], ['recreation|gym', 'Recreation'], ['utilities|utility', 'Utilities'],
     ['rent|upa', 'Rent'], ['family support|padala|sustento', 'Family Support'], ['gifts?|donations?|regalo|tithes?|abuloy|pasalubong', 'Gifts & Donations'], ['electricity|kuryente|meralco', 'Electricity'], ['water|tubig', 'Water'], ['internet|wifi', 'Internet'], ['subscriptions?', 'Subscriptions']
   ];
-  var INCATS = [['salary|sahod|sweldo|suweldo|payroll', 'Salary'], ['freelance|raket|sideline|project', 'Freelance'], ['business|negosyo|tindahan|store sales', 'Business'], ['commission|komisyon', 'Commission'],
+  var INCATS = [['salary|sahod|sweldo|suweldo|payroll', 'Salary'], ['freelance|raket|sideline|project|upwork|fiverr|onlinejobs', 'Freelance'], ['business|negosyo|tindahan|store sales|benta|tubo|shopee payout|lazada payout|sales|online selling', 'Business'], ['commissions?|komisyon', 'Commission'],
     ['side hustle|side job|extra', 'Side Hustle'], ['allowance|baon|padala', 'Allowance'], ['bonus|13th month|thirteenth month', 'Bonus'], ['dividends?', 'Dividends'], ['interest|interes', 'Interest']];
-  var FAMW = 'parents?|magulang|nanay|tatay|inay|itay|mama|papa|mommy|daddy|mom|dad|mother|father|siblings?|brothers?|sisters?|kapatid|kuya|bunso|lola|lolo|grandma|grandpa|grandparents|tito|tita|tiyo|tiya|uncle|aunt|auntie|pinsan|cousins?|pamangkin|nephews?|nieces?|family|pamilya|relatives|kamag-anak|in-laws?|biyenan|anak|kids|children|son|daughter|asawa|misis|mister|husband|wife|jowa';
+  var FAMW = 'parents?|magulang|nanay|tatay|inay|itay|mama|papa|mommy|daddy|mom|dad|mother|father|siblings?|brothers?|sisters?|kapatid|kuya|bunso|lola|lolo|grandma|grandpa|grandparents|tito|tita|tiyo|tiya|uncle|aunt|auntie|pinsan|cousins?|pamangkin|nephews?|nieces?|family|pamilya|relatives|kamag-anak|in-laws?|biyenan|anak|kids|children|son|daughter|asawa|misis|mister|husband|wife|jowa|probinsya|probinsiya|province|ading|manong|manang|inang|amang|nanang|tatang';
   var FAMILY = new RegExp('(?:^|[^a-z0-9])(' + FAMW + ')(?![a-z0-9])|(?:^|[^a-z0-9])(?:kay|sa|to|for|my|ni|si)\\s+(ate)(?![a-z0-9])');
-  var GIFT = /(?:^|[^a-z0-9])(gifts?|regalo|pasalubong|donations?|donate|donated|nag-?donate|tithes?|ikapu|offering|church|simbahan|charity|abuloy|ambag|pakimkim|aguinaldo|inaanak)(?![a-z0-9])/;
-  var GIVE = /\b(give|gave|giving|given|gives|bigay|binigay|ibinigay|nagbigay|magbigay|binigyan ko|padala|pinadala|nagpadala|ipinadala|pinadalhan ko|send|sent|sending|support|supported|suporta|sustento|abot|inabot|iniabot|donate|donated)\b/;
+  var GIFT = /(?:^|[^a-z0-9])(gifts?|regalo|pasalubong|donations?|donate|donated|nag-?donate|tithes?|ikapu|offering|church|simbahan|charity|abuloy|ambag|pakimkim|aguinaldo|inaanak|pamasko|bday gift|birthday gift)(?![a-z0-9])/;
+  var GIVE = /\b(nagpapadala|pinapadala|nagbibigay|binibigyan ko|remit|remits|remitted|nag-?remit|nagreremit|give|gave|giving|given|gives|bigay|binigay|ibinigay|nagbigay|magbigay|binigyan ko|padala|pinadala|nagpadala|ipinadala|pinadalhan ko|send|sent|sending|support|supported|suporta|sustento|abot|inabot|iniabot|donate|donated)\b/;
   var TO_ME = new RegExp('\\b(gave me|give me|gives me|sent me|send me|binigyan ako|binigyan niya ako|bigay sa akin|binigay sa akin|ibinigay sa akin|padala sa akin|pinadalhan ako|nagpadala sa akin|galing kay|mula kay)\\b|\\bfrom (?:my )?(?:' + FAMW + ')\\b');
-  var LEND = /\b(lent|lend|loaned|pinahiram|nagpahiram|ipinahiram|pautang|borrowed|borrow|nangutang|umutang|hiniram|inutang)\b/;
-  function toMe(s){ return TO_ME.test(s) || ((GIVE.test(s) || /\b(paid|pays|pay|nagbayad|binayaran)\b/.test(s)) && /\b(sa akin|sakin|to me|for me|paid me|pays me|pay me)\b/.test(s))
+  var ASKFOR = /\b(humingi|hihingi|nanghingi|pahingi|asked for|ask for)\b/, CHILD = /\b(anak|son|daughter|kids|children|baby|babies)\b/, FX = /\b(dollars?|usd|riyals?|sar|dirhams?|aed|euros?|eur|yen|jpy|pounds?|gbp|hkd|sgd|kwd|qar)\b|\$/;
+  var SAVEW = /\b(paluwagan|naghulog sa paluwagan|nag-?ipon|naka-?ipon|nakaipon|ipon|nagtabi|itinabi|tinabi|magtabi|saved|save|saving|nag-?save|deposit(ed)?|emergency fund)\b/, SAVEVERB = /\b(naghulog|hulog|paluwagan|nag-?ipon|naka-?ipon|nakaipon|nagtabi|itinabi|tinabi|saved|nag-?save|deposit(ed)?)\b|\b(today|ngayon|ngayong araw|this payday|kanina)\b/;
+  var INVESTW = /\b(invest(ed|ing|ment)?|nag-?invest|stocks?|shares|uitf|mutual funds?|index funds?|etfs?|bonds?|rtb|crypto|bitcoin|puhunan|restock|nag-?restock|paninda|supplier|kapital|capital)\b/;
+  var LEND = /\b(nanghiram|ggives|lent|lend|loaned|pinahiram|nagpahiram|ipinahiram|pautang|borrowed|borrow|nangutang|umutang|hiniram|inutang)\b/;
+  function toMe(s){ return TO_ME.test(s) || /\bpadala (ni|galing|mula|from)\b/.test(s) || /\b(client|customer|kliyente|boss|employer|company|kompanya)( ko)? (paid|pays|sent|nagbayad|nagpadala)\b/.test(s) || /\bbayad (ng|ni) (client|customer|kliyente|boss|employer)\b/.test(s) || /\bpayouts?\b/.test(s) || ((GIVE.test(s) || /\b(paid|pays|pay|nagbayad|binayaran)\b/.test(s)) && /\b(sa akin|sakin|to me|for me|paid me|pays me|pay me)\b/.test(s))
       || (/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan|nagsend|nag-send)\s+(si|ni)\s+[a-z]/.test(s) && !/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan)\s+(ko|ako)\b/.test(s)); }
   function fam(s){ var m = FAMILY.exec(s); return m ? (m[1] || m[2]) : null; }
-  function giveTo(s){ var g = GIFT.exec(s); if (g) return 'Gifts & Donations'; var f = fam(s); if (!f) return null;
+  function giveTo(s){ var g = GIFT.exec(s); if (g) return 'Gifts & Donations'; var f = fam(s); if (!f) return null; if (CHILD.test(' ' + f + ' ') && !GIVE.test(s) && (catOf(s, CAT_RX) || billOf(s))) return null;
     if (GIVE.test(s) || new RegExp('\\b(to|for|kay|para sa|para kay|sa)\\s+(my\\s+|aking\\s+|ang\\s+|si\\s+)?' + f + '\\b').test(s) || !catOf(s, CAT_RX)) return 'Family Support'; return null; }
   var MONTHLY = /\b(every month|a month|per month|monthly|each month|kada buwan|bawat buwan|buwan-buwan|buwanan|every buwan|isang buwan)\b/;
   var CHATTER = /^(hi|hello|hey|kumusta|salamat|thanks|thank you|ok|okay|sige|help|tulong)\b/;
@@ -3507,6 +3542,7 @@ var KatParse = (function(){
       out.push({ brand:b[1], kind:b[2], type:tw, at:at }); });
     var c = /(?:^|[^a-z0-9-])(cash on hand|cash|pera sa bulsa|pitaka|alkansya)(?![a-z0-9-])/.exec(s);
     if (c && !/cash[- ]?(in|out|advance)|cashout|cashin/.test(s.slice(c.index, c.index + 16))) out.push({ brand:'Cash', kind:'cash', type:null, at:c.index + c[0].indexOf(c[1]) });
+    if (!out.length) { var wl = /(?:^|[^a-z0-9-])(wallet)(?![a-z0-9-])/.exec(s); if (wl) out.push({ brand:'Cash', kind:'cash', type:null, at:wl.index }); }
     return out.sort(function(a, b){ return a.at - b.at; }); }
   function Resolver(ctx){ var known = (ctx.accounts || []).map(function(a){ return typeof a === 'string' ? { name:a, type:typeGuess(a) } : { name:a.name, type:a.type || typeGuess(a.name) }; }), fresh = [], said = [];
     function find(n){ n = n.toLowerCase(); var all = fresh.concat(known); for (var i = 0; i < all.length; i++) if (all[i].name.toLowerCase() === n) return all[i]; return null; }
@@ -3539,8 +3575,8 @@ var KatParse = (function(){
       return [{ k:'ask', q:'help' }]; }
     if (st.card && !M.length && /\b(owe|utang|balance|used|nagamit)\b/.test(s) && !/\b(limit)\b/.test(s)) { st.card.owed = a0 ? a0.v : 0; return []; }
     if (!A.length) { if (st.card && /\b(statement|due|cut-?off)\b/.test(s) && days.length) return cardDays(st.card, s, D); return []; }
-    if (LEND.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
-    if (toMe(s) && !/\b(spent|gastos|bought|bumili)\b/.test(s)) return [incomeItem(s, a0, ctx, R, M)];
+    if (LEND.test(s) || ASKFOR.test(s) || FX.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
+    if (toMe(s) && !/\b(spent|gastos|bought|bumili)\b/.test(s) && !(days.length && /\b(allowance|baon|sahod|sweldo|salary)\b/.test(s))) return [incomeItem(s, a0, ctx, R, M)];
     /* transfers (money to a person is spending, not a transfer) */
     if (/\b(move|moved|moving|transfer|transferred|lipat|ilipat|inilipat|nilipat|send|sent|padala|cash[- ]?in|nag-?cash[- ]?in|withdraw|withdrew|nag-?withdraw|pay my card|paid my card|bayad sa card)\b/.test(s) && M.length >= 1 && !(giveTo(s) && M.length < 2)) {
       var fm = /\b(?:from|galing sa|galing|mula sa|mula)\b/.exec(s), tm = /\b(?:to|papunta sa|papuntang|sa|into)\b/.exec(s), from = null, to = null;
@@ -3551,7 +3587,8 @@ var KatParse = (function(){
       if (/\b(pay my card|paid my card|bayad sa card|transfer|transferred|move|moved|lipat|ilipat|inilipat|nilipat|withdraw|withdrew|cash[- ]?in)\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }]; }
     /* credit cards */
     if (/\bcash advance\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
-    var spentOn = /\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|bumili|binili|paid for|pinambayad)\b/.test(s) && !/\b(limit|statement|due|owe|utang)\b/.test(s);
+    var spentOn = (/\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|bumili|binili|paid for|pinambayad)\b/.test(s) && !/\b(limit|statement|due|owe|utang)\b/.test(s)) || /\b(gamit|using|via|thru|through)\s+(ang\s+|my\s+|aking\s+)?([a-z]+\s+)?(credit card|cc)\b/.test(s);
+    if (!spentOn && /\b(credit card|creditcard|cc)\b/.test(s) && /\b(bill|bayad|payment|pay)\b/.test(s) && !/\blimit\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
     if (!spentOn && (/\b(credit card|creditcard|cc)\b/.test(s) || (/\bcard\b/.test(s) && /\b(limit|statement|due)\b/.test(s)))) {
       var cm = M.filter(function(m){ return m.type === 'Credit Card'; })[0] || M[0] || { brand:'', kind:'bank', type:'Credit Card', at:0 };
       if (cm.type !== 'Credit Card') cm = { brand:cm.brand, kind:cm.kind, type:'Credit Card', at:cm.at }; var cr = cm.brand ? acct(cm, false) : { name:'Credit Card', isNew:!R.exists('Credit Card') };
@@ -3561,14 +3598,32 @@ var KatParse = (function(){
     if (st.card && /\b(statement|due date|due day|due every|due on|cut-?off)\b/.test(s) && !billOf(s)) return cardDays(st.card, s, D);
     /* paydays and one-off income */
     var payday = (/\b(get paid|gets paid|got paid|i'?m paid|i am paid|paid every|salary|sahod|sweldo|suweldo|payday|pay day|payroll|paycheck|sinasahod|sumasahod)\b/.test(s) || /\b(get|gets|receive|receives|earn|earns)\b[^.]*\bfrom (?:work|my job|the company|my employer|the office|my company|trabaho)\b/.test(s)) && !/\b(spent|gastos|bought|bumili|for (my|the) )\b/.test(s);
+    if (SAVEW.test(s) && !/\b(sahod|sweldo|salary|get paid)\b/.test(s)) payday = false;
+    var allowIn = /\b(allowance|baon)\b/.test(s) && !GIVE.test(s) && (toMe(s) || /\b(galing|from|mula)\b/.test(s) || /\b(allowance|baon) ko\b/.test(s)) && !fam(s.replace(/\b(galing|from|mula) (kay |sa |my )?[a-z]+/, ''));
+    if (allowIn && days.length) return [{ k:'payday', name:'Allowance', category:'Allowance', amount:a0.v, approx:a0.approx, days:days.slice(), account:M[0] ? acct(M[0], true).name : null }];
     if (payday && (days.length || MONTHLY.test(s) || /\b(every|tuwing|kada)\b/.test(s))) {
       var to2 = M[0] ? acct(M[0], true) : null, pd = { k:'payday', name:catOf(s, INCAT_RX) === 'Salary' || /\bpaid\b|\bfrom (work|my job|the company|my employer|the office|my company|trabaho)\b/.test(s) || !catOf(s, INCAT_RX) ? 'Salary' : title(catOf(s, INCAT_RX) || 'Salary'), category:catOf(s, INCAT_RX) || 'Salary', amount:a0.v, approx:a0.approx, days:days.slice(), account:to2 ? to2.name : null };
       if (to2 && to2.options) pd.options = to2.options; if (/\b(a month|per month|monthly|kada buwan|a buwan)\b/.test(s) && days.length > 1) pd.amount = Math.round(a0.v / days.length * 100) / 100;
       if (!days.length) return [{ k:'incplan', amount:a0.v, category:pd.category }]; return [pd]; }
-    if (/\b(received|receive|got|natanggap|tumanggap|kumita|earned|nabayaran ako|binayaran ako|bayad sa akin|nagbayad sa akin|income|kita|sahod|sweldo|suweldo|salary|bonus|13th month|thirteenth month|paycheck)\b/.test(s) && !/\b(spent|spend|gastos|bought|bumili)\b/.test(s) && !GIVE.test(s)) return [incomeItem(s, a0, ctx, R, M)];
+    if (/\b(received|receive|got|natanggap|tumanggap|kumita|earned|nabayaran ako|binayaran ako|bayad sa akin|nagbayad sa akin|income|kita|sahod|sweldo|suweldo|salary|bonus|13th month|thirteenth month|paycheck|benta|tubo|payout|payouts|ayuda|4ps|nanalo|won|prize|premyo|napanalunan)\b/.test(s) && !/\b(spent|spend|gastos|bought|bumili)\b/.test(s) && !GIVE.test(s)) return [incomeItem(s, a0, ctx, R, M)];
     /* savings target and category limits */
     if (/\b(save|saving|savings goal|ipon|mag-?ipon|makaipon|magtabi|itabi|set aside|magsave)\b/.test(s) && (MONTHLY.test(s) || /\bmonth|buwan\b/.test(s)) && !/\blimit\b/.test(s)) return [{ k:'saveplan', amount:a0.v }];
+    if (INVESTW.test(s) && MONTHLY.test(s) && /\b(mag-?invest|invest|gusto)\b/.test(s)) return [{ k:'invplan', amount:a0.v }];
     if (/\b(limit|cap|max|maximum|budget|hanggang|up to|hindi lalagpas|wag lalagpas|huwag lalagpas)\b/.test(s)) { var lc = catOf(s, CAT_RX); if (lc) return [{ k:'limit', category:lc, amount:a0.v }]; }
+    /* money put to work: stocks, funds, store capital and restocking */
+    var forStore = /\b(para sa|for the|for my|pang-?)\s*(tindahan|store|negosyo|business)\b/.test(s);
+    if ((INVESTW.test(s) || forStore) && !/\b(kumita|tubo|benta|payout)\b/.test(s) && !(MONTHLY.test(s) && /\b(mag-?invest|invest|gusto)\b/.test(s))) { var ic = forStore || /\b(puhunan|restock|nag-?restock|paninda|supplier|kapital|capital|tindahan|negosyo|business)\b/.test(s) ? 'Business Investment' : /\b(stocks?|shares)\b/.test(s) ? 'Stocks' : /\b(uitf|mutual funds?)\b/.test(s) ? 'Mutual Funds' : /\bindex funds?\b/.test(s) ? 'Index Funds' : /\betfs?\b/.test(s) ? 'ETFs' : /\b(bonds?|rtb)\b/.test(s) ? 'Bonds' : /\b(retirement)\b/.test(s) ? 'Retirement Fund' : 'Other Investment';
+      var ia = M.filter(function(m){ return m.brand !== 'Cash'; })[0]; return [{ k:'invest', amount:a0.v, category:ic, account:ia ? acct(ia, false).name : null, date:dayWord(s, ctx.today) }]; }
+    /* savings put aside today (not a monthly plan: that is the savings plan above) */
+    if (SAVEW.test(s) && (SAVEVERB.test(s) || !M.length || /\bipon ko\b/.test(s))) { var sc2 = /\bemergency\b/.test(s) ? 'Emergency Fund' : /\b(vacation|bakasyon)\b/.test(s) ? 'Vacation Fund' : /\b(education|tuition|school|enrollment)\b/.test(s) ? 'Education Fund' : 'Other Savings';
+      var sa = M.map(function(m){ return acct(m, true); }).filter(function(r){ return r.type === 'savings' || r.type === 'investment'; })[0]; return [{ k:'saved', amount:a0.v, category:sc2, account:sa ? sa.name : null, date:dayWord(s, ctx.today) }]; }
+    /* repeating support for family (padala, remittance, allowance): a repeating bill in Coming up */
+    var fgive = giveTo(s) === 'Family Support', frec = MONTHLY.test(s) || days.length || /\b(every|tuwing|kada)\b/.test(s);
+    if (fgive && frec && !billOf(s) && /\b(padala|remit|allowance|baon|support|suporta|sustento|bigay|binigay|nagbigay|nagbibigay|give|gave|nagpapadala|pinapadala|nagremit|nagreremit)\b|\bremit/.test(s) && !/\b(spent|paid|nagbayad|binayaran|bought|bumili|kahapon|yesterday|kanina)\b/.test(s)) return [{ k:'bill', name:/\bremit/.test(s) ? 'Remittance' : /padala/.test(s) ? 'Padala' : /\b(allowance|baon)\b/.test(s) ? 'Allowance' : 'Family support', amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:'Family Support', line:'spending', need:days.length ? null : 'day' }];
+    /* a repeating purchase with an unknown name, e.g. "binili ko ang canva pro 499 every month" */
+    if (!billOf(s) && (MONTHLY.test(s) || /\b(every|tuwing|kada)\b/.test(s)) && /\b(binili|bought|subscribe|subscribed|nag-?subscribe|member|membership|pro|premium|plus)\b/.test(s) && !catOf(s, CAT_RX)) {
+      var nm2 = title(words(s).replace(/\b(binili|bought|subscribe|subscribed|nag-?subscribe|ko|ako|i|na|yung|ung|every|month|monthly)\b/g, ' ').replace(/\s+/g, ' ').trim().split(' ').slice(0, 3).join(' ')) || 'Subscription';
+      return [{ k:'bill', name:nm2, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:/\b(pro|premium|plus|subscription|subscribe|subscribed|app|membership|member)\b/.test(s) ? 'Subscriptions' : 'Utilities', line:'spending', need:days.length ? null : 'day' }]; }
     /* repeating bills */
     var bl = billOf(s), recurring = st.recur || days.length || MONTHLY.test(s) || /\b(every|tuwing|kada)\b/.test(s) || every(s) !== 'monthly', past = /\b(spent|paid|nagbayad|binayaran|bought|bumili|gumastos|ginastos|kahapon|yesterday|today|kanina)\b/.test(s);
     if ((bl || st.mode === 'bills') && recurring && !past) { var nm = bl ? bl.name : title(words(s).split(' ').slice(0, 3).join(' ')) || 'Bill';
@@ -3582,7 +3637,7 @@ var KatParse = (function(){
       return { k:'account', name:r.name, type:r.type, isNew:r.isNew, amount:x.v, approx:x.approx }; }); }
     return A.map(function(x){ return { k:'unclear', amount:x.v, text:s }; }); }
   function source(s){ var m = /\b(?:from|galing kay|galing sa|kay|mula kay|mula sa|ni)\s+([a-z][a-z .'-]{1,30}?)(?=\s+(?:for|para|sa|to|via|thru|through|ng|and|at)\b|[,.!]|$)/.exec(s);
-    if (!m) { var sub = /^([a-z][a-z .'-]{1,24}?)\s+(?:paid|pays|sent|gave|gives)\s+me\b/.exec(s), f0 = fam(s); if (f0) return title(f0); if (sub && !/^(my|i|we|they|he|she|someone)$/.test(sub[1].trim())) return title(sub[1].trim().replace(/^(my|our)\s+/, '')); return null; }
+    if (!m) { var sub = /^([a-z][a-z .'-]{1,24}?)\s+(?:paid|pays|sent|gave|gives)\s+me\b/.exec(s) || /^(client|customer|kliyente|boss|employer)(?= (paid|pays|sent|nagbayad))/.exec(s), f0 = fam(s); if (f0) return title(f0); if (sub && !/^(my|i|we|they|he|she|someone)$/.test(sub[1].trim())) return title(sub[1].trim().replace(/^(my|our)\s+/, '')); return null; }
     var w = m[1].trim().replace(/^(my|our|the|a|an|aking|ang|si)\s+/, ''); if (!w || catOf(w, INCAT_RX) || /\b(work|job|trabaho|company|employer|office|opisina|side hustle|business|negosyo|salary|sahod|income)\b/.test(w)) return null;
     var f = fam(' ' + w); return title(f || w); }
   function incomeItem(s, a0, ctx, R, M){ var im = M.filter(function(m){ return !/\b(from|galing|mula)\s+(my\s+)?$/.test(s.slice(Math.max(0, m.at - 14), m.at)); })[0] || null;
@@ -3605,7 +3660,7 @@ var KatParse = (function(){
     cuts.forEach(function(c){ parts.push(sent.slice(c[0], c[1]).trim()); }); parts.push(sent.slice(last).trim()); return parts.filter(Boolean); }
   function parse(text, ctx){ ctx = ctx || {}; ctx.today = ctx.today || new Date().toISOString().slice(0, 10);
     var R = Resolver(ctx), st = { mode:null, card:null }, items = [], ignored = [];
-    String(text || '').replace(/\r/g, '').replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"').split(/\n+|\s+\/\s+/).forEach(function(line){ var low = line.toLowerCase().replace(/\s+/g, ' ').trim(); if (!low) return;
+    String(text || '').replace(/\r/g, '').replace(/\b5-6\b/g, 'lima-anim').replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"').split(/\n+|\s+\/\s+/).forEach(function(line){ var low = line.toLowerCase().replace(/\s+/g, ' ').trim(); if (!low) return;
       if (/\b(bills|bayarin|gastusin buwan-buwan|monthly expenses|fixed expenses)\b/.test(low) && !numbers(low).amounts.length) { st.mode = 'bills'; ignored.push(line.trim()); return; }
       if (/\b(accounts?|wallets?)\b.*\b(are|ko|:)\s*$/.test(low) && !numbers(low).amounts.length) { st.mode = null; ignored.push(line.trim()); return; }
       var got = 0; sentences(low).forEach(function(sent){ st.recur = MONTHLY.test(sent) || /\b(every|tuwing|kada)\b/.test(sent); st.dir = null; clauses(sent).forEach(function(c){ var r = clause(c, ctx, R, st);
@@ -3621,9 +3676,12 @@ var KatParse = (function(){
       case 'incplan': return 'incplan ' + it.amount;
       case 'bill': return 'bill ' + it.name + ' ' + it.amount + (it.approx ? '~' : '') + ' d' + (it.day || '?') + ' ' + it.category + (it.every !== 'monthly' ? ' ' + it.every : '');
       case 'saveplan': return 'save ' + it.amount;
+      case 'invplan': return 'invplan ' + it.amount;
       case 'limit': return 'limit ' + it.category + ' ' + it.amount;
       case 'spend': return 'spend ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
       case 'income': return 'income ' + it.amount + ' ' + it.category + (it.source ? ' from ' + it.source : '') + (it.account ? ' @' + it.account : '');
+      case 'saved': return 'saved ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
+      case 'invest': return 'invest ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
       case 'move': return 'move ' + it.amount + ' ' + it.from + '>' + it.to;
       case 'ask': return 'ask ' + it.q + (it.arg ? ' ' + it.arg : '');
       default: return 'unclear ' + it.amount; } }).join(' | '); }
@@ -3663,10 +3721,13 @@ var KatulongUI = (function(){
       case 'incplan': return T('Income plan: ' + money(it.amount) + ' a month, ' + span(), 'Plano sa kita: ' + money(it.amount) + ' bawat buwan, ' + span());
       case 'bill': return T('Repeating bill ' + it.name + ': ' + money(it.amount) + ab + (it.every === 'weekly' ? ' every week' : it.every === 'yearly' ? ' every year' : it.day ? ' every month on the ' + ord(it.day) : ' every month') + ' (' + it.category + ')' + (it.due ? ', next due ' + fmtD(it.due) : ''),
         'Umuulit na bayarin na ' + it.name + ': ' + money(it.amount) + ab + (it.every === 'weekly' ? ' bawat linggo' : it.every === 'yearly' ? ' bawat taon' : it.day ? ' bawat buwan tuwing ' + ord(it.day) : ' bawat buwan') + ' (' + it.category + ')' + (it.due ? ', susunod na due ' + fmtD(it.due) : ''));
+      case 'invplan': return T('Investment plan: ' + money(it.amount) + ' a month, ' + span(), 'Plano sa puhunan: ' + money(it.amount) + ' bawat buwan, ' + span());
       case 'saveplan': return T('Savings plan: ' + money(it.amount) + ' a month, ' + span(), 'Plano sa ipon: ' + money(it.amount) + ' bawat buwan, ' + span());
       case 'limit': return T('Spending limit: ' + it.category + ', ' + money(it.amount) + ' a month', 'Limitasyon sa gastos: ' + it.category + ', ' + money(it.amount) + ' bawat buwan');
       case 'spend': return T('Spending ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' on ' + it.category + (it.account ? ', from ' + it.account : ''), 'Gastos ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' sa ' + it.category + (it.account ? ', mula sa ' + it.account : ''));
       case 'income': return T('Income today: ' + money(it.amount) + ' (' + it.category + ')' + (it.source ? ' from ' + it.source : '') + (it.account ? ', into ' + it.account : ''), 'Kita ngayon: ' + money(it.amount) + ' (' + it.category + ')' + (it.source ? ' mula kay ' + it.source : '') + (it.account ? ', papunta sa ' + it.account : ''));
+      case 'saved': return T('Savings ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', into ' + it.account : ''), 'Ipon ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', sa ' + it.account : ''));
+      case 'invest': return T('Investment ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', in ' + it.account : ''), 'Puhunan ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', sa ' + it.account : ''));
       case 'move': return T('Move money: ' + money(it.amount) + ' from ' + it.from + ' to ' + it.to, 'Ilipat ang pera: ' + money(it.amount) + ' mula sa ' + it.from + ' papunta sa ' + it.to);
       default: return T('I could not tell what ' + money(it.amount) + ' is for.', 'Hindi ko matukoy kung para saan ang ' + money(it.amount) + '.'); } }
   /* ── the fields a person can change, per kind ───────────────────────── */
@@ -3676,9 +3737,9 @@ var KatulongUI = (function(){
       stmtDay:['day', T('Statement day', 'Araw ng statement')], dueDay:['day', T('Due day', 'Araw ng due')], day:['day', T('Day of the month', 'Araw ng buwan')], days:['text', T('Days of the month', 'Mga araw ng buwan')],
       account:['acct', T('Account', 'Account')], from:['acct', T('From', 'Mula')], to:['acct', T('To', 'Papunta')], source:['text', T('Who paid you', 'Nagbayad sa iyo')],
       category:['cat', T('Category', 'Kategorya')], description:['text', T('Description', 'Paglalarawan')] };
-    var keys = { account:['name', 'amount'], card:['name', 'limit', 'owed', 'stmtDay', 'dueDay'], payday:['amount', 'days', 'account'], incplan:['amount'], bill:['name', 'amount', 'day', 'category'], saveplan:['amount'], limit:['category', 'amount'],
-      spend:['amount', 'category', 'account', 'description'], income:['amount', 'category', 'source', 'account'], move:['amount', 'from', 'to'] }[it.k] || [];
-    return keys.map(function(k){ var f = F[k], id = 'kf-' + it.id + '-' + k, v = k === 'days' ? (it.days || []).join(', ') : it[k] == null ? '' : it[k], line = it.k === 'income' ? 'income' : it.k === 'bill' && it.line !== 'spending' ? it.line : 'spending', input;
+    var keys = { account:['name', 'amount'], card:['name', 'limit', 'owed', 'stmtDay', 'dueDay'], payday:['amount', 'days', 'account'], incplan:['amount'], invplan:['amount'], bill:['name', 'amount', 'day', 'category'], saveplan:['amount'], limit:['category', 'amount'],
+      spend:['amount', 'category', 'account', 'description'], saved:['amount', 'category', 'account'], invest:['amount', 'category', 'account'], income:['amount', 'category', 'source', 'account'], move:['amount', 'from', 'to'] }[it.k] || [];
+    return keys.map(function(k){ var f = F[k], id = 'kf-' + it.id + '-' + k, v = k === 'days' ? (it.days || []).join(', ') : it[k] == null ? '' : it[k], line = it.k === 'income' ? 'income' : it.k === 'saved' ? 'savings' : it.k === 'invest' ? 'investment' : it.k === 'bill' && it.line !== 'spending' ? it.line : 'spending', input;
       if (f[0] === 'acct') { var list = A.slice(); if (v && list.indexOf(v) < 0) list.unshift(v); input = '<select id="' + id + '">' + (k === 'account' ? '<option value="">' + T('No account', 'Walang account') + '</option>' : '') + list.map(function(n){ return '<option value="' + esc(n) + '"' + (n === v ? ' selected' : '') + '>' + esc(n) + '</option>'; }).join('') + '</select>'; }
       else if (f[0] === 'cat') { var cl = cats(line).concat(it.k === 'spend' || it.k === 'limit' ? cats('expenditure') : []), seen = {}; cl = cl.filter(function(c){ if (seen[c]) return false; seen[c] = 1; return true; }); if (v && cl.indexOf(v) < 0 && v !== 'Uncategorized') cl.unshift(v);
         input = '<select id="' + id + '">' + (v === 'Uncategorized' || !v ? '<option value="">' + T('Choose a category', 'Pumili ng kategorya') + '</option>' : '') + cl.map(function(c){ return '<option value="' + esc(c) + '"' + (c === v ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select>'; }
@@ -3702,8 +3763,8 @@ var KatulongUI = (function(){
       return it.q === 'spent' ? T('You spent ' + money(v) + ' on ' + it.arg + ' in ' + when + '.', 'Gumastos ka ng ' + money(v) + ' sa ' + it.arg + ' noong ' + when + '.') : T('You spent ' + money(v) + ' in ' + when + '.', 'Gumastos ka ng ' + money(v) + ' noong ' + when + '.'); }
     if (it.q === 'due' && window.BillsUI) { var b = BillsUI.list().filter(function(x){ return it.arg && x.name.toLowerCase().indexOf(it.arg.toLowerCase()) === 0; }).sort(function(a, c){ return a.due < c.due ? -1 : 1; })[0];
       return b ? T(b.name + ': ' + money(b.amount) + ', due ' + fmtD(b.due) + '.', b.name + ': ' + money(b.amount) + ', due sa ' + fmtD(b.due) + '.') : T('I could not find a repeating bill called ' + (it.arg || 'that') + '. Add one with a message like \u201crent 25k every 1st\u201d.', 'Wala akong makitang umuulit na bayarin na ' + (it.arg || 'ganyan') + '. Magdagdag gamit ang mensaheng tulad ng \u201cupa 25k tuwing a-1\u201d.'); }
-    return T('I can set up accounts and balances, credit cards, paydays, repeating bills, a monthly savings plan and spending limits. I can also record spending and income, move money between your accounts, and answer questions like \u201cwhat\u2019s my net worth?\u201d. Tell me in your own words, in English or Tagalog.',
-      'Kaya kong i-set up ang mga account at balanse, credit card, sweldo, umuulit na bayarin, plano sa ipon bawat buwan at limitasyon sa gastos. Kaya ko ring itala ang gastos at kita, maglipat ng pera sa mga account mo, at sumagot sa tanong gaya ng \u201cmagkano ang kabuuang yaman ko?\u201d. Sabihin mo lang sa sarili mong salita, sa Ingles o Tagalog.'); }
+    return T('I can set up accounts and balances, credit cards, paydays, repeating bills, a monthly savings plan and spending limits. I can also record spending, income, savings and investments (including store capital), move money between your accounts, and answer questions like \u201cwhat\u2019s my net worth?\u201d. Tell me in your own words, in English or Tagalog.',
+      'Kaya kong i-set up ang mga account at balanse, credit card, sweldo, umuulit na bayarin, plano sa ipon bawat buwan at limitasyon sa gastos. Kaya ko ring itala ang gastos, kita, ipon at puhunan, maglipat ng pera sa mga account mo, at sumagot sa tanong gaya ng \u201cmagkano ang kabuuang yaman ko?\u201d. Sabihin mo lang sa sarili mong salita, sa Ingles o Tagalog.'); }
   /* ── the conversation ───────────────────────────────────────────────── */
   function say(html){ log.push({ who:'kat', html:html, lang:tl() ? 'fil' : 'en' }); }
   function send(text){ text = String(text || '').trim(); if (!text) return; log.push({ who:'me', html:esc(text), lang:'' }); pending = null;
@@ -3724,7 +3785,7 @@ var KatulongUI = (function(){
       + '<form class="kat-form" data-form="kat" novalidate><label for="kat-in">Message Katulong</label><textarea id="kat-in" name="msg" rows="3" maxlength="4000" placeholder="e.g. I have 85k in BPI Savings. Rent 25k every 1st."></textarea><div class="row wrap"><button type="submit" class="btn primary">Send</button></div></form>'
       + '<div class="kat-try"><p class="xs muted">Try one:</p><div class="row wrap">' + TRY.map(function(t, i){ return '<button type="button" class="btn sm" data-act="kat-try" data-i="' + i + '" translate="no">' + esc(t) + '</button>'; }).join('') + '</div></div>'
       + '<p class="xs muted">Katulong is a helper that follows fixed rules on this phone. Your messages are not sent anywhere or saved. Check what it understood before you apply it.</p></section>'; }
-  function homeCard(){ var d = Store.data(); if (!d || (d.transactions || []).length || (d.bills || []).length || (d.wallets || []).length) return '';
+  function homeCard(){ var d = Store.data(); if (!d || (window.Features && !Features.on('katulong')) || (d.transactions || []).length || (d.bills || []).length || (d.wallets || []).length) return '';
     return '<section class="panel kat-card" aria-labelledby="katc-h"><h2 class="h3" id="katc-h">Set up Pentra in one message</h2><p>Tell Katulong your balances, salary, bills and savings goal in your own words. It shows you what it understood before it saves anything.</p><a class="btn primary" href="#/katulong">Set me up</a></section>'; }
   /* ── Apply and Undo ─────────────────────────────────────────────────── */
   function num(v){ var n = parseFloat(v); return isFinite(n) ? Math.round(n * 100) / 100 : NaN; }
@@ -3741,12 +3802,12 @@ var KatulongUI = (function(){
     if ((o.k === 'account' || o.k === 'card' || o.k === 'bill') && !o.name) return T('Give it a name: ' + summary(it), 'Bigyan ng pangalan: ' + summary(it));
     if (o.k === 'move' && o.from === o.to) return T('Choose two different accounts to move money between.', 'Pumili ng dalawang magkaibang account.');
     return o; }
-  var ORDER = { account:0, card:1, payday:2, incplan:3, bill:4, saveplan:5, limit:6, move:7, spend:8, income:8 };   /* spending and income entries keep the order they were written in */
+  var ORDER = { account:0, card:1, payday:2, incplan:3, invplan:5, bill:4, saveplan:5, limit:6, move:7, spend:8, income:8, saved:8, invest:8 };   /* spending and income entries keep the order they were written in */
   function apply(list){ var d = Store.data(), t = today(), y = +t.slice(0, 4), m0 = +t.slice(5, 7), made = 0;
     d.lists = d.lists || { accounts:[], payments:[] }; d.lists.accounts = d.lists.accounts || []; d.wallets = d.wallets || []; d.bills = d.bills || []; d.transfers = d.transfers || []; d.limits = d.limits || [];
     function acct(name, type){ if (!name) return; if (!d.lists.accounts.some(function(a){ return a.toLowerCase() === name.toLowerCase(); })) { d.lists.accounts.push(name); if (type) wallet(name).type = type; } }
     function wallet(name){ var w = d.wallets.filter(function(x){ return x.name === name; })[0]; if (!w) { w = { id:uid('w'), name:name }; d.wallets.push(w); } return w; }
-    function cat(name){ if (name && Store.cats('spending', true).indexOf(name) < 0 && Store.cats('expenditure', true).indexOf(name) < 0) Store.addCategory('spending', name); }   /* e.g. Family Support, Gifts & Donations */
+    function cat(name, line){ line = line || 'spending'; if (!name) return; if (line === 'spending' ? Store.cats('spending', true).indexOf(name) < 0 && Store.cats('expenditure', true).indexOf(name) < 0 : Store.cats(line, true).indexOf(name) < 0) Store.addCategory(line, name); }   /* e.g. Family Support, Gifts & Donations */
     function plan(line, amount){ for (var mm = m0; mm <= 12; mm++) Store.setBudget(y, mm, line, amount); }
     list.sort(function(a, b){ return ORDER[a.k] - ORDER[b.k]; }).forEach(function(o){
       if (o.k === 'account') { acct(o.name); var w = wallet(o.name); if (!w.type) w.type = o.type || KatParse.typeGuess(o.name); w.opening = o.amount; w.asOf = t; }
@@ -3755,9 +3816,11 @@ var KatulongUI = (function(){
       else if (o.k === 'incplan') plan('income', o.amount);
       else if (o.k === 'bill') d.bills.push({ id:uid('b'), name:o.name, amount:o.amount, every:o.every || 'monthly', due:o.due || t, dom:o.day || +t.slice(8, 10), line:o.line || 'spending', category:o.category || 'Bills', remind:3 });
       else if (o.k === 'saveplan') plan('savings', o.amount);
+      else if (o.k === 'invplan') plan('investment', o.amount);
       else if (o.k === 'limit') { cat(o.category); var l = d.limits.filter(function(x){ return x.category === o.category; })[0]; if (l) l.amount = o.amount; else d.limits.push({ id:uid('l'), category:o.category, amount:o.amount }); }
       else if (o.k === 'move') { acct(o.from); acct(o.to); d.transfers.push({ id:uid('x'), date:t, from:o.from, to:o.to, amount:o.amount, note:'Added with Katulong' }); }
-      else if (o.k === 'spend') { acct(o.account); cat(o.category); Store.addTx({ date:o.date || t, pillar:'spending', category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
+      else if (o.k === 'saved' || o.k === 'invest') { var pl = o.k === 'saved' ? 'savings' : 'investment'; acct(o.account); cat(o.category, pl); Store.addTx({ date:o.date || t, pillar:pl, category:o.category, description:o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
+      else if (o.k === 'spend') { acct(o.account); cat(o.category); Store.addTx({ date:o.date || t, pillar:'spending', isMajor:Store.cats('expenditure', true).indexOf(o.category) >= 0, category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
       else if (o.k === 'income') { acct(o.account); var tx = { date:o.date || t, pillar:'income', category:o.category, description:o.source ? 'From ' + o.source : o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }; if (o.source) tx.source = o.source; Store.addTx(tx); }
       made++; });
     Store.touch(); return made; }
@@ -3786,10 +3849,33 @@ var KatulongUI = (function(){
     ACT['kat-undo'] = function(el){ if (!restore()) return; say('<p>' + esc(T('Undone. Everything is back to how it was before.', 'Naibalik. Bumalik ang lahat sa dati.')) + '</p>'); var b = el && el.closest && el.closest('.kat-msg'); if (b) b.querySelectorAll('[data-act="kat-undo"]').forEach(function(x){ x.disabled = true; });
       log.forEach(function(m){ if (m.html && m.html.indexOf('data-act="kat-undo"') >= 0) m.html = m.html.replace(/<button type="button" class="btn" data-act="kat-undo">[^<]*<\/button>/, ''); }); rerender(); if (typeof toast === 'function') toast(T('Undone', 'Naibalik')); };
   }
+  {   /* always registered; the admins' switch (E3.1, src/03f-features.js) hides it everywhere at display time */
   if (typeof ROUTES !== 'undefined' && ROUTES.indexOf('katulong') < 0) ROUTES.push('katulong');
   if (typeof VIEWS !== 'undefined') VIEWS.katulong = function(){ return view(); };
   if (typeof NAV !== 'undefined' && NAV[0] && NAV[0].items && !NAV[0].items.some(function(i){ return i[0] === 'katulong'; })) NAV[0].items.push(['katulong', 'Katulong', 'sparkle']);
+  }
   return { view:view, homeCard:homeCard, send:send, apply:apply, answer:answer, summary:summary, _state:function(){ return { log:log.length, pending:pending, undo:!!undoSnap }; } };
+})();
+/* ════════════════════════════════════════════════════════════════════════
+   ADMIN SETTINGS · FEATURE SWITCHES (release E3.1, 30 Sep 2026), shown in Personal Settings to Pentra admins only.
+   One switch per Personal Overview feature (Scan, Budget, Goals, Wallets, Katulong). A change is saved on the server with
+   pentra_admin_features() and applies to EVERY account (subscribers, members, free trials) within about a minute; the
+   server refuses anyone who is not in public.pentra_admins. Off means hidden, never deleted (see src/03f-features.js).
+   In the offline demo, demo@pentra.app is an admin and the switches apply to every demo account in that browser. */
+var AdminFeatures = (function(){
+  var NAMES = { scan:['Scan', 'Read receipts, statements and bills with the camera. Also hides the Scan buttons.'], budget:['Budget', 'The yearly plan in six lines.'],
+    goals:['Goals', 'Savings targets with deadlines, and the Goals block on Home.'], wallets:['Wallets', 'Accounts, net worth, transfers and Coming up (bills and paydays). Also hides the Wallets card on Home.'],
+    katulong:['Katulong', 'The setup helper, and its "Set me up" card on Home.'] };
+  function block(){ if (!window.Features || !Features.isAdmin()) return '';
+    return '<section class="panel flat section af" aria-labelledby="af-h"><div class="shead"><h2 id="af-h">Admin settings</h2><p>Turn features on or off for every Pentra account: subscribers, members and free trials.</p></div><ul class="af-list">'
+      + Features.SWITCHES.map(function(k){ var on = Features.on(k), n = NAMES[k];
+          return '<li class="af-row"><label class="af-lbl" for="af-' + k + '"><b>' + n[0] + '</b><span class="xs muted">' + n[1] + '</span></label><input type="checkbox" role="switch" class="af-sw" id="af-' + k + '" data-change="af-toggle" data-k="' + k + '"' + (on ? ' checked' : '') + ' aria-checked="' + on + '"></li>'; }).join('')
+      + '</ul><p class="xs muted">Every account gets the change within about a minute. Nothing is deleted: turning a feature back on shows everything again. Home and Transactions are always on.</p></section>'; }
+  if (typeof CHANGES !== 'undefined') CHANGES['af-toggle'] = function(el){ var k = el.getAttribute('data-k'), next = {};
+    Features.SWITCHES.forEach(function(x){ var b = document.getElementById('af-' + x); next[x] = b ? b.checked : Features.on(x); }); el.disabled = true;
+    Features.save(next).then(function(){ if (typeof render === 'function') render(); if (typeof toast === 'function') toast(NAMES[k][0] + (next[k] ? ' is on for every account' : ' is off for every account')); },
+      function(e){ el.checked = !el.checked; el.disabled = false; el.setAttribute('aria-checked', String(el.checked)); if (typeof toast === 'function') toast('Could not save: ' + e.message); }); };
+  return { block:block, NAMES:NAMES };
 })();
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -7799,6 +7885,16 @@ I18N_TL_PATTERNS.push(
   'Set up Pentra in one message':'I-set up ang Pentra sa isang mensahe', 'Set me up':'I-set up ako',
   'Tell Katulong your balances, salary, bills and savings goal in your own words. It shows you what it understood before it saves anything.':'Sabihin kay Katulong ang mga balanse, sweldo, bayarin at layunin mo sa ipon sa sarili mong salita. Ipapakita niya muna ang naintindihan niya bago siya mag-save.'
 });
+/* Release E3.1: Admin settings · feature switches */
+(function(add){ for (var k in add) if (!Object.prototype.hasOwnProperty.call(I18N_TL, k)) I18N_TL[k] = add[k]; })({
+  'Admin settings':'Mga setting ng admin', 'Feature switches':'Mga switch ng feature', 'Open Admin settings':'Buksan ang mga setting ng admin', 'Turn Scan, Budget, Goals, Wallets or Katulong on or off for every Pentra account: subscribers, members and free trials.':'I-on o i-off ang Scan, Budget, Goals, Wallets o Katulong para sa bawat Pentra account: mga subscriber, miyembro at nasa free trial.', 'Turn features on or off for every Pentra account: subscribers, members and free trials.':'I-on o i-off ang mga feature para sa bawat Pentra account: mga subscriber, miyembro at nasa free trial.',
+  'Read receipts, statements and bills with the camera. Also hides the Scan buttons.':'Basahin ang resibo, statement at bayarin gamit ang camera. Tinatago rin ang mga Scan button.',
+  'The yearly plan in six lines.':'Ang plano sa buong taon sa anim na linya.', 'Savings targets with deadlines, and the Goals block on Home.':'Mga target sa ipon na may deadline, at ang Goals sa Home.',
+  'Accounts, net worth, transfers and Coming up (bills and paydays). Also hides the Wallets card on Home.':'Mga account, kabuuang yaman, lipat at Paparating (bayarin at sweldo). Tinatago rin ang Wallets card sa Home.',
+  'The setup helper, and its "Set me up" card on Home.':'Ang setup helper, at ang "I-set up ako" card nito sa Home.',
+  'Every account gets the change within about a minute. Nothing is deleted: turning a feature back on shows everything again. Home and Transactions are always on.':'Makukuha ng bawat account ang pagbabago sa loob ng mga isang minuto. Walang nabubura: kapag in-on ulit ang feature, babalik ang lahat. Laging naka-on ang Home at Transactions.'
+});
+I18N_TL_PATTERNS.push([/^(.+) is on for every account$/, 'Naka-on ang $1 para sa bawat account'], [/^(.+) is off for every account$/, 'Naka-off ang $1 para sa bawat account']);
 /* Language switch: English | Tagalog.
    The app keeps rendering English. With Tagalog on, this layer swaps UI phrases after each render: text nodes and the
    placeholder, title and aria-label attributes, matched exactly (whole trimmed text) against I18N_TL or I18N_TL_PATTERNS.
@@ -8049,6 +8145,7 @@ var Billing = (function(){
     else body = '<div class="actions"><button type="button" class="btn" data-act="bl-export">Export CSV</button></div>' + (adm.all.length ? tbl('All payments', ['Submitted', 'Account', 'Plan', 'Amount', 'Reference', 'Status'], adm.all.map(function(p){ return '<tr><td>' + esc(day(p.submitted_at)) + '</td><td>' + esc(p.email || '') + '</td><td>' + esc(p.plan) + '</td><td>' + peso(p.amount) + '</td><td>' + esc(p.reference) + '</td><td>' + esc(p.status) + (p.reason ? ': ' + esc(p.reason) : '') + '</td></tr>'; })) : '<p class="muted">No payments yet.</p>');
     setTimeout(applyFilter, 0);
     return '<div class="t-page bill"><header class="t-head"><h1>Admin</h1><p class="muted">Check each payment against your GoTyme history before approving.</p></header>' + confirmBox() + billingCard()
+      + (window.AdminFeatures ? '<section class="panel" aria-labelledby="af-link-h"><h2 id="af-link-h">Feature switches</h2><p class="small muted">Turn Scan, Budget, Goals, Wallets or Katulong on or off for every Pentra account: subscribers, members and free trials.</p><p><a class="btn" href="#/settings">Open Admin settings</a></p></section>' : '')   /* E3.1: the switches live in Personal → Settings → Admin settings */
       + '<div class="bill-tabs" role="tablist" aria-label="Admin">' + tab('pay', 'Payments to check' + (adm.pays && adm.pays.length ? ' (' + adm.pays.length + ')' : '')) + tab('subs', 'Subscribers') + tab('add', 'Add subscriber') + tab('all', 'All payments') + tab('hist', 'History') + '</div><section class="panel">' + body + '</section></div>'; }
   function adInput(e){ var t = e.target; if (!t || !t.getAttribute) return; var k = t.getAttribute('data-ad'), q = t.getAttribute('data-flt');
     if (k) ad[k] = t.type === 'checkbox' ? t.checked : t.value; if (q) { flt[q] = t.value; applyFilter(); } }
