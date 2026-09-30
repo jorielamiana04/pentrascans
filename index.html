@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-lBrnitctwl7Lg7QicwoDnjHW+PfpGFSd9AUNoIiky3w=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-7uadxYJsJY84dgsIM8prvnYCfF9zL4/to8HKkco7CLY=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -3439,10 +3439,21 @@ var KatParse = (function(){
     ['school supplies|books|school|education|libro', 'Education'], ['shopping|clothes|damit|shoes|sapatos|lazada|shopee|mall', 'Shopping'],
     ['movies?|sine|cinema|concert|games|gaming|entertainment|netflix', 'Entertainment'], ['haircut|gupit|salon|barber|toiletries|skincare|personal care', 'Personal Care'],
     ['travel|trip|bakasyon|flight|hotel|airbnb', 'Travel'], ['hobby|hobbies', 'Hobbies'], ['recreation|gym', 'Recreation'], ['utilities|utility', 'Utilities'],
-    ['rent|upa', 'Rent'], ['electricity|kuryente|meralco', 'Electricity'], ['water|tubig', 'Water'], ['internet|wifi', 'Internet'], ['subscriptions?', 'Subscriptions']
+    ['rent|upa', 'Rent'], ['family support|padala|sustento', 'Family Support'], ['gifts?|donations?|regalo|tithes?|abuloy|pasalubong', 'Gifts & Donations'], ['electricity|kuryente|meralco', 'Electricity'], ['water|tubig', 'Water'], ['internet|wifi', 'Internet'], ['subscriptions?', 'Subscriptions']
   ];
   var INCATS = [['salary|sahod|sweldo|suweldo|payroll', 'Salary'], ['freelance|raket|sideline|project', 'Freelance'], ['business|negosyo|tindahan|store sales', 'Business'], ['commission|komisyon', 'Commission'],
     ['side hustle|side job|extra', 'Side Hustle'], ['allowance|baon|padala', 'Allowance'], ['bonus|13th month|thirteenth month', 'Bonus'], ['dividends?', 'Dividends'], ['interest|interes', 'Interest']];
+  var FAMW = 'parents?|magulang|nanay|tatay|inay|itay|mama|papa|mommy|daddy|mom|dad|mother|father|siblings?|brothers?|sisters?|kapatid|kuya|bunso|lola|lolo|grandma|grandpa|grandparents|tito|tita|tiyo|tiya|uncle|aunt|auntie|pinsan|cousins?|pamangkin|nephews?|nieces?|family|pamilya|relatives|kamag-anak|in-laws?|biyenan|anak|kids|children|son|daughter|asawa|misis|mister|husband|wife|jowa';
+  var FAMILY = new RegExp('(?:^|[^a-z0-9])(' + FAMW + ')(?![a-z0-9])|(?:^|[^a-z0-9])(?:kay|sa|to|for|my|ni|si)\\s+(ate)(?![a-z0-9])');
+  var GIFT = /(?:^|[^a-z0-9])(gifts?|regalo|pasalubong|donations?|donate|donated|nag-?donate|tithes?|ikapu|offering|church|simbahan|charity|abuloy|ambag|pakimkim|aguinaldo|inaanak)(?![a-z0-9])/;
+  var GIVE = /\b(give|gave|giving|given|gives|bigay|binigay|ibinigay|nagbigay|magbigay|binigyan ko|padala|pinadala|nagpadala|ipinadala|pinadalhan ko|send|sent|sending|support|supported|suporta|sustento|abot|inabot|iniabot|donate|donated)\b/;
+  var TO_ME = new RegExp('\\b(gave me|give me|gives me|sent me|send me|binigyan ako|binigyan niya ako|bigay sa akin|binigay sa akin|ibinigay sa akin|padala sa akin|pinadalhan ako|nagpadala sa akin|galing kay|mula kay)\\b|\\bfrom (?:my )?(?:' + FAMW + ')\\b');
+  var LEND = /\b(lent|lend|loaned|pinahiram|nagpahiram|ipinahiram|pautang|borrowed|borrow|nangutang|umutang|hiniram|inutang)\b/;
+  function toMe(s){ return TO_ME.test(s) || ((GIVE.test(s) || /\b(paid|pays|pay|nagbayad|binayaran)\b/.test(s)) && /\b(sa akin|sakin|to me|for me|paid me|pays me|pay me)\b/.test(s))
+      || (/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan|nagsend|nag-send)\s+(si|ni)\s+[a-z]/.test(s) && !/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan)\s+(ko|ako)\b/.test(s)); }
+  function fam(s){ var m = FAMILY.exec(s); return m ? (m[1] || m[2]) : null; }
+  function giveTo(s){ var g = GIFT.exec(s); if (g) return 'Gifts & Donations'; var f = fam(s); if (!f) return null;
+    if (GIVE.test(s) || new RegExp('\\b(to|for|kay|para sa|para kay|sa)\\s+(my\\s+|aking\\s+|ang\\s+|si\\s+)?' + f + '\\b').test(s) || !catOf(s, CAT_RX)) return 'Family Support'; return null; }
   var MONTHLY = /\b(every month|a month|per month|monthly|each month|kada buwan|bawat buwan|buwan-buwan|buwanan|every buwan|isang buwan)\b/;
   var CHATTER = /^(hi|hello|hey|kumusta|salamat|thanks|thank you|ok|okay|sige|help|tulong)\b/;
 
@@ -3461,7 +3472,7 @@ var KatParse = (function(){
   var APPROX = { around:1, about:1, approx:1, approximately:1, roughly:1, mga:1, halos:1, siguro:1, estimated:1, est:1, '~':1, 'humigit-kumulang':1, nearly:1, almost:1 };
   function numbers(s){ var tk = tokens(s), am = [], dy = [];
     tk.forEach(function(t, i){ if (t.t !== 'n') return; var prev = tk[i - 1], next = tk[i + 1], pw = prev && prev.t === 'w' ? prev.w : prev && prev.raw ? '' : '', nw = next && next.t === 'w' ? next.w : '';
-      if (t.ord) { if (t.v >= 1 && t.v <= 31 && t.v === Math.floor(t.v)) dy.push({ v:t.v, s:t.s }); return; }
+      if (t.ord) { if (t.v >= 1 && t.v <= 31 && t.v === Math.floor(t.v) && nw !== 'month') dy.push({ v:t.v, s:t.s }); return; }
       if (next && next.t === 'w' && next.w === '-' ) return;
       var mult = t.k === 'k' ? 1e3 : t.k === 'm' ? 1e6 : 1, used = 0;
       if (mult === 1 && /^(thousand|libo|k)$/.test(nw)) { mult = 1e3; used = 1; } else if (mult === 1 && /^(million|milyon|m)$/.test(nw)) { mult = 1e6; used = 1; }
@@ -3528,14 +3539,16 @@ var KatParse = (function(){
       return [{ k:'ask', q:'help' }]; }
     if (st.card && !M.length && /\b(owe|utang|balance|used|nagamit)\b/.test(s) && !/\b(limit)\b/.test(s)) { st.card.owed = a0 ? a0.v : 0; return []; }
     if (!A.length) { if (st.card && /\b(statement|due|cut-?off)\b/.test(s) && days.length) return cardDays(st.card, s, D); return []; }
-    /* transfers */
-    if (/\b(move|moved|moving|transfer|transferred|lipat|ilipat|inilipat|nilipat|send|sent|padala|cash[- ]?in|nag-?cash[- ]?in|withdraw|withdrew|nag-?withdraw|pay my card|paid my card|bayad sa card)\b/.test(s) && M.length >= 1) {
+    if (LEND.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
+    if (toMe(s) && !/\b(spent|gastos|bought|bumili)\b/.test(s)) return [incomeItem(s, a0, ctx, R, M)];
+    /* transfers (money to a person is spending, not a transfer) */
+    if (/\b(move|moved|moving|transfer|transferred|lipat|ilipat|inilipat|nilipat|send|sent|padala|cash[- ]?in|nag-?cash[- ]?in|withdraw|withdrew|nag-?withdraw|pay my card|paid my card|bayad sa card)\b/.test(s) && M.length >= 1 && !(giveTo(s) && M.length < 2)) {
       var fm = /\b(?:from|galing sa|galing|mula sa|mula)\b/.exec(s), tm = /\b(?:to|papunta sa|papuntang|sa|into)\b/.exec(s), from = null, to = null;
       if (fm) from = mentionAfter(fm.index); if (tm) to = M.filter(function(m){ return m.at > tm.index && m !== from; })[0] || null;
-      if (/\b(withdraw|withdrew|nag-?withdraw|kinuha|atm)\b/.test(s) && from && !to) to = { brand:'Cash', kind:'cash', type:null, at:s.length };
+      if (/\b(withdraw|withdrew|nag-?withdraw|kinuha|atm)\b/.test(s)) { var nonCash = M.filter(function(m){ return m.brand !== 'Cash'; }); if (!from && nonCash.length === 1) from = nonCash[0]; if (from && (!to || to === from || to.brand !== 'Cash')) to = { brand:'Cash', kind:'cash', type:null, at:s.length }; }
       if (!from && M.length >= 2) from = M[0]; if (!to && M.length >= 2) to = M.filter(function(m){ return m !== from; })[0];
       if (from && to && from !== to) return [{ k:'move', amount:a0.v, from:acct(from, false).name, to:acct(to, false).name }];
-      return [{ k:'unclear', amount:a0.v, text:s }]; }
+      if (/\b(pay my card|paid my card|bayad sa card|transfer|transferred|move|moved|lipat|ilipat|inilipat|nilipat|withdraw|withdrew|cash[- ]?in)\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }]; }
     /* credit cards */
     if (/\bcash advance\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
     var spentOn = /\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|bumili|binili|paid for|pinambayad)\b/.test(s) && !/\b(limit|statement|due|owe|utang)\b/.test(s);
@@ -3547,15 +3560,12 @@ var KatParse = (function(){
       var card = { k:'card', name:cr.name, isNew:cr.isNew, limit:lim ? lim.v : 0, owed:owe ? owe.v : 0, stmtDay:null, dueDay:null }; st.card = card; cardDays(card, s, D); return [card]; }
     if (st.card && /\b(statement|due date|due day|due every|due on|cut-?off)\b/.test(s) && !billOf(s)) return cardDays(st.card, s, D);
     /* paydays and one-off income */
-    var payday = /\b(get paid|gets paid|got paid|i'?m paid|i am paid|paid every|salary|sahod|sweldo|suweldo|payday|pay day|payroll|sinasahod|sumasahod)\b/.test(s) && !/\b(spent|gastos|bought|bumili|for (my|the) )\b/.test(s);
+    var payday = (/\b(get paid|gets paid|got paid|i'?m paid|i am paid|paid every|salary|sahod|sweldo|suweldo|payday|pay day|payroll|paycheck|sinasahod|sumasahod)\b/.test(s) || /\b(get|gets|receive|receives|earn|earns)\b[^.]*\bfrom (?:work|my job|the company|my employer|the office|my company|trabaho)\b/.test(s)) && !/\b(spent|gastos|bought|bumili|for (my|the) )\b/.test(s);
     if (payday && (days.length || MONTHLY.test(s) || /\b(every|tuwing|kada)\b/.test(s))) {
-      var to2 = M[0] ? acct(M[0], true) : null, pd = { k:'payday', name:catOf(s, INCAT_RX) === 'Salary' || /\bpaid\b/.test(s) ? 'Salary' : title(catOf(s, INCAT_RX) || 'Salary'), category:catOf(s, INCAT_RX) || 'Salary', amount:a0.v, approx:a0.approx, days:days.slice(), account:to2 ? to2.name : null };
+      var to2 = M[0] ? acct(M[0], true) : null, pd = { k:'payday', name:catOf(s, INCAT_RX) === 'Salary' || /\bpaid\b|\bfrom (work|my job|the company|my employer|the office|my company|trabaho)\b/.test(s) || !catOf(s, INCAT_RX) ? 'Salary' : title(catOf(s, INCAT_RX) || 'Salary'), category:catOf(s, INCAT_RX) || 'Salary', amount:a0.v, approx:a0.approx, days:days.slice(), account:to2 ? to2.name : null };
       if (to2 && to2.options) pd.options = to2.options; if (/\b(a month|per month|monthly|kada buwan|a buwan)\b/.test(s) && days.length > 1) pd.amount = Math.round(a0.v / days.length * 100) / 100;
       if (!days.length) return [{ k:'incplan', amount:a0.v, category:pd.category }]; return [pd]; }
-    if (/\b(received|receive|got|natanggap|tumanggap|kumita|earned|nabayaran ako|binayaran ako|bayad sa akin|nagbayad sa akin|income|kita)\b/.test(s) && !/\b(spent|gastos|bought|bumili)\b/.test(s)) {
-      var src = /\b(?:from|galing kay|galing sa|kay|mula kay|mula sa)\s+([a-z][a-z .'-]{1,30}?)(?=\s+(?:for|para|sa|to|via|thru|through)\b|[,.!]|$)/.exec(s), im = mentionAfter(0);
-      var srcName = src ? title(src[1].trim()) : null; if (srcName && M.some(function(m){ return src.index <= m.at && m.at <= src.index + src[0].length; })) srcName = null;
-      return [{ k:'income', amount:a0.v, category:catOf(s, INCAT_RX) || 'Other Income', source:srcName, account:im ? acct(im, true).name : null, date:dayWord(s, ctx.today) }]; }
+    if (/\b(received|receive|got|natanggap|tumanggap|kumita|earned|nabayaran ako|binayaran ako|bayad sa akin|nagbayad sa akin|income|kita|sahod|sweldo|suweldo|salary|bonus|13th month|thirteenth month|paycheck)\b/.test(s) && !/\b(spent|spend|gastos|bought|bumili)\b/.test(s) && !GIVE.test(s)) return [incomeItem(s, a0, ctx, R, M)];
     /* savings target and category limits */
     if (/\b(save|saving|savings goal|ipon|mag-?ipon|makaipon|magtabi|itabi|set aside|magsave)\b/.test(s) && (MONTHLY.test(s) || /\bmonth|buwan\b/.test(s)) && !/\blimit\b/.test(s)) return [{ k:'saveplan', amount:a0.v }];
     if (/\b(limit|cap|max|maximum|budget|hanggang|up to|hindi lalagpas|wag lalagpas|huwag lalagpas)\b/.test(s)) { var lc = catOf(s, CAT_RX); if (lc) return [{ k:'limit', category:lc, amount:a0.v }]; }
@@ -3564,18 +3574,27 @@ var KatParse = (function(){
     if ((bl || st.mode === 'bills') && recurring && !past) { var nm = bl ? bl.name : title(words(s).split(' ').slice(0, 3).join(' ')) || 'Bill';
       return [{ k:'bill', name:nm, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:bl ? bl.category : 'Utilities', line:bl ? bl.line : 'spending', need:days.length || every(s) === 'weekly' ? null : 'day' }]; }
     /* spending entries */
-    var spendVerb = /\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|buy|bumili|binili|paid|pay for|bayad|nagbayad|binayaran|pinambayad)\b/.test(s), sc = catOf(s, CAT_RX) || (bl ? bl.category : null);
-    if (spendVerb || (sc && (!M.length || !/\b(have|has|meron|mayroon|may|laman|balance|in|is|are)\b/.test(s)))) { var via = /\b(?:using|via|thru|through|from|with|gamit ang|gamit|sa)\s+(?:my\s+)?/.exec(s), pm = via ? mentionAfter(via.index) : (M.length === 1 && !/\b(in|sa)\b/.test(s.slice(0, M[0].at)) ? M[0] : null);
-      return [{ k:'spend', amount:a0.v, category:sc || 'Uncategorized', description:describe(s, bl, sc), account:pm ? acct(pm, false).name : null, date:dayWord(s, ctx.today), need:sc ? null : 'category' }]; }
+    var spendVerb = /\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|buy|bumili|binili|paid|pay for|bayad|nagbayad|binayaran|pinambayad)\b/.test(s) || GIVE.test(s), sc = giveTo(s) || catOf(s, CAT_RX) || (bl ? bl.category : null);
+    if (spendVerb || (sc && (!M.length || !/\b(have|has|meron|mayroon|may|laman|balance|in|is|are)\b/.test(s)))) return [spendItem(s, a0, ctx, R, M, bl)];
     /* balances: pair each amount with the account next to it */
     if (M.length) { return A.map(function(x, i){ var after = M.filter(function(m){ return m.at >= x.e && (!A[i + 1] || m.at < A[i + 1].s); })[0], before = M.filter(function(m){ return m.at < x.s && (!A[i - 1] || m.at > A[i - 1].e); }).slice(-1)[0], m = after || before;
       if (!m) return { k:'unclear', amount:x.v, text:s }; var r = acct(m, false); if (r.type === 'credit') return { k:'card', name:r.name, isNew:r.isNew, limit:0, owed:x.v, stmtDay:null, dueDay:null };
       return { k:'account', name:r.name, type:r.type, isNew:r.isNew, amount:x.v, approx:x.approx }; }); }
     return A.map(function(x){ return { k:'unclear', amount:x.v, text:s }; }); }
+  function source(s){ var m = /\b(?:from|galing kay|galing sa|kay|mula kay|mula sa|ni)\s+([a-z][a-z .'-]{1,30}?)(?=\s+(?:for|para|sa|to|via|thru|through|ng|and|at)\b|[,.!]|$)/.exec(s);
+    if (!m) { var sub = /^([a-z][a-z .'-]{1,24}?)\s+(?:paid|pays|sent|gave|gives)\s+me\b/.exec(s), f0 = fam(s); if (f0) return title(f0); if (sub && !/^(my|i|we|they|he|she|someone)$/.test(sub[1].trim())) return title(sub[1].trim().replace(/^(my|our)\s+/, '')); return null; }
+    var w = m[1].trim().replace(/^(my|our|the|a|an|aking|ang|si)\s+/, ''); if (!w || catOf(w, INCAT_RX) || /\b(work|job|trabaho|company|employer|office|opisina|side hustle|business|negosyo|salary|sahod|income)\b/.test(w)) return null;
+    var f = fam(' ' + w); return title(f || w); }
+  function incomeItem(s, a0, ctx, R, M){ var im = M.filter(function(m){ return !/\b(from|galing|mula)\s+(my\s+)?$/.test(s.slice(Math.max(0, m.at - 14), m.at)); })[0] || null;
+    return { k:'income', amount:a0.v, category:catOf(s, INCAT_RX) || (fam(s) ? 'Allowance' : 'Other Income'), source:source(s), account:im ? R.name(im, true).name : null, date:dayWord(s, ctx.today) }; }
+  function spendItem(s, a0, ctx, R, M, bl){ var sc = giveTo(s) || catOf(s, CAT_RX) || (bl ? bl.category : null), via = /\b(?:using|via|thru|through|from|with|gamit ang|gamit)\s+(?:my\s+)?/.exec(s);
+    var pm = via ? M.filter(function(m){ return m.at >= via.index; })[0] || null : (M.length === 1 && !/\b(in|sa|to|kay|for)\b/.test(s.slice(Math.max(0, M[0].at - 6), M[0].at)) ? M[0] : null);
+    return { k:'spend', amount:a0.v, category:sc || 'Uncategorized', description:describe(s, bl, sc), account:pm ? R.name(pm, false).name : null, date:dayWord(s, ctx.today), need:sc ? null : 'category' }; }
   function cardDays(card, s, D){ D.forEach(function(d){ var before = s.slice(Math.max(0, d.s - 26), d.s); if (/\b(statement|cut-?off|cutoff)\b[^.]*$/.test(before) && !/\bdue\b[^.]*$/.test(before.slice(before.search(/\b(statement|cut-?off|cutoff)\b/)))) card.stmtDay = d.v; else if (/\bdue\b/.test(before)) card.dueDay = d.v; });
     return []; }
   function dayWord(s, today){ if (/\b(yesterday|kahapon)\b/.test(s)) { var d = new Date(today + 'T00:00:00'); d.setDate(d.getDate() - 1); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); } return today; }
-  function describe(s, bl, cat){ if (bl) return bl.name; var w = words(s).replace(/\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|buy|bumili|binili|paid|pay|bayad|nagbayad|binayaran|pinambayad|i|ako|ko|today|yesterday|kahapon|kanina|using|via|gamit|with|from|in|of|na|yung|ung)\b/g, ' ').replace(/\s+/g, ' ').trim();
+  function describe(s, bl, cat){ if (bl) return bl.name; var f = fam(s), g = GIFT.exec(s); if (cat === 'Family Support' && f) return title(f); if (cat === 'Gifts & Donations' && g) return title(g[1]);
+    var w = words(s).replace(/\b(spent|spend|gastos|gumastos|nagastos|ginastos|bought|buy|bumili|binili|paid|pay|bayad|nagbayad|binayaran|pinambayad|give|gave|giving|sent|send|i|ako|ko|today|yesterday|kahapon|kanina|using|via|gamit|with|from|in|of|na|yung|ung|then|just|also|it|to|and|lang|right|now|dining out|out)\b/g, ' ').replace(/\s+/g, ' ').trim();
     return w ? title(w.split(' ').slice(0, 4).join(' ')) : (cat || 'Spending'); }
 
   /* ── the whole message ──────────────────────────────────────────────── */
@@ -3589,7 +3608,9 @@ var KatParse = (function(){
     String(text || '').replace(/\r/g, '').replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"').split(/\n+|\s+\/\s+/).forEach(function(line){ var low = line.toLowerCase().replace(/\s+/g, ' ').trim(); if (!low) return;
       if (/\b(bills|bayarin|gastusin buwan-buwan|monthly expenses|fixed expenses)\b/.test(low) && !numbers(low).amounts.length) { st.mode = 'bills'; ignored.push(line.trim()); return; }
       if (/\b(accounts?|wallets?)\b.*\b(are|ko|:)\s*$/.test(low) && !numbers(low).amounts.length) { st.mode = null; ignored.push(line.trim()); return; }
-      var got = 0; sentences(low).forEach(function(sent){ st.recur = MONTHLY.test(sent) || /\b(every|tuwing|kada)\b/.test(sent); clauses(sent).forEach(function(c){ var r = clause(c, ctx, R, st); r.forEach(function(it){ it.text = line.trim(); items.push(it); got++; }); }); });
+      var got = 0; sentences(low).forEach(function(sent){ st.recur = MONTHLY.test(sent) || /\b(every|tuwing|kada)\b/.test(sent); st.dir = null; clauses(sent).forEach(function(c){ var r = clause(c, ctx, R, st);
+        if (r.length === 1 && r[0].k === 'unclear' && (st.dir === 'spend' || st.dir === 'income') && !mentions(c).length && !LEND.test(c)) { var a1 = { v:r[0].amount }; r = [st.dir === 'spend' ? spendItem(c, a1, ctx, R, [], null) : incomeItem(c, a1, ctx, R, [])]; }
+        if (r.length) st.dir = r[r.length - 1].k; r.forEach(function(it){ it.text = line.trim(); items.push(it); got++; }); }); });
       if (!got && !(st.card && /\b(statement|due)\b/.test(low))) ignored.push(line.trim()); });
     items.forEach(function(it, i){ it.id = 'k' + i; if (it.k === 'bill' && it.day) it.due = nextDue(ctx.today, it.day, it.every); if (it.k === 'payday') it.dues = it.days.map(function(d){ return nextDue(ctx.today, d, 'monthly'); }); });
     return { items:items, ignored:ignored }; }
@@ -3720,11 +3741,12 @@ var KatulongUI = (function(){
     if ((o.k === 'account' || o.k === 'card' || o.k === 'bill') && !o.name) return T('Give it a name: ' + summary(it), 'Bigyan ng pangalan: ' + summary(it));
     if (o.k === 'move' && o.from === o.to) return T('Choose two different accounts to move money between.', 'Pumili ng dalawang magkaibang account.');
     return o; }
-  var ORDER = { account:0, card:1, payday:2, incplan:3, bill:4, saveplan:5, limit:6, move:7, spend:8, income:9 };
+  var ORDER = { account:0, card:1, payday:2, incplan:3, bill:4, saveplan:5, limit:6, move:7, spend:8, income:8 };   /* spending and income entries keep the order they were written in */
   function apply(list){ var d = Store.data(), t = today(), y = +t.slice(0, 4), m0 = +t.slice(5, 7), made = 0;
     d.lists = d.lists || { accounts:[], payments:[] }; d.lists.accounts = d.lists.accounts || []; d.wallets = d.wallets || []; d.bills = d.bills || []; d.transfers = d.transfers || []; d.limits = d.limits || [];
     function acct(name, type){ if (!name) return; if (!d.lists.accounts.some(function(a){ return a.toLowerCase() === name.toLowerCase(); })) { d.lists.accounts.push(name); if (type) wallet(name).type = type; } }
     function wallet(name){ var w = d.wallets.filter(function(x){ return x.name === name; })[0]; if (!w) { w = { id:uid('w'), name:name }; d.wallets.push(w); } return w; }
+    function cat(name){ if (name && Store.cats('spending', true).indexOf(name) < 0 && Store.cats('expenditure', true).indexOf(name) < 0) Store.addCategory('spending', name); }   /* e.g. Family Support, Gifts & Donations */
     function plan(line, amount){ for (var mm = m0; mm <= 12; mm++) Store.setBudget(y, mm, line, amount); }
     list.sort(function(a, b){ return ORDER[a.k] - ORDER[b.k]; }).forEach(function(o){
       if (o.k === 'account') { acct(o.name); var w = wallet(o.name); if (!w.type) w.type = o.type || KatParse.typeGuess(o.name); w.opening = o.amount; w.asOf = t; }
@@ -3733,9 +3755,9 @@ var KatulongUI = (function(){
       else if (o.k === 'incplan') plan('income', o.amount);
       else if (o.k === 'bill') d.bills.push({ id:uid('b'), name:o.name, amount:o.amount, every:o.every || 'monthly', due:o.due || t, dom:o.day || +t.slice(8, 10), line:o.line || 'spending', category:o.category || 'Bills', remind:3 });
       else if (o.k === 'saveplan') plan('savings', o.amount);
-      else if (o.k === 'limit') { var l = d.limits.filter(function(x){ return x.category === o.category; })[0]; if (l) l.amount = o.amount; else d.limits.push({ id:uid('l'), category:o.category, amount:o.amount }); }
+      else if (o.k === 'limit') { cat(o.category); var l = d.limits.filter(function(x){ return x.category === o.category; })[0]; if (l) l.amount = o.amount; else d.limits.push({ id:uid('l'), category:o.category, amount:o.amount }); }
       else if (o.k === 'move') { acct(o.from); acct(o.to); d.transfers.push({ id:uid('x'), date:t, from:o.from, to:o.to, amount:o.amount, note:'Added with Katulong' }); }
-      else if (o.k === 'spend') { acct(o.account); Store.addTx({ date:o.date || t, pillar:'spending', category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
+      else if (o.k === 'spend') { acct(o.account); cat(o.category); Store.addTx({ date:o.date || t, pillar:'spending', category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
       else if (o.k === 'income') { acct(o.account); var tx = { date:o.date || t, pillar:'income', category:o.category, description:o.source ? 'From ' + o.source : o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }; if (o.source) tx.source = o.source; Store.addTx(tx); }
       made++; });
     Store.touch(); return made; }
