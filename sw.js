@@ -1,7 +1,7 @@
 /* Pentra Finance service worker: offline app shell, share-to-Pentra, safe updates.
    Caches only Pentra's own files; Supabase always uses the network. The on-device scanner's engine
    (/ocr/) is kept in its own cache that app updates don't delete, so scanning works offline. */
-const VERSION = 'pentra-fa96ee529e';
+const VERSION = 'pentra-853c3dd59e';
 const BASE = new URL('./', self.location).pathname;   /* '/' on Netlify, '/your-repo/' on GitHub Pages */
 const SHELL = ['', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'].map((p) => BASE + p);
 const SHARE = 'pentra-share';
