@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-XkHYbOsWuhdVVEasE/WQAQemNtraFdnHF2bZlrSL4+4=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-LupT4VHck7sMnBhb8AG21l/6C/IxJR3fLFZ8+C2PNgA=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -839,7 +839,7 @@ html[data-theme="dark"] .wl-bar{fill:#4a5d78}
 .wl-nw .bill-st ~ .xs,.wl-sub{display:block}
 .lim-bar.lim-near span{background:var(--warn,#d97706)}.lim-bar.lim-over span{background:var(--bad,#dc2626)}
 /* E3.1: features switched off by the admins are hidden everywhere (menus, phone bar, More, links, buttons) */
-html.pf-off-scan [data-act="scan-open"],html.pf-off-scan a[href^="#/scan"],html.pf-off-budget a[href^="#/budget"],html.pf-off-goals a[href^="#/goals"],html.pf-off-goals [data-act="new-goal"],html.pf-off-wallets a[href^="#/wallets"],html.pf-off-katulong a[href^="#/katulong"]{display:none!important}
+html.pf-off-scan [data-act="scan-open"],html.pf-off-scan a[href^="#/scan"],html.pf-off-budget a[href^="#/budget"],html.pf-off-goals a[href^="#/goals"],html.pf-off-goals [data-act="new-goal"],html.pf-off-wallets a[href^="#/wallets"],html.pf-off-katulong a[href^="#/katulong"],html.pf-off-katulong a[href^="#/t/katulong"]{display:none!important}
 .af-list{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}.af-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border:1px solid var(--line,rgba(127,127,127,.3));border-radius:12px}
 .af-lbl{display:flex;flex-direction:column;gap:2px;cursor:pointer;flex:1}.af-sw{appearance:none;-webkit-appearance:none;width:48px;height:28px;border-radius:999px;background:#8a96a8;position:relative;cursor:pointer;flex:none;transition:background .15s}
 .af-sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .15s}.af-sw:checked{background:#15803d}.af-sw:checked::after{left:23px}.af-sw:focus-visible{outline:3px solid var(--accent,#5b21b6);outline-offset:2px}.af-sw:disabled{opacity:.6}
@@ -1972,7 +1972,7 @@ function celebrate(text){
 /* ── Router & per-render context ───────────────────────────────────── */
 var U = { route:'home', param:null, txq:'', txPillar:'all', txScope:'month', txStatus:'all', spendTab:'everyday', budgetMonth:null, showWork:true, wiz:null, lastRoute:null };
 var ROUTES = ['home','money','scan','budget','goals','income','spending','savings','investment','protection','reports','scenarios','wizard','answers','settings'];
-var TIN_ROUTES = ['overview','setup','sell','sales','inventory','product','utang','customer','gcash','eload','bills','payroll','vault','suppliers','notes','rewards','referrals','reports','notifications','data','staff','new','businesses','upgrade','admin'];                                   /* My Tindahan pages: #/t/<page> */
+var TIN_ROUTES = ['overview','setup','sell','sales','inventory','product','utang','customer','gcash','eload','bills','payroll','vault','suppliers','notes','rewards','referrals','reports','notifications','data','staff','new','businesses','upgrade','admin','katulong'];                                   /* My Tindahan pages: #/t/<page> */
 var ALIASES = { dashboard:'home', transactions:'money', investments:'investment' };
 function parseHash(){
   var h = (location.hash || '').replace(/^#\/?/, '').split('?')[0], seg = h.split('/');
@@ -3463,7 +3463,7 @@ var KatParse = (function(){
     ['car loan', 'Car loan', 'Debt Payment'], ['housing loan|home loan|hulog sa bahay|pabahay', 'Housing loan', 'Debt Payment'], ['amortization|amortisasyon|amort', 'Amortization', 'Debt Payment'], ['loan', 'Loan', 'Debt Payment'], ['installment|hulugan|hulog', 'Installment', 'Debt Payment'],
     ['tuition|matrikula', 'Tuition', 'Tuition'], ['pag-ibig contribution|pagibig contribution|pag-ibig|pagibig', 'Pag-IBIG', 'Other Protection', 'protection'], ['home credit', 'Home Credit', 'Debt Payment'], ['atome', 'Atome', 'Debt Payment'], ['spaylater|shopee paylater', 'SPayLater', 'Debt Payment'], ['billease', 'BillEase', 'Debt Payment'], ['gym', 'Gym', 'Recreation'], ['cable', 'Cable', 'Entertainment'], ['school service', 'School service', 'Transportation']
   ];
-  var CATS = [
+  var CATS = [['field trip|school trip|educational tour', 'Education'], ['pakyawan|pintor|karpintero|tubero|plumber|electrician|pinagawa|pinaayos|pagawa|renovation|repairs?', 'Repairs'], ['visa|immigration|acr i-?card|bi fees|passport', 'Visa & Immigration'], ['dinner|brunch|merienda|meryenda|samgyup|nanlibre', 'Dining Out'],
     ['grab ?food|foodpanda|food panda|food delivery|dining out|dining|dine out|eat out|eating out|restaurants?|resto|kain sa labas|kumain sa labas|samgyup|jollibee|mcdo|mcdonald\'?s|kfc|chowking|starbucks|coffee|kape|milk ?tea|cafe', 'Dining Out'],
     ['gatas|formula milk|groceries|grocery|food|pagkain|palengke|market|ulam|bigas|rice|snacks|merienda|lunch|dinner|breakfast|almusal|tanghalian|hapunan', 'Food & Groceries'],
     ['transportation|transport|pamasahe|fare|jeep|jeepney|tricycle|trike|grab car|grab|angkas|joyride|taxi|bus|mrt|lrt|gas|gasolina|diesel|parking|toll|commute', 'Transportation'],
@@ -3475,15 +3475,15 @@ var KatParse = (function(){
   ];
   var INCATS = [['salary|sahod|sweldo|suweldo|payroll', 'Salary'], ['freelance|raket|sideline|project|upwork|fiverr|onlinejobs', 'Freelance'], ['business|negosyo|tindahan|store sales|benta|tubo|shopee payout|lazada payout|sales|online selling', 'Business'], ['commissions?|komisyon', 'Commission'],
     ['side hustle|side job|extra', 'Side Hustle'], ['allowance|baon|padala', 'Allowance'], ['bonus|13th month|thirteenth month', 'Bonus'], ['dividends?', 'Dividends'], ['interest|interes', 'Interest']];
-  var FAMW = 'parents?|magulang|nanay|tatay|inay|itay|mama|papa|mommy|daddy|mom|dad|mother|father|siblings?|brothers?|sisters?|kapatid|kuya|bunso|lola|lolo|grandma|grandpa|grandparents|tito|tita|tiyo|tiya|uncle|aunt|auntie|pinsan|cousins?|pamangkin|nephews?|nieces?|family|pamilya|relatives|kamag-anak|in-laws?|biyenan|anak|kids|children|son|daughter|asawa|misis|mister|husband|wife|jowa|probinsya|probinsiya|province|ading|manong|manang|inang|amang|nanang|tatang';
+  var FAMW = 'apo|mga apo|ninong|ninang|pamangkin|utol|asawa|misis|mister|parents?|magulang|nanay|tatay|inay|itay|mama|papa|mommy|daddy|mom|dad|mother|father|siblings?|brothers?|sisters?|kapatid|kuya|bunso|lola|lolo|grandma|grandpa|grandparents|tito|tita|tiyo|tiya|uncle|aunt|auntie|pinsan|cousins?|pamangkin|nephews?|nieces?|family|pamilya|relatives|kamag-anak|in-laws?|biyenan|anak|kids|children|son|daughter|asawa|misis|mister|husband|wife|jowa|probinsya|probinsiya|province|ading|manong|manang|inang|amang|nanang|tatang';
   var FAMILY = new RegExp('(?:^|[^a-z0-9])(' + FAMW + ')(?![a-z0-9])|(?:^|[^a-z0-9])(?:kay|sa|to|for|my|ni|si)\\s+(ate)(?![a-z0-9])');
-  var GIFT = /(?:^|[^a-z0-9])(gifts?|regalo|pasalubong|donations?|donate|donated|nag-?donate|tithes?|ikapu|offering|church|simbahan|charity|abuloy|ambag|pakimkim|aguinaldo|inaanak|pamasko|bday gift|birthday gift)(?![a-z0-9])/;
+  var GIFT = /(?:^|[^a-z0-9])(balikbayan|handog|love gift|pamasko|aguinaldo|gifts?|regalo|pasalubong|donations?|donate|donated|nag-?donate|tithes?|ikapu|offering|church|simbahan|charity|abuloy|ambag|pakimkim|aguinaldo|inaanak|pamasko|bday gift|birthday gift)(?![a-z0-9])/;
   var GIVE = /\b(nagpapadala|pinapadala|nagbibigay|binibigyan ko|remit|remits|remitted|nag-?remit|nagreremit|give|gave|giving|given|gives|bigay|binigay|ibinigay|nagbigay|magbigay|binigyan ko|padala|pinadala|nagpadala|ipinadala|pinadalhan ko|send|sent|sending|support|supported|suporta|sustento|abot|inabot|iniabot|donate|donated)\b/;
   var TO_ME = new RegExp('\\b(gave me|give me|gives me|sent me|send me|binigyan ako|binigyan niya ako|bigay sa akin|binigay sa akin|ibinigay sa akin|padala sa akin|pinadalhan ako|nagpadala sa akin|galing kay|mula kay)\\b|\\bfrom (?:my )?(?:' + FAMW + ')\\b');
-  var ASKFOR = /\b(humingi|hihingi|nanghingi|pahingi|asked for|ask for)\b/, CHILD = /\b(anak|son|daughter|kids|children|baby|babies)\b/, FX = /\b(dollars?|usd|riyals?|sar|dirhams?|aed|euros?|eur|yen|jpy|pounds?|gbp|hkd|sgd|kwd|qar)\b|\$/;
+  var ASKFOR = /\b(humingi|hihingi|nanghingi|pahingi|asked for|ask for)\b/, CHILD = /\b(anak|son|daughter|kids|children|baby|babies)\b/, FX = /\b(aud|sgd|jpy|krw|won|hkd|cad|ntd|twd|myr|thb|baht|cny|rmb|yuan|dollars?|usd|riyals?|sar|dirhams?|aed|euros?|eur|yen|jpy|pounds?|gbp|hkd|sgd|kwd|qar)\b|\$/;
   var SAVEW = /\b(paluwagan|naghulog sa paluwagan|nag-?ipon|naka-?ipon|nakaipon|ipon|nagtabi|itinabi|tinabi|magtabi|saved|save|saving|nag-?save|deposit(ed)?|emergency fund)\b/, SAVEVERB = /\b(naghulog|hulog|paluwagan|nag-?ipon|naka-?ipon|nakaipon|nagtabi|itinabi|tinabi|saved|nag-?save|deposit(ed)?)\b|\b(today|ngayon|ngayong araw|this payday|kanina)\b/;
   var INVESTW = /\b(invest(ed|ing|ment)?|nag-?invest|stocks?|shares|uitf|mutual funds?|index funds?|etfs?|bonds?|rtb|crypto|bitcoin|puhunan|restock|nag-?restock|paninda|supplier|kapital|capital)\b/;
-  var LEND = /\b(nanghiram|ggives|lent|lend|loaned|pinahiram|nagpahiram|ipinahiram|pautang|borrowed|borrow|nangutang|umutang|hiniram|inutang)\b/;
+  var LEND = /\b(nagpautang|nagpahiram|pinautang|nag-?cash advance|cash advance|bale ko|vale ko|nanghiram|ggives|lent|lend|loaned|pinahiram|nagpahiram|ipinahiram|pautang|borrowed|borrow|nangutang|umutang|hiniram|inutang)\b/;
   function toMe(s){ return TO_ME.test(s) || /\bpadala (ni|galing|mula|from)\b/.test(s) || /\b(client|customer|kliyente|boss|employer|company|kompanya)( ko)? (paid|pays|sent|nagbayad|nagpadala)\b/.test(s) || /\bbayad (ng|ni) (client|customer|kliyente|boss|employer)\b/.test(s) || /\bpayouts?\b/.test(s) || ((GIVE.test(s) || /\b(paid|pays|pay|nagbayad|binayaran)\b/.test(s)) && /\b(sa akin|sakin|to me|for me|paid me|pays me|pay me)\b/.test(s))
       || (/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan|nagsend|nag-send)\s+(si|ni)\s+[a-z]/.test(s) && !/\b(nagpadala|nagbigay|nagbayad|pinadalhan|binigyan)\s+(ko|ako)\b/.test(s)); }
   function fam(s){ var m = FAMILY.exec(s); return m ? (m[1] || m[2]) : null; }
@@ -3563,9 +3563,129 @@ var KatParse = (function(){
   function catOf(s, list){ for (var i = 0; i < list.length; i++) if (list[i][0].test(s)) return list[i][1]; return null; }
   function billOf(s){ for (var i = 0; i < BILL_RX.length; i++) if (BILL_RX[i][0].test(s)) return { name:BILL_RX[i][1], category:BILL_RX[i][2], line:BILL_RX[i][3] }; return null; }
   function words(s){ return s.replace(/[\u20b1]|\bphp\b|\d[\d,.]*\s?(k|m|st|nd|rd|th)?\b/g, ' ').replace(/\b(every|tuwing|kada|monthly|a month|per month|month|on|the|my|ang|ng|sa|para|for|bill|bills|due|is|and|at|around|about|mga|pesos?|a-\d+|ika-\d+)\b/g, ' ').replace(/[^a-z\s'-]/g, ' ').replace(/\s+/g, ' ').trim(); }
-  function clause(s, ctx, R, st){ var N = numbers(s), A = N.amounts, D = N.days, a0 = A[0], M = mentions(s), days = D.map(function(d){ return d.v; }), items = [];
+
+  /* ── Phase B (research report, 30 Sep 2026): number words, normalising, and research rules that run before the E3 rules ── */
+  var WN = { isa:1, isang:1, dalawa:2, dalawang:2, tatlo:3, tatlong:3, apat:4, lima:5, limang:5, anim:6, pito:7, pitong:7, walo:8, walong:8, siyam:9 };
+  var WT = { sampu:10, sampung:10, dalawampu:20, dalawampung:20, tatlumpu:30, tatlumpung:30, apatnapu:40, apatnapung:40, limampu:50, limampung:50, animnapu:60, animnapung:60, pitumpu:70, pitumpung:70, walumpu:80, walumpung:80, siyamnapu:90, siyamnapung:90 };
+  var WTEEN = { 'labing-isa':11, labingisa:11, labindalawa:12, labindalawang:12, labintatlo:13, labintatlong:13, 'labing-apat':14, labingapat:14, labinlima:15, labinlimang:15, 'labing-anim':16, labinganim:16, labimpito:17, labimpitong:17, labinpito:17, labingwalo:18, labingwalong:18, labinsiyam:19 };
+  var SPU = { uno:1, dos:2, tres:3, kwatro:4, kuwatro:4, singko:5, sinko:5, sais:6, siyete:7, otso:8, nuwebe:9, diyes:10, dyis:10, onse:11, dose:12, trese:13, katorse:14, kinse:15 };
+  var SPT = { bente:20, beinte:20, trenta:30, treinta:30, kwarenta:40, kuwarenta:40, singkwenta:50, singkuwenta:50, sisenta:60, sitenta:70, setenta:70, otsenta:80, nobenta:90 };
+  var WM = { daan:100, raan:100, libo:1000, mil:1000, milyon:1e6 }, WS = { sandaan:100, isandaan:100, sanlibo:1000 };
+  function wkey(w){ return String(w || '').toLowerCase().replace(/[.,;:!?)]+$/, ''); }
+  function isNumW(w){ w = wkey(w); return WN[w] !== undefined || WT[w] !== undefined || WTEEN[w] !== undefined || SPU[w] !== undefined || SPT[w] !== undefined || WM[w] !== undefined || WS[w] !== undefined; }
+  function wordNums(text){ var parts = String(text || '').replace(/([a-z])'(t|y)\b/gi, '$1 at').split(/(\s+)/), wi = [], out = parts.slice(), i, k;
+    for (i = 0; i < parts.length; i++) if (parts[i] !== '' && !/^\s+$/.test(parts[i])) wi.push(i);
+    for (k = 0; k < wi.length;) { var total = 0, cur = 0, j = k, used = false, strong = false, spu = false;
+      while (j < wi.length) { var w = wkey(parts[wi[j]]);
+        if (WS[w] !== undefined) { total += WS[w]; used = strong = true; j++; continue; }
+        if (WTEEN[w] !== undefined || WT[w] !== undefined || SPT[w] !== undefined) { if (used && cur % 10 !== 0) break; cur += WTEEN[w] || WT[w] || SPT[w]; used = strong = true; j++; continue; }
+        if (WN[w] !== undefined || SPU[w] !== undefined) { if (used && cur % 10 !== 0) break; cur += WN[w] !== undefined ? WN[w] : SPU[w]; if (SPU[w] !== undefined) spu = true; used = true; j++; continue; }
+        if (WM[w] !== undefined && used) { if (WM[w] >= 1000) { total += (cur || 1) * WM[w]; cur = 0; } else cur = (cur || 1) * WM[w]; strong = true; j++; continue; }
+        if ((w === 'at' || w === 'y' || w === 'na') && used && j + 1 < wi.length && isNumW(parts[wi[j + 1]]) && !/\n/.test(parts[wi[j] - 1] || '')) { j++; continue; }
+        break; }
+      var nx = j < wi.length ? wkey(parts[wi[j]]) : '', multiLine = false; for (var q = wi[k]; q < (j > k ? wi[j - 1] : wi[k]); q++) if (/\n/.test(parts[q])) multiLine = true;
+      if (used && !multiLine && (strong || (spu && /^(pesos?|piso|php|isa|each|kada|tig-?isa)$/.test(nx)))) { var tail = /[.,;:!?)]+$/.exec(parts[wi[j - 1]]);
+        out[wi[k]] = String(total + cur) + (tail ? tail[0] : ''); for (var z = wi[k] + 1; z <= wi[j - 1]; z++) out[z] = ''; k = j; }
+      else k++; }
+    return out.join(''); }
+  function prep(t){ t = wordNums(t);
+    t = t.replace(/(\d+(?:\.\d+)?)\s*%/g, ' pct ');
+    t = t.replace(/\b(\d{1,3})\s*[x\u00d7]\s*(?:\u20b1|php|p)?\s*(\d[\d,]*(?:\.\d+)?)\s*(k\b)?/gi, function(m, n, v, k){ return String(Math.round(parseFloat(v.replace(/,/g, '')) * (k ? 1000 : 1) * +n * 100) / 100); });
+    t = t.replace(/\b(every|kada|bawat|each)\s+cut-?offs?\b|\bsemi-?monthly\b|\btwice a month\b|\b15\s*\/\s*30\b/gi, ' every 15th and 30th ');
+    return t.replace(/\b(nipalit|gipalit|mipalit|namalit|nagbakal|gibakal|nakabakal|gumatang)\b/gi, 'bumili').replace(/\bbugas\b/gi, 'bigas'); }
+  var MON = { jan:1, january:1, enero:1, feb:2, february:2, pebrero:2, mar:3, march:3, marso:3, apr:4, april:4, abril:4, mayo:5, jun:6, june:6, hunyo:6, jul:7, july:7, hulyo:7, aug:8, august:8, agosto:8, sep:9, sept:9, september:9, setyembre:9, oct:10, october:10, oktubre:10, nov:11, november:11, nobyembre:11, dec:12, december:12, disyembre:12, disiyembre:12 };
+  var MONRX = new RegExp('\\b(' + Object.keys(MON).join('|') + ')\\b');
+  function iso(y, m, d){ return y + '-' + ('0' + m).slice(-2) + '-' + ('0' + d).slice(-2); }
+  function lastDay(y, m){ return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function goalDate(s, today){ var ty = +today.slice(0, 4), tm = +today.slice(5, 7), td = today.slice(5);
+    if (/\b(pasko|christmas|noche buena|xmas)\b/.test(s)) return iso(td > '12-24' ? ty + 1 : ty, 12, 24);
+    if (/\bundas\b/.test(s)) return iso(td > '11-01' ? ty + 1 : ty, 11, 1); if (/\bvalentine/.test(s)) return iso(td > '02-14' ? ty + 1 : ty, 2, 14);
+    var y = /\b(?:by|bago|before|sa|until|hanggang|in)\s+(20\d\d)\b/.exec(s); if (y) return iso(+y[1], 12, 31);
+    var m = new RegExp('\\b(by|bago(?: mag-?)?|before|sa|until|hanggang|this|next|ngayong|sa darating na)\\s+(?:mag-?)?(' + Object.keys(MON).join('|') + ')\\b').exec(s);
+    if (m) { var mo = MON[m[2]], yr = mo < tm || (mo === tm && /^(bago|before)/.test(m[1])) ? ty + 1 : ty; if (/^(bago|before)/.test(m[1])) { mo -= 1; if (mo === 0) { mo = 12; yr -= 1; } } return iso(yr, mo, lastDay(yr, mo)); }
+    return null; }
+  function goalName(s){ var m = /\bpang-?([a-z]+)((?: (?:ni|ng|kay) [a-z]+| namin| natin)?)/.exec(s), n = null;
+    if (m && !/^(ko)$/.test(m[1])) n = (m[1] === 'uwi' ? 'pag-uwi' : m[1]) + (m[2] || '');
+    if (!n) { m = /\b([a-z]+) fund(?: (ni|ng) ([a-z]+))?/.exec(s); if (m && !/^(emergency|the|my|a)$/.test(m[1])) n = m[1] + (m[3] ? ' ni ' + m[3] : ''); else if (m) n = m[1] === 'emergency' ? 'emergency fund' : null; }
+    if (!n) { m = /\b(?:para sa|para kay|for)\s+([a-z][a-z' -]*?)(?=\s+(?:by|bago|before|until|hanggang|sa (?:20\d\d|[a-z]+ ?\d)|\d)|\s*$)/.exec(s); if (m) n = m[1].replace(/^(ang|ng|the|my|aking)\s+/, ''); }
+    if (!n) { m = /\b(?:bumili ng|makabili ng|magkaroon ng|buy an?|buy)\s+([a-z]+(?: [a-z]+)?)/.exec(s); if (m) n = m[1].replace(/\s+(by|bago|sa|para)$/, ''); }
+    n = String(n || 'savings goal').replace(/\s+(ko|by|bago|sa)$/, '').trim(); return n.charAt(0).toUpperCase() + n.slice(1); }
+  function goalCat(s){ return /\bemergency\b/.test(s) ? 'Emergency Fund' : /\b(travel|bakasyon|vacation|uwi|pag-uwi|japan|korea|abroad|trip)\b/.test(s) ? 'Vacation Fund' : /\b(tuition|school|college|enrollment|education|eskwela|kolehiyo)\b/.test(s) ? 'Education Fund'
+    : /\b(retirement|retire|pagreretiro)\b/.test(s) ? 'Long-Term Savings' : /\b(motor|car|kotse|laptop|phone|cellphone|bahay|house|condo|lupa|down ?payment)\b/.test(s) ? 'Major Purchase Fund' : 'Other Savings'; }
+  var REC = /\b(every|tuwing|kada|bawat|monthly|weekly|yearly|annually|annual|quarterly|a month|a year|per month|per year|buwan-buwan|buwanan|linggo-linggo|lingguhan|taon-taon|taunan)\b/;
+  var PAST = /\b(spent|paid|nagbayad|binayaran|bought|bumili|binili|kahapon|yesterday|kanina|nagastos|ginastos)\b/;
+  var HOUSE = /\b(yaya|kasambahay|helper|driver|labandera|hardinero|maid|nanny|tsuper)\b/, STAFFW = /\b(tauhan|staff|empleyado|crew|trabahador|workers?|tindera)\b/;
+  var PROT = /\b(peter plan|sss|philhealth|phic|hmo|maxicare|intellicare|medicard|cocolife|health card|insurance|insurans|seguro|sun ?life|manulife|pru ?life|axa|insular|fwd|allianz|vul|memorial plan|burial plan|st\.? ?peter|pre-?need|damayan|life plan|owwa)\b/;
+  var SVD = /\b(pag-?ibig|hdmf|mp2|time deposit|gsave|g-save|maya savings|maya goals?|gotyme|go tyme|tonik|seabank|cimb|digital bank|education plan|paluwagan)\b/;
+  function research(s, a0, A, M, days, ctx, R){ var rec = REC.test(s) || days.length > 0;
+    function acct(m, dep){ return R.name(m, dep); }
+    if (LEND.test(s) || ASKFOR.test(s) || FX.test(s) || /\b(petsa de peligro|na lang (ang )?pera ko|natitira na lang|fortnightly|bi-?weekly|every other week|every 2 weeks|kada dalawang linggo|nilibre ako|add to cart)\b/.test(s)
+      || /\b(pahingi|pautang|pahiram|pa-?load|pa-?gcash|pa-?cash ?in|paabono)\b/.test(s)) return [{ k:'unclear', amount:a0.v, text:s }];
+    /* money that came to me (research B1): "binigay ng anak ko", "binigyan kami", "kinuha ko ang padala", "napamaskuhan", "pumasok ang bayad", raket, OT, dividends, interest, owner's draw, shop remits, pension */
+    var giftIn = /\b(regalo|pamasko|aguinaldo|napamaskuhan|birthday money|pang-?handa|pakimkim)\b/.test(s);
+    var inFrame = /\b(binigay|ibinigay|bigay|pinadala|padala)\s+(ng|ni)\s+(?!ko\b)/.test(s) || /\b(binigyan|pinadalhan|nabigyan) kami\b/.test(s) || /\b(kinuha ko|na-?claim ko|claimed)\s+(ang |yung |ung |the )?padala\b/.test(s)
+      || /\bnapamaskuhan\b/.test(s) || /\bpumasok\b/.test(s) && !/\b(pumasok ako)\b/.test(s) || /\b(raket|ot pay|overtime pay|overtime|dividends?|dibidendo|interes|interest|kinuha ko sa negosyo|owner'?s draw|tiktok shop|shop remit|shopee remit|lazada remit|pensyon|pension)\b/.test(s);
+    if (inFrame && !GIVE.test(s.replace(/\b(binigay|ibinigay|bigay|pinadala|padala)\s+(ng|ni)\b/, '').replace(/\b(kinuha ko|na-?claim ko|claimed)\s+(ang |yung |ung |the )?padala\b/, '').replace(/\b(shop|shopee|lazada)\s+remit\b/, '')) && !/\b(para kay|kay|to)\s+(?!me\b)/.test(s.replace(/\bgaling kay\b/, ''))) {
+      if (/\b(pensyon|pension)\b/.test(s) && rec) return [{ k:'incplan', amount:a0.v, category:'Other Income', name:'Pension' }];
+      var ic = giftIn ? 'Other Income' : /\b(shop remit|shopee|lazada|tiktok shop|negosyo|owner'?s draw)\b/.test(s) ? 'Business' : /\b(padala|remit|remittance)\b/.test(s) ? 'Allowance' : /\b(sahod|sweldo|suweldo|salary)\b/.test(s) ? 'Salary' : /\b(raket|upwork|fiverr|onlinejobs|freelance)\b/.test(s) ? 'Freelance' : /\b(ot pay|overtime)\b/.test(s) ? 'Salary' : /\b(dividends?|dibidendo|interes|interest|pensyon|pension)\b/.test(s) ? 'Other Income'
+        : /\b(negosyo|owner'?s draw|tiktok shop|shop remit|shopee|lazada)\b/.test(s) ? 'Business' : fam(s) ? 'Allowance' : 'Other Income';
+      var ii = incomeItem(s, a0, ctx, R, M); ii.category = ic; return [ii]; }
+    if (giftIn && toMe(s)) { var gi = incomeItem(s, a0, ctx, R, M); gi.category = 'Other Income'; return [gi]; }
+    if (/\b(allowance|baon)\b/.test(s) && /\b(weekly|lingguhan|linggo-linggo|every week|kada linggo)\b/.test(s) && !GIVE.test(s) && (toMe(s) || /\b(galing|from|mula)\b/.test(s)))
+      return [{ k:'bill', name:'Allowance', amount:a0.v, approx:a0.approx, day:null, every:'weekly', category:'Allowance', line:'income', need:'day' }];
+    /* wages I pay: household help and staff (research A2, E employer) */
+    var hh = HOUSE.test(s) ? 'Household Help' : STAFFW.test(s) ? 'Staff Wages' : null;
+    if (hh && /\b(sahod|sweldo|suweldo|salary|salaries|wage|wages|pay|bayad|13th month|bonus|overtime)\b/.test(s) && !GIFT.test(s)) {
+      var hn = (HOUSE.exec(s) || STAFFW.exec(s))[1]; hn = hh === 'Staff Wages' ? 'Staff wages' : hn.charAt(0).toUpperCase() + hn.slice(1) + ' salary';
+      if (rec && !PAST.test(s)) return [{ k:'bill', name:hn, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:hh, line:'spending', need:days.length ? null : 'day' }];
+      var hs = spendItem(s, a0, ctx, R, M, null); hs.category = hh; return [hs]; }
+    /* protection (research D2): SSS, PhilHealth, HMOs, insurers, VUL, memorial plans, damayan */
+    if (PROT.test(s) && !/\b(loan|utang)\b/.test(s)) { var pc = /\b(philhealth|phic|hmo|maxicare|intellicare|medicard|cocolife|health card|health insurance)\b/.test(s) ? 'Health Insurance' : /\b(car|motor|house|home|property|fire) insurance\b/.test(s) ? 'Property Insurance'
+        : /\b(life insurance|seguro|sun ?life|manulife|pru ?life|axa|insular|fwd|allianz|vul|term insurance|life plan)\b/.test(s) ? 'Life Insurance' : /\binsurance\b/.test(s) ? 'Health Insurance' : 'Other Protection';
+      var pm = /\bsss\b/.test(s) ? 'SSS' : /\b(philhealth|phic)\b/.test(s) ? 'PhilHealth' : /\bmaxicare\b/.test(s) ? 'Maxicare' : /\bintellicare\b/.test(s) ? 'Intellicare' : /\bsun ?life\b/.test(s) ? 'Sun Life' : /\bmanulife\b/.test(s) ? 'Manulife' : /\bpru ?life\b/.test(s) ? 'Pru Life' : /\b(st\.? ?peter|peter plan)\b/.test(s) ? 'St. Peter plan'
+        : /\bmemorial plan\b/.test(s) ? 'Memorial plan' : /\bdamayan\b/.test(s) ? 'Damayan' : /\bvul\b/.test(s) ? 'VUL' : /\bhmo\b/.test(s) ? 'HMO' : /\bseguro\b/.test(s) ? 'Seguro' : 'Insurance';
+      if (rec && !PAST.test(s)) return [{ k:'bill', name:pm, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:pc, line:'protection', need:days.length ? null : 'day' }];
+      return [{ k:'protect', amount:a0.v, category:pc, name:pm, date:dayWord(s, ctx.today) }]; }
+    /* savings places (research D1): Pag-IBIG and MP2, time deposits, digital-bank savings, education plans, paluwagan */
+    if (SVD.test(s) && !/\b(loan|utang|housing loan|invest(ed|ing)?|nag-?invest|payout|nakuha ko)\b/.test(s) && (/\b(hulog|kaltas|contribution|dagdag|deposit|nilagay|nag-?transfer|transfer|lipat|tinabi|nagtabi|ipon|save|saved|nag-?ipon)\b/.test(s) || rec || /\b(time deposit|education plan)\b/.test(s) || (/\b(pag-?ibig|hdmf)\b/.test(s) && !M.length))) {
+      var sc = /\b(pag-?ibig|hdmf|mp2|time deposit)\b/.test(s) ? 'Long-Term Savings' : /\beducation plan\b/.test(s) ? 'Education Fund' : 'Other Savings';
+      var sn = /\bmp2\b/.test(s) ? 'MP2' : /\b(pag-?ibig|hdmf)\b/.test(s) ? 'Pag-IBIG' : /\beducation plan\b/.test(s) ? 'Education plan' : /\bpaluwagan\b/.test(s) ? 'Paluwagan' : 'Savings';
+      if (rec && !PAST.test(s)) return [{ k:'bill', name:sn, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:sc, line:'savings', need:days.length ? null : 'day' }];
+      var sa = M.map(function(m){ return acct(m, true); }).filter(function(r){ return r.type === 'savings' || r.type === 'investment'; })[0];
+      return [{ k:'saved', amount:a0.v, category:sc, account:sa ? sa.name : null, date:dayWord(s, ctx.today) }]; }
+    if (/\b(nagtabi|tinabi|itinabi|naka-?ipon|nakaipon)\b/.test(s) && !rec && !/\b(para sa|para kay|pang-)\b/.test(s)) { var dt = /\bemergency\b/.test(s) ? 'Emergency Fund' : 'Other Savings', da = M.map(function(m){ return acct(m, true); }).filter(function(r){ return r.type === 'savings' || r.type === 'investment'; })[0];
+      return [{ k:'saved', amount:a0.v, category:dt, account:da ? da.name : null, date:dayWord(s, ctx.today) }]; }
+    if (/\bg-?funds?\b/.test(s)) return [{ k:'invest', amount:a0.v, category:'Mutual Funds', account:null, date:dayWord(s, ctx.today) }];
+    if (/\bpera (contribution|account)\b/.test(s)) return [{ k:'invest', amount:a0.v, category:'Retirement Fund', account:null, date:dayWord(s, ctx.today) }];
+    /* goals (research D1, D3): saving toward an occasion or a plan, with a deadline when one is said */
+    var DEP = /\b(nagtabi|tinabi|itinabi|naka-?ipon|nakaipon|nag-?ipon|nilagay|hinulog|deposit(ed)?|na-?save|saved)\b|\b(ngayon|today|ngayong araw|kanina|kahapon|this payday|ngayong sahod)\b/;
+    var GOALV = /\b(gusto (ko|kong) (makaipon|mag-?ipon|makabili|bumili|magkaroon)|balak (ko|kong)|plano (ko|kong)|target (ko )?|goal (ko )?|pangarap (ko )?)\b/, SAVEWD = /\b(ipon|iipunin|ipunin|save|i-?save|mag-?ipon|magse-?save|itatabi)\b/;
+    var OCC = /\bpang-?(birthday|debut|anniversary|monthsary|uwi|pasko|christmas|noche buena|bakasyon|travel|kasal|wedding|binyag|valentines?|japan|korea|abroad|reunion)\b/;
+    if (!rec && !DEP.test(s) && (!PAST.test(s) || GOALV.test(s)) && (GOALV.test(s) || (SAVEWD.test(s) && /\b(para sa|para kay|pang-?|for)\b/.test(s)) || OCC.test(s) || (/\bfund\b/.test(s) && /\b(by|bago|before|until|hanggang)\b/.test(s) && !M.length && !INVESTW.test(s))))
+      return [{ k:'goal', name:goalName(s), target:a0.v, deadline:goalDate(s, ctx.today), category:goalCat(s) }];
+    if (rec && !PAST.test(s) && (SAVEWD.test(s) || /\bfund\b/.test(s)) && !INVESTW.test(s) && !/\b(limit|budget)\b/.test(s)) return [{ k:'saveplan', amount:a0.v }];
+    /* family: their bills and installments, allowance given (research A3, E breadwinner/parent) */
+    var fb = billOf(s) || catOf(s, CAT_RX);
+    if (/\b(nila|ng pamilya|sa probinsya|sa probinsiya)\b/.test(s) && fb && /\b(bayad|nagbayad|binayaran|bayad ko|sagot ko)\b/.test(s)) { if (rec && !PAST.test(s)) return null; var fs = spendItem(s, a0, ctx, R, M, null); fs.category = 'Family Support'; return [fs]; }
+    if (/\b(hulog|installment|amortization)\b/.test(s) && new RegExp('\\b(ni|ng)\\s+(' + FAMW + ')\\b').test(s)) { if (rec && !PAST.test(s)) return [{ k:'bill', name:'Family support', amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:'Family Support', line:'spending', need:days.length ? null : 'day' }];
+      var fi = spendItem(s, a0, ctx, R, M, null); fi.category = 'Family Support'; return [fi]; }
+    if (/\b(baon|allowance|pang-?baon)\s+(ni|ng|para kay|para sa|of)\s+/.test(s) && !toMe(s) && !rec) { var fa = spendItem(s, a0, ctx, R, M, null); fa.category = 'Family Support'; return [fa]; }
+    if (/\b(binayaran ko|nagbayad ako kay|bayad ko kay)\s+(na\s+)?(si|kay)\s+[a-z]+/.test(s) && !billOf(s) && !catOf(s, CAT_RX) && !fam(s)) { var dp = spendItem(s, a0, ctx, R, M, null); dp.category = 'Debt Payment'; return [dp]; }
+    /* a future school payment, and dues or amortizations that repeat by nature */
+    if (/\b(tuition|matrikula|enrollment|enrolment)\b/.test(s) && MONRX.test(s) && !PAST.test(s)) return [{ k:'bill', name:/\benrol/.test(s) ? 'Enrollment' : 'Tuition', amount:a0.v, approx:a0.approx, day:null, every:'once', category:'Tuition', line:'spending', need:'day' }];
+    if (/\b(dues|amortization|amort)\b/.test(s) && !PAST.test(s) && !rec) { var db = billOf(s) || { name:'Amortization', category:'Debt Payment' };
+      return [{ k:'bill', name:db.name, amount:a0.v, approx:a0.approx, day:null, every:'monthly', category:db.category, line:db.line || 'spending', need:'day' }]; }
+    /* a repeating expense in a known category ("gamot sa maintenance 2,400 monthly") */
+    var rc = catOf(s, CAT_RX); if (rec && !PAST.test(s) && rc && !billOf(s) && !giveTo(s) && !/\b(spend|gastos|gumagastos|ginagastos|nagagastos|usually|average|around|mga|limit|budget)\b/.test(s))
+      return [{ k:'bill', name:rc, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:rc, line:'spending', need:days.length ? null : 'day' }];
+    if (GIFT.test(s) && !toMe(s) && !rec) { var gs = spendItem(s, a0, ctx, R, M, null); if (!gs.category || gs.category === 'Uncategorized') gs.category = 'Gifts & Donations'; return [gs]; }
+    return null; }
+  function clause(s, ctx, R, st){ var out = clause0(s, ctx, R, st); (out || []).forEach(function(it){ if (it && (it.k === 'spend' || it.k === 'bill') && it.category === 'Family Support') it.tag = 'gift'; }); return out; }
+  function clause0(s, ctx, R, st){ var N = numbers(s), A = N.amounts, D = N.days, a0 = A[0], M = mentions(s), days = D.map(function(d){ return d.v; }), items = [];
     function acct(m, dep){ return R.name(m, dep); }
     function mentionAfter(pos){ return M.filter(function(m){ return m.at >= pos; })[0] || null; }
+    var RQ = /\?\s*$/.test(s) || /^(how much|magkano|ilan|what('s| is)|ano ang|anong|how's|how is|balance ng|when is|kailan)\b/.test(s);
+    if (a0 && !RQ && !/\b(limit|max|maximum|hanggang|up to|lalagpas|cap|capped|budget)\b/.test(s)) { var rr = research(s, a0, A, M, days, ctx, R); if (rr) return rr; }
     /* questions */
     if (/\?\s*$/.test(s) || /^(how much|magkano|ilan|what('s| is)|ano ang|anong|how's|how is|balance ng|when is|kailan)\b/.test(s)) {
       if (/\bnet ?worth\b|\bkabuuang yaman\b/.test(s)) return [{ k:'ask', q:'networth' }];
@@ -3621,7 +3741,7 @@ var KatParse = (function(){
     var fgive = giveTo(s) === 'Family Support', frec = MONTHLY.test(s) || days.length || /\b(every|tuwing|kada)\b/.test(s);
     if (fgive && frec && !billOf(s) && /\b(padala|remit|allowance|baon|support|suporta|sustento|bigay|binigay|nagbigay|nagbibigay|give|gave|nagpapadala|pinapadala|nagremit|nagreremit)\b|\bremit/.test(s) && !/\b(spent|paid|nagbayad|binayaran|bought|bumili|kahapon|yesterday|kanina)\b/.test(s)) return [{ k:'bill', name:/\bremit/.test(s) ? 'Remittance' : /padala/.test(s) ? 'Padala' : /\b(allowance|baon)\b/.test(s) ? 'Allowance' : 'Family support', amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:'Family Support', line:'spending', need:days.length ? null : 'day' }];
     /* a repeating purchase with an unknown name, e.g. "binili ko ang canva pro 499 every month" */
-    if (!billOf(s) && (MONTHLY.test(s) || /\b(every|tuwing|kada)\b/.test(s)) && /\b(binili|bought|subscribe|subscribed|nag-?subscribe|member|membership|pro|premium|plus)\b/.test(s) && !catOf(s, CAT_RX)) {
+    if (!billOf(s) && (MONTHLY.test(s) || /\b(every|tuwing|kada|yearly|annually|annual|taon-taon|a year|per year)\b/.test(s)) && /\b(binili|bought|subscribe|subscribed|nag-?subscribe|member|membership|pro|premium|plus)\b/.test(s) && !catOf(s, CAT_RX)) {
       var nm2 = title(words(s).replace(/\b(binili|bought|subscribe|subscribed|nag-?subscribe|ko|ako|i|na|yung|ung|every|month|monthly)\b/g, ' ').replace(/\s+/g, ' ').trim().split(' ').slice(0, 3).join(' ')) || 'Subscription';
       return [{ k:'bill', name:nm2, amount:a0.v, approx:a0.approx, day:days[0] || null, every:every(s), category:/\b(pro|premium|plus|subscription|subscribe|subscribed|app|membership|member)\b/.test(s) ? 'Subscriptions' : 'Utilities', line:'spending', need:days.length ? null : 'day' }]; }
     /* repeating bills */
@@ -3658,7 +3778,7 @@ var KatParse = (function(){
     tk.forEach(function(t, i){ if (!(t.t === 'w' && (t.w === 'and' || t.w === 'at' || t.w === ',' || t.w === ';' || t.w === 'tapos' || t.w === 'also'))) return;
       var L = NN.some(function(a){ return a.s >= last && a.e <= t.s; }), Rr = NN.some(function(a){ return a.s >= t.e; }); if (L && Rr) { cuts.push([last, t.s]); last = t.e; } });
     cuts.forEach(function(c){ parts.push(sent.slice(c[0], c[1]).trim()); }); parts.push(sent.slice(last).trim()); return parts.filter(Boolean); }
-  function parse(text, ctx){ ctx = ctx || {}; ctx.today = ctx.today || new Date().toISOString().slice(0, 10);
+  function parse(text, ctx){ ctx = ctx || {}; ctx.today = ctx.today || new Date().toISOString().slice(0, 10); text = prep(String(text || ''));
     var R = Resolver(ctx), st = { mode:null, card:null }, items = [], ignored = [];
     String(text || '').replace(/\r/g, '').replace(/\b5-6\b/g, 'lima-anim').replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"').split(/\n+|\s+\/\s+/).forEach(function(line){ var low = line.toLowerCase().replace(/\s+/g, ' ').trim(); if (!low) return;
       if (/\b(bills|bayarin|gastusin buwan-buwan|monthly expenses|fixed expenses)\b/.test(low) && !numbers(low).amounts.length) { st.mode = 'bills'; ignored.push(line.trim()); return; }
@@ -3680,12 +3800,14 @@ var KatParse = (function(){
       case 'limit': return 'limit ' + it.category + ' ' + it.amount;
       case 'spend': return 'spend ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
       case 'income': return 'income ' + it.amount + ' ' + it.category + (it.source ? ' from ' + it.source : '') + (it.account ? ' @' + it.account : '');
+      case 'goal': return 'goal ' + it.name + ' ' + it.target + (it.deadline ? ' by ' + it.deadline : '');
+      case 'protect': return 'protect ' + it.amount + ' ' + it.category;
       case 'saved': return 'saved ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
       case 'invest': return 'invest ' + it.amount + ' ' + it.category + (it.account ? ' @' + it.account : '');
       case 'move': return 'move ' + it.amount + ' ' + it.from + '>' + it.to;
       case 'ask': return 'ask ' + it.q + (it.arg ? ' ' + it.arg : '');
       default: return 'unclear ' + it.amount; } }).join(' | '); }
-  return { parse:parse, brief:brief, numbers:numbers, nextDue:nextDue, typeGuess:typeGuess };
+  return { wordNums:wordNums, prep:prep, parse:parse, brief:brief, numbers:numbers, nextDue:nextDue, typeGuess:typeGuess };
 })();
 /* ════════════════════════════════════════════════════════════════════════
    KATULONG · THE SETUP HELPER (Master Plan v5, E3) at #/katulong, plus "Set me up" on Home for a new workspace.
@@ -3724,8 +3846,10 @@ var KatulongUI = (function(){
       case 'invplan': return T('Investment plan: ' + money(it.amount) + ' a month, ' + span(), 'Plano sa puhunan: ' + money(it.amount) + ' bawat buwan, ' + span());
       case 'saveplan': return T('Savings plan: ' + money(it.amount) + ' a month, ' + span(), 'Plano sa ipon: ' + money(it.amount) + ' bawat buwan, ' + span());
       case 'limit': return T('Spending limit: ' + it.category + ', ' + money(it.amount) + ' a month', 'Limitasyon sa gastos: ' + it.category + ', ' + money(it.amount) + ' bawat buwan');
-      case 'spend': return T('Spending ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' on ' + it.category + (it.account ? ', from ' + it.account : ''), 'Gastos ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' sa ' + it.category + (it.account ? ', mula sa ' + it.account : ''));
+      case 'spend': return T('Spending ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' on ' + it.category + (it.tag === 'gift' ? ' (gift to family)' : '') + (it.account ? ', from ' + it.account : ''), 'Gastos ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' sa ' + it.category + (it.tag === 'gift' ? ' (bigay sa pamilya)' : '') + (it.account ? ', mula sa ' + it.account : ''));
       case 'income': return T('Income today: ' + money(it.amount) + ' (' + it.category + ')' + (it.source ? ' from ' + it.source : '') + (it.account ? ', into ' + it.account : ''), 'Kita ngayon: ' + money(it.amount) + ' (' + it.category + ')' + (it.source ? ' mula kay ' + it.source : '') + (it.account ? ', papunta sa ' + it.account : ''));
+      case 'goal': return T('New goal \u201c' + it.name + '\u201d: save ' + money(it.target) + (it.deadline ? ' by ' + fmtD(it.deadline) : '') + ' (' + it.category + ')', 'Bagong goal na \u201c' + it.name + '\u201d: mag-ipon ng ' + money(it.target) + (it.deadline ? ' bago ' + fmtD(it.deadline) : '') + ' (' + it.category + ')');
+      case 'protect': return T('Protection ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' for ' + it.name + ' (' + it.category + ')', 'Proteksyon ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' para sa ' + it.name + ' (' + it.category + ')');
       case 'saved': return T('Savings ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', into ' + it.account : ''), 'Ipon ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', sa ' + it.account : ''));
       case 'invest': return T('Investment ' + (it.date === today() ? 'today' : 'on ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', in ' + it.account : ''), 'Puhunan ' + (it.date === today() ? 'ngayon' : 'noong ' + fmtD(it.date)) + ': ' + money(it.amount) + ' (' + it.category + ')' + (it.account ? ', sa ' + it.account : ''));
       case 'move': return T('Move money: ' + money(it.amount) + ' from ' + it.from + ' to ' + it.to, 'Ilipat ang pera: ' + money(it.amount) + ' mula sa ' + it.from + ' papunta sa ' + it.to);
@@ -3736,10 +3860,10 @@ var KatulongUI = (function(){
     var F = { name:['text', T('Name', 'Pangalan')], amount:['number', T('Amount (\u20b1)', 'Halaga (\u20b1)')], limit:['number', T('Credit limit (\u20b1)', 'Credit limit (\u20b1)')], owed:['number', T('Amount you owe now (\u20b1)', 'Utang mo ngayon (\u20b1)')],
       stmtDay:['day', T('Statement day', 'Araw ng statement')], dueDay:['day', T('Due day', 'Araw ng due')], day:['day', T('Day of the month', 'Araw ng buwan')], days:['text', T('Days of the month', 'Mga araw ng buwan')],
       account:['acct', T('Account', 'Account')], from:['acct', T('From', 'Mula')], to:['acct', T('To', 'Papunta')], source:['text', T('Who paid you', 'Nagbayad sa iyo')],
-      category:['cat', T('Category', 'Kategorya')], description:['text', T('Description', 'Paglalarawan')] };
+      category:['cat', T('Category', 'Kategorya')], description:['text', T('Description', 'Paglalarawan')], target:['number', T('Target (\u20b1)', 'Target (\u20b1)')], deadline:['text', T('Deadline (YYYY-MM-DD)', 'Deadline (YYYY-MM-DD)')] };
     var keys = { account:['name', 'amount'], card:['name', 'limit', 'owed', 'stmtDay', 'dueDay'], payday:['amount', 'days', 'account'], incplan:['amount'], invplan:['amount'], bill:['name', 'amount', 'day', 'category'], saveplan:['amount'], limit:['category', 'amount'],
-      spend:['amount', 'category', 'account', 'description'], saved:['amount', 'category', 'account'], invest:['amount', 'category', 'account'], income:['amount', 'category', 'source', 'account'], move:['amount', 'from', 'to'] }[it.k] || [];
-    return keys.map(function(k){ var f = F[k], id = 'kf-' + it.id + '-' + k, v = k === 'days' ? (it.days || []).join(', ') : it[k] == null ? '' : it[k], line = it.k === 'income' ? 'income' : it.k === 'saved' ? 'savings' : it.k === 'invest' ? 'investment' : it.k === 'bill' && it.line !== 'spending' ? it.line : 'spending', input;
+      spend:['amount', 'category', 'account', 'description'], saved:['amount', 'category', 'account'], invest:['amount', 'category', 'account'], protect:['amount', 'category'], goal:['name', 'target', 'deadline'], income:['amount', 'category', 'source', 'account'], move:['amount', 'from', 'to'] }[it.k] || [];
+    return keys.map(function(k){ var f = F[k], id = 'kf-' + it.id + '-' + k, v = k === 'days' ? (it.days || []).join(', ') : it[k] == null ? '' : it[k], line = it.k === 'income' ? 'income' : it.k === 'protect' ? 'protection' : it.k === 'goal' ? 'savings' : it.k === 'saved' ? 'savings' : it.k === 'invest' ? 'investment' : it.k === 'bill' && it.line !== 'spending' ? it.line : 'spending', input;
       if (f[0] === 'acct') { var list = A.slice(); if (v && list.indexOf(v) < 0) list.unshift(v); input = '<select id="' + id + '">' + (k === 'account' ? '<option value="">' + T('No account', 'Walang account') + '</option>' : '') + list.map(function(n){ return '<option value="' + esc(n) + '"' + (n === v ? ' selected' : '') + '>' + esc(n) + '</option>'; }).join('') + '</select>'; }
       else if (f[0] === 'cat') { var cl = cats(line).concat(it.k === 'spend' || it.k === 'limit' ? cats('expenditure') : []), seen = {}; cl = cl.filter(function(c){ if (seen[c]) return false; seen[c] = 1; return true; }); if (v && cl.indexOf(v) < 0 && v !== 'Uncategorized') cl.unshift(v);
         input = '<select id="' + id + '">' + (v === 'Uncategorized' || !v ? '<option value="">' + T('Choose a category', 'Pumili ng kategorya') + '</option>' : '') + cl.map(function(c){ return '<option value="' + esc(c) + '"' + (c === v ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select>'; }
@@ -3793,16 +3917,17 @@ var KatulongUI = (function(){
     ['name', 'description', 'source', 'account', 'from', 'to', 'category'].forEach(function(k){ var v = q(k); if (v !== null) o[k] = v.trim(); });
     ['amount', 'limit', 'owed'].forEach(function(k){ var v = q(k); if (v !== null) o[k] = v.trim() === '' ? 0 : num(v); });
     ['stmtDay', 'dueDay', 'day'].forEach(function(k){ var v = q(k); if (v !== null) o[k] = v.trim() === '' ? null : parseInt(v, 10); });
+    var tv = q('target'); if (tv !== null) o.target = tv.trim() === '' ? 0 : num(tv); var dl = q('deadline'); if (dl !== null) o.deadline = /^\d{4}-\d{2}-\d{2}$/.test(dl.trim()) ? dl.trim() : null;   /* goals */
     var dv = q('days'); if (dv !== null) o.days = dv.split(/[^0-9]+/).filter(Boolean).map(function(x){ return +x; });
     if (o.k === 'bill' && o.day) { o.due = KatParse.nextDue(today(), o.day, o.every); o.need = null; }
-    if ((o.k !== 'card' && !(o.amount > 0)) || (o.k === 'card' && (!(o.limit >= 0) || !(o.owed >= 0)))) return T('Check the amount for: ' + summary(it), 'Tingnan ang halaga para sa: ' + summary(it));
+    if ((o.k !== 'card' && o.k !== 'goal' && !(o.amount > 0)) || (o.k === 'goal' && !(o.target > 0)) || (o.k === 'card' && (!(o.limit >= 0) || !(o.owed >= 0)))) return T('Check the amount for: ' + summary(it), 'Tingnan ang halaga para sa: ' + summary(it));
     if ((o.k === 'bill' && !(o.every === 'weekly' || (o.day >= 1 && o.day <= 31))) || (o.k === 'payday' && !(o.days.length && o.days.every(function(x){ return x >= 1 && x <= 31; })))) return T('Add the day of the month for: ' + summary(it), 'Ilagay ang araw ng buwan para sa: ' + summary(it));
     if ((o.stmtDay && !(o.stmtDay >= 1 && o.stmtDay <= 31)) || (o.dueDay && !(o.dueDay >= 1 && o.dueDay <= 31))) return T('Days go from 1 to 31.', 'Mula 1 hanggang 31 ang araw.');
     if ((o.k === 'spend' || o.k === 'limit') && (!o.category || o.category === 'Uncategorized')) return T('Choose a category for: ' + summary(it), 'Pumili ng kategorya para sa: ' + summary(it));
     if ((o.k === 'account' || o.k === 'card' || o.k === 'bill') && !o.name) return T('Give it a name: ' + summary(it), 'Bigyan ng pangalan: ' + summary(it));
     if (o.k === 'move' && o.from === o.to) return T('Choose two different accounts to move money between.', 'Pumili ng dalawang magkaibang account.');
     return o; }
-  var ORDER = { account:0, card:1, payday:2, incplan:3, invplan:5, bill:4, saveplan:5, limit:6, move:7, spend:8, income:8, saved:8, invest:8 };   /* spending and income entries keep the order they were written in */
+  var ORDER = { account:0, card:1, payday:2, incplan:3, invplan:5, bill:4, saveplan:5, limit:6, move:7, spend:8, income:8, saved:8, invest:8, protect:8, goal:6 };   /* spending and income entries keep the order they were written in */
   function apply(list){ var d = Store.data(), t = today(), y = +t.slice(0, 4), m0 = +t.slice(5, 7), made = 0;
     d.lists = d.lists || { accounts:[], payments:[] }; d.lists.accounts = d.lists.accounts || []; d.wallets = d.wallets || []; d.bills = d.bills || []; d.transfers = d.transfers || []; d.limits = d.limits || [];
     function acct(name, type){ if (!name) return; if (!d.lists.accounts.some(function(a){ return a.toLowerCase() === name.toLowerCase(); })) { d.lists.accounts.push(name); if (type) wallet(name).type = type; } }
@@ -3819,8 +3944,10 @@ var KatulongUI = (function(){
       else if (o.k === 'invplan') plan('investment', o.amount);
       else if (o.k === 'limit') { cat(o.category); var l = d.limits.filter(function(x){ return x.category === o.category; })[0]; if (l) l.amount = o.amount; else d.limits.push({ id:uid('l'), category:o.category, amount:o.amount }); }
       else if (o.k === 'move') { acct(o.from); acct(o.to); d.transfers.push({ id:uid('x'), date:t, from:o.from, to:o.to, amount:o.amount, note:'Added with Katulong' }); }
+      else if (o.k === 'goal') { var g = Store.addGoal({ name:o.name, target:o.target, deadline:o.deadline || null, savingsCategory:o.category || 'Other Savings' }); }
+      else if (o.k === 'protect') { cat(o.category, 'protection'); Store.addTx({ date:o.date || t, pillar:'protection', category:o.category, description:o.name || o.category, actual:o.amount, account:'', status:'Paid', notes:'Added with Katulong' }); }
       else if (o.k === 'saved' || o.k === 'invest') { var pl = o.k === 'saved' ? 'savings' : 'investment'; acct(o.account); cat(o.category, pl); Store.addTx({ date:o.date || t, pillar:pl, category:o.category, description:o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
-      else if (o.k === 'spend') { acct(o.account); cat(o.category); Store.addTx({ date:o.date || t, pillar:'spending', isMajor:Store.cats('expenditure', true).indexOf(o.category) >= 0, category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }); }
+      else if (o.k === 'spend') { acct(o.account); cat(o.category); Store.addTx({ date:o.date || t, pillar:'spending', isMajor:Store.cats('expenditure', true).indexOf(o.category) >= 0, category:o.category, description:o.description || o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:(o.tag === 'gift' ? 'Gift to family \u00b7 ' : '') + 'Added with Katulong' }); }
       else if (o.k === 'income') { acct(o.account); var tx = { date:o.date || t, pillar:'income', category:o.category, description:o.source ? 'From ' + o.source : o.category, actual:o.amount, account:o.account || '', status:'Paid', notes:'Added with Katulong' }; if (o.source) tx.source = o.source; Store.addTx(tx); }
       made++; });
     Store.touch(); return made; }
@@ -3865,7 +3992,7 @@ var KatulongUI = (function(){
 var AdminFeatures = (function(){
   var NAMES = { scan:['Scan', 'Read receipts, statements and bills with the camera. Also hides the Scan buttons.'], budget:['Budget', 'The yearly plan in six lines.'],
     goals:['Goals', 'Savings targets with deadlines, and the Goals block on Home.'], wallets:['Wallets', 'Accounts, net worth, transfers and Coming up (bills and paydays). Also hides the Wallets card on Home.'],
-    katulong:['Katulong', 'The setup helper, and its "Set me up" card on Home.'] };
+    katulong:['Katulong', 'The setup helper on both sides (Personal and Tindahan), and its "Set me up" cards.'] };
   function block(){ if (!window.Features || !Features.isAdmin()) return '';
     return '<section class="panel flat section af" aria-labelledby="af-h"><div class="shead"><h2 id="af-h">Admin settings</h2><p>Turn features on or off for every Pentra account: subscribers, members and free trials.</p></div><ul class="af-list">'
       + Features.SWITCHES.map(function(k){ var on = Features.on(k), n = NAMES[k];
@@ -5542,7 +5669,7 @@ var Tin = (function(){
   function sidebar(){ var s = BizStore.ready() ? BizStore.active() : null;
     function a(p, label, ic){ if (!Staff.canOpen(p)) return ''; return '<a class="navlink" href="#/t/' + p + '"' + (U.route === 't:' + p ? ' aria-current="page"' : '') + '>' + (PAGETONE[p] ? '<span class="t-dot" data-tone="' + PAGETONE[p] + '" aria-hidden="true"></span>' : icon(ic, 18)) + '<span>' + label + '</span></a>'; }
     return '<aside class="sidebar" aria-label="Sections"><a class="brand" href="#/t/overview" aria-label="Pentra Tindahan home">' + seal(34) + '<span class="word">Pentra <em>Tindahan</em></span></a>' + modeSwitch('tindahan')
-      + '<nav class="navgroup" aria-label="Tindahan"><h3>' + esc(s ? s.name : 'My Tindahan') + (s && Staff.role(s).key !== 'owner' ? ' \u00b7 ' + esc(Staff.role(s).label) : '') + '</h3>' + a('overview', 'Overview', 'home') + (s ? a('sell', 'Benta · New sale', 'plus') + a('sales', 'Sales history', 'history') + a('inventory', 'Paninda · Inventory', 'budget') + a('reports', 'Reports', 'reports') : '') + '</nav>'
+      + '<nav class="navgroup" aria-label="Tindahan"><h3>' + esc(s ? s.name : 'My Tindahan') + (s && Staff.role(s).key !== 'owner' ? ' \u00b7 ' + esc(Staff.role(s).label) : '') + '</h3>' + a('overview', 'Overview', 'home') + a('katulong', 'Katulong', 'sparkle') + (s ? a('sell', 'Benta · New sale', 'plus') + a('sales', 'Sales history', 'history') + a('inventory', 'Paninda · Inventory', 'budget') + a('reports', 'Reports', 'reports') : '') + '</nav>'
       + (s ? '<nav class="navgroup" aria-label="Money"><h3>Money</h3>' + a('utang', 'Utang \u00b7 Customers', 'income') + a('gcash', 'GCash', 'money') + a('eload', 'E-load', 'wallet') + '</nav>'
         + '<nav class="navgroup" aria-label="Finance"><h3>Finance</h3>' + a('bills', 'Bills', 'reports') + a('payroll', 'Sahod \u00b7 Payroll', 'goals') + a('vault', 'Cash vault', 'savings') + '</nav>' : '')
       + (window.Billing ? Billing.planCard() : '') + '<nav class="navgroup" aria-label="Store"><h3>Store</h3>' + (window.Billing && Billing.isAdmin() ? a('admin', 'Admin' + (Billing.adminCount() ? ' (' + Billing.adminCount() + ')' : ''), 'reports') : '') + (s ? a('suppliers', 'Suppliers', 'download') + a('notes', 'Notes', 'edit') + a('rewards', 'Rewards', 'sparkle') + a('referrals', 'Referrals', 'mail') + a('notifications', 'Notifications', 'alert') + a('data', 'Backup & import', 'download') + a('staff', 'Staff', 'goals') : '') + a('setup', s ? 'Store details' : 'Set up store', 'settings') + '</nav>'
@@ -5581,7 +5708,7 @@ var Tin = (function(){
     function kpi(label, amt, sub, action){ if (!Staff.cardOk(TONES[label] || 'combined')) return ''; if (/data-act="t-count"/.test(action || '') && !Staff.may('balance.counted')) action = ''; return '<div class="t-kpi" data-tone="' + (TONES[label] || 'combined') + '"><span class="t-lbl">' + label + '</span><span class="t-amt">' + P(amt) + '</span>' + (sub ? '<span class="xs muted">' + sub + '</span>' : '') + (action || '') + '</div>'; }
     return '<div class="t-page"><header class="t-head"><h1>' + esc(s.name) + '</h1><p class="muted">' + esc(typeLabel(s.type)) + ' · ' + esc(dateLabel()) + '</p>' + greeting(s, S, D) + '</header>'
       + (BizStore.persistent() ? '' : '<div class="banner" role="alert">' + icon('alert', 18) + '<span>This browser is not letting Pentra save store data. Anything entered here is lost when the page closes.</span></div>')
-      + clashes(S) + starter(S, s) + '<section class="t-kpis t-today" aria-label="Today">' + kpi('Today\u2019s sales', D.todaySales, D.transactions ? D.transactions + (D.transactions === 1 ? ' sale' : ' sales') + ' \u00b7 ' + (+D.itemsSold.toFixed(3)) + ' items' + (D.todayFromCount ? ' \u00b7 ' + P(D.todayFromCount) + ' from stock counts' : '') : 'No sales yet today.', D.transactions ? '<a class="btn sm" href="#/t/sales">See sales</a>' : '<a class="btn sm primary" href="#/t/sell">New sale</a>')
+      + clashes(S) + starter(S, s) + (window.KatStoreUI ? KatStoreUI.card(S, s) : '') + '<section class="t-kpis t-today" aria-label="Today">' + kpi('Today\u2019s sales', D.todaySales, D.transactions ? D.transactions + (D.transactions === 1 ? ' sale' : ' sales') + ' \u00b7 ' + (+D.itemsSold.toFixed(3)) + ' items' + (D.todayFromCount ? ' \u00b7 ' + P(D.todayFromCount) + ' from stock counts' : '') : 'No sales yet today.', D.transactions ? '<a class="btn sm" href="#/t/sales">See sales</a>' : '<a class="btn sm primary" href="#/t/sell">New sale</a>')
       + kpi('Today\u2019s profit', D.profit, !D.transactions ? 'No sales yet today.' : D.profitComplete ? 'Sales minus cost of goods' : 'Not counted: ' + P(D.profitUncovered) + ' without a cost price (' + D.profitMissing.map(function(m){ return esc(m.name); }).join(', ') + ')', D.transactions && !D.profitComplete && D.profitMissing.length ? '<a class="btn sm" href="#/t/product/' + encodeURIComponent(D.profitMissing[0].id) + '">Add cost price</a>' : '<a class="btn sm" href="#/t/reports">Reports</a>')
       + kpi('Utang outstanding', D.utang, D.utang ? 'Owed by customers' : 'No utang recorded.', '<a class="btn sm" href="#/t/utang">Customers</a>')
       + kpi('Load balance', D.eload, 'E-load you can sell', '<a class="btn sm" href="#/t/eload">E-load</a>')
@@ -5635,6 +5762,8 @@ var Tin = (function(){
   function view(route){ BizSync.visit(); if (!BizStore.ready()) return '<section class="panel" role="status"><p>Opening your store…</p></section>';
     var s = BizStore.active(); if (!s && route === 't:data') return DataX.view();
     if (s && !Staff.canOpen(route.slice(2))) return '<div class="t-page"><section class="panel"><p>Your role (' + esc(Staff.role(s).label) + ') cannot open this page. Ask the store owner if you need it.</p><div class="actions"><a class="btn" href="#/t/overview">Overview</a></div></section></div>';
+    if (route === 't:katulong' && window.Features && !Features.on('katulong')) { route = 't:overview'; try { history.replaceState(null, '', '#/t/overview'); } catch (e) {} }   /* E3.1 switch covers both sides */
+    if (route === 't:katulong' && window.KatStoreUI) return KatStoreUI.view();   /* E4: works before a store exists too */
     if (route === 't:new') return newBusiness();
     if (!s) return setup(null);
     if (route === 't:businesses') return allBusinesses();
@@ -5645,7 +5774,7 @@ var Tin = (function(){
     if (route === 't:sell') return Benta.sell(); if (route === 't:sales') return Benta.sales(); if (route === 't:inventory') return Benta.inventory(U.param); if (route === 't:product') return Benta.product(U.param);
     return overview(s); }
   function stamp(i){ return new Date(Date.now() + i).toISOString(); }
-  ACT['t-more'] = function(){ openSheet(sheetHead('More') + (window.Billing ? Billing.planCard() : '') + '<div class="list">' + (window.Billing && Billing.isAdmin() ? '<a class="li" href="#/t/admin" style="width:100%"><span class="grow"><span class="t1" style="display:block">Admin' + (Billing.adminCount() ? ' (' + Billing.adminCount() + ')' : '') + '</span><span class="t2">Check payments and manage subscribers</span></span></a>' : '') + '<a class="li" href="#/t/setup" style="width:100%"><span class="grow"><span class="t1" style="display:block">Store details</span><span class="t2">Name and type of business</span></span></a>' + [['staff', 'Staff', 'Invite helpers and set what they can do'], ['notifications', 'Notifications', 'Stock, bills and utang alerts'], ['data', 'Backup & import', 'Download or restore your store'], ['reports', 'Reports', 'Sales, profit and money by period'], ['utang', 'Utang', 'Customers and their balances'], ['gcash', 'GCash', 'Cash-in, cash-out and the float'], ['eload', 'E-load', 'Load bought and sold'], ['bills', 'Bills', 'Due soon, overdue and paid'], ['payroll', 'Sahod', 'Employees and payouts'], ['vault', 'Cash vault', 'Money kept apart'], ['suppliers', 'Suppliers', 'Who you buy from'], ['notes', 'Notes', 'Reminders and instructions'], ['rewards', 'Rewards', 'Points by your own rules'], ['referrals', 'Referrals', 'Who brought whom']].filter(function(x){ return Staff.canOpen(x[0]); }).map(function(x){ return '<a class="li" href="#/t/' + x[0] + '" style="width:100%"><span class="grow"><span class="t1" style="display:block">' + x[1] + '</span><span class="t2">' + x[2] + '</span></span></a>'; }).join('') + '<button type="button" class="li" data-act="mode" data-mode="personal" style="width:100%;text-align:left"><span class="grow"><span class="t1" style="display:block">Personal Finance</span><span class="t2">Switch to your own money</span></span></button></div>'); };
+  ACT['t-more'] = function(){ openSheet(sheetHead('More') + (window.Billing ? Billing.planCard() : '') + '<div class="list">' + '<a class="li" href="#/t/katulong" style="width:100%"><span class="grow"><span class="t1" style="display:block">Katulong</span><span class="t2">Set up your store in one message, or ask about it</span></span></a>' + (window.Billing && Billing.isAdmin() ? '<a class="li" href="#/t/admin" style="width:100%"><span class="grow"><span class="t1" style="display:block">Admin' + (Billing.adminCount() ? ' (' + Billing.adminCount() + ')' : '') + '</span><span class="t2">Check payments and manage subscribers</span></span></a>' : '') + '<a class="li" href="#/t/setup" style="width:100%"><span class="grow"><span class="t1" style="display:block">Store details</span><span class="t2">Name and type of business</span></span></a>' + [['staff', 'Staff', 'Invite helpers and set what they can do'], ['notifications', 'Notifications', 'Stock, bills and utang alerts'], ['data', 'Backup & import', 'Download or restore your store'], ['reports', 'Reports', 'Sales, profit and money by period'], ['utang', 'Utang', 'Customers and their balances'], ['gcash', 'GCash', 'Cash-in, cash-out and the float'], ['eload', 'E-load', 'Load bought and sold'], ['bills', 'Bills', 'Due soon, overdue and paid'], ['payroll', 'Sahod', 'Employees and payouts'], ['vault', 'Cash vault', 'Money kept apart'], ['suppliers', 'Suppliers', 'Who you buy from'], ['notes', 'Notes', 'Reminders and instructions'], ['rewards', 'Rewards', 'Points by your own rules'], ['referrals', 'Referrals', 'Who brought whom']].filter(function(x){ return Staff.canOpen(x[0]); }).map(function(x){ return '<a class="li" href="#/t/' + x[0] + '" style="width:100%"><span class="grow"><span class="t1" style="display:block">' + x[1] + '</span><span class="t2">' + x[2] + '</span></span></a>'; }).join('') + '<button type="button" class="li" data-act="mode" data-mode="personal" style="width:100%;text-align:left"><span class="grow"><span class="t1" style="display:block">Personal Finance</span><span class="t2">Switch to your own money</span></span></button></div>'); };
   ACT.mode = function(el){ closeSheet(); err = ''; switchTo(el.dataset.mode); };
   function inl(m){ var e = document.getElementById('t-err'); if (e) { e.textContent = m; e.hidden = false; } }   /* errors shown in place: typed values are kept */
   ACT['t-save-store'] = function(el){
@@ -7417,6 +7546,200 @@ var InsightsUI = (function(){
   }
   return { panel:panel };
 })();
+/* ════════════════════════════════════════════════════════════════════════
+   KATULONG FOR TINDAHAN (Master Plan v5, release E4, 30 Sep 2026). The same free, on-phone helper as Personal Katulong,
+   with store words. One message sets up the store: its name, cash in the kaha, the GCash float, the load balance, products
+   ("Coke 1.5L 85 pesos 24 pcs puhunan 70") and suki with utang ("Aling Rosa may utang 350"). It answers "Ilan pa ang Coke?",
+   "Magkano ang benta ngayon?", the cash, the GCash float and who owes what. It never sells: sales stay in Benta.
+   Everything is written with BizStore.append, the one gate every button uses, so staff permissions, the subscription lock,
+   validation and sync apply exactly as for the buttons. Money is integer centavos (BizCore). Store records are add-only, so
+   Undo adds correcting records (products archived, counts restored, utang taken back); a suki stays in the list at ₱0.
+   KatStore (pure, tested in node by test/katulong-store-golden.cjs) reads; KatStoreUI (below) shows and saves.
+   ════════════════════════════════════════════════════════════════════════ */
+var KatStore = (function(){
+  var SIZE = /^(\d+(?:\.\d+)?)(l|ml|g|kg|oz|lb|cc|ltr|liters?|grams?|gms?|mg)$/i, SIZEW = /^(l|ml|g|kg|oz|lb|cc|ltr|liters?|grams?|gms?|mg)$/i;
+  var QTYW = /^(pcs?|piraso|pirasos|pieces?|units?|kilos?|bags?|supot|bote|botelya|bottles?|packs?|pakete|sachets?|lata|cans?|stocks?|dosena|dozen|kahon|box|boxes|sako|sacks?|tali|bundles?|tray|trays)$/i;
+  var PRICEW = /^(pesos?|piso|php|each|isa|ea)$/i, COSTW = /^(puhunan|cost|kuha|bili|capital|kapital|puhunan:|cost:)$/i, PREPRICE = /^(price|presyo|srp|benta|tig|tig-?isa|@|price:|presyo:|srp:|benta:)$/i;
+  var PREQTY = /^(x|×|stock|stocks|qty|dami|bilang|stock:|qty:)$/i, FILL = /^(ang|na|ng|ay|is|at|and|mga|yung|ung|-|–|:|,|price|presyo|srp|benta|each|isa|sa|for)$/i;
+  function num(tok){ var m = /^(₱|php|p)?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?(k)?(pcs?|piraso|pieces?)?[.,;:]?$/i.exec(tok); if (!m) return null;
+    var v = parseFloat(m[2].replace(/,/g, '') + (m[3] ? '.' + m[3] : '')); if (m[4]) v *= 1000; return { v:Math.round(v * 100) / 100, peso:!!m[1], pcs:!!m[5] }; }
+  function money(text){ var best = null; String(text).split(/\s+/).forEach(function(t, i, a){ var n = num(t); if (!n || SIZE.test(t) || (a[i + 1] && SIZEW.test(a[i + 1]))) return; if (best === null) best = n.v; }); return best; }
+  function words(s){ return String(s).trim().split(/\s+/).filter(Boolean); }
+  function clean(name){ return String(name || '').replace(/^[\s:,\-–]+|[\s:,\-–.]+$/g, '').replace(/\s+/g, ' ').trim(); }
+  function titleCase(s){ return clean(s).replace(/(^|\s)([a-z])/g, function(m, a, b){ return a + b.toUpperCase(); }); }
+  function product(line){ var tk = words(line), name = [], price = null, cost = null, qty = null, unl = [], seenNum = false, i;
+    for (i = 0; i < tk.length; i++) { var t = tk[i], lo = t.toLowerCase().replace(/[,;]$/, ''), nx = (tk[i + 1] || '').toLowerCase().replace(/[,;.]$/, ''), pv = (tk[i - 1] || '').toLowerCase().replace(/[,;]$/, ''), pv2 = (tk[i - 2] || '').toLowerCase();
+      if (SIZE.test(lo)) { if (!seenNum) name.push(t); continue; }
+      var x = /^x(\d+)$/i.exec(lo); if (x) { qty = +x[1]; seenNum = true; continue; }
+      var tg = /^tig-?(\d+(?:\.\d+)?)[,.]?$/i.exec(lo); if (tg) { price = +tg[1]; seenNum = true; continue; }   /* tig-12 = 12 each */
+      var n = num(t); if (!n) { if (!seenNum) name.push(t); continue; }
+      if (SIZEW.test(nx) && !seenNum) { name.push(t + tk[i + 1]); i++; continue; }
+      if (nx === 'per' || nx === 'kada' || nx === 'bawat') { price = n.v; seenNum = true; i += 2; continue; }   /* 52 per kilo */
+      if (!seenNum && /^[a-z][a-z-]*$/i.test(nx) && !QTYW.test(nx) && !PRICEW.test(nx) && !COSTW.test(nx) && !FILL.test(nx) && !PREQTY.test(nx) && tk.slice(i + 2).some(function(z){ return !!num(z) && !SIZE.test(z.toLowerCase()); })) { name.push(t); continue; }
+      seenNum = true;
+      var unitNext = QTYW.test(nx) && !(PREQTY.test(nx) && num(tk[i + 2] || ''));   /* "12, stock 30": stock labels the 30 */
+      if (n.pcs || unitNext || PREQTY.test(pv)) { qty = n.v; if (unitNext) i++; continue; }
+      if (COSTW.test(pv) || (COSTW.test(pv2) && /^(ay|is|:)$/.test(pv))) { cost = n.v; continue; }
+      if (n.peso || PRICEW.test(nx) || PREPRICE.test(pv)) { price = n.v; if (PRICEW.test(nx)) i++; continue; }
+      unl.push(n.v); }
+    if (price === null && unl.length) price = unl.shift(); if (qty === null && unl.length) qty = unl.shift();
+    while (name.length && FILL.test(name[name.length - 1])) name.pop(); var nm = clean(name.join(' ')).replace(/^(presyo|price|srp|halaga)\s+(ng|of|ni)?\s*/i, '');
+    if (!/[a-z]/i.test(nm) || price === null) return null;
+    return { k:'product', name:nm, price:price, cost:cost, qty:qty || 0, extra:unl.length > 0 }; }
+  function find(list, text){ var lo = ' ' + String(text).toLowerCase().replace(/[?.!,]/g, ' ') + ' ', sc = [];
+    (list || []).forEach(function(x){ var n = String(x.name || '').toLowerCase(); if (!n) return; var s0 = lo.indexOf(' ' + n + ' ') >= 0 ? 100 : 0;
+      n.split(/\s+/).forEach(function(w){ if (w.length >= 3 && !/^\d/.test(w) && lo.indexOf(' ' + w + ' ') >= 0) s0++; }); if (s0) sc.push([s0, x]); });
+    return sc.sort(function(a, b){ return b[0] - a[0]; }).filter(function(p, i, a){ return p[0] === a[0][0]; }).map(function(p){ return p[1]; }); }
+  function suki(line){ var lo = line.toLowerCase(), amt = money(line);
+    var nm = line.replace(/₱?\d[\d,]*(\.\d+)?k?/gi, ' ').replace(/\b(suki|si|ni|kay|may|mayroon|meron|utang|na|pa|ng|sa|ang|owes|owe|me|has|an|existing|debt|balance|of|pesos?|piso|php|customer|customers|ko|akin|siya|nya|niya|is|and|at|kasalukuyang|current|:)\b/gi, ' ');
+    nm = titleCase(nm); if (!/[a-z]/i.test(nm)) return null;
+    return { k:'suki', name:nm, owed:amt || 0, text:line }; }
+  function question(line, ctx){ var lo = line.toLowerCase();
+    if (/\b(utang|owes?|may utang)\b/.test(lo)) { var c = find(ctx.customers, line); return c.length ? { k:'q-utang', name:c[0].name, id:c[0].id } : { k:'q-utang-list' }; }
+    if (/\b(tubo|profit|margin)\b/.test(lo)) return { k:'q-profit' };
+    if (/\bg-?cash\b/.test(lo)) return { k:'q-gcash' };
+    if (/\b(benta|sales|nabenta|kita|kinita|sold|naibenta)\b/.test(lo)) return { k:'q-sales' };
+    if (/\b(kaha|cash|drawer|pera)\b/.test(lo)) return { k:'q-cash' };
+    var p = find(ctx.products, line); if (p.length || /\b(ilan|how many|stock|natitira|left|meron pa|may .* pa)\b/.test(lo)) return p.length ? { k:'q-stock', name:p[0].name, id:p[0].id, more:p.slice(1).map(function(x){ return x.id; }) } : { k:'q-stock', name:null, text:line };
+    return null; }
+  function clause(line, ctx){ var lo = line.toLowerCase().trim(); if (!lo) return null;
+    if (/^(help|tulong|paano|how do i|set up my store|i-?set up (mo )?(ang )?(aking |ang )?tindahan|pakisetup)/.test(lo) && !/\d/.test(lo)) return null;
+    var isQ = /\?\s*$/.test(lo) || /^(ilan|magkano|how|sino|who|ano|what|meron pa ba|may natitira|pakita|show me)\b/.test(lo);
+    if (isQ) { var q = question(line, ctx); if (q) return q; }
+    if (/\b(cash[- ]?in|cash[- ]?out|nag-?cash[- ]?in|nag-?cash[- ]?out|withdraw|padala)\b(?!\s+(the|my|sa|ng|drawer|kaha|hand))/.test(lo) && /\d/.test(lo)) return { k:'notx', text:line };
+    if (/\b(nagbayad|bayad ni|binayaran ako|nagpa-?load|pa-?load|nagpaload)\b/.test(lo) && /\d/.test(lo)) return { k:'notx', text:line };
+    if (/\b(nag-?restock|restock|namili|pinamili|delivery|dineliver|nag-?deliver|dumating ang|supplier|ahente)\b/.test(lo)) return { k:'norestock', text:line };
+    if (/\b(ubos na|wala nang stock|wala ng stock|out of stock|sold out|paubos na|expired|nag-?expire|nabasag)\b/.test(lo)) return { k:'nocount', text:line };
+    if (/\b(z[- ]?reading|x[- ]?reading|void|refund|nagpalista|palista|pinalista)\b/.test(lo) || (/\b(benta|sales|kita|kinita)\s+(ngayon|today|kahapon|namin|ko)\b/.test(lo) && /\d/.test(lo))) return { k:'nosell', text:line };
+    if (/\b(nabenta|nagbenta|nakabenta|benta ko|sold|sell|ibenta|pabili|bumili si|binili ni|nag-?sale|nag-?benta)\b/.test(lo)) return { k:'nosell', text:line };
+    var hasNum = /\d/.test(lo);
+    if (!hasNum && /\b(tindahan|store|sari-?sari|shop|grocery|karinderya|pangalan)\b/.test(lo)) {
+      var nm = line.replace(/^\s*(ang\s+)?(pangalan\s+ng\s+(aking\s+|ang\s+)?(tindahan|store)(\s+ko)?|store\s+name|name\s+of\s+(my\s+)?store|my\s+store\s+is(\s+called)?|ang\s+(tindahan|store)\s+ko\s+ay|tindahan\s+ko|store\s+ko)\s*(ay|is|:)?\s*/i, '');
+      nm = clean(nm); if (/[a-z]/i.test(nm)) return { k:'store', name:nm.replace(/^[a-z]/, function(c){ return c.toUpperCase(); }) }; }
+    if (hasNum && /\b(utang|owes?|may utang|suki)\b/.test(lo)) return suki(line);
+    if (hasNum && /\b(e-?load|load wallet|load balance|pang-?load|loading)\b/.test(lo) && !/\b(pcs?|piraso)\b/.test(lo)) { var a1 = money(line); if (a1 !== null) return { k:'eload', amount:a1 }; }
+    if (hasNum && /\bg-?cash\b/.test(lo)) { var a2 = money(line); if (a2 !== null) return { k:'gcash', amount:a2 }; }
+    if (hasNum && /\b(kaha|cash|drawer|panukli|pansukli|sukli|barya|cash on hand|starting cash|pera sa tindahan|opening fund|panimulang pera|pondo|pang-?sukli)\b/.test(lo)) { var a3 = money(line); if (a3 !== null) return { k:'cash', amount:a3 }; }
+    if (!hasNum && /\bsuki\b/.test(lo)) { var sk = suki(line); if (sk) return sk; }
+    if (hasNum) { var pr = product(line); if (pr) return pr; }
+    return { k:'unclear', text:line }; }
+  function parts(l){ var lo = l.toLowerCase(), acc = ['kaha|cash|drawer|panukli', 'g-?cash', 'e-?load|load wallet|load balance'].filter(function(r){ return new RegExp('\\b(' + r + ')\\b').test(lo); }).length, nums = (lo.match(/\d[\d,.]*k?/g) || []).length;
+    if ((acc >= 2 || (/\butang\b|\bowes?\b/.test(lo) && !/\?\s*$/.test(lo))) && nums >= 2) { var ps = l.split(/\s*,\s*|\s+(?:at|and|tapos)\s+/i).filter(function(x){ return /\S/.test(x); }), k0 = /\butang\b|\bowes?\b/.test(lo) && acc < 2;
+      if (ps.length >= 2 && ps.every(function(x){ return /\d/.test(x); })) return ps.map(function(x){ return k0 && !/\butang\b|\bowes?\b/i.test(x) ? x + ' utang' : x; }); }
+    return [l]; }
+  function parse(text, ctx){ ctx = ctx || {}; var items = [], seen = {}; if (typeof KatParse !== 'undefined' && KatParse.wordNums) text = KatParse.wordNums(text);   /* "singko isa" = 5 each */
+    String(text || '').replace(/\r/g, '').split(/\n|;/).forEach(function(l0){ l0 = l0.trim().replace(/^[-•*]\s*/, ''); if (!l0) return; parts(l0).forEach(function(l){ var it = clause(l, ctx); if (!it) return;
+      if (/^q-/.test(it.k) && seen[it.k + (it.name || '')]) return; seen[it.k + (it.name || '')] = 1; items.push(it); }); });
+    return { items:items }; }
+  function brief(r){ return r.items.map(function(it){ switch (it.k) {
+      case 'store': return 'store ' + it.name; case 'cash': case 'gcash': case 'eload': return it.k + ' ' + it.amount;
+      case 'product': return 'product ' + it.name + ' price ' + it.price + (it.cost !== null ? ' cost ' + it.cost : '') + (it.qty ? ' qty ' + it.qty : '');
+      case 'suki': return 'suki ' + it.name + (it.owed ? ' owes ' + it.owed : '');
+      case 'q-stock': return 'q-stock ' + (it.name || '?'); case 'q-utang': return 'q-utang ' + it.name;
+      default: return it.k; } }).join(' | '); }
+  return { parse:parse, brief:brief, product:product, _num:num };
+})();
+
+var KatStoreUI = (function(){
+  var log = [], pending = null, last = null, seq = 0;
+  var TRY = ['Tindahan ni Aling Nena\npanukli sa kaha 2,000\nGCash float 5k\nCoke 1.5L 85 pesos 24 pcs puhunan 70\nLucky Me Pancit Canton 15 pesos 50 pcs puhunan 12\nAling Rosa may utang 350', 'Ilan pa ang Coke?', 'Magkano ang benta ngayon?'];
+  function tl(){ return !!(window.I18n && I18n.active && I18n.active()); }
+  function T(en, fil){ return tl() ? fil : en; }
+  function peso(c){ return '₱' + (Math.round(c) / 100).toLocaleString('en-PH', { minimumFractionDigits:2, maximumFractionDigits:2 }); }
+  function cents(v){ return Math.round((+v || 0) * 100); }
+  function S(){ try { return BizStore.ready() && BizStore.active() ? BizStore.state() : null; } catch (e) { return null; } }
+  function live(S0, kind){ var o = S0 ? (kind === 'p' ? S0.products : S0.customers) : {}; return Object.keys(o || {}).map(function(k){ return { id:k, name:o[k].name, x:o[k] }; }).filter(function(x){ return !(x.x && x.x.archived); }); }
+  function today(){ return new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); }
+  function byName(list, name){ var n = String(name || '').toLowerCase(); return list.filter(function(x){ return String(x.name || '').toLowerCase() === n; })[0] || null; }
+  function summary(it, S0){ var p;
+    switch (it.k) {
+      case 'store': return T('Store name: ' + it.name, 'Pangalan ng tindahan: ' + it.name);
+      case 'cash': return T('Cash in the kaha (counted now): ' + peso(cents(it.amount)), 'Pera sa kaha (bilang ngayon): ' + peso(cents(it.amount)));
+      case 'gcash': return T('GCash float (counted now): ' + peso(cents(it.amount)), 'GCash float (bilang ngayon): ' + peso(cents(it.amount)));
+      case 'eload': return T('Load balance (counted now): ' + peso(cents(it.amount)), 'Load balance (bilang ngayon): ' + peso(cents(it.amount)));
+      case 'product': p = byName(live(S0, 'p'), it.name);
+        return T((p ? 'Update ' : 'New product ') + it.name + ': sells at ' + peso(cents(it.price)) + (it.cost !== null ? ', costs ' + peso(cents(it.cost)) : '') + (it.qty ? (p ? ', add ' + it.qty + ' to stock' : ', ' + it.qty + ' in stock') : ''),
+                 (p ? 'I-update ang ' : 'Bagong paninda ') + it.name + ': benta ' + peso(cents(it.price)) + (it.cost !== null ? ', puhunan ' + peso(cents(it.cost)) : '') + (it.qty ? (p ? ', dagdag na ' + it.qty + ' sa stock' : ', ' + it.qty + ' ang stock') : ''));
+      case 'suki': p = byName(live(S0, 'c'), it.name);
+        return T((p ? 'Suki ' : 'New suki ') + it.name + (it.owed ? ', utang now ' + peso(cents(it.owed)) : ''), (p ? 'Suki si ' : 'Bagong suki si ') + it.name + (it.owed ? ', utang ngayon ' + peso(cents(it.owed)) : ''));
+      case 'unclear': return T('I didn\u2019t understand this line. You can add it with the buttons, or say it another way (e.g. \u201cCoke 1.5L 85 pesos 24 pcs\u201d).', 'Hindi ko naintindihan ang linyang ito. Idagdag mo gamit ang mga button, o sabihin sa ibang paraan (hal. \u201cCoke 1.5L 85 pesos 24 pcs\u201d).');
+      default: return ''; } }
+  var FIELDS = { store:[['name', 'Name', 'text']], cash:[['amount', 'Amount (₱)', 'num']], gcash:[['amount', 'Amount (₱)', 'num']], eload:[['amount', 'Amount (₱)', 'num']],
+    product:[['name', 'Product', 'text'], ['price', 'Price (₱)', 'num'], ['cost', 'Cost (₱)', 'num'], ['qty', 'Stock', 'num']], suki:[['name', 'Name', 'text'], ['owed', 'Utang (₱)', 'num']] };
+  function row(it){ var S0 = S();
+    if (it.k === 'unclear') return '<li class="kat-item kat-q"><p>' + esc(summary(it, S0)) + ' <span class="xs muted">\u201c' + esc(it.text) + '\u201d</span></p></li>';
+    return '<li class="kat-item"><label class="kat-chk"><input type="checkbox" data-kats-on="' + it.id + '"' + (it.off ? '' : ' checked') + '><span>' + esc(summary(it, S0)) + '</span></label>'
+      + '<details class="kat-edit"><summary>' + T('Change', 'Baguhin') + '</summary><div class="kat-fields">' + (FIELDS[it.k] || []).map(function(f){ var v = it[f[0]]; return '<label class="field"><span>' + esc(f[1]) + '</span><input class="input" data-kats-f="' + it.id + '" data-f="' + f[0] + '"' + (f[2] === 'num' ? ' inputmode="decimal"' : '') + ' value="' + esc(v === null || v === undefined ? '' : String(v)) + '"></label>'; }).join('') + '</div></details></li>'; }
+  function say(html){ log.push({ who:'kat', html:html, lang:tl() ? 'fil' : 'en' }); }
+  function bubble(m){ var me = m.who === 'me'; return '<div class="kat-msg ' + (me ? 'kat-me' : 'kat-kat') + '"' + (m.lang ? ' lang="' + m.lang + '"' : '') + ' translate="no"><p class="sr">' + (me ? T('You said:', 'Sinabi mo:') : 'Katulong:') + '</p>' + (me ? '<p class="kat-text">' + m.html + '</p>' : m.html) + '</div>'; }
+  function answer(it){ var S0 = S(); if (!S0) return T('There is no store yet. Tell me its name, your cash and your products, and I\u2019ll set it up.', 'Wala pang tindahan. Sabihin mo ang pangalan, ang pera sa kaha at ang mga paninda, at ise-set up ko.');
+    var D = BizCore.dashboard(S0, today());
+    switch (it.k) {
+      case 'q-sales': return D.transactions ? T('Sales today: ' + peso(D.todaySales) + ' from ' + D.transactions + (D.transactions === 1 ? ' sale.' : ' sales.'), 'Benta ngayon: ' + peso(D.todaySales) + ' mula sa ' + D.transactions + ' benta.') : T('No sales yet today.', 'Wala pang benta ngayon.');
+      case 'q-profit': return D.transactions ? T('Profit today: ' + peso(D.profit) + (D.profitComplete ? '.' : ' (some products have no cost yet, so this is an estimate).'), 'Tubo ngayon: ' + peso(D.profit) + (D.profitComplete ? '.' : ' (may paninda na walang puhunan, kaya tantya ito).')) : T('No sales yet today, so no profit yet.', 'Wala pang benta ngayon, kaya wala pang tubo.');
+      case 'q-cash': return T('Cash in the kaha: ' + peso(D.cash) + '.', 'Pera sa kaha: ' + peso(D.cash) + '.');
+      case 'q-gcash': return T('GCash float: ' + peso(D.gcash) + '.', 'GCash float: ' + peso(D.gcash) + '.');
+      case 'q-stock': if (!it.id) return T('I can\u2019t find that product. Check the name in Paninda.', 'Hindi ko makita ang paninda na iyan. Tingnan ang pangalan sa Paninda.');
+        return [it.id].concat(it.more || []).map(function(id){ var p = S0.products[id], q = BizCore.stockOf(S0, id); return T((p ? p.name : 'It') + ': ' + (+q.toFixed(3)) + ' left.', (p ? p.name : 'Ito') + ': ' + (+q.toFixed(3)) + ' pa ang natitira.'); }).join(' ');
+      case 'q-utang': var c = S0.customers[it.id]; return c ? T(c.name + ' owes ' + peso(Math.max(0, c.balance)) + '.', 'Ang utang ni ' + c.name + ': ' + peso(Math.max(0, c.balance)) + '.') : '';
+      case 'q-utang-list': var ow = Object.keys(S0.customers).map(function(k){ return S0.customers[k]; }).filter(function(c){ return c.balance > 0; }).sort(function(a, b){ return b.balance - a.balance; });
+        return ow.length ? T('Utang: ', 'Mga may utang: ') + ow.slice(0, 5).map(function(c){ return c.name + ' ' + peso(c.balance); }).join(', ') + (ow.length > 5 ? T(' and ' + (ow.length - 5) + ' more.', ' at ' + (ow.length - 5) + ' pa.') : '.') : T('Nobody owes the store right now.', 'Walang may utang sa tindahan ngayon.'); }
+    return ''; }
+  function send(text){ text = String(text || '').trim(); if (!text) return; log.push({ who:'me', html:esc(text), lang:'' }); pending = null;
+    var S0 = S(), r = KatStore.parse(text, { products:live(S0, 'p'), customers:live(S0, 'c') }), setup = [], lines = [];
+    r.items.forEach(function(it){ if (/^q-/.test(it.k)) lines.push(esc(answer(it))); else if (it.k === 'nosell') lines.push(esc(T('I don\u2019t record sales, so the receipt, the stock and the cash stay right. Use Benta \u00b7 New sale.', 'Hindi ako nagtatala ng benta, para tama ang resibo, stock at pera. Gamitin ang Benta \u00b7 New sale.')) + ' <a href="#/t/sell">' + T('Open Benta', 'Buksan ang Benta') + '</a>');
+      else if (it.k === 'notx') lines.push(esc(T('GCash cash-in and cash-out, e-load and utang payments are recorded on their own pages, so fees and balances stay right.', 'Ang cash-in at cash-out ng GCash, e-load at bayad sa utang ay itinatala sa sarili nilang page, para tama ang fee at balanse.')) + ' <a href="#/t/gcash">GCash</a> \u00b7 <a href="#/t/eload">E-load</a> \u00b7 <a href="#/t/utang">Utang</a>');
+      else if (it.k === 'norestock') lines.push(esc(T('Deliveries and restocking are recorded with Receive in Paninda, so the stock and the costs stay right.', 'Ang delivery at restock ay itinatala sa Receive sa Paninda, para tama ang stock at puhunan.')) + ' <a href="#/t/inventory">Paninda</a>');
+      else if (it.k === 'nocount') lines.push(esc(T('Stock that ran out, expired or broke is recorded with Count stock in Paninda, so the numbers stay right.', 'Ang naubos, nag-expire o nasirang stock ay itinatala sa Count stock sa Paninda, para tama ang bilang.')) + ' <a href="#/t/inventory">Paninda</a>');
+      else { it.id = 'ks' + (++seq); setup.push(it); } });
+    if (lines.length) say(lines.map(function(l){ return '<p>' + l + '</p>'; }).join(''));
+    if (setup.length) { pending = { items:setup }; say('<p>' + esc(T('Here\u2019s what I understood. Untick anything that\u2019s wrong or tap Change, then press Apply. Nothing is saved until you do.', 'Ito ang naintindihan ko. Alisin ang tsek sa mali o pindutin ang Baguhin, saka pindutin ang Apply. Walang mase-save hangga\u2019t hindi mo ginagawa.')) + '</p><ul class="kat-list">' + setup.map(row).join('') + '</ul><p id="kats-err" class="kat-err" role="alert"></p><div class="row wrap"><button type="button" class="btn primary" data-act="kats-apply">' + T('Apply', 'Apply') + '</button><button type="button" class="btn" data-act="kats-cancel">' + T('Cancel', 'Kanselahin') + '</button></div>'); }
+    else if (!lines.length) say('<p>' + esc(T('Tell me about your store in your own words: its name, the cash in the kaha, your GCash float, products like \u201cCoke 1.5L 85 pesos 24 pcs puhunan 70\u201d and suki with utang like \u201cAling Rosa may utang 350\u201d. You can also ask \u201cIlan pa ang Coke?\u201d or \u201cMagkano ang benta ngayon?\u201d.', 'Sabihin mo ang tungkol sa tindahan mo sa sarili mong salita: ang pangalan, ang pera sa kaha, ang GCash float, mga paninda gaya ng \u201cCoke 1.5L 85 pesos 24 pcs puhunan 70\u201d at mga suki na may utang gaya ng \u201cAling Rosa may utang 350\u201d. Puwede ka ring magtanong ng \u201cIlan pa ang Coke?\u201d o \u201cMagkano ang benta ngayon?\u201d.')) + '</p>'); }
+  function read(){ if (!pending) return []; pending.items.forEach(function(it){ var c = document.querySelector('[data-kats-on="' + it.id + '"]'); if (c) it.off = !c.checked;
+      document.querySelectorAll('[data-kats-f="' + it.id + '"]').forEach(function(inp){ var f = inp.getAttribute('data-f'), v = inp.value.trim(); if ((FIELDS[it.k] || []).some(function(x){ return x[0] === f && x[2] === 'num'; })) { if (v === '') { if (f === 'cost') it.cost = null; else if (f === 'qty' || f === 'owed') it[f] = 0; } else { var n = parseFloat(v.replace(/[₱,\s]/g, '')); if (isFinite(n) && n >= 0) it[f] = f === 'qty' ? n : Math.round(n * 100) / 100; } } else if (v) it[f] = v; }); });
+    return pending.items.filter(function(it){ return !it.off && it.k !== 'unclear'; }); }
+  function events(items, S0, scope){ var list = [], undo = [], done = [], t = function(x){ return x; };
+    var store = items.filter(function(i){ return i.k === 'store'; }).pop();
+    if (!S0) list.push(BizCore.make('store.saved', { name:store ? store.name : T('My Tindahan', 'Aking Tindahan'), businessType:'sari-sari', currency:'PHP' }));
+    else if (store && store.name !== (S0.store || {}).name) { list.push(BizCore.make('store.saved', { name:store.name })); undo.push(['store.saved', { name:(S0.store || {}).name || store.name }]); }
+    if (store) done.push(T('Store name: ', 'Pangalan: ') + store.name);
+    ['cash', 'gcash', 'eload'].forEach(function(a){ var it = items.filter(function(i){ return i.k === a; }).pop(); if (!it) return; var prev = S0 ? (S0.acct || {})[a] || 0 : 0;
+      list.push(BizCore.make('balance.counted', { account:a, amount:cents(it.amount) })); undo.push(['balance.counted', { account:a, amount:prev }]); done.push(summary(it, S0)); });
+    var prods = live(S0, 'p'), custs = live(S0, 'c');
+    items.filter(function(i){ return i.k === 'product'; }).forEach(function(it){ var ex = byName(prods, it.name), id = ex ? ex.id : BizCore.uuid(), p = { id:id, name:ex ? ex.x.name : it.name, price:cents(it.price) };
+      if (it.cost !== null && it.cost !== undefined) p.cost = cents(it.cost); else if (ex && ex.x.cost !== undefined) p.cost = ex.x.cost;
+      if (ex) ['unit', 'barcode', 'category', 'reorder', 'byWeight'].forEach(function(k){ if (ex.x[k] !== undefined && p[k] === undefined) p[k] = ex.x[k]; });
+      list.push(BizCore.make('product.saved', p));
+      if (it.qty > 0) { var q = { product:id, qty:it.qty, paidFrom:'none' }; if (p.cost !== undefined) q.cost = p.cost; list.push(BizCore.make('stock.received', q)); }
+      if (ex) { var back = { id:id, name:ex.x.name, price:ex.x.price }; if (ex.x.cost !== undefined) back.cost = ex.x.cost; undo.push(['product.saved', back]); if (it.qty > 0) undo.push(['stock.adjusted', { product:id, qty:-it.qty, reason:'Undo Katulong' }]); }
+      else undo.push(['product.archived', { id:id }]);
+      prods.push({ id:id, name:p.name, x:p }); done.push(summary(it, S0)); });
+    items.filter(function(i){ return i.k === 'suki'; }).forEach(function(it){ var ex = byName(custs, it.name), id = ex ? ex.id : BizCore.uuid(), cur = ex ? ex.x.balance || 0 : 0, want = cents(it.owed || 0), diff = want - cur;
+      if (!ex) list.push(BizCore.make('customer.saved', { id:id, name:it.name }));
+      if (it.owed && diff !== 0) { list.push(BizCore.make('utang.adjusted', { customer:id, amount:diff, note:'Katulong setup' })); undo.push(['utang.adjusted', { customer:id, amount:-diff, note:'Undo Katulong' }]); }
+      custs.push({ id:id, name:it.name, x:{ balance:want } }); done.push(summary(it, S0)); });
+    return { list:list, undo:undo, done:done }; }
+  function apply(){ var items = read(), S0 = S(); if (!items.length) { var e0 = document.getElementById('kats-err'); if (e0) e0.textContent = T('Nothing is ticked.', 'Walang naka-tsek.'); return; }
+    var scope = BizStore.active() || BizStore.newScope(), fresh = !BizStore.active(), b = events(items, S0, scope);
+    return BizStore.append(b.list, scope).then(function(){ if (fresh) BizStore.setActive(scope); pending = null; last = { undo:b.undo, scope:scope, fresh:fresh };
+        say('<p>' + esc(T('Done! Here\u2019s what I set up:', 'Tapos na! Ito ang na-set up ko:')) + '</p><ul class="kat-done">' + b.done.map(function(d){ return '<li>' + esc(d) + '</li>'; }).join('') + '</ul><div class="row wrap"><a class="btn" href="#/t/overview">' + T('See Overview', 'Tingnan ang Overview') + '</a><a class="btn" href="#/t/inventory">Paninda</a>' + (b.undo.length ? '<button type="button" class="btn" data-act="kats-undo">' + T('Undo all', 'I-undo lahat') + '</button>' : '') + '</div>'); rerender(); },
+      function(e){ var m = (e && e.message) || String(e); say('<p role="alert"><strong>' + esc(T('Not saved:', 'Hindi na-save:')) + '</strong> ' + esc(m) + '</p>'); rerender(); }); }
+  function undo(){ if (!last || !last.undo.length) return; var l = last; last = null;
+    return BizStore.append(l.undo.map(function(u){ return BizCore.make(u[0], u[1]); }), l.scope).then(function(){ say('<p>' + esc(T('Undone. Products I added are archived, the counts are back, and the utang I added is taken back. A suki I added stays in your list with no utang.', 'Na-undo na. Naka-archive ang mga paninda na idinagdag ko, bumalik ang mga bilang, at binawi ang utang na idinagdag ko. Ang suki na idinagdag ko ay nasa listahan pa rin, walang utang.')) + '</p>'); rerender(); },
+      function(e){ last = l; say('<p role="alert"><strong>' + esc(T('Could not undo:', 'Hindi ma-undo:')) + '</strong> ' + esc((e && e.message) || String(e)) + '</p>'); rerender(); }); }
+  function rerender(){ if (typeof render === 'function') render(); setTimeout(function(){ var l = document.querySelector('.kat-log'); if (l && l.lastElementChild && l.lastElementChild.scrollIntoView) try { l.lastElementChild.scrollIntoView({ block:'nearest' }); } catch (e) {} }, 30); }
+  function view(){ if (!log.length) say('<p>' + esc(T('Hi! I\u2019m Katulong. Tell me about your store in one message: its name, the cash in the kaha, your GCash float, your products with their price and stock, and suki who owe you. I\u2019ll show you what I understood before I save anything. You can also ask about stock, sales, cash and utang.', 'Hi! Ako si Katulong. Sabihin mo sa isang mensahe ang tungkol sa tindahan mo: ang pangalan, ang pera sa kaha, ang GCash float, ang mga paninda na may presyo at stock, at ang mga suki na may utang. Ipapakita ko muna ang naintindihan ko bago ako mag-save. Puwede ka ring magtanong tungkol sa stock, benta, pera at utang.')) + '</p>');
+    return '<div class="t-page"><header class="t-head"><h1>Katulong</h1><p class="muted">' + esc(T('Set up your store in one message, or ask about it. Free, and it works offline: nothing you type leaves your phone.', 'I-set up ang tindahan sa isang mensahe, o magtanong tungkol dito. Libre, at gumagana kahit offline: walang umaalis sa phone mo.')) + '</p></header>'
+      + '<section class="panel kat" aria-labelledby="kats-h"><h2 class="sr" id="kats-h">' + T('Conversation with Katulong', 'Usapan kasama si Katulong') + '</h2><div class="kat-log" role="log" aria-live="polite" aria-relevant="additions">' + log.map(bubble).join('') + '</div>'
+      + '<form class="kat-form" data-form="kats" novalidate><label for="kats-in">' + T('Message Katulong', 'Mensahe kay Katulong') + '</label><textarea id="kats-in" name="msg" rows="4" maxlength="4000" placeholder="' + esc(T('e.g. Coke 1.5L 85 pesos 24 pcs puhunan 70', 'hal. Coke 1.5L 85 pesos 24 pcs puhunan 70')) + '"></textarea><div class="row wrap"><button type="submit" class="btn primary">' + T('Send', 'Ipadala') + '</button></div></form>'
+      + '<div class="kat-try"><p class="xs muted">' + T('Try one:', 'Subukan:') + '</p><div class="row wrap">' + TRY.map(function(t, i){ return '<button type="button" class="btn sm" data-act="kats-try" data-i="' + i + '" translate="no">' + esc(t.split('\n')[0] + (t.indexOf('\n') > 0 ? ' \u2026' : '')) + '</button>'; }).join('') + '</div></div></section></div>'; }
+  function card(S0, s){ if (!S0 || (window.Features && !Features.on('katulong')) || (window.Staff && s && Staff.role(s).key !== 'owner')) return ''; if (live(S0, 'p').length) return '';
+    return '<section class="panel" aria-labelledby="kats-card-h"><h2 id="kats-card-h">' + T('Set up your store in one message', 'I-set up ang tindahan sa isang mensahe') + '</h2><p class="small muted">' + esc(T('Tell Katulong your cash, GCash float, products and suki with utang. You\u2019ll check everything before it\u2019s saved.', 'Sabihin kay Katulong ang pera sa kaha, GCash float, mga paninda at suki na may utang. Susuriin mo muna bago i-save.')) + '</p><p><a class="btn primary" href="#/t/katulong">' + T('Set me up', 'I-set up ako') + '</a></p></section>'; }
+  if (typeof FORMS !== 'undefined') FORMS.kats = function(f){ var v = f.elements.msg.value; f.elements.msg.value = ''; send(v); rerender(); };
+  if (typeof ACT !== 'undefined') { ACT['kats-try'] = function(el){ send(TRY[+el.getAttribute('data-i')] || ''); rerender(); }; ACT['kats-apply'] = function(){ apply(); }; ACT['kats-undo'] = function(){ undo(); };
+    ACT['kats-cancel'] = function(){ pending = null; say('<p>' + esc(T('Okay, nothing was saved.', 'Sige, walang na-save.')) + '</p>'); rerender(); }; }
+  return { view:view, card:card, send:send, _reset:function(){ log = []; pending = null; last = null; } };
+})();
 /* Tagalog dictionary for the language switch (09p-i18n.js). Keys are the app's English UI phrases exactly as shown;
    values are natural Taglish. Store data (product, customer, business names) is never listed here. */
 var I18N_TL = {
@@ -7891,7 +8214,7 @@ I18N_TL_PATTERNS.push(
   'Read receipts, statements and bills with the camera. Also hides the Scan buttons.':'Basahin ang resibo, statement at bayarin gamit ang camera. Tinatago rin ang mga Scan button.',
   'The yearly plan in six lines.':'Ang plano sa buong taon sa anim na linya.', 'Savings targets with deadlines, and the Goals block on Home.':'Mga target sa ipon na may deadline, at ang Goals sa Home.',
   'Accounts, net worth, transfers and Coming up (bills and paydays). Also hides the Wallets card on Home.':'Mga account, kabuuang yaman, lipat at Paparating (bayarin at sweldo). Tinatago rin ang Wallets card sa Home.',
-  'The setup helper, and its "Set me up" card on Home.':'Ang setup helper, at ang "I-set up ako" card nito sa Home.',
+  'The setup helper on both sides (Personal and Tindahan), and its "Set me up" cards.':'Ang setup helper sa dalawang panig (Personal at Tindahan), at ang mga "I-set up ako" card nito.', 'Set up your store in one message, or ask about it':'I-set up ang tindahan sa isang mensahe, o magtanong tungkol dito',
   'Every account gets the change within about a minute. Nothing is deleted: turning a feature back on shows everything again. Home and Transactions are always on.':'Makukuha ng bawat account ang pagbabago sa loob ng mga isang minuto. Walang nabubura: kapag in-on ulit ang feature, babalik ang lahat. Laging naka-on ang Home at Transactions.'
 });
 I18N_TL_PATTERNS.push([/^(.+) is on for every account$/, 'Naka-on ang $1 para sa bawat account'], [/^(.+) is off for every account$/, 'Naka-off ang $1 para sa bawat account']);
