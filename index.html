@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="classic">
 <head>
-<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-kpFbUPLLTWwRdk/vfnCYIPuTPZno7rZQvl7zIPofnG0=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
+<meta charset="utf-8" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lB7WcZPHecTFtiXzjKYPrX13YXlSowaKUF/tMp/nFek=' 'sha256-nfgBZ9KseZ+3vZmymPZvO86KnDqZLV8D1rPja7H/HS4=' 'sha256-MtwfxZxEIr+W5ypQVwCkqr/q+BhS6Vwcf9lcPuGBgPc=' 'sha256-f/706L88M7NVtaRIVI57f3FmK6UWMQAB+EOI+VNNuo0=' 'sha256-Xfs2VfKILSjFI8vgjn8Nj26b+ES402FDdQl55Ey6Nes=' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://nydguqfgpdpbescgdkct.supabase.co wss://nydguqfgpdpbescgdkct.supabase.co; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" /><script>if(window.top!==window.self){document.documentElement.style.display="none";try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="description" content="Pentra Finance — a five-pillar personal finance tracker: income, spending, savings, investment and protection." />
@@ -3476,6 +3476,21 @@ var LimitsUI = (function(){
   }
   return { block:block, homeCard:homeCard, rows:rows, spentIn:spentIn };
 })();
+/* K20 (4 Oct 2026) — KatLex: the shared, versioned word lists for BOTH Katulong readers (Tindahan and Personal).
+   Add a word here once and both sides understand it. Bisaya/Cebuano (K22) goes here too, reviewed by native speakers.
+   Moved here verbatim from the readers, so behaviour is unchanged (the suites prove it). */
+var KatLex = (function(){
+  var VERSION = '2026-10-04.1';
+  var TEXTING = [[/\baq\b/gi, 'ako'], [/\b(?:ung|yng)\b/gi, 'yung'], [/\b(?:ksi|kc|kse)\b/gi, 'kasi'], [/\b(?:d2|dto)\b/gi, 'dito'], [/\bnlng\b/gi, 'na lang'], [/\blng\b/gi, 'lang'], [/\bwla\b/gi, 'wala'], [/\b(?:pls|plz)\b/gi, 'please'], [/\bcge\b/gi, 'sige'],
+    [/\b(?:mgkano|magkno|mgkno)\b/gi, 'magkano'], [/\bbnenta\b/gi, 'binenta'], [/\bnbenta\b/gi, 'nabenta'], [/\b(?:dmting|dumting|dmating)\b/gi, 'dumating'], [/\b2day\b/gi, 'today'], [/\bstk\b/gi, 'stock'], [/\bpa-?add\b/gi, 'pakidagdag'], [/\bnagorder\b/gi, 'nag-order'], [/\b(?:pnalitan|pinlitan|pnlitan)\b/gi, 'pinalitan'],
+    [/\b(?:tnx|thx)\b/gi, 'thanks'], [/\bnaubos\s+na\b/gi, 'ubos na'], [/\bnaubos\b/gi, 'ubos na'], [/\bsang-?daan(?=\s+(?:at\s+)?[a-z])/gi, 'isang daan at'], [/\bsang-?daan\b/gi, 'isang daan']];
+  var SMALL = { isa:1, isang:1, dalawa:2, dalawang:2, tatlo:3, tatlong:3, apat:4, lima:5, limang:5, anim:6, pito:7, pitong:7, walo:8, walong:8, siyam:9, sampu:10, sampung:10 };
+  var COURTESY_END = /[,\s]+\b(?:po|pls|plz|please|salamat|thanks|thank\s+you)\b[\s.!]*$/gim;
+  var GREETING = /^(?:hi|hello|hey|good\s+(?:morning|afternoon|evening|day))(?:\s+(?:katulong|po))?[,!.\s]*/i;
+  var DAMAGE = /\b(?:damaged|damage|sira|nasira|expired|expire|nawala|lost|stolen|ninakaw|basag|nabasag|panis)\b/i;
+  function method(t){ t = String(t || '').toLowerCase(); return /\bg-?cash\b/.test(t) ? 'gcash' : /\bmaya\b/.test(t) ? 'maya' : /\b(?:cash|kaha|pera)\b/.test(t) ? 'cash' : null; }
+  return { VERSION:VERSION, TEXTING:TEXTING, SMALL:SMALL, COURTESY_END:COURTESY_END, GREETING:GREETING, DAMAGE:DAMAGE, method:method };
+})();
 /* ════════════════════════════════════════════════════════════════════════
    KATULONG · THE UNDERSTANDING ENGINE (Master Plan v5, E3). Pure functions: no screen, no storage, no network.
    It reads a message in English, Tagalog or Taglish and returns what it understood as a list of items for the
@@ -3859,7 +3874,12 @@ var KatParse = (function(){
   function clause15(it, s, many){ if (!many) return s; var parts = String(s).split(/[,;]|\s+(?:and|at|tapos|pati)\s+/i), want = +it.amount;
     var hit = parts.filter(function(p){ var re = /(\d[\d,]*(?:\.\d+)?)\s*(k)?\b/gi, m; while ((m = re.exec(p))) { var v = +m[1].replace(/,/g, '') * (m[2] ? 1000 : 1); if (Math.abs(v - want) < 0.005) return true; } return false; });
     return hit.length === 1 ? hit[0] : null; }   /* K15 fix: judge each amount by its own clause */
+  var ITEM19 = /\b(?:got|get|received|receive|natanggap|nakatanggap|nakuha|kinuha)\s+(?:ko\s+(?:na\s+)?|ako\s+(?:ng\s+)?|na\s+)?(?:a|an|my|the|new|bagong|yung|ung|ang|ng|isang|some|mga|our)\b/i;
+  var MONEY19 = /\b(?:got\s+paid|get\s+paid|binayaran\s+ako|nabayaran\s+ako|salary|sahod|sweldo|suweldo|allowance|padala|remittance|commission|komisyon|bonus|freelance|sideline|raket|tips?|refund|cashback|interest|interes|dividends?|money|pera|payment\s+from|13th[\s-]+month|pay|payout|kita|ayuda|pension|pensyon|rebate|prize|premyo|winnings|pamasko|aguinaldo|reimbursement|reimbursed?|income|earnings?|kinita|revenue|profit)\b/i;   /* Filipino pay words too; K19 iter 9: \"an income of 55k\" is money (KT14) */
+  function item19(s){ return ITEM19.test(s) && !MONEY19.test(s) && !/\b(?:got|received|natanggap|nakatanggap|nakuha)\s+(?:ko\s+)?(?:ang\s+)?(?:₱\s*)?\d/i.test(s); }   /* K19: an item is never income */
   function k15(it, ctx, many){ var s0 = String(it.text || ''); if (!s0) return it; var s = clause15(it, s0, many); if (s == null) return it;
+    if (it.k === 'income' && item19(s)) { var kc0 = KIND15.filter(function(r){ return r[0].test(s); })[0]; return { k:'spend', amount:it.amount, category:kc0 ? kc0[1] : 'Uncategorized', need:kc0 ? null : 'category', description:item15(s, null) || '', account:it.account, date:it.date, text:s, id:it.id }; }
+    if (it.k === 'spend' && item19(s)) return it;
     if (it.k === 'spend' && !NOTINC15.test(s) && INC15.test(s) && !BUY15.test(s.replace(/\b(?:refund|na-?refund|ni-?refund|refunded)\b/gi, ''))) { var src = SRC15.filter(function(r){ return r[0].test(s); })[0], sh = (SHOP15.exec(s) || [])[1];
       return { k:'income', amount:it.amount, category:src ? src[1] : 'Other Income', source:src ? (src[2] === 'Refund' && sh ? 'Refund (' + sh.replace(/\b\w/g, function(c){ return c.toUpperCase(); }) + ')' : src[2]) : null, account:it.account, date:it.date, text:s, id:it.id }; }
     if (it.k === 'income' && /\b(?:refund|na-?refund|ni-?refund|refunded|cashback)\b/i.test(s)) { var sh2 = (SHOP15.exec(s) || [])[1]; it.category = 'Other Income'; it.source = 'Refund' + (sh2 ? ' (' + sh2.replace(/\b\w/g, function(c){ return c.toUpperCase(); }) + ')' : ''); return it; }
@@ -3867,7 +3887,14 @@ var KatParse = (function(){
     if (it.k === 'spend') { var shop = (SHOP15.exec(s) || [])[1]; if (shop) { shop = shop.replace(/\b\w/g, function(c){ return c.toUpperCase(); }).replace(/^Tiktok\s*Shop$/i, 'TikTok Shop'); it.shop = shop; var d = item15(s, shop); if (d) it.description = d; if (COD15.test(s)) it.cod = true; }
       if (['Shopping', 'Uncategorized', 'Other Major Purchase'].indexOf(it.category) >= 0) { var kc = KIND15.filter(function(r){ return r[0].test(s); })[0]; if (kc) { it.category = kc[1]; it.need = null; } } }
     return it; }
-  function parseK6(text, ctx){ var r = parse(text, ctx); var n15 = (r.items || []).filter(function(i){ return i.k === 'spend' || i.k === 'income'; }).length; r.items = (r.items || []).map(function(it){ return k15(it, ctx || {}, n15 > 1); });   /* K15 */
+  var SOLD19 = /^(?:i\s+)?(?:sold|binenta\s+ko|naibenta\s+ko|nabenta\s+ko|ibinenta\s+ko)\s+(?:my|ang|yung|ung|the|aking|ko\s+ang)?\s*(.+?)\s+(?:for|sa|ng|at)\s+(?:₱\s*)?(\d[\d,]*(?:\.\d+)?k?)\b(.*)$/i;
+  function nm19(a){ return String(a && a.name != null ? a.name : a); }
+  function acct19(tail, ctx){ var t = String(tail || '').toLowerCase(), hit = (ctx.accounts || []).filter(function(a){ var n = nm19(a).toLowerCase(); return n && new RegExp('\\b' + n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(t); }); return hit.length === 1 ? nm19(hit[0]) : null; }
+  function sides19(it, text, ctx){ ['from', 'to'].forEach(function(sd){ var v = it[sd]; if (!v) return; var first = nm19(v).split(/\s+/)[0].toLowerCase(), same = (ctx.accounts || []).map(nm19).filter(function(n){ return n.split(/\s+/)[0].toLowerCase() === first; });
+      if (same.length > 1 && !new RegExp('\\b' + nm19(v).toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(String(text).toLowerCase())) { it[sd] = null; it.side6 = sd; it.options = same; it.asks = (it.asks || []).concat(['account']); } }); return it; }   /* K19: never pick one of two accounts */
+  function parseK6(text, ctx){ text = String(text).replace(KatLex.COURTESY_END, '');   /* K20: courtesy at the end is never part of an account or a name */
+    var sm = SOLD19.exec(String(text).trim().replace(KatLex.GREETING, ''));   /* K20: a greeting first changes nothing */ if (sm) { var a19 = parseFloat(sm[2].replace(/,/g, '')) * (/k$/i.test(sm[2]) ? 1000 : 1), it19 = { k:'income', amount:a19, category:'Other Income', source:'Sold: ' + sm[1].trim(), account:acct19(sm[3], ctx || {}), text:String(text) }; it19.asks = it19.account ? [] : ['account']; return { items:[it19], ignored:[] }; }   /* K19: selling your own things is income */
+    var r = parse(text, ctx); var n15 = (r.items || []).filter(function(i){ return i.k === 'spend' || i.k === 'income'; }).length; r.items = (r.items || []).map(function(it){ return k15(it, ctx || {}, n15 > 1); }).map(function(it){ return it.k === 'move' ? sides19(it, text, ctx || {}) : it; });   /* K15, K19 */
     var sp = (r.items || []).filter(function(i){ return i.k === 'spend'; }).length;
     (r.items || []).forEach(function(it){ major6(it, sp === 1 ? text : '');
       if (it.options && it.options.length > 1 && (it.k === 'spend' || it.k === 'income')) it.account = null;   /* K8: never pick one of two */
@@ -4009,6 +4036,7 @@ var KatulongUI = (function(){
   function q6text(c){ var it = c.it, amt = money(it.amount);
     if (c.topic === 'cod') return T('Online order from ' + (it.shop || 'a shop') + ': ' + amt + '. Did you pay now, or is it cash on delivery?', 'Online order sa ' + (it.shop || 'isang shop') + ': ' + amt + '. Bayad na ba, o COD (babayaran pagdating)?');   /* K15 */
     if (c.topic === 'installment') return T('A big purchase: ' + amt + ' (' + it.category + '). Did you pay in full, or in installments?', 'Malaking bili: ' + amt + ' (' + it.category + '). Binayaran mo ba nang buo, o hulugan?');
+    if (c.topic === 'account' && it.k === 'move' && it.side6) return it.side6 === 'from' ? T('Which account did the ' + amt + ' come from?', 'Saang account galing ang ' + amt + '?') : T('Which account did the ' + amt + ' go to?', 'Saang account napunta ang ' + amt + '?');   /* K19 */
     if (c.topic === 'account') return it.k === 'income' ? T('Which account did the ' + amt + ' go into?', 'Saang account pumasok ang ' + amt + '?') : T('Which account did you pay the ' + amt + ' from?', 'Saang account mo kinuha ang ' + amt + '?');
     if (c.topic === 'card') return T('Which credit card?', 'Aling credit card?');
     if (c.topic === 'today') return T('How much did you pay today, the down payment? Pentra doesn\u2019t track installment plans yet, so I\u2019ll record only what you paid today.', 'Magkano ang binayaran mo ngayon, ang down payment? Hindi pa sinusubaybayan ng Pentra ang hulugan, kaya ang binayaran mo lang ngayon ang itatala ko.');
@@ -4028,7 +4056,7 @@ var KatulongUI = (function(){
     else if (c.topic === 'installment') { if (['full', 'card', 'lender'].indexOf(v) < 0) okA = false; else { it.plan = v;
         if (v === 'card') { var cs = cards(); if (cs.length === 1) it.account = cs[0].name; else if (cs.length > 1) pending.q6.unshift({ it:it, topic:'card' }); else it.note6 = T('You have no credit card account yet. Add one in Wallets, then record the purchase on it.', 'Wala ka pang credit card account. Magdagdag sa Wallets, saka itala ang bili roon.'); }
         if (v === 'lender') pending.q6.unshift({ it:it, topic:'today' }); } }
-    else if (c.topic === 'account' || c.topic === 'card') { var a = (c.topic === 'card' ? cards() : accounts()).filter(function(x){ return x.name.toLowerCase() === sv.toLowerCase(); })[0] || (sv.length >= 3 ? (c.topic === 'card' ? cards() : accounts()).filter(function(x){ return x.name.toLowerCase().indexOf(sv.toLowerCase()) >= 0; })[0] : null); if (!a) okA = false; else it.account = a.name; }
+    else if (c.topic === 'account' || c.topic === 'card') { var a = (c.topic === 'card' ? cards() : accounts()).filter(function(x){ return x.name.toLowerCase() === sv.toLowerCase(); })[0] || (sv.length >= 3 ? (c.topic === 'card' ? cards() : accounts()).filter(function(x){ return x.name.toLowerCase().indexOf(sv.toLowerCase()) >= 0; })[0] : null); if (!a) okA = false; else if (it.k === 'move' && it.side6) { it[it.side6] = a.name; it.side6 = null; } else it.account = a.name; }
     else if (c.topic === 'today') { var n = /^(?:nothing|none|wala|0)\b/i.test(sv) ? 0 : parseFloat(sv.replace(/[₱,\s]|pesos?/gi, '')); if (!(n >= 0)) okA = false; else { it.full6 = it.amount; it.amount = Math.round(n * 100) / 100; if (!it.amount) it.off6 = true; } }
     if (!okA) { say('<p>' + esc(T('I didn\u2019t get that. Tap one of the buttons, or type it.', 'Hindi ko nakuha. Pindutin ang isa sa mga button, o i-type ito.')) + '</p>'); return; }
     log.forEach(function(m){ if (m.ask6 && m.ask6.id === c.mid) m.done = true; }); ask6(); }
@@ -7940,7 +7968,10 @@ var KatStore = (function(){
   /* deliveries: understood with their package maths; Katulong receives stock from K3 (one save path with Receive stock) */
   var RCV = /\b(?:received|receive|recieved|got|bought|delivery|delivered|deliver|restock(?:ed)?|re-?stock|dumating|nag-?restock|nag-?deliver|dineliver|pa-?receive|namili|pinamili|bumili\s+(?:ako|kami)|kumuha\s+(?:ako|kami)|nagdagdag\s+(?:ako|kami)|kinuha\s+ko|binili\s+(?:ko|namin)|nabili\s+(?:ko|namin))\b/i;   /* K8: binili/nabili ko */
   var PKGLEAD = new RegExp('^\\s*(?:\\d+|a|an|isang|one)\\s+(?:' + PKGW + ')\\s+(?:of|ng)\\s+[a-z]', 'i');   /* "1 case of Coke 1.5L, ..." is stock arriving */
-  function receive(s, ctx){ var lo = s.toLowerCase(); if (!(RCV.test(lo) || PKGLEAD.test(s)) || /\b(?:customer|si\s+\w+\s+ng|bumili\s+si|binili\s+ni)\b/.test(lo)) return null; if (!/\d/.test(lo)) return null;
+  var DMG20 = KatLex.DAMAGE;
+  function receive(s, ctx){ if (DMG20.test(s)) return null;   /* K20: damage, expiry and loss are corrections, never deliveries */
+    return receive0(s, ctx); }
+  function receive0(s, ctx){ var lo = s.toLowerCase(); if (!(RCV.test(lo) || PKGLEAD.test(s)) || /\b(?:customer|si\s+\w+\s+ng|bumili\s+si|binili\s+ni)\b/.test(lo)) return null; if (!/\d/.test(lo)) return null;
     var it = { k:'receive', name:'', packs:null, pieces:null, packCost:null, cost:null, paidFrom:null, supplier:null, src:{}, flags:[], text:s }, m;
     var dz = /(\d+)\s+(?:dozens?|dosena)\b/i.exec(s); if (dz) { it.packs = +dz[1]; it.pieces = 12; it.pkg = 'Dozen'; }
     m = new RegExp('(?:^|\\s)(\\d+|a|an|isang|one)\\s+(' + PKGW + ')\\b', 'i').exec(s); if (m && !dz) { it.packs = /^(a|an|isang|one)$/i.test(m[1]) ? 1 : +m[1]; it.pkg = m[2].replace(/(es|s)$/i, '').replace(/^bo$/i, 'box'); }
@@ -8033,11 +8064,12 @@ var KatStore = (function(){
       if (!m || MONEYW.test(m[1])) return null; out.push({ k:'suki', name:clean(m[1]), owed:n8(m[2]), flags:[], src:{ owed:'said' } }); }
     return out; }
   function sukiComma(s){ return /\b(?:utang|owes?)\b/i.test(s) ? s.replace(/^((?:si\s+)?[A-Z][A-Za-zÀ-ÿ'.\-]*(?:\s+[A-Z][A-Za-zÀ-ÿ'.\-]*){0,3}),\s*(?=(?:₱\s*)?\d|owes\b|may\s+utang)/, '$1 ') : s; }
-  function understand(text, ctx){ ctx = ctx || {}; var items = [], chat = 0, frame = null, list = sentences(prepK(labels8(norm14(applyAliases(text, ctx)))));   /* K13 aliases, K14 texting and number words */
+  function understand(text, ctx){ ctx = ctx || {}; var items = [], chat = 0, frame = null, list = sentences(prepK(labels8(nums20(norm14(applyAliases(text, ctx)), ctx))));   /* K13 aliases, K14 texting and number words */
     list.forEach(function(s0){ var g = greet(s0); if (g.chat && !g.rest) { chat++; return; } var u = unwrap(g.rest), s = u.s; if (!s) return;
       if (u.add && /^\d+\s*(?:cases?|box(?:es)?|kahon|packs?|pakete|dozen|dosena|trays?|bundles?|bote)\b/i.test(s)) s = 'Dumating ang ' + s;   /* K14: "pakidagdag ng 2 case coke" is stock arriving */
       if (/\?\s*$/.test(s) && !/\d/.test(s)) { var qq = question(s, ctx); if (qq && /^q-/.test(qq.k)) { items.push(qq); frame = null; return; } }   /* K9: a question with no numbers is a question ("benta today?") */
       var um = usualOf(s); if (um) { items.push(um); frame = null; return; }
+      var i19 = k19store(s, ctx); if (i19 && i19.rewrite) s = i19.rewrite; else if (i19) { items.push.apply(items, i19); frame = null; return; }   /* K19 */
       var i16 = k16(s, ctx); if (i16) { items.push.apply(items, i16); frame = null; return; }   /* K16 */
       var i14 = intent14(s, ctx); if (i14) { items.push.apply(items, i14); frame = null; return; }   /* K14: future, not yet, sales */
       var aj = adjust11(s, ctx); if (aj) { items.push.apply(items, aj); frame = null; return; }   /* K11 */
@@ -8045,7 +8077,7 @@ var KatStore = (function(){
       if (sale(s, u.add)) { items.push({ k:'nosell', text:s }); frame = null; return; }
       if (frame && /^(?:may|we\s+have|i\s+have|stock|qty|quantity|dami|bilang)\b/i.test(s)) { var qq = qtyOf(s); if (qq && !frame.qty) { frame.qty = qq.v; frame.src.qty = 'said'; return; } }   /* K8: "May 36 kami." */
       var l12 = ledger12(s, ctx); if (l12) s = l12;   /* K12: ledger shorthand */
-      var s8 = verbs8(s.replace(/^(.+?)\s+(\d+\s*(?:pcs?|pieces?|piraso))\s+(?:in|dumating|arrived|pasok)\b/i, 'Received $2 $1')), rv = receive(s8, ctx);   /* K10: "Happy 20 pcs in" */ if (rv) { items.push(k12(fixRcv8(rv, s8), s8)); frame = null; return; }   /* K12 */
+      var s8 = verbs8(s.replace(/^(.+?)\s+(\d+\s*(?:pcs?|pieces?|piraso))\s+(?:in|dumating|arrived|pasok)\b/i, 'Received $2 $1')), rv = receive(s8, ctx); if (rv && /\b(?:utang|listahan)\b/i.test(rv.name || '')) rv = null;   /* K10: "Happy 20 pcs in"; K20: a product is never named after utang */ if (rv) { items.push(k12(fixRcv8(rv, s8), s8)); frame = null; return; }   /* K12 */
       var lp = lonePack(s); if (lp) { items.push(lp); frame = null; return; }   /* K8 */
       if (/^suki\b/i.test(s) || /\b(?:utang|owes?|debts?|unpaid\s+balances?)\b/i.test(s)) { var sl = sukiList(s); if (sl) { items.push.apply(items, sl); frame = null; return; } s = sukiComma(s); }   /* K8 */
       var segs = commaFacts(s); if (segs.length > 1) { segs.forEach(function(p){ var st = storeName(p); if (st) { items.push(st); return; } var mf0 = moneyFacts(p); if (mf0.length) { items.push.apply(items, mf0); return; } var r0 = parse0(p, ctx); items.push.apply(items, r0); }); frame = null; return; }
@@ -8186,6 +8218,7 @@ var KatStore = (function(){
     var WEAK11 = [1, 8, 13, 23, 26], unknown11 = null;   /* patterns without a correction verb never speak for an unknown product */
     for (i = 0; i < ADJ11.length; i++) { var r = ADJ11[i]; m = r[0].exec(t); if (!m) continue;
       if (r[1] === 'zero') { var pz = prod11(m[1] || m[2], ctx); if (pz) return [aj11(pz, 'set', 0, t)]; continue; }
+      if (/\butang\b/i.test(m[r[2]] || '')) continue;   /* K20: utang is never a stock correction */
       var p0 = prod11(m[r[2]], ctx), fz0 = null; if (!p0) { var fzl = fuzzy13(String(m[r[2]] || '').replace(/^(?:ang|ng|yung|ung|the)\s+/i, '').replace(/[\s,.!?]+$/, ''), ctx); if (fzl.length === 1 && WEAK11.indexOf(i) < 0) { p0 = fzl[0]; fz0 = String(m[r[2]]).replace(/^(?:ang|ng|yung|ung|the)\s+/i, '').replace(/[\s,.!?]+$/, ''); } }   /* K13: a one-letter slip */
       if (!p0) { if (WEAK11.indexOf(i) < 0 && !unknown11) unknown11 = String(m[r[2]] || '').replace(/^[\s,:]+|[\s,.:!?]+$/g, '').replace(/^(?:ang|ng|yung|ung|the)\s+/i, ''); continue; } var q0 = +m[r[3]], op = r[1];
       if (op === 'subIfReason') { if (!reason11(m[3] || '', null) && !/\b(?:out|minus|remove|bawas)\b/i.test(m[3] || '')) { if ((m[3] || '').trim()) continue; op = null; } else op = 'sub'; }
@@ -8226,7 +8259,7 @@ var KatStore = (function(){
   function fuzzy13(name, ctx){ var n = lower13(name), ns = snd13(n); if (n.length < 4) return [];
     return (ctx.products || []).filter(function(p){ var m = lower13(p.name); if (!m || m === n) return false; var first = m.split(/\s+/)[0], ms = snd13(m), fs = snd13(first);
       return (m.length >= 5 && (osa(m, n) <= 1 || osa(ms, ns) <= 1)) || (first.length >= 4 && n.indexOf(' ') < 0 && (first === n || (first.length >= 5 && (osa(first, n) <= 1 || osa(fs, ns) <= 1)))); }); }
-  var REQ13 = /\b(?:please|pls|plz|kindly|pakisuyo|paki\w*|need|want|edit|i-?edit|change|update|delete|remove|itama|gawing|bawasan|dagdagan|tanggalin|palitan|idagdag|magdagdag|show|tell|yesterday|kahapon|bought|binili|nabili)\b/i;
+  var REQ13 = /\b(?:please|pls|plz|kindly|pakisuyo|paki\w*|binenta|nabenta|naibenta|ibinenta|nagbenta|benta|sold|now|ngayon|presyo|pinalitan|sells|owes?|bagong|new|customer|suki|need|want|edit|i-?edit|change|update|delete|remove|itama|gawing|bawasan|dagdagan|tanggalin|palitan|idagdag|magdagdag|show|tell|yesterday|kahapon|bought|binili|nabili)\b/i;
   var PRON13 = /\b(?:i|you|your|we|our|ako|ikaw|kayo|namin|natin|nyo)\b/i;   /* not "me" or "my": Lucky Me, My San */
   function guard13(name, ctx){ var n = String(name || '').trim(), w = n.split(/\s+/).filter(Boolean), lo = lower13(n);
     if (!n) return 'empty'; if (REQ13.test(n)) return 'request'; if (PRON13.test(n) && w.length > 1 && !/^my\s+san\b/i.test(n)) return 'pronoun';
@@ -8235,8 +8268,13 @@ var KatStore = (function(){
     var inner = (ctx && ctx.products || []).filter(function(p){ var pn = lower13(p.name); return pn && lo !== pn && new RegExp('\\b(?:of|ng|sa|the)\\s+(?:\\w+\\s+){0,2}' + pn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(lo); })[0]; if (inner) return 'contains:' + inner.name;
     if (/^(?:pcs?|pieces?|piraso|pack|packs|box|case|kahon|dozen|dosena|pesos?|piso|stock|stocks|item|items|product|products|paninda)$/i.test(n) || /^[\d.,\s]+$/.test(n)) return 'unit-or-number';
     return null; }
+  var SMALLW20 = KatLex.SMALL;
+  function nums20(text, ctx){ var names = (ctx && ctx.products || []).map(function(p){ return String(p.name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).filter(Boolean); if (!names.length) return text;
+    return String(text).replace(new RegExp('(^|[\\s,(])(isa|isang|dalawa|dalawang|tatlo|tatlong|apat|lima|limang|anim|pito|pitong|walo|walong|siyam|sampu|sampung)\\s+(?:(?:na|ng|ang|yung|ung)\\s+)?(?=(?:' + names.join('|') + ')\\b)', 'gi'), function(m0, pre, w, off, all){ var before = all.slice(Math.max(0, off - 12), off + pre.length).toLowerCase(); if (/(?:bawat|kada)\s*$|tig-\s*$|\d[\d,.]*\s*(?:pesos?|php|piso)?\s*$/.test(before)) return m0; return pre + SMALLW20[w.toLowerCase()] + ' '; }); }   /* K20: "lima Happy" = 5 Happy */
   function applyAliases(text, ctx){ var al = (ctx && ctx.aliases) || {}, t = String(text); Object.keys(al).forEach(function(a){ var p = (ctx.products || []).filter(function(x){ return x.id === al[a]; })[0]; if (p && a.length >= 3) t = t.replace(new RegExp('\\b' + a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi'), p.name); }); return t; }
   function names13(items, ctx){ return items.map(function(it){
+      if (it.k === 'suki' && it.name && (SUKIBAD19.test(it.name) || /^(?:new|bagong)\b/i.test(it.name))) { var cz = (ctx.customers || []).filter(function(c){ return new RegExp('\\b' + String(c.name).toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(String(it.text || it.name).toLowerCase()); })[0];   /* K19 */
+        return cz && it.owed ? { k:'credit', cid:cz.id, customer:cz.name, amount:it.owed, flags:[], text:it.text } : { k:'q-unknownsuki', name:it.name, text:it.text }; }
       if (it.k === 'unclear' && REQ13.test(it.text || '')) { var ph = (ctx.products || []).filter(function(p){ return new RegExp('\\b' + lower13(p.name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(lower13(it.text)); })[0]; return ph ? { k:'q-edithelp', name:ph.name, text:it.text } : { k:'q-whichproduct', text:it.text }; }   /* K13: a request that names no action */
       if ((it.k === 'product' || it.k === 'receive') && it.name) it.name = String(it.name).replace(/^(?:stocks?|delivery|deliveries)\s+(?:ng|of)\s+/i, '');
       if ((it.k === 'product' || (it.k === 'receive' && !it.pid)) && it.name) { var g = guard13(it.name, ctx);
@@ -8247,12 +8285,10 @@ var KatStore = (function(){
   /* ── K14 (2 Oct 2026): Tagalog verb forms, texting and sales by chat. norm14 rewrites texting shortcuts and small number
      words; future and "not yet" messages never save; sale14 reads a sale (quantity, product from the catalog, price per
      piece if said, how it was paid, the suki for utang, "kahapon"). Pure. ── */
-  var TEXT14 = [[/\baq\b/gi, 'ako'], [/\b(?:ung|yng)\b/gi, 'yung'], [/\b(?:ksi|kc|kse)\b/gi, 'kasi'], [/\b(?:d2|dto)\b/gi, 'dito'], [/\bnlng\b/gi, 'na lang'], [/\blng\b/gi, 'lang'], [/\bwla\b/gi, 'wala'], [/\b(?:pls|plz)\b/gi, 'please'], [/\bcge\b/gi, 'sige'],
-    [/\b(?:mgkano|magkno|mgkno)\b/gi, 'magkano'], [/\bbnenta\b/gi, 'binenta'], [/\bnbenta\b/gi, 'nabenta'], [/\b(?:dmting|dumting|dmating)\b/gi, 'dumating'], [/\b2day\b/gi, 'today'], [/\bstk\b/gi, 'stock'], [/\bpa-?add\b/gi, 'pakidagdag'], [/\bnagorder\b/gi, 'nag-order'],
-    [/\b(?:tnx|thx)\b/gi, 'thanks'], [/\bnaubos\s+na\b/gi, 'ubos na'], [/\bnaubos\b/gi, 'ubos na'], [/\bsang-?daan(?=\s+(?:at\s+)?[a-z])/gi, 'isang daan at'], [/\bsang-?daan\b/gi, 'isang daan']];
-  var SMALL14 = { isa:1, isang:1, dalawa:2, dalawang:2, tatlo:3, tatlong:3, apat:4, lima:5, limang:5, anim:6, pito:7, pitong:7, walo:8, walong:8, siyam:9, sampu:10, sampung:10 };
-  function norm14(text){ var t = String(text); TEXT14.forEach(function(r){ t = t.replace(r[0], r[1]); });
-    t = t.replace(/[,\s]+\b(?:please|po|salamat|thanks|thank\s+you)\b[\s.!]*$/gim, '');   /* courtesy at the end is never part of a name */
+  var TEXT14 = KatLex.TEXTING;   /* K20: the shared lexicon */
+  var SMALL14 = KatLex.SMALL;
+  function norm14(text){ var t = String(text).replace(/₱\s*(\d[\d,]*(?:\.\d+)?k?)(?![\d.,]|k|\s*(?:pesos?|php|piso)\b)/g, '$1 pesos')   /* the whole number only: no backtracking into '₱1' + '0 pesos' */.replace(/₱\s*(?=\d)/g, ''); TEXT14.forEach(function(r){ t = t.replace(r[0], r[1]); });   /* K20: '₱150' reads as '150 pesos' */
+    t = t.replace(KatLex.COURTESY_END, '');   /* courtesy at the end is never part of a name */
     t = t.replace(/(\d[\d,.]*\s*(?:pesos?|php|piso)?\s+)isang(?=\s)/gi, '$1ZQISANGQZ').replace(/\b(bawat|kada)\s+isa\b/gi, '$1 ZQISAQZ').replace(/\btig-isa\b/gi, 'tig-ZQISAQZ');   /* "600 isang box" and "bawat isa" mean per */
     if (typeof KatParse !== 'undefined' && KatParse.wordNums) t = String(KatParse.wordNums(t));   /* compound numbers first: dalawampu't lima */
     t = t.replace(/ZQISANGQZ/g, 'isang').replace(/ZQISAQZ/g, 'isa');
@@ -8295,19 +8331,39 @@ var KatStore = (function(){
     if (/\b(?:i-?void|void|kanselahin|i-?cancel|cancel|burahin|delete|undo)\s+(?:mo\s+)?(?:ang\s+|yung\s+|the\s+)?(?:huling|last|latest|kakapasok\s+na)\s+(?:benta|sale)\b/i.test(t) || /\b(?:mali|wrong)\s+(?:yung|ang|the)\s+(?:huling|last)\s+(?:benta|sale)\b/i.test(t)) return [{ k:'voidlast', reason:t, flags:[], text:t }];
     if ((m = /^(?:ibinalik|binalik|isinauli|sinauli|ibinalik\s+na)\s+(?:ni|ng)\s+(.+?)\s+(?:ang|yung|ung)\s+(\d+)\s+(?:na\s+|pcs?\s+|piraso\s+(?:ng\s+)?)?(.+?)\s*[.!]?$/i.exec(t)) || (m = /^(.+?)\s+returned\s+(\d+)\s+(.+?)\s*[.!]?$/i.exec(t)) || (m = /^(?:ibinalik|binalik|isinauli|sinauli|returned)\s+(?:ang\s+|yung\s+)?()(\d+)\s+(?:na\s+|pcs?\s+)?(.+?)\s*[.!]?$/i.exec(t))) {
       p = prod11(m[3], ctx); if (!p) return [{ k:'q-unknownproduct', name:m[3], text:t }]; var cu = m[1] ? suki16(m[1], ctx) : null; if (m[1] && !cu && !/^(?:customer|a\s+customer|the\s+customer|someone|isang\s+customer)$/i.test(m[1].trim())) return [{ k:'q-unknownsuki', name:m[1].trim(), text:t }];
-      return [{ k:'return', pid:p.id, name:p.name, qty:+m[2], cid:cu ? cu.id : null, customer:cu ? cu.name : null, flags:[], text:t }]; }
+      var rf = /\b(?:refund(?:ed)?|ibinalik\s+ang\s+pera|binalik\s+ang\s+bayad)\s+(?:via\s+|thru\s+|sa\s+|by\s+|in\s+)?(cash|kaha|g-?cash|maya)\b/i.exec(t), rr = rf ? (/kaha|cash/i.test(rf[1]) && !/g-?cash/i.test(rf[1]) ? 'cash' : /maya/i.test(rf[1]) ? 'maya' : 'gcash') : /\b(?:bawas|ibawas|off)\s+(?:sa\s+)?(?:the\s+)?utang\b/i.test(t) ? 'utang' : null;   /* K19 */
+      return [{ k:'return', pid:p.id, name:p.name, qty:+m[2], cid:cu ? cu.id : null, customer:cu ? cu.name : null, refund:rr, flags:rr ? [] : ['refund'], text:t }]; }
     if ((m = /^(?:nagbayad|bumayad|nakapagbayad|nag-?bayad)\s+(?:na\s+)?(?:si|ang|kay)\s+(.+?)\s+(?:ng\s+)?(\d[\d,]*(?:\.\d+)?k?)\b(.*)$/i.exec(t)) || (m = /^bayad\s+(?:ni|ng)\s+(.+?)\s+(\d[\d,]*(?:\.\d+)?k?)\b(.*)$/i.exec(t)) || (m = /^(.+?)\s+(?:paid|has\s+paid|nagbayad)\s+(?:₱\s*)?(\d[\d,]*(?:\.\d+)?k?)\b(.*)$/i.exec(t))) {
       var cu2 = suki16(m[1], ctx); if (!cu2) return /^(?:customer|someone|i|ako|we)$/i.test(m[1].trim()) ? null : [{ k:'q-unknownsuki', name:m[1].trim(), text:t }];
-      var amt = parseFloat(m[2].replace(/,/g, '')) * (/k$/i.test(m[2]) ? 1000 : 1); return [{ k:'utangpay', cid:cu2.id, customer:cu2.name, amount:amt, method:/\bg-?cash\b/i.test(m[3] || '') ? 'gcash' : /\bmaya\b/i.test(m[3] || '') ? 'maya' : 'cash', flags:[], text:t }]; }
+      var amt = parseFloat(m[2].replace(/,/g, '')) * (/k$/i.test(m[2]) ? 1000 : 1); return [{ k:'utangpay', cid:cu2.id, customer:cu2.name, amount:amt, method:/\bg-?cash\b/i.test(m[3] || '') ? 'gcash' : /\bmaya\b/i.test(m[3] || '') ? 'maya' : /\b(?:cash|kaha|pera)\b/i.test(m[3] || '') ? 'cash' : null, flags:/\b(?:g-?cash|maya|cash|kaha|pera)\b/i.test(m[3] || '') ? [] : ['paid'], text:t }]; }   /* K19: never default the method */
     if (/\b(?:ilan|how\s+many)\b/i.test(t) && /\b(?:nabenta|naibenta|sold|nabili)\b/i.test(t)) { var q = /(?:nabenta|naibenta|sold|nabili)\s+(?:na\s+|ang\s+|ng\s+)?(.+?)(?:\s+(?:ngayon|today|kahapon|yesterday|ngayong\s+linggo|this\s+week|ngayong\s+buwan|this\s+month))?\s*\??$/i.exec(t), p2 = q && prod11(q[1].replace(/^(?:na|ang|ng)\s+/i, ''), ctx);
       if (p2) return [{ k:'q-sold', pid:p2.id, name:p2.name, period:period16(t), text:t }]; }
     if (/\b(?:magkano|how\s+much|ilan)\b/i.test(t) && /\b(?:benta|sales|kita\s+sa\s+benta)\b/i.test(t) && period16(t) !== 'today') return [{ k:'q-sales', period:period16(t), text:t }];
+    return null; }
+  /* ── K19 (4 Oct 2026) SAFETY, store: utang additions go to the suki (the Listahan's own record), ledger payments are
+     payments (never money counts), new-suki labels are not names, price sentences are price changes. Pure. ── */
+  var AMT19 = '(?:₱\\s*)?(\\d[\\d,]*(?:\\.\\d+)?k?)';
+  function amt19(x){ return parseFloat(String(x).replace(/,/g, '')) * (/k$/i.test(x) ? 1000 : 1); }
+  var SUKIBAD19 = /\b(?:to|add|new|bagong|more|owes?|utang|dagdag|sa|ni|ng|bayad|paid|customer|suki|si)\b|'s\b|:/i;
+  function k19store(s, ctx){ var t = String(s).trim(), m, cu;
+    var credit = function(name, a){ cu = suki16(String(name).replace(/'s$/i, ''), ctx); return cu ? [{ k:'credit', cid:cu.id, customer:cu.name, amount:amt19(a), flags:[], text:t }] : [{ k:'q-unknownsuki', name:String(name).replace(/'s$/i, '').trim(), text:t }]; };
+    if ((m = new RegExp('^(?:add|dagdag(?:an)?|idagdag|pakidagdag)\\s+(?:ng\\s+)?' + AMT19 + '\\s+(?:to|sa)\\s+(?:(?:the\\s+)?utang\\s+(?:ni|ng|of)\\s+)?(.+?)(?:\\s+(?:utang|debt|listahan))?\\s*[.!]?$', 'i').exec(t))) return credit(m[2], m[1]);
+    if ((m = new RegExp('^(?:pakidagdag|idagdag|dagdagan|dagdag)\\s+(?:mo\\s+)?(?:sa\\s+)?(?:ang\\s+)?utang\\s+(?:ni|ng)\\s+(.+?)\\s+(?:ang\\s+|ng\\s+)?' + AMT19 + '\\s*[.!]?$', 'i').exec(t))) return credit(m[1], m[2]);
+    if ((m = new RegExp('^(.+?)\\s+owes?\\s+(?:me\\s+)?' + AMT19 + '\\s+(?:more|pa)\\s*[.!]?$', 'i').exec(t)) && suki16(m[1], ctx)) return credit(m[1], m[2]);
+    if ((m = new RegExp('^(?:bagong\\s+suki|new\\s+(?:suki|customer))[:,]?\\s+(?:si\\s+)?(.+?),?\\s+(?:may\\s+utang\\s+na|utang|owes?|with\\s+utang\\s+of)\\s+' + AMT19, 'i').exec(t))) { var nm = m[1].trim(); if (suki16(nm, ctx)) return credit(nm, m[2]); return SUKIBAD19.test(nm) ? [{ k:'q-unknownsuki', name:nm, text:t }] : [{ k:'suki', name:nm.replace(/\b\w/g, function(c){ return c.toUpperCase(); }), owed:amt19(m[2]), text:t }]; }
+    var pay = function(name, a, tail){ var c2 = suki16(name, ctx); if (!c2) return null; var md = KatLex.method(tail); return [{ k:'utangpay', cid:c2.id, customer:c2.name, amount:amt19(a), method:md, flags:md ? [] : ['paid'], text:t }]; };
+    if ((m = new RegExp('^(.+?)\\s+bayad\\s+' + AMT19 + '\\b(.*)$', 'i').exec(t)) && (cu = pay(m[1], m[2], m[3]))) return cu;
+    if ((m = new RegExp('^(.+?)\\s+' + AMT19 + '\\s+bayad\\b(.*)$', 'i').exec(t)) && (cu = pay(m[1], m[2], m[3]))) return cu;
+    if ((m = new RegExp('^bayad\\s+(?:ni\\s+|ng\\s+)?(.+?)\\s+' + AMT19 + '\\b(.*)$', 'i').exec(t)) && (cu = pay(m[1], m[2], m[3]))) return cu;
+    var pr = function(name, n){ var p = prod11(name, ctx); return p ? { rewrite:'change the price of ' + p.name + ' to ' + String(n).replace(/,/g, '') } : null; };   /* the price-change reader's own form */
+    if ((m = /^(.+?)\s+(?:is\s+now|now\s+(?:sells\s+(?:at|for)|costs|is)|ngayon\s+(?:ay\s+)?|na\s+ngayon\s+)\s*(?:₱\s*)?(\d[\d,]*(?:\.\d+)?)\s*(?:pesos?|php)?(?:\s+na)?\s*[.!]?$/i.exec(t)) && (cu = pr(m[1], m[2]))) return cu;
+    if ((m = /^(?:pinalitan|binago)(?:\s+ko)?\s+(?:ang\s+)?(?:presyo|price)\s+(?:ng\s+|of\s+)?(.+?),?\s+(?:sa\s+|to\s+|ng\s+)?(?:₱\s*)?(\d[\d,]*(?:\.\d+)?)\s*(?:pesos?)?\s*[.!]?$/i.exec(t)) && (cu = pr(m[1], m[2]))) return cu;
     return null; }
   /* ── K2 ASK BEFORE SAVING (pure: which questions an item needs and what each answer does; KatStoreUI shows them
      one at a time with buttons). Order: which product, what an amount is for, pieces per package, the cost of one
      package, a loss or an odd markup, the selling price, how a delivery was paid, the stock now (one new product only).
      At most 3 per item; a topic is never asked twice; anything still unsure goes to the card unticked with a note. ── */
-  var ORDER = ['which', 'customer', 'field', 'op', 'addkind', 'over', 'basis', 'pieces', 'cbasis', 'packcost', 'loss', 'markup', 'price', 'jump', 'priceact', 'paid', 'srp', 'stock'];
+  var ORDER = ['which', 'customer', 'refund', 'field', 'op', 'addkind', 'over', 'basis', 'pieces', 'cbasis', 'packcost', 'loss', 'markup', 'price', 'jump', 'priceact', 'paid', 'srp', 'stock'];
   var SKIPW = /^(?:skip|laktawan|hindi\s+ko\s+alam|di\s+ko\s+alam|ewan|i\s+don'?t\s+know|dont\s+know|not\s+sure|wala(?:\s+pa)?|none|later|mamaya|count\s+later)$/i;
   function num0(v){ var t = String(v == null ? '' : v).trim().toLowerCase(); if (typeof KatParse !== 'undefined' && KatParse.wordNums) t = String(KatParse.wordNums(t)); t = spanish(t).replace(/₱|php|pesos?|piso|,|\s+/g, '');   /* words first: "beinte singko" = 25 */
     var m = /^(\d+(?:\.\d+)?)(k)?$/.exec(t); if (!m) return null; var n = parseFloat(m[1]) * (m[2] ? 1000 : 1); return isFinite(n) ? Math.round(n * 100) / 100 : null; }
@@ -8345,7 +8401,9 @@ var KatStore = (function(){
       case 'loss': case 'markup': if (v === 'keep') { it.keep = true; drop(topic); return { ok:true }; } if (v === 'price') return { ok:true, then:'newprice' }; if (v === 'cost') return { ok:true, then:'newcost' }; return { ok:false };
       case 'price': case 'newprice': if (!(n > 0)) return { ok:false }; it.price = n; it.src.price = 'said'; drop('price'); drop('loss'); drop('markup'); refresh(it); return { ok:true };
       case 'newcost': if (!(n > 0)) return { ok:false }; if (it.k === 'receive' && it.pieces === 1) { it.packCost = n; it.src.packCost = 'said'; drop('basis'); calcR(it); refresh(it); return { ok:true }; } if (it.packCost != null && it.pieces) { it.packCost = null; } it.cost = n; it.src.cost = 'said'; drop('loss'); drop('markup'); refresh(it); return { ok:true };
-      case 'paid': if (it.k === 'sale') { if (['cash', 'gcash', 'maya', 'utang'].indexOf(v) < 0) return { ok:false }; it.paidFrom = v; drop('paid'); if (v === 'utang' && !it.cid && it.flags.indexOf('customer') < 0) it.flags.push('customer'); return { ok:true }; }   /* K14 */
+      case 'refund': if (['cash', 'gcash', 'maya', 'utang'].indexOf(v) < 0) return { ok:false }; it.refund = v; drop('refund'); return { ok:true };   /* K19 */
+      case 'paid': if (it.k === 'utangpay') { if (['cash', 'gcash', 'maya'].indexOf(v) < 0) return { ok:false }; it.method = v; drop('paid'); return { ok:true }; }   /* K19 */
+        if (it.k === 'sale') { if (['cash', 'gcash', 'maya', 'utang'].indexOf(v) < 0) return { ok:false }; it.paidFrom = v; drop('paid'); if (v === 'utang' && !it.cid && it.flags.indexOf('customer') < 0) it.flags.push('customer'); return { ok:true }; }   /* K14 */
         if (['cash', 'gcash', 'vault', 'none'].indexOf(v) < 0) return { ok:false }; it.paidFrom = v; drop('paid'); return { ok:true };
       case 'customer': var cu = ((ctx && ctx.customers) || []).filter(function(x){ return x.id === v || String(x.name).toLowerCase() === String(v).toLowerCase(); })[0]; if (!cu) return { ok:false }; it.customer = cu.name; it.cid = cu.id; drop('customer'); return { ok:true };
       case 'op': if (v !== 'set' && v !== 'sub') return { ok:false }; it.op = v; drop('op'); if (v === 'set' && !it.reason) it.reason = 'Count correction'; return { ok:true };
@@ -8412,7 +8470,8 @@ var KatStoreUI = (function(){
       case 'rename': return T('Rename ' + it.name + ' \u2192 ' + it.newName, 'Palitan ang pangalan: ' + it.name + ' \u2192 ' + it.newName);   /* K16 */
       case 'archive': return T('Archive ' + it.name + ': it will no longer appear in Benta; its past sales and stock history stay. This can\u2019t be undone yet.', 'I-archive ang ' + it.name + ': hindi na ito lalabas sa Benta; mananatili ang dating benta at kasaysayan ng stock. Hindi pa ito maibabalik.');
       case 'voidlast': if (!it.sale) return T('There is no sale to void yet.', 'Wala pang benta na mavo-void.'); return T('Void the last sale (' + saleText(it.sale, S0) + '): stock and money are put back.', 'I-void ang huling benta (' + saleText(it.sale, S0) + '): ibabalik ang stock at pera.');
-      case 'return': if (!it.sale) return T('I can\u2019t find a sale with ' + it.qty + ' \u00d7 ' + it.name + (it.customer ? ' for ' + it.customer : '') + '.', 'Wala akong makitang benta na may ' + it.qty + ' \u00d7 ' + it.name + (it.customer ? ' para kay ' + it.customer : '') + '.'); var rl = (it.sale.items || []).filter(function(l){ return l.ref === it.pid; })[0], rv = rl ? rl.price * it.qty : 0; return T('Return ' + it.qty + ' \u00d7 ' + it.name + ' from the sale of ' + saleText(it.sale, S0) + ': ' + peso(rv) + ' back' + refundWord(it.sale, rv) + ', and the ' + it.qty + ' go back to stock.', 'Ibalik ang ' + it.qty + ' \u00d7 ' + it.name + ' mula sa benta noong ' + saleText(it.sale, S0) + ': ' + peso(rv) + ' ibabalik' + refundWord(it.sale, rv) + ', at babalik sa stock ang ' + it.qty + '.');
+      case 'return': if (!it.sale) return T('I can\u2019t find a sale with ' + it.qty + ' \u00d7 ' + it.name + (it.customer ? ' for ' + it.customer : '') + '.', 'Wala akong makitang benta na may ' + it.qty + ' \u00d7 ' + it.name + (it.customer ? ' para kay ' + it.customer : '') + '.'); var rl = (it.sale.items || []).filter(function(l){ return l.ref === it.pid; })[0], rv = rl ? rl.price * it.qty : 0; return T('Return ' + it.qty + ' \u00d7 ' + it.name + ' from the sale of ' + saleText(it.sale, S0) + ': ' + peso(rv) + ' back' + refundWord(it.sale, rv, it.refund) + ', and the ' + it.qty + ' go back to stock.', 'Ibalik ang ' + it.qty + ' \u00d7 ' + it.name + ' mula sa benta noong ' + saleText(it.sale, S0) + ': ' + peso(rv) + ' ibabalik' + refundWord(it.sale, rv, it.refund) + ', at babalik sa stock ang ' + it.qty + '.');
+      case 'credit': return T('Add ' + peso(cents(it.amount)) + ' to ' + it.customer + '\u2019s utang: ' + peso(it.bal || 0) + ' \u2192 ' + peso((it.bal || 0) + cents(it.amount)), 'Dagdag na ' + peso(cents(it.amount)) + ' sa utang ni ' + it.customer + ': ' + peso(it.bal || 0) + ' \u2192 ' + peso((it.bal || 0) + cents(it.amount)));   /* K19 */
       case 'utangpay': var after = (it.bal || 0) - cents(it.amount); return T(it.customer + ' paid ' + peso(cents(it.amount)) + ' (' + ({ cash:'cash', gcash:'GCash', maya:'Maya' }[it.method]) + '). Utang: ' + peso(it.bal || 0) + ' \u2192 ' + peso(Math.max(0, after)) + (after < 0 ? ' (' + peso(-after) + ' extra, kept as an advance)' : ''), 'Nagbayad si ' + it.customer + ' ng ' + peso(cents(it.amount)) + ' (' + ({ cash:'cash', gcash:'GCash', maya:'Maya' }[it.method]) + '). Utang: ' + peso(it.bal || 0) + ' \u2192 ' + peso(Math.max(0, after)) + (after < 0 ? ' (sobra ng ' + peso(-after) + ', advance)' : ''));
       case 'sale': var px = it.price != null ? it.price : (S0 && it.pid && S0.products[it.pid] ? S0.products[it.pid].price / 100 : null), pw = { cash:T('cash', 'cash'), gcash:'GCash', maya:'Maya', utang:T('utang', 'utang') }[it.paidFrom];   /* K14 */
         return T('Sale: ' + it.qty + ' \u00d7 ' + it.name + (px != null ? ' at ' + peso(cents(px)) + ' = ' + peso(cents(px * it.qty)) : '') + (pw ? ', ' + pw : '') + (it.customer ? ' (' + it.customer + ')' : '') + (it.when === 'yesterday' ? ', yesterday' : ''), 'Benta: ' + it.qty + ' \u00d7 ' + it.name + (px != null ? ' sa ' + peso(cents(px)) + ' = ' + peso(cents(px * it.qty)) : '') + (pw ? ', ' + pw : '') + (it.customer ? ' (' + it.customer + ')' : '') + (it.when === 'yesterday' ? ', kahapon' : ''));
@@ -8421,7 +8480,7 @@ var KatStoreUI = (function(){
       case 'unclear': return T('I didn\u2019t understand this line. You can add it with the buttons, or say it another way (e.g. \u201cCoke 1.5L 85 pesos 24 pcs\u201d).', 'Hindi ko naintindihan ang linyang ito. Idagdag mo gamit ang mga button, o sabihin sa ibang paraan (hal. \u201cCoke 1.5L 85 pesos 24 pcs\u201d).');
       default: return ''; } }
   var FIELDS = { store:[['name', 'Name', 'text']], cash:[['amount', 'Amount (₱)', 'num']], gcash:[['amount', 'Amount (₱)', 'num']], eload:[['amount', 'Amount (₱)', 'num']],
-    product:[['name', 'Product', 'text'], ['price', 'Price (₱)', 'num'], ['cost', 'Cost (₱)', 'num'], ['qty', 'Stock', 'num'], ['srp', 'DTI SRP (₱, optional)', 'num']], suki:[['name', 'Name', 'text'], ['owed', 'Utang (₱)', 'num']], price:[['price', 'New price (₱)', 'num']], usual:[['pct', 'Usual markup (%)', 'num']], rename:[['newName', 'New name', 'text']], utangpay:[['amount', 'Amount paid (₱)', 'num']], return:[['qty', 'How many', 'num']], sale:[['qty', 'Quantity', 'num'], ['price', 'Price each (₱)', 'num']], adjust:[['qty', 'Number', 'num'], ['reason', 'Reason', 'text']], receive:[['packs', 'Packages', 'num'], ['pieces', 'Pieces in one package', 'num'], ['packCost', 'Cost of one package (₱)', 'num'], ['price', 'Selling price of one (₱)', 'num'], ['srp', 'DTI SRP (₱, optional)', 'num']] };
+    product:[['name', 'Product', 'text'], ['price', 'Price (₱)', 'num'], ['cost', 'Cost (₱)', 'num'], ['qty', 'Stock', 'num'], ['srp', 'DTI SRP (₱, optional)', 'num']], suki:[['name', 'Name', 'text'], ['owed', 'Utang (₱)', 'num']], price:[['price', 'New price (₱)', 'num']], usual:[['pct', 'Usual markup (%)', 'num']], credit:[['amount', 'Amount (₱)', 'num']], rename:[['newName', 'New name', 'text']], utangpay:[['amount', 'Amount paid (₱)', 'num']], return:[['qty', 'How many', 'num']], sale:[['qty', 'Quantity', 'num'], ['price', 'Price each (₱)', 'num']], adjust:[['qty', 'Number', 'num'], ['reason', 'Reason', 'text']], receive:[['packs', 'Packages', 'num'], ['pieces', 'Pieces in one package', 'num'], ['packCost', 'Cost of one package (₱)', 'num'], ['price', 'Selling price of one (₱)', 'num'], ['srp', 'DTI SRP (₱, optional)', 'num']] };
   /* K1: what to check, in plain words, for anything Katulong is not sure about (K2 turns these into tap-to-answer questions) */
   function note(it){ var f = it.flags || [], P1 = function(v){ return peso(cents(v)); };
     if (f.indexOf('loss') >= 0) { var d = (it.cost || 0) - (it.price || 0); return d > 0 ? T('This sells below its cost: you would lose ' + P1(d) + ' on each one. Check the price or the cost with Change, then tick it.', 'Mas mababa ang benta kaysa sa puhunan: malulugi ka ng ' + P1(d) + ' sa bawat isa. Tingnan ang presyo o ang puhunan sa Baguhin, saka i-tsek.') : T('This sells at its cost, so you would make nothing on it. Check the price with Change, then tick it.', 'Kapareho ng puhunan ang benta, kaya walang tubo. Tingnan ang presyo sa Baguhin, saka i-tsek.'); }
@@ -8481,7 +8540,9 @@ var KatStoreUI = (function(){
       case 'oversrp': return T(P1(it.price) + ' is above the SRP (' + P1(it.srp) + '). DTI checks basic goods sold above the SRP. What should I do?', 'Ang ' + P1(it.price) + ' ay mas mataas sa SRP (' + P1(it.srp) + '). Sinusuri ng DTI ang mga pangunahing bilihin na lampas sa SRP. Ano ang gagawin ko?');
       case 'price': case 'newprice': return T('What do you sell one ' + nm + ' for?' + (c ? ' It costs you ' + P1(c) + '.' : ''), 'Magkano ang benta ng isang ' + nm + '?' + (c ? ' ' + P1(c) + ' ang puhunan.' : ''));
       case 'newcost': return T('What does one ' + nm + ' cost you?', 'Magkano ang puhunan ng isang ' + nm + '?');
-      case 'paid': if (it.k === 'sale') return T('How was the ' + it.qty + ' \u00d7 ' + nm + ' paid?', 'Paano binayaran ang ' + it.qty + ' \u00d7 ' + nm + '?');   /* K14 */
+      case 'refund': return T('How did you give back the money for ' + it.qty + ' \u00d7 ' + nm + '?', 'Paano mo ibinalik ang pera para sa ' + it.qty + ' \u00d7 ' + nm + '?');   /* K19 */
+      case 'paid': if (it.k === 'utangpay') return T('How did ' + it.customer + ' pay the ' + P1(it.amount) + '?', 'Paano nagbayad si ' + it.customer + ' ng ' + P1(it.amount) + '?');   /* K19 */
+        if (it.k === 'sale') return T('How was the ' + it.qty + ' \u00d7 ' + nm + ' paid?', 'Paano binayaran ang ' + it.qty + ' \u00d7 ' + nm + '?');   /* K14 */
         return T('How did you pay for this delivery' + (it.packCost != null && it.packs ? ' (' + P1(it.packCost * it.packs) + ')' : '') + '?', 'Paano mo binayaran ang delivery na ito' + (it.packCost != null && it.packs ? ' (' + P1(it.packCost * it.packs) + ')' : '') + '?');
       case 'stock': return T('How many ' + nm + ' do you have now?', 'Ilan ang ' + nm + ' mo ngayon?'); }
     return ''; }
@@ -8490,15 +8551,16 @@ var KatStoreUI = (function(){
   function day16(dt){ var z = new Date(dt.getTime() - dt.getTimezoneOffset() * 6e4); return z.toISOString().slice(0, 10); }
   function sales16(S0){ return Object.keys((S0 && S0.sales) || {}).map(function(k){ return S0.sales[k]; }).filter(function(x){ return x && !x.voided && x.source !== 'count'; }).sort(function(a, b){ return a.at < b.at ? 1 : -1; }); }
   function saleText(x, S0){ var d = new Date(x.at), hh = d.toLocaleTimeString(tl() ? 'fil-PH' : 'en-PH', { hour:'numeric', minute:'2-digit' }), day = day16(d) === day16(new Date()) ? T('today', 'ngayon') : day16(d); var ls = (x.items || []).map(function(l){ var pr = S0.products[l.ref]; return l.qty + ' \u00d7 ' + (pr ? pr.name : T('item', 'item')); }).join(', '); var cu = x.customer && S0.customers[x.customer] ? ', ' + S0.customers[x.customer].name : ''; return day + ' ' + hh + ': ' + ls + ', ' + peso(x.total) + cu; }
-  function refundWord(x, v){ var py = x.payments || {}; return py.utang > 0 ? T(' (off the utang)', ' (bawas sa utang)') : py.gcash > 0 && !py.cash ? T(' (from GCash)', ' (mula sa GCash)') : T(' (from the kaha)', ' (mula sa kaha)'); }
+  function refundWord(x, v, rf){ if (rf) return { cash:T(' (from the kaha)', ' (mula sa kaha)'), gcash:T(' (by GCash)', ' (sa GCash)'), maya:T(' (by Maya)', ' (sa Maya)'), utang:T(' (off the utang)', ' (bawas sa utang)') }[rf];   /* K19: the route the owner chose */
+    var py = x.payments || {}; return py.utang > 0 ? T(' (off the utang)', ' (bawas sa utang)') : py.gcash > 0 && !py.cash ? T(' (from GCash)', ' (mula sa GCash)') : T(' (from the kaha)', ' (mula sa kaha)'); }
   function range16(pd){ var now = new Date(), t0 = day16(now); if (pd === 'yesterday') { var y = day16(new Date(now.getTime() - 864e5)); return [y, y]; } if (pd === 'week') { var dw = (now.getDay() + 6) % 7; return [day16(new Date(now.getTime() - dw * 864e5)), t0]; } if (pd === 'month') return [t0.slice(0, 8) + '01', t0]; return [t0, t0]; }
   function periodWord(pd){ return { yesterday:T('yesterday', 'kahapon'), week:T('this week', 'ngayong linggo'), month:T('this month', 'ngayong buwan') }[pd] || T('today', 'ngayon'); }
   function annotate16(it, S0){ if (!S0) return;
     if (it.k === 'rename') { var dup = Object.keys(S0.products).some(function(k){ var x = S0.products[k]; return k !== it.pid && !x.archived && String(x.name).toLowerCase() === String(it.newName).toLowerCase(); }); if (dup) it.flags = (it.flags || []).concat(['dupname']); }
     if (it.k === 'voidlast') { it.sale = sales16(S0)[0] || null; if (!it.sale) it.none = true; }
     if (it.k === 'return') { it.sale = sales16(S0).filter(function(x){ return (!it.cid || x.customer === it.cid) && (x.items || []).some(function(l){ return l.ref === it.pid && l.qty >= it.qty; }); })[0] || null; if (!it.sale) it.none = true; }
-    if (it.k === 'utangpay') { var cu = S0.customers[it.cid]; it.bal = cu ? cu.balance : 0; } }
-  function annotate(it, S0){ if (['rename', 'archive', 'voidlast', 'return', 'utangpay'].indexOf(it.k) >= 0) { annotate16(it, S0); return; }   /* K16 */
+    if (it.k === 'utangpay' || it.k === 'credit') { var cu = S0.customers[it.cid]; it.bal = cu ? cu.balance : 0; } }
+  function annotate(it, S0){ if (['rename', 'archive', 'voidlast', 'return', 'utangpay', 'credit'].indexOf(it.k) >= 0) { annotate16(it, S0); return; }   /* K16 */
     if (it.k === 'adjust') { it.stock = S0 && it.pid ? BizCore.stockOf(S0, it.pid) : null; it.denied = !!(window.Staff && Staff.may && !Staff.may('stock.adjusted')); return; }   /* K11 */
     if (['product', 'receive', 'price'].indexOf(it.k) < 0) return; it.bnpc = KatStore.necessity(it.name); var ex = it.pid && S0 && S0.products ? S0.products[it.pid] : null; if (!ex) return;
     it.curPrice = ex.price / 100; var bs = ((S0.batches || {})[ex.id] || []).filter(function(b){ return b.cost != null; }), lc = bs.length ? bs[bs.length - 1].cost : ex.cost; if (lc != null) it.lastCost = lc / 100;
@@ -8540,7 +8602,9 @@ var KatStoreUI = (function(){
       case 'srp': return [['skip', T('Skip', 'Laktawan')]];
       case 'oversrp': return [[String(it.srp), T('Use the SRP ', 'Gamitin ang SRP ') + peso(cents(it.srp))], ['keep', T('Keep ', 'Panatilihin ang ') + peso(cents(it.price))], ['price', T('Type a price', 'Mag-type ng presyo')]];
       case 'customer': return live(S(), 'c').slice(0, 6).map(function(x){ return [x.id, x.name]; });
-      case 'paid': if (it.k === 'sale') return [['cash', T('Cash (kaha)', 'Cash (kaha)')], ['gcash', 'GCash'], ['utang', T('Utang (listahan)', 'Utang (listahan)')]];   /* K14 */
+      case 'refund': return [['cash', T('Cash from the kaha', 'Cash mula sa kaha')], ['gcash', 'GCash'], ['utang', T('Take it off the utang', 'Ibawas sa utang')]];   /* K19 */
+      case 'paid': if (it.k === 'utangpay') return [['cash', T('Cash (kaha)', 'Cash (kaha)')], ['gcash', 'GCash'], ['maya', 'Maya']];   /* K19 */
+        if (it.k === 'sale') return [['cash', T('Cash (kaha)', 'Cash (kaha)')], ['gcash', 'GCash'], ['utang', T('Utang (listahan)', 'Utang (listahan)')]];   /* K14 */
         return [['cash', T('From the kaha', 'Mula sa kaha')], ['gcash', T('From GCash', 'Mula sa GCash')], ['vault', T('From the cash vault', 'Mula sa cash vault')], ['none', T('Not paid yet', 'Hindi pa bayad')]];
       case 'stock': return [['skip', T('Skip, I\u2019ll count later', 'Laktawan, bibilangin ko mamaya')]]; }
     return []; }
@@ -8581,7 +8645,8 @@ var KatStoreUI = (function(){
   var KW = { loss:[[/^(?:keep|oo|opo|yes|ok|okay|sige|tama|ayos)\b/, 'keep'], [/\b(?:price|presyo|benta)\b/, 'price'], [/\b(?:cost|puhunan)\b/, 'cost']],
     paid:[[/\b(?:not\s+(?:yet\s+)?paid|hindi\s+pa|utang|credit|later)\b/, 'none'], [/\bvault\b/, 'vault'], [/\bg-?cash\b/, 'gcash'], [/\b(?:kaha|cash|drawer)\b/, 'cash']],
     basis:[[/\b(?:case|box|kahon|pack|whole|buo)\b/, 'costpack'], [/\b(?:sell|selling|benta|price|presyo)\b/, 'price1'], [/\b(?:cost|paid|puhunan|bili|kuha)\b/, 'cost1']] };
-  KW.customer = [];   /* typed suki names are matched by the options */
+  KW.customer = [];
+  KW.refund = [[/\b(?:utang|listahan|bawas|ibawas|off)\b/, 'utang'], [/\bg-?cash\b/, 'gcash'], [/\b(?:cash|kaha|pera)\b/, 'cash']];   /* K19 */   /* typed suki names are matched by the options */
   KW.cbasis = [[/\b(?:piece|piraso|each|bawat\s+isa|isang\s+piraso|tig-?isa)\b/, 'piece'], [/\b(?:all|lahat|total|kabuuan|lahatan)\b/, 'all'], [/\b(?:one|isang|isa|per)\b/, 'one']];   /* K12 */
   KW.op = [[/\b(?:set|gawing|gawin|itakda|ilagay)\b/, 'set'], [/\b(?:remove|bawasan|bawas|alisin|minus|tanggal(?:in)?)\b/, 'sub']];   /* K11 */
   KW.addkind = [[/\b(?:delivery|dumating|deliver|delivered|binili|bought|binayaran)\b/, 'delivery'], [/\b(?:correction|count|tama|bilang|correct|pagtatama)\b/, 'correction']];
@@ -8739,12 +8804,13 @@ var KatStoreUI = (function(){
       if (it.k === 'rename' && it.pid && it.newName && !(it.flags || []).length) { var px16 = S0.products[it.pid].price; list.push(BizCore.make('product.saved', { id:it.pid, name:String(it.newName).trim(), price:px16 })); undo.push(['product.saved', { id:it.pid, name:it.name, price:px16 }]);   /* the engine needs the price with a save */ done.push(summary(it, S0)); }
       if (it.k === 'archive' && it.pid) { list.push(BizCore.make('product.archived', { id:it.pid })); done.push(summary(it, S0)); }
       if (it.k === 'voidlast' && it.sale) { list.push(BizCore.make('sale.voided', { sale:it.sale.id, reason:T('Voided in Katulong: ', 'Na-void sa Katulong: ') + String(it.reason).slice(0, 120) })); done.push(summary(it, S0)); }
-      if (it.k === 'return' && it.sale) { var x = it.sale, rl = (x.items || []).filter(function(l){ return l.ref === it.pid; })[0], rv = rl.price * it.qty, keep = (x.items || []).map(function(l){ return l === rl ? Object.assign({}, l, { qty:l.qty - it.qty }) : l; }).filter(function(l){ return l.qty > 0; }).map(function(l){ return { kind:l.kind || 'product', ref:l.ref, qty:l.qty, price:l.price }; });
-        var py = Object.assign({ cash:0, gcash:0, maya:0, utang:0 }, x.payments || {}), left = rv; ['utang', 'cash', 'gcash', 'maya'].forEach(function(k){ var take = Math.min(py[k] || 0, left); py[k] = (py[k] || 0) - take; left -= take; });
+      if (it.k === 'return' && it.sale && it.refund) { var x = it.sale, rl = (x.items || []).filter(function(l){ return l.ref === it.pid; })[0], rv = rl.price * it.qty, keep = (x.items || []).map(function(l){ return l === rl ? Object.assign({}, l, { qty:l.qty - it.qty }) : l; }).filter(function(l){ return l.qty > 0; }).map(function(l){ return { kind:l.kind || 'product', ref:l.ref, qty:l.qty, price:l.price }; });
+        var py = Object.assign({ cash:0, gcash:0, maya:0, utang:0 }, x.payments || {}), left = rv; [it.refund || 'utang'].concat(['utang', 'cash', 'gcash', 'maya'].filter(function(k){ return k !== it.refund; })).forEach(function(k){ var take = Math.min(py[k] || 0, left); py[k] = (py[k] || 0) - take; left -= take; });
         list.push(BizCore.make('sale.voided', { sale:x.id, reason:T('Return: ', 'Ibinalik: ') + it.qty + ' \u00d7 ' + it.name }));
         if (keep.length) { var p1 = { items:keep, payments:{ cash:py.cash, gcash:py.gcash, maya:py.maya, utang:py.utang } }; if (x.customer) p1.customer = x.customer; list.push(BizCore.make('sale.recorded', p1, x.at)); }
         done.push(summary(it, S0)); }
-      if (it.k === 'utangpay' && it.cid && it.amount > 0) { list.push(BizCore.make('utang.paid', { customer:it.cid, amount:cents(it.amount), method:it.method || 'cash', note:'Katulong' })); undo.push(['utang.adjusted', { customer:it.cid, amount:cents(it.amount), note:'Undo Katulong' }]); done.push(summary(it, S0)); } });
+      if (it.k === 'credit' && it.cid && it.amount > 0) { list.push(BizCore.make('utang.adjusted', { customer:it.cid, amount:cents(it.amount), note:'Katulong' })); done.push(summary(it, S0)); }   /* K19: the Listahan's Add utang record */
+      if (it.k === 'utangpay' && it.cid && it.amount > 0 && it.method) { list.push(BizCore.make('utang.paid', { customer:it.cid, amount:cents(it.amount), method:it.method || 'cash', note:'Katulong' })); undo.push(['utang.adjusted', { customer:it.cid, amount:cents(it.amount), note:'Undo Katulong' }]); done.push(summary(it, S0)); } });
     var groups = {}; items.filter(function(i){ return i.k === 'sale' && i.pid && i.paidFrom && (i.paidFrom !== 'utang' || i.cid); }).forEach(function(i){ var g = i.paidFrom + '|' + (i.cid || '') + '|' + (i.when || ''); (groups[g] = groups[g] || []).push(i); });   /* K14: Benta's sale record */
     Object.keys(groups).forEach(function(g){ var its = groups[g], f = its[0], pay = { cash:0, gcash:0, maya:0, utang:0 }, total = 0;
       var lines = its.map(function(i){ var pr = i.price != null ? cents(i.price) : S0.products[i.pid].price; total += pr * i.qty; return { kind:'product', ref:i.pid, qty:i.qty, price:pr }; }); pay[f.paidFrom] = total;
